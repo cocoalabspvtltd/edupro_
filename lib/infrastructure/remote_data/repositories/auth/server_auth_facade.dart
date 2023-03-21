@@ -1,0 +1,248 @@
+import 'dart:convert';
+import 'dart:developer';
+import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:pgs_edupro/domain/auth/auth_failure.dart';
+import 'package:pgs_edupro/domain/auth/i_auth_facade.dart';
+import 'package:pgs_edupro/domain/auth/user.dart';
+import 'package:pgs_edupro/domain/auth/value_objects.dart';
+import 'package:pgs_edupro/domain/core/constants.dart';
+import 'package:pgs_edupro/domain/core/value_objects.dart';
+import 'package:pgs_edupro/infrastructure/local_data_source/shared_prefs.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/repositories/auth/auth_repository.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/repositories/auth/server_user_mapper.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/models/auth/user_login_response.dart';
+import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
+
+class ServerAuthFacade implements IAuthFacade {
+  final AuthRepository _authRepository = AuthRepository();
+  final ServerUserMapper _serverUserMapper = ServerUserMapper();
+
+  ServerAuthFacade();
+
+  @override
+  Future<Option<User>> getSignedInUser() async {
+    await SharedPrefs.init();
+    String uId = UserDetailsLocal.userId; //SharedPrefs.getString('spUserId');
+    String uName = UserDetailsLocal.userName; //SharedPrefs.getString('spName');
+    String uEmail =
+        UserDetailsLocal.userEmail; //SharedPrefs.getString('spEmail');
+    String uStatus = SharedPrefs.getString('spUserStatus');
+    String uPaymentStatus = 'true'; //SharedPrefs.getString('spPaymentStatus');
+    User user = User(
+        id: '', name: StringSingleLine(''), emailAddress: EmailAddress(''));
+    if (uStatus != 'edu_user' &&
+        uPaymentStatus != 'false' &&
+        uPaymentStatus != '') {
+      user = User(
+          id: uId,
+          name: StringSingleLine(uName),
+          emailAddress: EmailAddress(uEmail));
+    }
+    return optionOf(_serverUserMapper.toDomain(user));
+  }
+
+  @override
+  Future<Either<AuthFailure, UserLogInResponse>> registerWithEmailAndPassword({
+    required Name name,
+    required EmailAddress emailAddress,
+    required Password password,
+    required Password confirmPassword,
+    required String userStatus,
+  }) async {
+    log("=>${userStatus}");
+    final emailAddressStr = emailAddress.value.getOrElse(() => 'INVALID EMAIL');
+    final passwordStr = password.value.getOrElse(() => 'INVALID PASSWORD');
+    final nameStr = name.value.getOrElse(() => 'INVALID NAME');
+    int status = userStatus == 'new_user' ? 1 : 0;
+    log("=>${userStatus}");
+    Map body = {
+      'email': emailAddressStr,
+      'password': passwordStr,
+      'password_confirmation': passwordStr,
+      'name': nameStr,
+      'status': status,
+      'user_status': userStatus,
+    };
+
+    try {
+      return await _authRepository
+          .registerUser(json.encode(body))
+          .then((response) async {
+            log("gf");
+        if (response.data['status_code'] == '422') {
+          if (response.data['message'] == 'The email has already been taken') {
+            return left(const AuthFailure.emailAlreadyInUse());
+          } else {
+            return left(const AuthFailure.serverError());
+          }
+        } else if (response.data['message'] == 'Successfully Created' ||
+            response.data['success'].toString() == 'true') {
+          log("fre");
+          final r = UserLogInResponse.fromJson(response.data);
+          log("=>>>>>>>${r}");
+          if (userStatus == 'new_user') {
+            try {
+              await SharedPrefs.logIn(r);
+
+              UserDetailsLocal.set(
+                  r.token!,
+                  r.user!.id.toString(),
+                  r.user!.name ?? '',
+                  r.user!.email ?? '',
+                  r.user!.phoneNumber ?? '',
+                  r.user!.dob?.toString() ?? '',
+                  r.user!.address ?? '',
+                  '','');
+            } catch (e) {
+              toastMessage('Unexpected Response');
+              log("shared pref ${e.toString()}");
+            }
+          }
+          return right(r);
+        } else {
+          return left(const AuthFailure.serverError());
+        }
+      });
+    } catch (e) {
+      if (e.toString() == 'ERROR_EMAIL_ALREADY_IN_USE') {
+        return left(const AuthFailure.emailAlreadyInUse());
+      } else {
+        return left(const AuthFailure.serverError());
+      }
+    }
+  }
+
+  @override
+  Future<Either<AuthFailure, UserLogInResponse>> signInWithEmailAndPassword({
+    required EmailAddress emailAddress,
+    required Password password,
+  }) async {
+    final emailAddressStr = emailAddress.value.getOrElse(() => 'INVALID EMAIL');
+    final passwordStr = password.value.getOrElse(() => 'INVALID PASSWORD');
+
+    Map body = {
+      'email': emailAddressStr,
+      'password': passwordStr,
+    };
+    try {
+      return await _authRepository
+          .login(jsonEncode(body))
+          .then((response) async {
+        if (response.data['status'] == '401' ||
+            response.data['status'] == 401) {
+
+          if (response.data['message'] == 'Invalid credentials' ||
+              response.data['message'] == 'Emailid is not valid') {
+            return left(const AuthFailure.invalidEmailAndPasswordCombination());
+          } else if (response.data['message'] == 'User not Approved') {
+            return left(const AuthFailure.userVerificationPending());
+          } else {
+
+            return left(const AuthFailure.serverError());
+          }
+
+        } else if (response.data['success'].toString() == 'true' ||
+            response.data['message'] == 'Loggined Successfully') {
+          log("esds=>${response.data}");
+          final r = UserLogInResponse.fromJson(response.data);
+
+          try {
+            await SharedPrefs.logIn(r);
+            if(r.type =="instructor")   UserDetailsLocal.set(
+                r.token??"",
+                r.type??"",
+                r.instructor!.id.toString(),
+                r.instructor!.name ?? '',
+                r.instructor!.email ?? '',
+                r.instructor!.phoneNumber ?? '',
+                r.instructor!.courses?.toString() ?? '',
+                r.instructor!.qualification ?? '',""
+                );
+         else{
+           UserDetailsLocal.set(
+               r.token??"",
+               r.type??"",
+               r.user!.id.toString(),
+               r.user!.name ?? '',
+               r.user!.email ?? '',
+               r.user!.phoneNumber ?? '',
+               r.user!.dob?.toString() ?? '',
+               r.user!.address ?? '',""
+           );
+         }
+          } catch (e) {
+            log("error1 ${e.toString()}");
+          }
+          return right(r);
+        } else {
+          toastMessage('Unexpected Response');
+          return left(const AuthFailure.serverError());
+        }
+      });
+    } catch (e) {
+      log("message");
+      if (e.toString() == 'ERROR_WRONG_PASSWORD' ||
+          e.toString() == 'ERROR_USER_NOT_FOUND') {
+        return left(const AuthFailure.invalidEmailAndPasswordCombination());
+      }
+      return left(const AuthFailure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<AuthFailure, Unit>> verifyEduproUser({
+    required String verificationCode,
+    required String userId,
+  }) async {
+    Map body = {
+      'verification_code': verificationCode,
+      'user_id': userId,
+    };
+    try {
+      return await _authRepository
+          .verifyEduproUser(jsonEncode(body))
+          .then((response) async {
+        return right(unit);
+      });
+    } on DioError catch (err) {
+      log(err.response!.data.toString());
+      if (err.response?.data['message'] == 'Invalid code') {
+        return left(const AuthFailure.verificationCodeinvalid());
+      } else {
+        return left(const AuthFailure.serverError());
+      }
+    } catch (e) {
+      return left(const AuthFailure.serverError());
+    }
+  }
+
+  // @override
+  // Future<Either<AuthFailure, Unit>> signInWithGoogle() async {
+  //   try {
+  //     final googleUser = await _googleSignIn.signIn();
+
+  //     if (googleUser == null) {
+  //       return left(const AuthFailure.cancelledByUser());
+  //     }
+
+  //     final googleAuthentication = await googleUser.authentication;
+  //     final authCredential = GoogleAuthProvider.getCredential(
+  //       accessToken: googleAuthentication.accessToken,
+  //       idToken: googleAuthentication.idToken,
+  //     );
+  //     return _firebaseAuth
+  //         .signInWithCredential(authCredential)
+  //         .then((r) => right(unit));
+  //   } on PlatformException catch (_) {
+  //     return left(const AuthFailure.serverError());
+  //   }
+  // }
+
+  @override
+  Future<void> signOut() async {
+    SharedPrefs.logOut();
+  }
+}
