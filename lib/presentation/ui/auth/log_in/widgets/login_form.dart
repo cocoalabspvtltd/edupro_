@@ -3,12 +3,12 @@ import 'package:pgs_edupro/application/auth/auth_bloc.dart';
 import 'package:pgs_edupro/application/auth/login_bloc/log_in_bloc.dart';
 import 'package:pgs_edupro/application/payment/payment_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
-import 'package:pgs_edupro/presentation/instructor/instructor_home.dart';
 import 'package:pgs_edupro/presentation/ui/auth/edu_user_verification/edu_user_verification_screen.dart';
 import 'package:pgs_edupro/presentation/ui/auth/register/registration_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
+import 'package:pgs_edupro/presentation/ui/instructor/instructor_home/instructor_home_screen.dart';
 import 'package:pgs_edupro/presentation/ui/membership_check_screen.dart';
 
 class LogInForm extends StatefulWidget {
@@ -85,7 +85,7 @@ class _LogInFormState extends State<LogInForm> {
                       return;
                     }
                     if(state.userStatus == "instructor"){
-                      Get.to(InstructorHome());
+                      Get.to(InstructorHomeScreen());
                     }
                     if (state.password != state.confirmPassword) {
                   
