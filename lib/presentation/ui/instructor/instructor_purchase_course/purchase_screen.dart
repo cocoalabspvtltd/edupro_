@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/my_course/my_courses_response.dart';
+import 'package:pgs_edupro/presentation/ui/instructor/instructor_purchase_course/purchase_course_details_screen.dart';
 import 'package:pgs_edupro/presentation/ui/my_courses/my_course_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -30,7 +31,7 @@ class PurchaseScreen extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               return InkWell(
                 onTap: () {
-                  // Get.to(() => PurchaseDetailsScreen());
+                  Get.to(() => PurchaseDetailsScreen());
                 },
                 child: Container(
                   margin: const EdgeInsets.all(8),

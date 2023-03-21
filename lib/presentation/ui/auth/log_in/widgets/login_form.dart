@@ -100,9 +100,7 @@ class _LogInFormState extends State<LogInForm> {
                         //         paymentType,
                         //       ),
                         //     );
-
                       }
-
                       context
                           .read<AuthBloc>()
                           .add(const AuthEvent.authCheckRequested());
