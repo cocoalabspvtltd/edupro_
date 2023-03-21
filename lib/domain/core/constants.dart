@@ -112,6 +112,8 @@ TextStyle appBarText = TextStyle(
     fontSize: 18, fontWeight: FontWeight.w600, color: scaffoldBackgroundColor);
 TextStyle boldWord = TextStyle(
     fontSize: 18, fontWeight: FontWeight.bold, color: Colors.grey[700]);
+TextStyle boldWordPrimarycolor = TextStyle(
+    fontSize: 20, fontWeight: FontWeight.bold, color: primaryColor);
 TextStyle boldValue = TextStyle(
     fontSize: 16, fontWeight: FontWeight.w600, color: Colors.grey[700]);
 TextStyle boldValuePrimaryColor =
