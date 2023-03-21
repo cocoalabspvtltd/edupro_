@@ -148,10 +148,12 @@ class ServerAuthFacade implements IAuthFacade {
             response.data['message'] == 'Loggined Successfully') {
           log("esds=>${response.data}");
           final r = UserLogInResponse.fromJson(response.data);
-
+          log("esds=>${ r}");
           try {
             await SharedPrefs.logIn(r);
-            if(r.type =="instructor")   UserDetailsLocal.set(
+            log("=>${r.user!.email}");
+            if(r.type =="instructor") {
+              UserDetailsLocal.set(
                 r.token??"",
                 r.type??"",
                 r.instructor!.id.toString(),
@@ -159,20 +161,22 @@ class ServerAuthFacade implements IAuthFacade {
                 r.instructor!.email ?? '',
                 r.instructor!.phoneNumber ?? '',
                 r.instructor!.courses?.toString() ?? '',
-                r.instructor!.qualification ?? '',""
-                );
-         else{
-           UserDetailsLocal.set(
-               r.token??"",
-               r.type??"",
-               r.user!.id.toString(),
-               r.user!.name ?? '',
-               r.user!.email ?? '',
-               r.user!.phoneNumber ?? '',
-               r.user!.dob?.toString() ?? '',
-               r.user!.address ?? '',""
-           );
-         }
+                r.instructor!.qualification ?? '',"",
+              );
+            }
+            else{
+              UserDetailsLocal.set(
+                r.token??"",
+                r.type??"",
+                r.user!.id.toString(),
+                r.user!.name ?? '',
+                r.user!.email ?? '',
+                r.user!.phoneNumber ?? '',
+                r.user!.dob?.toString() ?? '',
+                r.user!.address ?? '',"",
+              );
+
+            }
           } catch (e) {
             log("error1 ${e.toString()}");
           }
