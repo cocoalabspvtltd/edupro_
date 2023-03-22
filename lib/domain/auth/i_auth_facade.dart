@@ -13,6 +13,14 @@ abstract class IAuthFacade {
     required Password confirmPassword,
     required String userStatus,
   });
+  Future<Either<AuthFailure, UserLogInResponse>> registerWithInstructorEmailAndPassword({
+    required Name name,
+    required EmailAddress emailAddress,
+    required Password password,
+    required Password confirmPassword,
+    required String userStatus,
+required Qualification quali
+  });
   Future<Either<AuthFailure, UserLogInResponse>> signInWithEmailAndPassword({
     required EmailAddress emailAddress,
     required Password password,

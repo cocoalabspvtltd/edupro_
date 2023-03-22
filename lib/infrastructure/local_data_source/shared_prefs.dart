@@ -20,21 +20,25 @@ class SharedPrefs {
   static String spUserStatus = 'spUserStatus';
   static String spPaymentStatus = 'spPaymentStatus';
   static String spSuscriptionPeriod = 'spSuscriptionPeriod';
-
+  static String spInstructName = 'spinstructname';
+  static String  spInstructId = "spInstructId";
+  static String spInstructEmail = 'spInstructEmail';
   static init() async {
     _preferences = await SharedPreferences.getInstance();
     UserDetailsLocal.set(
-      getString(spToken),
-      getString(spUserId),
-      getString(spName),
-      getString(spEmail),
-      getString(spMobile),
-      getString(spDob),
-      getString(spType),
-      getString(spAddress),
-      getString(spUserImageUrl),
+        getString(spToken),
+        getString(spUserId),
+        getString(spName),
+        getString(spEmail),
+        getString(spMobile),
+        getString(spDob),
+        getString(spType),
+        getString(spAddress),
+        getString(spUserImageUrl),
+      getString(spInstructName),
+      getString(spInstructId),
+      getString(spInstructEmail)
     );
-
   }
 
   static String getString(String key) {
@@ -51,13 +55,9 @@ class SharedPrefs {
     String token = response.token ?? UserDetailsLocal.apiToken;
     String type = response.type ?? UserDetailsLocal.type;
     UserDetails userDetails = response.user!;
-    Instructor instructor=response.instructor!;
-
+    Instructor instructorDetails = response.instructor!;
     await setString(spToken, token);
     await setString(spType, type);
-    await setString(spUserId, '${userDetails.id ?? ''}');
-    await setString(spEmail, userDetails.email ?? '');
-    await setString(spName, userDetails.name ?? '');
     await setString(spUserId, '${userDetails.id ?? ''}');
     await setString(spEmail, userDetails.email ?? '');
     await setString(spName, userDetails.name ?? '');
@@ -66,6 +66,9 @@ class SharedPrefs {
     await setString(spDob, userDetails.dob ?? '');
     await setString(spUserStatus, userDetails.userStatus ?? '');
     await setString(spPaymentStatus, userDetails.paymentStatus ?? 'false');
+    await setString(spInstructName, instructorDetails.name ?? '');
+    await setString(spInstructId, instructorDetails.id.toString());
+    await setString(spInstructEmail, instructorDetails.email.toString()??"");
 
     UserDetailsLocal.set(
       token,
@@ -75,9 +78,13 @@ class SharedPrefs {
       userDetails.email ?? '',
       userDetails.phoneNumber ?? '',
       userDetails.dob ?? '',
-      userDetails.address ?? '','',
+      userDetails.address ?? '',
+      instructorDetails.name??"",
+instructorDetails.id.toString(),
+      instructorDetails.email??"",""
+
     );
-   return true;
+    return true;
   }
 
   static Future<bool> setData(MyProfileResponse response) async {
@@ -98,21 +105,21 @@ class SharedPrefs {
     await setString(spUserImageUrl, userDetails.profilePhoto ?? '');
 
     UserDetailsLocal.set(
-      token,
-      type,
-      '${userDetails.id ?? ''}',
-      userDetails.name ?? '',
-      userDetails.email ?? '',
-      userDetails.phoneNumber ?? '',
-      userDetails.dob ?? '',
-      userDetails.address ?? '',
-      userDetails.profilePhoto ?? '',);
+        token,
+        type,
+        '${userDetails.id ?? ''}',
+        userDetails.name ?? '',
+        userDetails.email ?? '',
+        userDetails.phoneNumber ?? '',
+        userDetails.dob ?? '',
+        userDetails.address ?? '',
+        userDetails.profilePhoto ?? '',"","","");
     return true;
   }
 
   static Future<bool> logOut() async {
     await _preferences.clear();
-    UserDetailsLocal.set('', '', '', '', '', '', '', '','');
+    UserDetailsLocal.set('', '', '', '', '', '', '', '','',"",'','');
 
     Get.offAll(() => const LogInScreen());
     return true;
@@ -126,4 +133,3 @@ class SharedPrefs {
     return _preferences.getBool(key) ?? false;
   }
 }
-

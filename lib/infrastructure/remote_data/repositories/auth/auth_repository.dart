@@ -12,7 +12,7 @@ class AuthRepository {
     Response response = await apiClient!
         .getJsonInstance()
         .post(Api.registerWithEmailAndPassword, data: body);
-    print("response->${response}");
+    print("response->${response.data}");
     return response;
   }
 

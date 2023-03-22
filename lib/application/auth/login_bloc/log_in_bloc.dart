@@ -10,7 +10,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'log_in_event.dart';
 part 'log_in_state.dart';
-part 'log_in_bloc.freezed.dart';
+part'log_in_bloc.freezed.dart';
 
 class LogInBloc extends Bloc<LogInEvent, LogInState> {
   final IAuthFacade? authFacade;
@@ -85,6 +85,12 @@ class LogInBloc extends Bloc<LogInEvent, LogInState> {
         ));
       }
 
+      if (event is QualificationChanged) {
+        emit(state.copyWith(
+          qualification: Qualification(event.qualiStr),
+          authFailureOrSuccessOption: none(),
+        ));
+      }
       if (event is ConfirmPasswordChanged) {
         emit(state.copyWith(
           confirmPassword: Password(event.conPasswordStr),
@@ -128,7 +134,39 @@ class LogInBloc extends Bloc<LogInEvent, LogInState> {
           authFailureOrSuccessOption: optionOf(failureOrSuccess),
         ));
       }
+      if (event is RegisterWithInstructorEmailAndPasswordPressed) {
+        Either<AuthFailure, UserLogInResponse>? failureOrSuccess;
+        final isEmailValid = state.emailAddress.isValid();
+        final isPasswordValid = state.password.isValid();
+        final isNameValid = state.name.isValid();
+        log(isEmailValid.toString());
+        log(isNameValid.toString());
 
+        if (isEmailValid && isPasswordValid && isNameValid) {
+          emit(state.copyWith(
+            isSubmitting: true,
+            authFailureOrSuccessOption: none(),
+          ));
+
+          failureOrSuccess = await authFacade!.registerWithInstructorEmailAndPassword(
+              emailAddress: state.emailAddress,
+              password: state.password,
+              confirmPassword: state.confirmPassword,
+              name: state.name,
+              userStatus:"individual_instructor" ,
+              quali: state.qualification
+
+
+       );
+        }
+        failureOrSuccess?.fold((l) => null,
+            ((r) => emit(state.copyWith(userStatus: r.message!))));
+        emit(state.copyWith(
+          isSubmitting: false,
+          showErrorMessages: true,
+          authFailureOrSuccessOption: optionOf(failureOrSuccess),
+        ));
+      }
       if (event is VerificationCodeChanged) {
         emit(state.copyWith(
             verificationCode: event.verificationCode,

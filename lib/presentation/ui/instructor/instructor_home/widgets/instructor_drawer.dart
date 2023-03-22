@@ -99,7 +99,7 @@ class InstructorDrawerWidget extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
                                 Text(
-                                  "${UserDetailsLocal.userId}",
+                                  "${UserDetailsLocal.userName}",
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 18,

@@ -47,7 +47,20 @@ class Name extends ValueObject<String> {
 
   const Name._(this.value);
 }
+class Qualification extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
 
+  factory Qualification(String input) {
+    // ignore: unnecessary_null_comparison
+    assert(input != null);
+    return Qualification._(
+      validateStringNotEmpty(input),
+    );
+  }
+
+  const Qualification._(this.value);
+}
 class PhoneNumber extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
