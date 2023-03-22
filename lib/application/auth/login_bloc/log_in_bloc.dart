@@ -50,10 +50,11 @@ class LogInBloc extends Bloc<LogInEvent, LogInState> {
         }
 
         failureOrSuccess?.fold((l) => null,
-            ((r) => emit(state.copyWith(userStatus: r.type??""))));
+            ((r) => emit(state.copyWith(userStatus: r.type!))));
 
         emit(state.copyWith(
           isSubmitting: false,
+
           showErrorMessages: true,
           authFailureOrSuccessOption: optionOf(failureOrSuccess),
         ));

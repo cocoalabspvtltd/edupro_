@@ -9,6 +9,10 @@ import 'package:pgs_edupro/presentation/ui/videos/live_videos_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../course/course_report_screen.dart';
+import '../../../home/home_screen.dart';
+import '../../../membership/membership_screen.dart';
+
 class InstructorDrawerWidget extends StatelessWidget {
   final BuildContext context;
   final GlobalKey<ScaffoldState> scaffoldKey;
@@ -19,7 +23,6 @@ class InstructorDrawerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return _drawer();
   }
-
   Widget _drawer() {
     return SafeArea(
       child: Drawer(
@@ -46,7 +49,7 @@ class InstructorDrawerWidget extends StatelessWidget {
                       child: Row(mainAxisSize: MainAxisSize.max, children: [
                         InkWell(
                           onTap: () {
-                            Get.offAll(() => const InstructorHomeScreen(
+                            Get.offAll(() => const HomeScreen(
                               selectedIndex: 3,
                             ));
                           },
@@ -99,7 +102,7 @@ class InstructorDrawerWidget extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
                                 Text(
-                                  "User name",
+                                  UserDetailsLocal.userName,
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 18,
@@ -107,7 +110,7 @@ class InstructorDrawerWidget extends StatelessWidget {
                                 ),
                                 const SizedBox(height: 4),
                                 Text(
-                                  "User Email",
+                                  UserDetailsLocal.userEmail,
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.w400),
@@ -135,38 +138,51 @@ class InstructorDrawerWidget extends StatelessWidget {
                     _drawerMenuItem(
                         Image.asset(
                             'assets/icons/drawer_icons/my-course-sltd.png'),
-                        'Add courses', () {
-                      Get.to(() => AddCourseScreen());
-                    }),
-                    _drawerMenuItem(
-                        Image.asset(
-                            'assets/icons/drawer_icons/my-course-sltd.png'),
-                        'My Courses', () {
-                      // Get.offAll(() => const HomeScreen(
-                      //   selectedIndex: 1,
-                      // ));
-                    }),
-                    _drawerMenuItem(
-                        Image.asset('assets/icons/drawer_icons/my-course-sltd.png',),
-                        'Purchased Courses',
-                            () {
-                              Get.to(() => const  PurchaseScreen());
-                            }),
-                    _drawerMenuItem(
-                        Image.asset(
-                            'assets/icons/drawer_icons/my-course-sltd.png'),
                         'Live Sessions', () {
                       Get.to(() => const LiveVideosScreen(
                         fromHome: false,
                       ));
                     }),
-                    Divider(),
+                    SizedBox(height: 10,),
                     _drawerMenuItem(
-                        Image.asset('assets/icons/drawer_icons/report.png',color: primaryColor),
+                        Image.asset(
+                            'assets/icons/drawer_icons/my-course-sltd.png'),
+                        'My Courses', () {
+                      Get.offAll(() => const HomeScreen(
+                        selectedIndex: 1,
+                      ));
+                    }),
+                    SizedBox(height: 10,),
+                    _drawerMenuItem(
+                        Image.asset(
+                            'assets/icons/drawer_icons/library-sltd.png'),
+                        'Library', () {
+                      Get.offAll(() => const HomeScreen(
+                        selectedIndex: 2,
+                      ));
+                    }),
+                    SizedBox(height: 10,),
+                    _drawerMenuItem(
+                        Image.asset(
+                            'assets/icons/drawer_icons/membership-sltd.png'),
+                        'Membership', () {
+                      Get.to(() => const MembershipScreen());
+                    }),
+                    SizedBox(height: 10,),
+                    _drawerMenuItem(
+                        Image.asset(
+                            'assets/icons/drawer_icons/report-sltd.png'),
+                        'Report', () {
+                      Get.to(() => const CourseReportScreen());
+                    }),
+                    SizedBox(height: 10,),
+                    _drawerMenuItem(
+                        Image.asset('assets/icons/drawer_icons/report.png'),
                         'Privacy Policy',
                             () {}),
+                    SizedBox(height: 10,),
                     _drawerMenuItem(
-                        Image.asset('assets/icons/drawer_icons/report.png',color: primaryColor,),
+                        Image.asset('assets/icons/drawer_icons/report.png'),
                         'Terms and Conditions',
                             () {}),
                   ],
