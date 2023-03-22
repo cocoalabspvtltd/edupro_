@@ -68,7 +68,7 @@ class _InstructorHomeScreenState extends State<InstructorHomeScreen> {
           backgroundColor: Colors.black,
           title: Text(
             title[_selectedIndex],
-            style: boldValuePrimaryColor,
+            style: appBarText,
           ),
           leading: InstructorMenuSwitch(_scaffoldKey),
           leadingWidth: 38,
