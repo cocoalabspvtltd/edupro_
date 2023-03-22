@@ -7,6 +7,7 @@ class LogInEvent with _$LogInEvent {
       PasswordChanged;
   const factory LogInEvent.registerPressed() = RegisterPressed;
   const factory LogInEvent.nameChanged(String nameStr) = NameChanged;
+  const factory LogInEvent.qualificationChanged(String qualiStr) = QualificationChanged;
   const factory LogInEvent.confirmPasswordChanged(String conPasswordStr) =
       ConfirmPasswordChanged;
   const factory LogInEvent.userStatusChanged(String userStatusStr) =
@@ -15,6 +16,8 @@ class LogInEvent with _$LogInEvent {
       VerificationCodeChanged;
   const factory LogInEvent.registerWithEmailAndPasswordPressed() =
       RegisterWithEmailAndPasswordPressed;
+  const factory LogInEvent.registerWithInstructorEmailAndPasswordPressed(String userStatus) =
+  RegisterWithInstructorEmailAndPasswordPressed;
   const factory LogInEvent.signInWithEmailAndPasswordPressed() =
       SignInWithEmailAndPasswordPressed;
   const factory LogInEvent.verifyEduproUser() = VerifyEduproUser;

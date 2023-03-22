@@ -1,11 +1,11 @@
 part of 'log_in_bloc.dart';
-
 @freezed
 class LogInState with _$LogInState {
   const factory LogInState({
     required EmailAddress emailAddress,
     required Password password,
     required Name name,
+    required Qualification qualification,
     required Password confirmPassword,
     required String userStatus,
     required bool showErrorMessages,
@@ -22,6 +22,7 @@ class LogInState with _$LogInState {
         name: Name(''),
         confirmPassword: Password(''),
         userStatus: 'new_user',
+        qualification: Qualification(''),
         showErrorMessages: false,
         isSubmitting: false,
         authFailureOrSuccessOption: none(),

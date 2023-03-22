@@ -99,7 +99,7 @@ class InstructorDrawerWidget extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
                                 Text(
-                                  "User name",
+                                  "${UserDetailsLocal.userName}",
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 18,
@@ -107,7 +107,7 @@ class InstructorDrawerWidget extends StatelessWidget {
                                 ),
                                 const SizedBox(height: 4),
                                 Text(
-                                  "User Email",
+                                  "${UserDetailsLocal.userEmail}",
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.w400),

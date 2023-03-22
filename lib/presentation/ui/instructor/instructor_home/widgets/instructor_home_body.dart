@@ -4,6 +4,7 @@ import 'package:pgs_edupro/application/video/trending_videos/trending_videos_blo
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/presentation/ui/home/ads_screen.dart';
 import 'package:pgs_edupro/presentation/ui/videos/top_videos_screen.dart';
 import 'package:pgs_edupro/presentation/ui/videos/trending_videos_screen.dart';
@@ -54,7 +55,7 @@ class IstructorHomeBody extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Hello Name ",style: TextStyle(fontSize: 18),),
+                          Text("Hello ${UserDetailsLocal.userName} ",style: TextStyle(fontSize: 18),),
                           thickSpace,
                           Text('Nice to have back,What an exciting day ! \nget ready and Continue your lessons today',),
                           thickSpace,

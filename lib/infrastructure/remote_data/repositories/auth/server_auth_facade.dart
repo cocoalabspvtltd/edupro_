@@ -1,3 +1,6 @@
+
+
+
 import 'dart:convert';
 import 'dart:developer';
 import 'package:dartz/dartz.dart';
@@ -71,7 +74,7 @@ class ServerAuthFacade implements IAuthFacade {
       return await _authRepository
           .registerUser(json.encode(body))
           .then((response) async {
-            log("gf");
+        log("gf");
         if (response.data['status_code'] == '422') {
           if (response.data['message'] == 'The email has already been taken') {
             return left(const AuthFailure.emailAlreadyInUse());
@@ -95,7 +98,8 @@ class ServerAuthFacade implements IAuthFacade {
                   r.user!.phoneNumber ?? '',
                   r.user!.dob?.toString() ?? '',
                   r.user!.address ?? '',
-                  '','');
+                  '',
+                  '','','',"");
             } catch (e) {
               toastMessage('Unexpected Response');
               log("shared pref ${e.toString()}");
@@ -114,7 +118,74 @@ class ServerAuthFacade implements IAuthFacade {
       }
     }
   }
+  @override
+  Future<Either<AuthFailure, UserLogInResponse>> registerWithInstructorEmailAndPassword({
+    required Name name,
+    required EmailAddress emailAddress,
+    required Password password,
+    required Password confirmPassword,
+    required String userStatus,
+    required Qualification quali
 
+  }) async {
+    final emailAddressStr = emailAddress.value.getOrElse(() => 'INVALID EMAIL');
+    final passwordStr = password.value.getOrElse(() => 'INVALID PASSWORD');
+    final nameStr = name.value.getOrElse(() => 'INVALID NAME');
+    final qualiStr = quali.value.getOrElse(() => 'INVALID NAME');
+    String status = "individual_instructor";
+    Map body = {
+      'email': emailAddressStr,
+      'password': passwordStr,
+      'password_confirmation': passwordStr,
+      'name': nameStr,
+      'user_status': userStatus,
+      'qualification':qualiStr
+    };
+    print("map=>${body}");
+    try {
+      return await _authRepository
+          .registerUser(json.encode(body))
+          .then((response) async {
+            log("=->${response}");
+        if (response.data['status_code'] == '422') {
+          if (response.data['message'] == 'The email has already been taken') {
+            return left(const AuthFailure.emailAlreadyInUse());
+          } else {
+            return left(const AuthFailure.serverError());
+          }
+        } else if (response.data['message'] == 'Successfully Created' ||
+            response.data['success'].toString() == 'true') {
+          final r = UserLogInResponse.fromJson(response.data);
+          log("->${userStatus}");
+          if (userStatus == 'individual_instructor') {
+            try {
+              await SharedPrefs.logIn(r);
+         log("->${r.instructor!.name}");
+              UserDetailsLocal.set(
+                  r.token!,
+             r.instructor!.id.toString(),
+             r.instructor!.name!,
+             r.instructor!.email!,
+                "","","","","","","",""
+              );
+            } catch (e) {
+              toastMessage('Unexpected Response');
+              log("shared pref ${e.toString()}");
+            }
+          }
+          return right(r);
+        } else {
+          return left(const AuthFailure.serverError());
+        }
+      });
+    } catch (e) {
+      if (e.toString() == 'ERROR_EMAIL_ALREADY_IN_USE') {
+        return left(const AuthFailure.emailAlreadyInUse());
+      } else {
+        return left(const AuthFailure.serverError());
+      }
+    }
+  }
   @override
   Future<Either<AuthFailure, UserLogInResponse>> signInWithEmailAndPassword({
     required EmailAddress emailAddress,
@@ -133,17 +204,14 @@ class ServerAuthFacade implements IAuthFacade {
           .then((response) async {
         if (response.data['status'] == '401' ||
             response.data['status'] == 401) {
-
           if (response.data['message'] == 'Invalid credentials' ||
               response.data['message'] == 'Emailid is not valid') {
             return left(const AuthFailure.invalidEmailAndPasswordCombination());
           } else if (response.data['message'] == 'User not Approved') {
             return left(const AuthFailure.userVerificationPending());
           } else {
-
             return left(const AuthFailure.serverError());
           }
-
         } else if (response.data['success'].toString() == 'true' ||
             response.data['message'] == 'Loggined Successfully') {
           log("esds=>${response.data}");
@@ -151,31 +219,29 @@ class ServerAuthFacade implements IAuthFacade {
           log("esds=>${ r}");
           try {
             await SharedPrefs.logIn(r);
-            log("=>${r.user!.email}");
-            if(r.type =="instructor") {
+            log("=>${response.data["type"]}");
+            log(r.instructor!.name!);
+            if (response.data["type"]== "instructor") {
               UserDetailsLocal.set(
-                r.token??"",
-                r.type??"",
-                r.instructor!.id.toString(),
-                r.instructor!.name ?? '',
-                r.instructor!.email ?? '',
-                r.instructor!.phoneNumber ?? '',
-                r.instructor!.courses?.toString() ?? '',
-                r.instructor!.qualification ?? '',"",
+                  r.token!,
+                  r.instructor!.id.toString(),
+                  r.instructor!.name!,
+                  r.instructor!.email!,
+                  "","","","","","","",""
               );
             }
-            else{
+            else {
               UserDetailsLocal.set(
-                r.token??"",
-                r.type??"",
+                r.token ?? "",
+                r.type ?? "",
                 r.user!.id.toString(),
                 r.user!.name ?? '',
                 r.user!.email ?? '',
                 r.user!.phoneNumber ?? '',
                 r.user!.dob?.toString() ?? '',
-                r.user!.address ?? '',"",
+                r.user!.address ?? '',
+                "","","",""
               );
-
             }
           } catch (e) {
             log("error1 ${e.toString()}");
