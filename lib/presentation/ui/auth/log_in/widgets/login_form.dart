@@ -100,9 +100,7 @@ class _LogInFormState extends State<LogInForm> {
                         //         paymentType,
                         //       ),
                         //     );
-
                       }
-
                       context
                           .read<AuthBloc>()
                           .add(const AuthEvent.authCheckRequested());
@@ -221,7 +219,7 @@ class _LogInFormState extends State<LogInForm> {
                                 builder: (context) =>
                                     BlocProvider<LogInBloc>.value(
                                   value: logInBloc,
-                                  child: RegistrationScreen(),
+                                  child: RegistrationTypeScreen(),
                                 ),
                               ),
                             );
