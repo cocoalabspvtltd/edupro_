@@ -101,7 +101,7 @@ class _InstructorDisplayPictureState extends State<InstructorDisplayPicture> {
                   () => '',
             ),
             style: TextStyle(
-                color: secondaryColor[50],
+                color: Colors.white,
                 fontSize: 18,
                 fontWeight: FontWeight.w500),
           ),
@@ -114,7 +114,7 @@ class _InstructorDisplayPictureState extends State<InstructorDisplayPicture> {
                   () => '',
             ),
             style: TextStyle(
-                color: secondaryColor[50],
+                color: Colors.white,
                 fontSize: 14,
                 fontWeight: FontWeight.w400),
           ),
@@ -132,7 +132,7 @@ class _InstructorDisplayPictureState extends State<InstructorDisplayPicture> {
                   state.enableEdit ? Icons.edit_off : Icons.edit,
                   color: state.enableEdit
                       ? primaryColor
-                      : secondaryColor[100],
+                      : Colors.white,
                   size: 30,
                 ))),
         Positioned(
@@ -143,7 +143,7 @@ class _InstructorDisplayPictureState extends State<InstructorDisplayPicture> {
               padding: EdgeInsets.zero,
               icon: Icon(
                 Icons.camera_alt,
-                color: secondaryColor[100],
+                color: Colors.white,
                 size: 30,
               ),
               onPressed: () async {
@@ -200,9 +200,10 @@ class _InstructorDisplayPictureState extends State<InstructorDisplayPicture> {
           bottom: 40,
           right: 0,
           child: Text(
-            state.name.value.getOrElse(
-                  () => '',
-            ),
+            "${UserDetailsLocal.userName}",
+            // state.name.value.getOrElse(
+            //       () => '',
+            // ),
             style: TextStyle(
                 color: secondaryColor[50],
                 fontSize: 18,
@@ -213,9 +214,10 @@ class _InstructorDisplayPictureState extends State<InstructorDisplayPicture> {
           bottom: 20,
           right: 0,
           child: Text(
-            state.emailAddress.value.getOrElse(
-                  () => '',
-            ),
+            "${UserDetailsLocal.userEmail}",
+            // state.emailAddress.value.getOrElse(
+            //       () => '',
+            // ),
             style: TextStyle(
                 color: secondaryColor[50],
                 fontSize: 14,

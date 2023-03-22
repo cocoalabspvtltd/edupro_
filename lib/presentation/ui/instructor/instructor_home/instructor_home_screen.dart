@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_web_browser/flutter_web_browser.dart';
 import 'package:pgs_edupro/application/ads/ads_bloc.dart';
+import 'package:pgs_edupro/application/course/courses_bloc.dart';
 import 'package:pgs_edupro/application/profile/profile_bloc.dart';
 import 'package:pgs_edupro/application/video/top_videos/top_videos_bloc.dart';
 import 'package:pgs_edupro/application/video/trending_videos/trending_videos_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/ads/ads_repository.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/repositories/course/course_repository.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/profile/profile_repository.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/videos/video_repository.dart';
 import 'package:pgs_edupro/presentation/ui/course/my_course_screen.dart';
@@ -54,6 +56,10 @@ class _InstructorHomeScreenState extends State<InstructorHomeScreen> {
             create: (_) => ProfileBloc(ProfileRepository())
               ..add(ProfileEvent.loadMyProfile(
                   int.parse(UserDetailsLocal.userId)))),
+        BlocProvider(
+          create: (_) => CoursesBloc(CourseRepository())
+            ..add(const CoursesEvent.loadCourseCategories()),
+        ),
         BlocProvider(
             create: (_) =>
                 AdsBloc(AdsRepository())..add(const AdsEvent.getAds())),
