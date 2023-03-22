@@ -71,7 +71,7 @@ class ServerAuthFacade implements IAuthFacade {
       return await _authRepository
           .registerUser(json.encode(body))
           .then((response) async {
-            log("gf");
+        log("gf");
         if (response.data['status_code'] == '422') {
           if (response.data['message'] == 'The email has already been taken') {
             return left(const AuthFailure.emailAlreadyInUse());
@@ -86,7 +86,6 @@ class ServerAuthFacade implements IAuthFacade {
           if (userStatus == 'new_user') {
             try {
               await SharedPrefs.logIn(r);
-
               UserDetailsLocal.set(
                   r.token!,
                   r.user!.id.toString(),
@@ -151,8 +150,10 @@ class ServerAuthFacade implements IAuthFacade {
           log("esds=>${ r}");
           try {
             await SharedPrefs.logIn(r);
-            log("=>${r.user!.email}");
-            if(r.type =="instructor") {
+            if(response.data['type'] =="instructor") {
+              log('====> ${response.data['type']}');
+              log("=>${r.instructor!.name}");
+              log("=>${r.instructor!.id}");
               UserDetailsLocal.set(
                 r.token??"",
                 r.type??"",
@@ -161,7 +162,7 @@ class ServerAuthFacade implements IAuthFacade {
                 r.instructor!.email ?? '',
                 r.instructor!.phoneNumber ?? '',
                 r.instructor!.courses?.toString() ?? '',
-                r.instructor!.qualification ?? '',"",
+               '',"",
               );
             }
             else{

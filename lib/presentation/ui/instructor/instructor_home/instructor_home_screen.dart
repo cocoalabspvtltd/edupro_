@@ -4,10 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_web_browser/flutter_web_browser.dart';
 import 'package:pgs_edupro/application/ads/ads_bloc.dart';
+import 'package:pgs_edupro/application/payment/payment_bloc.dart';
 import 'package:pgs_edupro/application/video/top_videos/top_videos_bloc.dart';
 import 'package:pgs_edupro/application/video/trending_videos/trending_videos_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
+import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/ads/ads_repository.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/repositories/payment/payment_repository.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/videos/video_repository.dart';
 import 'package:pgs_edupro/presentation/ui/instructor/instructor_home/widgets/instructor_drawer.dart';
 import 'package:pgs_edupro/presentation/ui/instructor/instructor_home/widgets/instructor_home_body.dart';
@@ -16,7 +19,7 @@ import 'package:pgs_edupro/presentation/ui/instructor/instructor_profile/instruc
 
 class InstructorHomeScreen extends StatefulWidget {
   final int selectedIndex;
-  const InstructorHomeScreen({super.key, this.selectedIndex = 0});
+  const InstructorHomeScreen({super.key, this.selectedIndex = 0,});
 
   @override
   State<InstructorHomeScreen> createState() => _InstructorHomeScreenState();
@@ -43,9 +46,12 @@ class _InstructorHomeScreenState extends State<InstructorHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print("");
+     print("---------->${UserDetailsLocal.userName}");
     return MultiBlocProvider(
       providers: [
+        BlocProvider(
+          create: (_) => PaymentBloc(PaymentRepository()),
+        ),
         // BlocProvider(
         //     create: (_) => ProfileBloc(ProfileRepository())
         //       ..add(ProfileEvent.loadMyProfile(

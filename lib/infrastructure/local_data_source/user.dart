@@ -14,16 +14,16 @@ class UserDetailsLocal {
   static ValueNotifier userImageUrlValueNotifier = ValueNotifier("");
 
   static void set(
-    String token,
-    String id,
-    String name,
-    String email,
-    String mobile,
-    String dob,
-    String type,
-    String address,
-    String imageUrl,
-  ) {
+      String token,
+      String id,
+      String name,
+      String email,
+      String mobile,
+      String dob,
+      String type,
+      String address,
+      String imageUrl,
+      ) {
     apiToken = token;
     userId = id;
     userName = name;

@@ -24,15 +24,17 @@ class SharedPrefs {
   static init() async {
     _preferences = await SharedPreferences.getInstance();
     UserDetailsLocal.set(
-        getString(spToken),
-        getString(spUserId),
-        getString(spName),
-        getString(spEmail),
-        getString(spMobile),
-        getString(spDob),
-        getString(spType),
-        getString(spAddress),
-        getString(spUserImageUrl));
+      getString(spToken),
+      getString(spUserId),
+      getString(spName),
+      getString(spEmail),
+      getString(spMobile),
+      getString(spDob),
+      getString(spType),
+      getString(spAddress),
+      getString(spUserImageUrl),
+    );
+
   }
 
   static String getString(String key) {
@@ -49,9 +51,13 @@ class SharedPrefs {
     String token = response.token ?? UserDetailsLocal.apiToken;
     String type = response.type ?? UserDetailsLocal.type;
     UserDetails userDetails = response.user!;
+    Instructor instructor=response.instructor!;
 
     await setString(spToken, token);
     await setString(spType, type);
+    await setString(spUserId, '${userDetails.id ?? ''}');
+    await setString(spEmail, userDetails.email ?? '');
+    await setString(spName, userDetails.name ?? '');
     await setString(spUserId, '${userDetails.id ?? ''}');
     await setString(spEmail, userDetails.email ?? '');
     await setString(spName, userDetails.name ?? '');
@@ -69,11 +75,9 @@ class SharedPrefs {
       userDetails.email ?? '',
       userDetails.phoneNumber ?? '',
       userDetails.dob ?? '',
-      userDetails.address ?? '',
-
-      '',
+      userDetails.address ?? '','',
     );
-    return true;
+   return true;
   }
 
   static Future<bool> setData(MyProfileResponse response) async {
@@ -94,16 +98,15 @@ class SharedPrefs {
     await setString(spUserImageUrl, userDetails.profilePhoto ?? '');
 
     UserDetailsLocal.set(
-        token,
-        type,
-        '${userDetails.id ?? ''}',
-        userDetails.name ?? '',
-        userDetails.email ?? '',
-        userDetails.phoneNumber ?? '',
-        userDetails.dob ?? '',
-
-        userDetails.address ?? '',
-        userDetails.profilePhoto ?? '');
+      token,
+      type,
+      '${userDetails.id ?? ''}',
+      userDetails.name ?? '',
+      userDetails.email ?? '',
+      userDetails.phoneNumber ?? '',
+      userDetails.dob ?? '',
+      userDetails.address ?? '',
+      userDetails.profilePhoto ?? '',);
     return true;
   }
 
@@ -123,3 +126,4 @@ class SharedPrefs {
     return _preferences.getBool(key) ?? false;
   }
 }
+
