@@ -219,7 +219,7 @@ class _LogInFormState extends State<LogInForm> {
                                 builder: (context) =>
                                     BlocProvider<LogInBloc>.value(
                                   value: logInBloc,
-                                  child: RegistrationScreen(),
+                                  child: RegistrationTypeScreen(),
                                 ),
                               ),
                             );

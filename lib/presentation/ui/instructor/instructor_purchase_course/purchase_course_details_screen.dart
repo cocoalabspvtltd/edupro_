@@ -77,7 +77,7 @@ class _PurchaseDetailsScreenState extends State<PurchaseDetailsScreen> {
               children: [
                 thickSpace,
                 Text(
-                 "title",
+                  "title",
                   maxLines: 2,
                   style: boldValue,
                 ),
@@ -90,7 +90,7 @@ class _PurchaseDetailsScreenState extends State<PurchaseDetailsScreen> {
                     scrollDirection: Axis.horizontal,
                     physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
-                    itemCount: 6,
+                    itemCount: 2,
                     itemBuilder: (BuildContext context, int position) {
                       return Text("instructorname",
                         style: smallText,
@@ -99,43 +99,44 @@ class _PurchaseDetailsScreenState extends State<PurchaseDetailsScreen> {
                   ),
                 ),
                 thickSpace,
+                _moreWidget()
               ],
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(top: _fromTop < 0 ? 0 : _fromTop),
-            child: ContainedTabBarView(
-              tabBarProperties: TabBarProperties(
-                indicatorColor: primaryColor,
-                labelColor: primaryColor,
-                labelPadding: const EdgeInsets.all(20),
-                indicatorPadding: const EdgeInsets.only(bottom: 2),
-                isScrollable: true,
-                labelStyle:
-                const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-              ),
-              tabs: const [
-                Text(
-                  'Lectures',
-                ),
-                Text('More'),
-                Text('Live'),
-              ],
-              views: [
-                // MyCourseVideosListView(
-                //   itemsScrollController: _itemsScrollController,
-                //   videos: response.myCourseVideoData!,
-                // ),
-                _moreWidget(),
-                Center(
-                  child: Text(
-                    'Check announcements for live video updates',
-                    style: boldValue,
-                  ),
-                )
-              ],
-            ),
-          ),
+          // Padding(
+          //   padding: EdgeInsets.only(top: _fromTop < 0 ? 0 : _fromTop),
+          //   child: ContainedTabBarView(
+          //     tabBarProperties: TabBarProperties(
+          //       indicatorColor: primaryColor,
+          //       labelColor: primaryColor,
+          //       labelPadding: const EdgeInsets.all(20),
+          //       indicatorPadding: const EdgeInsets.only(bottom: 2),
+          //       isScrollable: true,
+          //       labelStyle:
+          //       const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+          //     ),
+          //     tabs: const [
+          //       Text(
+          //         'Lectures',
+          //       ),
+          //       Text('More'),
+          //       Text('Live'),
+          //     ],
+          //     views: [
+          //       // MyCourseVideosListView(
+          //       //   itemsScrollController: _itemsScrollController,
+          //       //   videos: response.myCourseVideoData!,
+          //       // ),
+          //       _moreWidget(),
+          //       Center(
+          //         child: Text(
+          //           'Check announcements for live video updates',
+          //           style: boldValue,
+          //         ),
+          //       )
+          //     ],
+          //   ),
+          // ),
         ],
       ),
     );

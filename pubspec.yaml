@@ -86,6 +86,7 @@ flutter:
     - assets/icons/drawer_icons/
     - assets/icons/profile_icons/
     - assets/icons/navigation_icons/
+    - assets/icons/register_icons/
     - assets/gif/loaders/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

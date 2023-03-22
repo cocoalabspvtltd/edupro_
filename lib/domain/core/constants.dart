@@ -117,7 +117,7 @@ TextStyle boldWordPrimarycolor = TextStyle(
 TextStyle boldValue = TextStyle(
     fontSize: 16, fontWeight: FontWeight.w600, color: Colors.grey[700]);
 TextStyle boldValuePrimaryColor =
-    TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: primaryColor);
+    TextStyle(fontSize: 20, fontWeight: FontWeight.w600, color: primaryColor);
 TextStyle standardText = TextStyle(
     fontSize: 15, fontWeight: FontWeight.w500, color: Colors.grey[700]);
 TextStyle smallText = const TextStyle(

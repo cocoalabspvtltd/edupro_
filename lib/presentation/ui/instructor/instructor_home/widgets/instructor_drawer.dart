@@ -141,45 +141,32 @@ class InstructorDrawerWidget extends StatelessWidget {
                     _drawerMenuItem(
                         Image.asset(
                             'assets/icons/drawer_icons/my-course-sltd.png'),
-                        'Live Sessions', () {
-                      Get.to(() => const LiveVideosScreen(
-                        fromHome: false,
-                      ));
-                    }),
-                    SizedBox(height: 10,),
-                    _drawerMenuItem(
-                        Image.asset(
-                            'assets/icons/drawer_icons/my-course-sltd.png'),
                         'My Courses', () {
                       // Get.offAll(() => const HomeScreen(
                       //   selectedIndex: 1,
                       // ));
                     }),
-                    SizedBox(height: 10,),
-                    // _drawerMenuItem(
-                    //     Image.asset(
-                    //         'assets/icons/drawer_icons/library-sltd.png'),
-                    //     'Library', () {
-                    //   // Get.offAll(() => const HomeScreen(
-                    //   //   selectedIndex: 2,
-                    //   // ));
-                    // }),
-                    // SizedBox(height: 10,),
                     _drawerMenuItem(
-                        Image.asset('assets/icons/drawer_icons/report.png',color: primaryColor,),
+                        Image.asset('assets/icons/drawer_icons/my-course-sltd.png',),
                         'Purchased Courses',
                             () {
                               Get.to(() => const  PurchaseScreen());
-
                             }),
-                    SizedBox(height: 10,),
                     _drawerMenuItem(
-                        Image.asset('assets/icons/drawer_icons/report.png'),
+                        Image.asset(
+                            'assets/icons/drawer_icons/my-course-sltd.png'),
+                        'Live Sessions', () {
+                      Get.to(() => const LiveVideosScreen(
+                        fromHome: false,
+                      ));
+                    }),
+                    Divider(),
+                    _drawerMenuItem(
+                        Image.asset('assets/icons/drawer_icons/report.png',color: primaryColor),
                         'Privacy Policy',
                             () {}),
-                    SizedBox(height: 10,),
                     _drawerMenuItem(
-                        Image.asset('assets/icons/drawer_icons/report.png'),
+                        Image.asset('assets/icons/drawer_icons/report.png',color: primaryColor,),
                         'Terms and Conditions',
                             () {}),
                   ],
