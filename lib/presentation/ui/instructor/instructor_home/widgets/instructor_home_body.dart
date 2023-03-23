@@ -1,10 +1,12 @@
 import 'package:pgs_edupro/application/ads/ads_bloc.dart';
+import 'package:pgs_edupro/application/course/courses_bloc.dart';
 import 'package:pgs_edupro/application/video/top_videos/top_videos_bloc.dart';
 import 'package:pgs_edupro/application/video/trending_videos/trending_videos_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
+import 'package:pgs_edupro/presentation/ui/course/course_catogories_screen.dart';
 import 'package:pgs_edupro/presentation/ui/home/ads_screen.dart';
 import 'package:pgs_edupro/presentation/ui/videos/top_videos_screen.dart';
 import 'package:pgs_edupro/presentation/ui/videos/trending_videos_screen.dart';
@@ -34,6 +36,9 @@ class IstructorHomeBody extends StatelessWidget {
         context
             .read<TrendingVideosBloc>()
             .add(const TrendingVideosEvent.loadVideos());
+        context
+            .read<CoursesBloc>()
+            .add(const CoursesEvent.loadCourseCategories());
         context.read<AdsBloc>().add(const AdsEvent.getAds());
       },
       child: SingleChildScrollView(
@@ -66,6 +71,10 @@ class IstructorHomeBody extends StatelessWidget {
                 ),
               ),
               AdsScreen(
+                key: key,
+              ),
+              thickSpace,
+              CourseCategoriesScreen(
                 key: key,
               ),
               thickSpace,

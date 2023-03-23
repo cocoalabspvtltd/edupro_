@@ -231,16 +231,17 @@ class ServerAuthFacade implements IAuthFacade {
               );
             }
             else {
+              log(r.user!.name!);
+              log(r.user!.id.toString());
               UserDetailsLocal.set(
-                r.token ?? "",
-                r.type ?? "",
+                r.token??"",
+                r.type??"",
                 r.user!.id.toString(),
                 r.user!.name ?? '',
                 r.user!.email ?? '',
                 r.user!.phoneNumber ?? '',
                 r.user!.dob?.toString() ?? '',
-                r.user!.address ?? '',
-                "","","",""
+                r.user!.address ?? '',"","","",""
               );
             }
           } catch (e) {
