@@ -231,6 +231,8 @@ class ServerAuthFacade implements IAuthFacade {
               );
             }
             else {
+              log(r.user!.name!);
+              log(r.user!.id.toString());
               UserDetailsLocal.set(
                 r.token??"",
                 r.type??"",
