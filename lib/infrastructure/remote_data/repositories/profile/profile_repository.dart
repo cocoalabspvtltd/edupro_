@@ -19,6 +19,7 @@ class ProfileRepository implements IProfileRepository {
   @override
   Future<Either<NetworkFailure, MyProfileResponse>> editMyProfile(
       Map body) async {
+    log("body->${body}");
     try {
       Response response = await apiClient!
           .getJsonInstance()
@@ -48,7 +49,7 @@ class ProfileRepository implements IProfileRepository {
     try {
       Response response = await apiClient!
           .getJsonInstance()
-          .post(Api.getMyProfile, data: {"user_id": userId});
+          .get(Api.getMyProfile, queryParameters: {"user_id": userId});
 
       return right(MyProfileResponse.fromJson(response.data));
     } on DioError catch (e) {

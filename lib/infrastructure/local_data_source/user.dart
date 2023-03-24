@@ -11,25 +11,21 @@ class UserDetailsLocal {
   static String type ='';
   static String userAddress = '';
   static String userImageUrl = '';
-  static String InstructorName ='';
-  static String InstructId = '';
-  static String InstructEmail = '';
+
   static ValueNotifier userImageUrlValueNotifier = ValueNotifier("");
 
   static void set(
-    String token,
-    String id,
-    String name,
-    String email,
-    String mobile,
-    String dob,
-    String type,
-    String address,
-    String imageUrl,
-      String InstrucName,
-      String InstructId,
-      String InstructEmail,
-  ) {
+      String token,
+      String id,
+      String name,
+      String email,
+      String mobile,
+      String dob,
+      String type,
+      String address,
+      String imageUrl,
+
+      ) {
     apiToken = token;
     userId = id;
     userName = name;

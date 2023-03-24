@@ -7,12 +7,13 @@ import 'package:html/parser.dart';
 import 'package:pgs_edupro/domain/course/i_course_repository.dart';
 import 'package:pgs_edupro/domain/core/network/api_provider.dart';
 import 'package:pgs_edupro/domain/core/network/network_failures.dart';
+import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_categories_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_in_category_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_report_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/my_course/my_courses_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/source/api.dart';
-
+List Category =[];
 class CourseRepository implements ICourseRepository {
   ApiProvider? apiClient;
 
@@ -26,7 +27,8 @@ class CourseRepository implements ICourseRepository {
     try {
       Response response =
           await apiClient!.getJsonInstance().get(Api.getCourseCategories);
-
+      //Category = response.data;
+//log("list->${Category}");
       return right(CourseCategoriesResponse.fromJson(response.data));
     } on DioError catch (e) {
       if (e.response != null) {
@@ -79,7 +81,7 @@ class CourseRepository implements ICourseRepository {
     try {
       Response response = await apiClient!
           .getJsonInstance()
-          .post(Api.getMyCources, data: {'user_id': userId});
+          .post(Api.getMyCources, data: {'user_id': UserDetailsLocal.userId});
 
       return right(MyCoursesResponse.fromJson(response.data));
     } on DioError catch (e) {
