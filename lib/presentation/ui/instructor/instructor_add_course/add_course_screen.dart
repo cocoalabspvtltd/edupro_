@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
+import 'package:pgs_edupro/presentation/ui/instructor/instructor_add_course/test.dart';
 
 
 class AddCourseScreen extends StatefulWidget {
@@ -14,6 +15,7 @@ class AddCourseScreen extends StatefulWidget {
 
 class _AddCourseScreenState extends State<AddCourseScreen> {
   final formKey = GlobalKey<FormState>();
+
   String? dropdownvalue;
   var category=[
    "Education","Food","sales"
@@ -121,29 +123,7 @@ class _AddCourseScreenState extends State<AddCourseScreen> {
                               borderRadius: BorderRadius.all(
                                   Radius.circular(7.0)),
                             ),
-                            child: DropdownButtonHideUnderline(
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 10, right: 10),
-                                child: DropdownButton(
-                                  value: dropdownvalue,
-                                   hint: Text("Category"),
-                                  items: category.map((String items) {
-                                    return DropdownMenuItem(
-                                        value: items,
-                                        child: Text(
-                                          items,
-                                          style: TextStyle(color:Colors.black, fontSize: 14),
-                                        ));
-                                  }).toList(),
-                                  onChanged: (String? newValue) {
-                                    setState(() {
-                                      dropdownvalue = newValue!;
-                                      print("value->..>>..>>>>>${dropdownvalue}");
-                                    });
-                                  },
-                                ),
-                              ),
-                            ),
+                            child: DesignationDropdown()
                           ),
                             const SizedBox(height: 20),
                             TextFormField(

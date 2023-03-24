@@ -49,12 +49,12 @@ class UserDetails {
   int? id;
   String? name;
   String? email;
-  Null? phoneNumber;
-  Null? dob;
-  Null? address;
+  String? phoneNumber;
+  String? dob;
+  String? address;
   String? userStatus;
-  Null? institution;
-  Null? profilePhoto;
+  String? institution;
+  String? profilePhoto;
   int? status;
   String? paymentStatus;
   int? verificationCode;

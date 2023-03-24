@@ -92,8 +92,10 @@ class _LogInFormState extends State<LogInForm> {
                   
                       if (r.user?.paymentStatus == 'true') {
                         Get.offAll(() => const MembershipCheckScreen());
+                        return;
                       } else if  (r.user?.paymentStatus == 'false') {
                         Get.offAll(() => const MembershipCheckScreen());
+                        return;
                         // String paymentType = 'REGISTRATION';
                         // context.read<PaymentBloc>().add(
                         //       PaymentEvent.startPayment(
