@@ -1,6 +1,4 @@
 
-
-
 import 'dart:convert';
 import 'dart:developer';
 import 'package:dartz/dartz.dart';
@@ -99,7 +97,7 @@ class ServerAuthFacade implements IAuthFacade {
                   r.user!.dob?.toString() ?? '',
                   r.user!.address ?? '',
                   '',
-                  '','','',"");
+                  '',);
             } catch (e) {
               toastMessage('Unexpected Response');
               log("shared pref ${e.toString()}");
@@ -146,7 +144,7 @@ class ServerAuthFacade implements IAuthFacade {
       return await _authRepository
           .registerUser(json.encode(body))
           .then((response) async {
-            log("=->${response}");
+        log("=->${response}");
         if (response.data['status_code'] == '422') {
           if (response.data['message'] == 'The email has already been taken') {
             return left(const AuthFailure.emailAlreadyInUse());
@@ -160,13 +158,13 @@ class ServerAuthFacade implements IAuthFacade {
           if (userStatus == 'individual_instructor') {
             try {
               await SharedPrefs.logIn(r);
-         log("->${r.instructor!.name}");
+              log("->${r.instructor!.name}");
               UserDetailsLocal.set(
                   r.token!,
-             r.instructor!.id.toString(),
-             r.instructor!.name!,
-             r.instructor!.email!,
-                "","","","","","","",""
+                  r.instructor!.id.toString(),
+                  r.instructor!.name!,
+                  r.instructor!.email!,
+                  "","","","","",
               );
             } catch (e) {
               toastMessage('Unexpected Response');
@@ -214,49 +212,29 @@ class ServerAuthFacade implements IAuthFacade {
           }
         } else if (response.data['success'].toString() == 'true' ||
             response.data['message'] == 'Loggined Successfully') {
-          log("esds=>${response.data}");
+          log("esds=>${response}");
           final r = UserLogInResponse.fromJson(response.data);
-          log("esds=>${ r}");
-          try {
-
+          log("esds=>${response.data["type"]}");
+          try {   log("esds=>");
             await SharedPrefs.logIn(r);
-            log("gfh");
-            log("=>${response.data["type"]}");
-            log(r.instructor!.name!);
             if (response.data["type"]== "instructor") {
               UserDetailsLocal.set(
                   r.token!,
                   r.instructor!.id.toString(),
                   r.instructor!.name!,
                   r.instructor!.email!,
-                  "","","","","","","",""
+                  "","","","","",
               );
             }
-            else if(response.data["type"]=="user") {
-              log("yfg");
+            else{
+              log(("jj"));
               UserDetailsLocal.set(
-                r.token ?? "",
-                r.user!.id.toString(),
-                r.user!.name ?? '',
-                r.user!.email ?? '',
-                r.user!.phoneNumber ?? '',
-                r.user!.dob?.toString() ?? '',
-                r.user!.address ?? '',
-                "","","","",""
-              );
-            }
-            else  {
-
-              UserDetailsLocal.set(
-                  r.token ?? "",
+                  r.token!,
                   r.user!.id.toString(),
                   r.user!.name ?? '',
-                  r.user!.email ?? '',
-                  r.user!.phoneNumber ?? '',
-                  r.user!.dob?.toString() ?? '',
-                  r.user!.address ?? '',
-                  "","","","",""
+                  r.user!.email ?? '',"","","","",""
               );
+
             }
           } catch (e) {
             log("error1 ${e.toString()}");

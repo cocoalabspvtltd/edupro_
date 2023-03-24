@@ -109,7 +109,7 @@ TextStyle boldHeading = const TextStyle(
     fontSize: 21, fontWeight: FontWeight.bold, color: Colors.black54);
 
 TextStyle appBarText = TextStyle(
-    fontSize: 18, fontWeight: FontWeight.w600, color: scaffoldBackgroundColor);
+    fontSize: 20, fontWeight: FontWeight.w600, color: primaryColor);
 TextStyle boldWord = TextStyle(
     fontSize: 18, fontWeight: FontWeight.bold, color: Colors.grey[700]);
 TextStyle boldWordPrimarycolor = TextStyle(
