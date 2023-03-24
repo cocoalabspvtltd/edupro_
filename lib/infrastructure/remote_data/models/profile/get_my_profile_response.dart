@@ -25,6 +25,12 @@ class User {
   String? address;
   String? userStatus;
   String? profilePhoto;
+  String? description;
+  String? courses;
+  String? qualification;
+  String? instituteName;
+  String? displayPicture;
+  Null? approvalStatus;
   // int? status;
   // int? verificationCode;
 
@@ -37,6 +43,12 @@ class User {
     this.address,
     this.userStatus,
     this.profilePhoto,
+    this.qualification,
+    this.description,
+    this.courses,
+    this.displayPicture,
+    this.instituteName,
+    // this.approvalStatus,
     // this.status,
     // this.verificationCode
   });
@@ -50,7 +62,15 @@ class User {
     address = json['address'];
     userStatus = json['user_status'];
     profilePhoto = json['profile_photo'];
+    description = json['description'];
+    courses = json['courses'];
+    qualification = json['qualification'];
+    instituteName = json['institute_name'];
+    displayPicture = json['display_picture'];
+    // approvalStatus = json['approval_status'];
     // status = json['status'];
     // verificationCode = json['verification_code'];
   }
 }
+
+

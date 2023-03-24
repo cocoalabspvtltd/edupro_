@@ -15,10 +15,6 @@ class InstructorProfileForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final nameController = TextEditingController();
-    final emailController = TextEditingController();
-    final phoneNumberController = TextEditingController();
-    final addressController = TextEditingController();
     return
     //   Form(
     //   // key: _formKey,

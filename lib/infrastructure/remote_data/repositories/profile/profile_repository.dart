@@ -1,10 +1,10 @@
 import 'dart:developer';
-
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:pgs_edupro/domain/core/network/api_provider.dart';
 import 'package:pgs_edupro/domain/core/network/network_failures.dart';
 import 'package:pgs_edupro/domain/profile/i_profile_repository.dart';
+import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/common_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/profile/get_my_profile_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/source/api.dart';
@@ -23,7 +23,7 @@ class ProfileRepository implements IProfileRepository {
     try {
       Response response = await apiClient!
           .getJsonInstance()
-          .post(Api.editMyProfile, data: body);
+          .post(Api.editMyProfile+"user_id=${UserDetailsLocal.userId}", data: body);
 
       return right(MyProfileResponse.fromJson(response.data));
     } on DioError catch (e) {

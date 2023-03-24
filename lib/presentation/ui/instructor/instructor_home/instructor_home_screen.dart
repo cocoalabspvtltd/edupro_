@@ -19,6 +19,7 @@ import 'package:pgs_edupro/presentation/ui/instructor/instructor_home/widgets/in
 import 'package:pgs_edupro/presentation/ui/instructor/instructor_home/widgets/instructor_home_body.dart';
 import 'package:pgs_edupro/presentation/ui/instructor/instructor_home/widgets/instructor_menu_button.dart';
 import 'package:pgs_edupro/presentation/ui/instructor/instructor_profile/instructor_profile_screen.dart';
+import 'package:pgs_edupro/presentation/ui/profile/profile_screen.dart';
 
 class InstructorHomeScreen extends StatefulWidget {
   final int selectedIndex;
@@ -49,7 +50,8 @@ class _InstructorHomeScreenState extends State<InstructorHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print("");
+    print("Id====${UserDetailsLocal.userId}");
+    print("name====${UserDetailsLocal.userName}");
     return MultiBlocProvider(
       providers: [
         BlocProvider(
@@ -100,7 +102,7 @@ class _InstructorHomeScreenState extends State<InstructorHomeScreen> {
               return Future.value(true);
             },
             child: _selectedIndex == 3
-                ? InstructorProfileScreen()
+                ? ProfileScreen()
                 : _selectedIndex == 2
                     ? GridView.builder(
                         gridDelegate:

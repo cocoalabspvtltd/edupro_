@@ -96,10 +96,7 @@ class _InstructorDisplayPictureState extends State<InstructorDisplayPicture> {
         Positioned(
           bottom: 40,
           right: 0,
-          child: Text(
-            state.name.value.getOrElse(
-                  () => '',
-            ),
+          child: Text("${UserDetailsLocal.userName}",
             style: TextStyle(
                 color: Colors.white,
                 fontSize: 18,
@@ -110,9 +107,7 @@ class _InstructorDisplayPictureState extends State<InstructorDisplayPicture> {
           bottom: 20,
           right: 0,
           child: Text(
-            state.emailAddress.value.getOrElse(
-                  () => '',
-            ),
+    "${UserDetailsLocal.userEmail}",
             style: TextStyle(
                 color: Colors.white,
                 fontSize: 14,
