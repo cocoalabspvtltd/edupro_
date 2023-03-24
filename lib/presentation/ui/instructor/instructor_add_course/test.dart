@@ -8,7 +8,9 @@ import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 
 
 
-String designatioids = "";
+String categoryaName = "";
+String categoryId= "";
+
 class DesignationDropdown extends StatefulWidget {
   const DesignationDropdown({Key? key}) : super(key: key);
 
@@ -40,12 +42,14 @@ class _DesignationDropdownState extends State<DesignationDropdown> {
     //     print("categoryItemlist->${categoryItemlist[0]["id"]}");
     //   });
     // }
+
   }
 
   @override
   void initState() {
     super.initState();
     getAllCategory();
+
   }
 
   var dropdownvalue;
@@ -63,9 +67,9 @@ class _DesignationDropdownState extends State<DesignationDropdown> {
          //  print("id->>>>>${id}");
           return DropdownMenuItem(
             onTap: (){setState((){
-              int id = item["id"];
-              designatioids = id.toString();
-              print("designatioids->>>>>>${designatioids}");
+              String id = item["name"];
+              categoryId= id.toString();
+              print("designatioids->>>>>>${categoryId}");
             });},
             value: item['id'].toString(),
 
@@ -75,7 +79,8 @@ class _DesignationDropdownState extends State<DesignationDropdown> {
         onChanged: (newVal) {
           setState(() {
             dropdownvalue = newVal;
-
+          //  categoryaName = dropdownvalue;
+            print("categoryaName->>>>>>${dropdownvalue}");
           });
         },
         value: dropdownvalue,
