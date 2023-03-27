@@ -12,6 +12,7 @@ class InstructorProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("${UserDetailsLocal.userId}");
     return Scaffold(
         body: RefreshIndicator(
           onRefresh: () async {
@@ -27,7 +28,7 @@ class InstructorProfileScreen extends StatelessWidget {
                       color: Colors.black,
                       child: const Padding(
                         padding: EdgeInsets.all(15.0),
-                        child: DisplayPicture(),
+                        child: InstructorDisplayPicture(),
                       )),
                   const InstructorProfileForm(),
                 ],

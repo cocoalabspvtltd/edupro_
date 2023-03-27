@@ -19,6 +19,7 @@ import 'package:pgs_edupro/presentation/ui/instructor/instructor_home/widgets/in
 import 'package:pgs_edupro/presentation/ui/instructor/instructor_home/widgets/instructor_home_body.dart';
 import 'package:pgs_edupro/presentation/ui/instructor/instructor_home/widgets/instructor_menu_button.dart';
 import 'package:pgs_edupro/presentation/ui/instructor/instructor_profile/instructor_profile_screen.dart';
+import 'package:pgs_edupro/presentation/ui/profile/profile_screen.dart';
 
 class InstructorHomeScreen extends StatefulWidget {
   final int selectedIndex;
@@ -33,7 +34,7 @@ class _InstructorHomeScreenState extends State<InstructorHomeScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   late int _selectedIndex;
   // late PageController _pageController;
-  List title = ['Home', 'My Courses', 'Classes', 'My Profile'];
+  List title = ['Home', 'My Courses', 'My Profile'];
 
   @override
   void initState() {
@@ -49,7 +50,8 @@ class _InstructorHomeScreenState extends State<InstructorHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print("");
+    print("Id====${UserDetailsLocal.userId}");
+    print("name====${UserDetailsLocal.userName}");
     return MultiBlocProvider(
       providers: [
         BlocProvider(
@@ -99,108 +101,8 @@ class _InstructorHomeScreenState extends State<InstructorHomeScreen> {
               }
               return Future.value(true);
             },
-            child: _selectedIndex == 3
+            child: _selectedIndex == 2
                 ? InstructorProfileScreen()
-                : _selectedIndex == 2
-                    ? GridView.builder(
-                        gridDelegate:
-                            const SliverGridDelegateWithMaxCrossAxisExtent(
-                                maxCrossAxisExtent: 400,
-                                childAspectRatio: 3 / 3.5,
-                                crossAxisSpacing: 5,
-                                mainAxisSpacing: 5),
-                        itemCount: 5,
-                        itemBuilder: (BuildContext ctx, index) {
-                          return InkWell(
-                            onTap: () {
-                              FlutterWebBrowser.openWebPage(
-                                url:
-                                    "https://us05web.zoom.us/j/84655957153?pwd=NURqOTJqNlBOTzRaRHlBYzFhbHhRZz09",
-                                customTabsOptions: CustomTabsOptions(
-                                  colorScheme: CustomTabsColorScheme.dark,
-                                  defaultColorSchemeParams:
-                                      CustomTabsColorSchemeParams(
-                                          toolbarColor: primaryColor),
-                                  shareState: CustomTabsShareState.on,
-                                  instantAppsEnabled: true,
-                                  showTitle: true,
-                                  urlBarHidingEnabled: true,
-                                ),
-                                safariVCOptions:
-                                    const SafariViewControllerOptions(
-                                  barCollapsingEnabled: true,
-                                  preferredBarTintColor: Colors.green,
-                                  preferredControlTintColor: Colors.amber,
-                                  dismissButtonStyle:
-                                      SafariViewControllerDismissButtonStyle
-                                          .close,
-                                  modalPresentationCapturesStatusBarAppearance:
-                                      true,
-                                ),
-                              );
-                              return;
-                            },
-                            child: Card(
-                              color: scaffoldBackgroundColor,
-                              elevation: 1,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(2)),
-                              //margin: const EdgeInsets.fromLTRB(6, 6, 6, 6),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    height: (screenWidth / 2 - (10)) * 9 / 16,
-                                    width: screenWidth / 2 - (10),
-                                    // margin: const EdgeInsets.all(.5),
-                                    decoration: BoxDecoration(
-                                        // border: Border.all(width: .5, color: primaryColor),
-                                        borderRadius: BorderRadius.circular(6)),
-                                    //Expanded(
-                                    child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(2),
-                                        child: CachedNetworkImage(
-                                          fit: BoxFit.cover,
-                                          imageUrl:
-                                              'assets/images/video_thumpnail_error.png',
-                                          placeholder: (context, url) =>
-                                              const Center(
-                                            child: CircularProgressIndicator(),
-                                          ),
-                                          errorWidget: (context, url, error) =>
-                                              const Image(
-                                            image: AssetImage(
-                                                'assets/images/video_thumpnail_error.png'),
-                                            fit: BoxFit.cover,
-                                          ),
-                                        )),
-                                  ),
-                                  thickSpace,
-                                  Padding(
-                                    padding: const EdgeInsets.all(4.0),
-                                    child: Text(
-                                      " title",
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: boldValue,
-                                    ),
-                                  ),
-                                  thickSpace,
-                                  Padding(
-                                    padding: const EdgeInsets.all(4.0),
-                                    child: Text(
-                                      "description",
-                                      maxLines: 3,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: smallText,
-                                    ),
-                                  ),
-                                  thickSpace
-                                ],
-                              ),
-                            ),
-                          );
-                        })
                     : _selectedIndex == 1
                         ? MyCourseScreen()
                         : _selectedIndex == 0
@@ -253,25 +155,7 @@ class _InstructorHomeScreenState extends State<InstructorHomeScreen> {
                 activeColor: primaryColor,
               ),
               BottomNavyBarItem(
-                icon: _selectedIndex == 2
-                    ? Image.asset(
-                        'assets/icons/drawer_icons/library-sltd.png',
-                        height: 25,
-                        fit: BoxFit.contain,
-                      )
-                    : Image.asset(
-                        'assets/icons/drawer_icons/library.png',
-                        color: Colors.white,
-                        height: 25,
-                        fit: BoxFit.contain,
-                      ),
-                title: const Text(
-                  'Classes',
-                ),
-                activeColor: primaryColor,
-              ),
-              BottomNavyBarItem(
-                icon:  _selectedIndex == 3 ?Image.asset('assets/icons/drawer_icons/profile-sltd.png',
+                icon:  _selectedIndex == 2 ?Image.asset('assets/icons/drawer_icons/profile-sltd.png',
                   height: 30,
                   fit: BoxFit.contain,
                 ):Image.asset('assets/icons/drawer_icons/profile.png', color: Colors.white,
@@ -394,6 +278,6 @@ class _InstructorHomeScreenState extends State<InstructorHomeScreen> {
     //           ),
     //         ]),
     //   ),
-    // );
+    // );'
   }
 }

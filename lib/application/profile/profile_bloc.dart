@@ -12,9 +12,7 @@ import 'package:pgs_edupro/infrastructure/remote_data/models/profile/get_my_prof
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-//import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-
 part 'profile_event.dart';
 part 'profile_state.dart';
 part 'profile_bloc.freezed.dart';
@@ -38,7 +36,6 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
 
       failureOrSuccess.fold((l) => null, ((r) async {
         User user = r.user!;
-
         emit(
           state.copyWith(
               displayImageUrl: user.profilePhoto ?? '',
@@ -136,6 +133,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
             submitFailedOrSuccessOption: none(),
           ),
         );
+        print("------>>>${UserDetailsLocal.userId}");
         Map body = {
           "user_id": UserDetailsLocal.userId,
           "name": state.name.value.getOrElse(() => ''),

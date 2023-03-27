@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/shared_prefs.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
+import 'package:pgs_edupro/presentation/ui/course/my_course_screen.dart';
 import 'package:pgs_edupro/presentation/ui/instructor/instructor_add_course/add_course_screen.dart';
 import 'package:pgs_edupro/presentation/ui/instructor/instructor_home/instructor_home_screen.dart';
 import 'package:pgs_edupro/presentation/ui/instructor/instructor_purchase_course/purchase_screen.dart';
@@ -142,9 +143,7 @@ class InstructorDrawerWidget extends StatelessWidget {
                         Image.asset(
                             'assets/icons/drawer_icons/my-course-sltd.png'),
                         'My Courses', () {
-                      // Get.offAll(() => const HomeScreen(
-                      //   selectedIndex: 1,
-                      // ));
+                      Get.offAll(() => const MyCourseScreen());
                     }),
                     _drawerMenuItem(
                         Image.asset('assets/icons/drawer_icons/report.png',color: primaryColor,),
