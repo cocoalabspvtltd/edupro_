@@ -11,28 +11,29 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("---->>${UserDetailsLocal.userId}");
+    print("---->${UserDetailsLocal.userName}");
+    print("=====>${UserDetailsLocal.apiToken}");
     return Scaffold(
         body: RefreshIndicator(
-      onRefresh: () async {
-        context.read<ProfileBloc>().add(
-            ProfileEvent.loadMyProfile(int.parse(UserDetailsLocal.userId)));
-      },
-      child: SingleChildScrollView(
-          physics: const AlwaysScrollableScrollPhysics(),
-          child: Column(
-            children: [
-              Container(
-                  width: screenWidth,
-                  //height: screenWidth / 2,
-                  color: secondaryColor,
-                  child: const Padding(
-                    padding: EdgeInsets.all(15.0),
-                    child: DisplayPicture(),
-                  )),
-              const ProfileForm(),
-            ],
-          )),
-    ));
+          onRefresh: () async {
+            context.read<ProfileBloc>().add(
+                ProfileEvent.loadMyProfile(int.parse(UserDetailsLocal.userId)));
+          },
+          child: SingleChildScrollView(
+              physics: const AlwaysScrollableScrollPhysics(),
+              child: Column(
+                children: [
+                  Container(
+                      width: screenWidth,
+                      //height: screenWidth / 2,
+                      color: secondaryColor,
+                      child: const Padding(
+                        padding: EdgeInsets.all(15.0),
+                        child: DisplayPicture(),
+                      )),
+                  const ProfileForm(),
+                ],
+              )),
+        ));
   }
 }

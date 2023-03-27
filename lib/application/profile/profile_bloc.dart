@@ -185,7 +185,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
 
       failureOrSuccess.fold((l) => null, ((r) async {
         emit(state.copyWith(
-          displayImageUrl: r.user!.profilePhoto ?? '',
+          displayImageUrl: r.user?.profilePhoto ?? '',
         ));
         await SharedPrefs.init();
         SharedPrefs.setData(r);

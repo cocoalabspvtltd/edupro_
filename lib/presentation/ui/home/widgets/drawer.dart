@@ -47,8 +47,8 @@ class DrawerWidget extends StatelessWidget {
                         InkWell(
                           onTap: () {
                             Get.offAll(() => const HomeScreen(
-                                  selectedIndex: 3,
-                                ));
+                              selectedIndex: 3,
+                            ));
                           },
                           child: Container(
                               width: screenWidth * .14,
@@ -72,48 +72,48 @@ class DrawerWidget extends StatelessWidget {
                                   ),
                                   imageBuilder: (context, imageProvider) =>
                                       Container(
-                                    margin: const EdgeInsets.all(0),
-                                    decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                            image: imageProvider,
-                                            fit: BoxFit.cover)),
-                                  ),
+                                        margin: const EdgeInsets.all(0),
+                                        decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                                image: imageProvider,
+                                                fit: BoxFit.cover)),
+                                      ),
                                   errorWidget: (context, url, error) =>
                                       Container(
-                                    width: screenWidth * .14,
-                                    height: screenWidth * .14,
-                                    padding: const EdgeInsets.all(5),
-                                    child: const Image(
-                                      image: AssetImage(
-                                          'assets/icons/drawer_icons/display-picture-sltd.png'),
-                                      height: double.infinity,
-                                      width: double.infinity,
-                                    ),
-                                  ),
+                                        width: screenWidth * .14,
+                                        height: screenWidth * .14,
+                                        padding: const EdgeInsets.all(5),
+                                        child: const Image(
+                                          image: AssetImage(
+                                              'assets/icons/drawer_icons/display-picture-sltd.png'),
+                                          height: double.infinity,
+                                          width: double.infinity,
+                                        ),
+                                      ),
                                 ),
                               )),
                         ),
                         const SizedBox(width: 12),
                         Expanded(
                             child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            Text(
-                              UserDetailsLocal.userName,
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w500),
-                            ),
-                            const SizedBox(height: 4),
-                            Text(
-                              UserDetailsLocal.userEmail,
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w400),
-                            ),
-                          ],
-                        )),
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                Text(
+                                  UserDetailsLocal.userName,
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                                const SizedBox(height: 4),
+                                Text(
+                                  UserDetailsLocal.userEmail,
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w400),
+                                ),
+                              ],
+                            )),
                         Icon(
                           Icons.close,
                           color: Colors.black,
@@ -137,8 +137,8 @@ class DrawerWidget extends StatelessWidget {
                             'assets/icons/drawer_icons/my-course-sltd.png'),
                         'Live Sessions', () {
                       Get.to(() => const LiveVideosScreen(
-                            fromHome: false,
-                          ));
+                        fromHome: false,
+                      ));
                     }),
                     SizedBox(height: 10,),
                     _drawerMenuItem(
@@ -146,8 +146,8 @@ class DrawerWidget extends StatelessWidget {
                             'assets/icons/drawer_icons/my-course-sltd.png'),
                         'My Courses', () {
                       Get.offAll(() => const HomeScreen(
-                            selectedIndex: 1,
-                          ));
+                        selectedIndex: 1,
+                      ));
                     }),
                     SizedBox(height: 10,),
                     _drawerMenuItem(
@@ -155,8 +155,8 @@ class DrawerWidget extends StatelessWidget {
                             'assets/icons/drawer_icons/library-sltd.png'),
                         'Library', () {
                       Get.offAll(() => const HomeScreen(
-                            selectedIndex: 2,
-                          ));
+                        selectedIndex: 2,
+                      ));
                     }),
                     SizedBox(height: 10,),
                     _drawerMenuItem(
@@ -176,12 +176,12 @@ class DrawerWidget extends StatelessWidget {
                     _drawerMenuItem(
                         Image.asset('assets/icons/drawer_icons/report.png'),
                         'Privacy Policy',
-                        () {}),
+                            () {}),
                     SizedBox(height: 10,),
                     _drawerMenuItem(
                         Image.asset('assets/icons/drawer_icons/report.png'),
                         'Terms and Conditions',
-                        () {}),
+                            () {}),
                   ],
                 ),
               ),
@@ -207,12 +207,12 @@ class DrawerWidget extends StatelessWidget {
                             const SizedBox(width: 12),
                             Expanded(
                                 child: Text(
-                              'Logout',
-                              style: TextStyle(
-                                  color: secondaryColor[50],
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.bold),
-                            ))
+                                  'Logout',
+                                  style: TextStyle(
+                                      color: secondaryColor[50],
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.bold),
+                                ))
                           ]),
                     ),
                   ),
@@ -243,7 +243,6 @@ class DrawerWidget extends StatelessWidget {
                             child: const Text('Yes'),
                             onPressed: () {
                               Navigator.pop(context);
-
                               SharedPrefs.logOut();
                             },
                           ),
@@ -267,7 +266,6 @@ class DrawerWidget extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 3),
               child: Container(
                 decoration: BoxDecoration(
-
                     border: Border.all(color: Colors.white!, width: .2),
                     borderRadius: BorderRadius.circular(0)),
                 child: Padding(
@@ -287,13 +285,13 @@ class DrawerWidget extends StatelessWidget {
                     const SizedBox(width: 12),
                     Expanded(
                         child: Text(
-                      title,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                        fontSize: 16,
-                      ),
-                    ))
+                          title,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            fontSize: 16,
+                          ),
+                        ))
                   ]),
                 ),
               )),
