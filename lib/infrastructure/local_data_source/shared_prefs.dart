@@ -50,7 +50,7 @@ class SharedPrefs {
     String type = response.type ?? UserDetailsLocal.type;
     UserDetails userDetails = response.user!;
 
-    await setString(spToken, token);
+    await setString(spToken,token);
     await setString(spType, type);
     await setString(spUserId, '${userDetails.id ?? ''}');
     await setString(spEmail, userDetails.email ?? '');

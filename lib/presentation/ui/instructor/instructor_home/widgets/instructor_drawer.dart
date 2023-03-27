@@ -143,7 +143,9 @@ class InstructorDrawerWidget extends StatelessWidget {
                         Image.asset(
                             'assets/icons/drawer_icons/my-course-sltd.png'),
                         'My Courses', () {
-                      Get.offAll(() => const MyCourseScreen());
+                      Get.offAll(() => const InstructorHomeScreen(
+                        selectedIndex: 1,
+                      ));
                     }),
                     _drawerMenuItem(
                         Image.asset('assets/icons/drawer_icons/report.png',color: primaryColor,),
