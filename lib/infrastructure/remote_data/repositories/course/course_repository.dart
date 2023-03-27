@@ -13,7 +13,7 @@ import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_in_ca
 import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_report_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/my_course/my_courses_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/source/api.dart';
-List Category =[];
+
 class CourseRepository implements ICourseRepository {
   ApiProvider? apiClient;
 
@@ -127,4 +127,32 @@ class CourseRepository implements ICourseRepository {
       return left(const NetworkFailure.unexpected());
     }
   }
+
+  @override
+  Future<Either<NetworkFailure, Unit>> addCourseInstructor(
+      Map body) async {
+    log("body->${body}");
+    try {
+      Response response = await apiClient!
+          .getJsonInstance()
+          .post(Api.addCourses, data: body);
+
+      return response.data;
+    } on DioError catch (e) {
+      if (e.response != null) {
+        if (e.response!.statusCode == 401) {
+          return left(
+              NetworkFailure.unAuthorized(e.response!.data["message"] ?? ''));
+        }
+        return left(NetworkFailure.serverError(
+            "Status Code ${e.response!.statusCode}"));
+      } else if (e.toString().contains('Connecting timed out')) {
+        return left(const NetworkFailure.serverTimeOut());
+      }
+      return left(const NetworkFailure.unexpected());
+    } catch (e) {
+      return left(const NetworkFailure.unexpected());
+    }
+  }
+
 }
