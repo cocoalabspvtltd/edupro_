@@ -23,7 +23,7 @@ class ProfileRepository implements IProfileRepository {
     try {
       Response response = await apiClient!
           .getJsonInstance()
-          .post(Api.editMyProfile+"user_id=${UserDetailsLocal.userId}", data: body);
+          .post(Api.editMyProfile, data: body);
 
       return right(MyProfileResponse.fromJson(response.data));
     } on DioError catch (e) {
