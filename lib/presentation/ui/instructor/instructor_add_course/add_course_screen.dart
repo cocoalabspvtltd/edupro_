@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
@@ -25,7 +26,7 @@ class _AddCourseScreenState extends State<AddCourseScreen> {
   String? dropdownvalue1;
   var instructor = ["instructor1", "instructor2", "instructor3"];
   bool obscureText = true;
-  XFile? _image;
+  File? _image;
   final ImagePicker _picker = ImagePicker();
 
   @override
@@ -47,6 +48,7 @@ class _AddCourseScreenState extends State<AddCourseScreen> {
   //https://pgsedu.com/EduPro/index.php/api/instructor/add_course
 
   Future getAllCategory() async {
+    String fileName = _image!.path.split('/').last;
     var map = new Map<String, dynamic>();
     map['about_title'] = aboutTitleController.text;
     map['title'] = titleController.text;
@@ -221,7 +223,7 @@ class _AddCourseScreenState extends State<AddCourseScreen> {
                             )
                           : InkWell(
                               onTap: () {
-                                _showpicker(context);
+                                pickImage();
                               },
                               child: Container(
                                 height: 45,
@@ -243,7 +245,7 @@ class _AddCourseScreenState extends State<AddCourseScreen> {
                                     Spacer(),
                                     IconButton(
                                         onPressed: () {
-                                          _showpicker(context);
+                                          pickImage();
                                         },
                                         icon: Icon(
                                           Icons.file_present,
@@ -331,79 +333,75 @@ class _AddCourseScreenState extends State<AddCourseScreen> {
           ),
         ));
   }
-
-  _imagefromGallery(context) async {
-    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
-    setState(() {
-      _image = image;
-      print("->${_image}");
-    });
-    Get.back();
+  Future pickImage() async {
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+      if (image == null) return;
+      _image = File(image.path);
+      print(("=>${_image}"));
+      setState(() {});
+    } on PlatformException catch (e) {
+      print('Failed to pick image: $e');
+    }
   }
 
-  _imagefromComera(context) async {
-    final XFile? photo = await _picker.pickImage(source: ImageSource.camera);
-    setState(() {
-      _image = photo;
-    });
-    Get.back();
-  }
 
-  _showpicker(context) {
-    showModalBottomSheet(
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-        backgroundColor: Colors.white,
-        context: context,
-        builder: (context) {
-          return SizedBox(
-            height: 100,
-            child: Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Column(
-                    children: [
-                      SizedBox(width: screenWidth * 0.1),
-                      CircleAvatar(
-                        radius: 24,
-                        backgroundColor: primaryColor,
-                        child: IconButton(
-                          onPressed: () {
-                            _imagefromComera(context);
-                          },
-                          icon: const Icon(Icons.camera_alt_rounded,
-                              color: Colors.white),
-                          iconSize: 30,
-                        ),
-                      ),
-                      const Text("Camera"),
-                    ],
-                  ),
-                  SizedBox(width: screenWidth * 0.08),
-                  Column(
-                    children: [
-                      CircleAvatar(
-                        radius: 24,
-                        backgroundColor: primaryColor,
-                        child: IconButton(
-                          onPressed: () {
-                            _imagefromGallery(context);
-                          },
-                          icon: const Icon(Icons.photo),
-                          color: Colors.white,
-                          iconSize: 30,
-                        ),
-                      ),
-                      const Text("Gallery"),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          );
-        });
-  }
+  //
+  // _showpicker(context) {
+  //   showModalBottomSheet(
+  //       shape:
+  //           RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+  //       backgroundColor: Colors.white,
+  //       context: context,
+  //       builder: (context) {
+  //         return SizedBox(
+  //           height: 100,
+  //           child: Padding(
+  //             padding: const EdgeInsets.all(15.0),
+  //             child: Row(
+  //               crossAxisAlignment: CrossAxisAlignment.center,
+  //               mainAxisAlignment: MainAxisAlignment.center,
+  //               children: [
+  //                 Column(
+  //                   children: [
+  //                     SizedBox(width: screenWidth * 0.1),
+  //                     CircleAvatar(
+  //                       radius: 24,
+  //                       backgroundColor: primaryColor,
+  //                       child: IconButton(
+  //                         onPressed: () {
+  //                           _imagefromComera(context);
+  //                         },
+  //                         icon: const Icon(Icons.camera_alt_rounded,
+  //                             color: Colors.white),
+  //                         iconSize: 30,
+  //                       ),
+  //                     ),
+  //                     const Text("Camera"),
+  //                   ],
+  //                 ),
+  //                 SizedBox(width: screenWidth * 0.08),
+  //                 Column(
+  //                   children: [
+  //                     CircleAvatar(
+  //                       radius: 24,
+  //                       backgroundColor: primaryColor,
+  //                       child: IconButton(
+  //                         onPressed: () {
+  //                           _imagefromGallery(context);
+  //                         },
+  //                         icon: const Icon(Icons.photo),
+  //                         color: Colors.white,
+  //                         iconSize: 30,
+  //                       ),
+  //                     ),
+  //                     const Text("Gallery"),
+  //                   ],
+  //                 ),
+  //               ],
+  //             ),
+  //           ),
+  //         );
+  //       });
+  // }
 }
