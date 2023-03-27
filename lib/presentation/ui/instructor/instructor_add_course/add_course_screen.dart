@@ -35,46 +35,10 @@ class _AddCourseScreenState extends State<AddCourseScreen> {
     DesignationDropdown();
   }
 
-  TextEditingController titleController = TextEditingController();
-  TextEditingController aboutTitleController = TextEditingController();
-  TextEditingController amountController = TextEditingController();
-  TextEditingController durationController = TextEditingController();
-  TextEditingController urlController = TextEditingController();
-  TextEditingController DescriptionController = TextEditingController();
-  TextEditingController DescriptionController1 = TextEditingController();
-  TextEditingController DescriptionController2 = TextEditingController();
-  TextEditingController DescriptionController3 = TextEditingController();
+
 
   //https://pgsedu.com/EduPro/index.php/api/instructor/add_course
 
-  Future getAllCategory() async {
-    String fileName = _image!.path.split('/').last;
-    var map = new Map<String, dynamic>();
-    map['about_title'] = aboutTitleController.text;
-    map['title'] = titleController.text;
-    map['duration'] = durationController.text;
-    map['category'] = categoryId;
-    map['url'] = urlController.text;
-    map['description'] = DescriptionController.text +
-        '<br><br><p>' +
-        DescriptionController1.text +
-        '</p><br><br><p>' +
-        DescriptionController2.text +
-        '</p><br><br><p>' +
-        DescriptionController3.text;
-    map['course_thumbnail'] = 'password.jpg';
-    //print("map->${map}");
-    final response = await http.post(
-      Uri.parse(
-          'https://pgsedu.com/EduPro/index.php/api/instructor/add_course'),
-      body: map,
-      headers: <String, String>{
-        'Accept': "appilication/json",
-        'Authorization': 'Bearer ${UserDetailsLocal.apiToken}',
-      },
-    );
-    print(response.body);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -315,7 +279,10 @@ class _AddCourseScreenState extends State<AddCourseScreen> {
                         child: SizedBox(
                           height: 50,
                           child: ElevatedButton(
-                            onPressed: () {getAllCategory();},
+                            onPressed: () {
+
+
+                              },
                             style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(5),

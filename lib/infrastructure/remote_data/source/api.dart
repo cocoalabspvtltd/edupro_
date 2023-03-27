@@ -32,4 +32,7 @@ class Api {
 
   static String getPaymentData = 'api/payment_order';
   static String postOaymentId = 'api/payment';
+
+  ///////////////////////////////////////////////////INSTRUCTOR//////////////////////////////////////
+  static String addCourses = "api/instructor/add_course";
 }
