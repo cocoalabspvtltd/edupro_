@@ -3,6 +3,7 @@ import 'package:pgs_edupro/application/payment/payment_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/payment/payment_repository.dart';
 import 'package:pgs_edupro/presentation/ui/auth/register/registeration_instructor_screen.dart';
+import 'package:pgs_edupro/presentation/ui/auth/register/registration_institution_screen.dart';
 import 'package:pgs_edupro/presentation/ui/auth/register/widgets/registration_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,10 +27,10 @@ class RegistrationScreen extends StatelessWidget {
               child: Column(
                 children: [
                   const SizedBox(
-                    height: 50,
+                    height: 40,
                   ),
                   Image.asset(
-                    'assets/splash/splash.png',
+                    'assets/splash/logo_splash.png',
                     height: 200,
                     fit: BoxFit.fitHeight,
                   ),
@@ -94,7 +95,15 @@ class _RegistrationTypeScreenState extends State<RegistrationTypeScreen> {
                     height: 100,
                   ),
                   GestureDetector(
-                    onTap: (){},
+                    onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                          RegisterationInstitutionScreen(userStatus: 'institution',),
+                        ),
+                      );
+                    },
                     child: Container(
                       decoration: BoxDecoration(
                           border: Border.all(

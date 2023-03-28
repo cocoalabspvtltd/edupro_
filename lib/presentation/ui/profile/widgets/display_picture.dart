@@ -21,6 +21,7 @@ class _DisplayPictureState extends State<DisplayPicture> {
   final ImagePicker _picker = ImagePicker();
   @override
   Widget build(BuildContext context) {
+    print("Userid:${UserDetailsLocal.userId}");
     return BlocConsumer<ProfileBloc, ProfileState>(
       listener: (context, state) {
         state.submitFailedOrSuccessOption.fold(() {}, (either) {

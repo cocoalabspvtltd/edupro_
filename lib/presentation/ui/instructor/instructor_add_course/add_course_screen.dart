@@ -17,10 +17,17 @@ class AddCourse extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.black,
+          title: Text(
+            "Add Courses",
+            style: boldValuePrimaryColor,
+          ),
+        ),
       body:
-
       BlocProvider(create: (_)=>InstructorBloc(CourseRepository()),
-        child: AddcousresScreenForm(),)
+        child: SingleChildScrollView(
+            child: AddcousresScreenForm()),)
     );
 
   }

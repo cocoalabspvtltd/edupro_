@@ -11,8 +11,6 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("---->${UserDetailsLocal.userName}");
-    print("=====>${UserDetailsLocal.apiToken}");
     return Scaffold(
         body: RefreshIndicator(
           onRefresh: () async {
