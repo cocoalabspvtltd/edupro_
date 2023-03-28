@@ -21,7 +21,7 @@ class InstructorEvent with _$InstructorEvent {
   _WhatYChanged;
   const factory InstructorEvent.areThereAnyChanged(String AreThereAnyStr) =
   _AreThereAnyChanged;
-  const factory InstructorEvent.submitPressed() = _SubmitPressed;
+  const factory InstructorEvent.submitPressed() =   _SubmitPressed;
   const factory InstructorEvent.whoThisChanged(String whoThiStr) =
   _whoThiChanged;
 }
