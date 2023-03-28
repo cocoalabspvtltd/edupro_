@@ -121,7 +121,6 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
                   TextInputType.streetAddress,
                   maxLine: 2),
               thickSpace,
-
               thickSpace,
               thickSpace,
               _textForm(
