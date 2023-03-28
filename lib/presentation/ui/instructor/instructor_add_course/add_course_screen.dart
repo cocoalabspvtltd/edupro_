@@ -87,7 +87,7 @@ class _AddCourseScreenState extends State<AddCourseScreen> {
                     children: <Widget>[
                       SizedBox(height: screenHeight * .02),
                       TextFormField(
-                        controller: titleController,
+                        // controller: titleController,
                         textInputAction: TextInputAction.next,
                         keyboardType: TextInputType.name,
                         decoration: const InputDecoration(
@@ -110,7 +110,7 @@ class _AddCourseScreenState extends State<AddCourseScreen> {
                       ),
                       const SizedBox(height: 20),
                       TextFormField(
-                        controller: aboutTitleController,
+                        // controller: aboutTitleController,
                         textInputAction: TextInputAction.next,
                         keyboardType: TextInputType.name,
                         decoration: const InputDecoration(
@@ -145,7 +145,7 @@ class _AddCourseScreenState extends State<AddCourseScreen> {
                           child: DesignationDropdown()),
                       const SizedBox(height: 20),
                       TextFormField(
-                        controller: amountController,
+                        // controller: amountController,
                         textInputAction: TextInputAction.next,
                         keyboardType: TextInputType.number,
                         decoration: const InputDecoration(
@@ -156,7 +156,7 @@ class _AddCourseScreenState extends State<AddCourseScreen> {
                       ),
                       const SizedBox(height: 20),
                       TextFormField(
-                        controller: durationController,
+                        // controller: durationController,
                         textInputAction: TextInputAction.next,
                         keyboardType: TextInputType.number,
                         decoration: const InputDecoration(
@@ -167,7 +167,7 @@ class _AddCourseScreenState extends State<AddCourseScreen> {
                       ),
                       const SizedBox(height: 20),
                       TextFormField(
-                        controller: urlController,
+                        // controller: urlController,
                         textInputAction: TextInputAction.next,
                         keyboardType: TextInputType.name,
                         decoration: const InputDecoration(
@@ -221,7 +221,7 @@ class _AddCourseScreenState extends State<AddCourseScreen> {
                             ),
                       const SizedBox(height: 20),
                       TextFormField(
-                        controller: DescriptionController,
+                        // controller: DescriptionController,
                         textInputAction: TextInputAction.next,
                         keyboardType: TextInputType.text,
                         decoration: const InputDecoration(
@@ -238,7 +238,7 @@ class _AddCourseScreenState extends State<AddCourseScreen> {
                       Text("What you ll learn"),
                       const SizedBox(height: 10),
                       TextFormField(
-                        controller: DescriptionController1,
+                        // controller: DescriptionController1,
                         textInputAction: TextInputAction.next,
                         keyboardType: TextInputType.text,
                         decoration: const InputDecoration(
@@ -251,7 +251,7 @@ class _AddCourseScreenState extends State<AddCourseScreen> {
                           "Are there any course requirements or prerequisites ?"),
                       const SizedBox(height: 10),
                       TextFormField(
-                        controller: DescriptionController2,
+                        // controller: DescriptionController2,
                         textInputAction: TextInputAction.next,
                         keyboardType: TextInputType.text,
                         decoration: const InputDecoration(
@@ -263,7 +263,7 @@ class _AddCourseScreenState extends State<AddCourseScreen> {
                       Text("Who this course is for ?"),
                       const SizedBox(height: 10),
                       TextFormField(
-                        controller: DescriptionController3,
+                        // controller: DescriptionController3,
                         textInputAction: TextInputAction.next,
                         keyboardType: TextInputType.text,
                         decoration: const InputDecoration(

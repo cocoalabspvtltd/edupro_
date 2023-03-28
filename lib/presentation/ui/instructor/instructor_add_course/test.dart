@@ -60,7 +60,7 @@ class _DesignationDropdownState extends State<DesignationDropdown> {
       child: DropdownButton(
         hint: Padding(
           padding: const EdgeInsets.only(left: 8.0),
-          child: Text('Select',style: TextStyle(fontSize: 14,color: Colors.black),),
+          child: Text('Select',style: TextStyle(fontWeight: FontWeight.w500,color: Colors.black54),),
         ),
         items: Cate.map((item) {
           // int id = Cate["id"];

@@ -3,6 +3,7 @@ import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/shared_prefs.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/presentation/ui/institution/institution_home/institution_home_screen.dart';
+import 'package:pgs_edupro/presentation/ui/institution/students_of_institution/add_students.dart';
 import 'package:pgs_edupro/presentation/ui/videos/live_videos_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -132,26 +133,127 @@ class InstitutionDrawerWidget extends StatelessWidget {
                   physics: const BouncingScrollPhysics(),
                   children: [
                     SizedBox(height: 10,),
-                    _drawerMenuItem(
-                        Image.asset(
-                            'assets/icons/drawer_icons/my-course-sltd.png'),
-                        'Courses', () {
-                      // Get.to(() => AddCourseScreen());
-                    }),
-                    _drawerMenuItem(
-                        Image.asset(
-                            'assets/icons/drawer_icons/my-course-sltd.png'),
-                        'Instructors', () {
-                      // Get.to(() => AddCourseScreen());
-                    }),
-                    _drawerMenuItem(
-                        Image.asset(
-                            'assets/icons/drawer_icons/my-course-sltd.png'),
-                        'Students', () {
-                      // Get.offAll(() => const InstructorHomeScreen(
-                      //   selectedIndex: 1,
-                      // ));
-                    }),
+                    ExpansionTile(
+                      title: Text("Classes",style: TextStyle(fontSize: 16),),
+                      leading: Container(
+                        height: 38,
+                        width: 38.0,
+                        padding: const EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(width: 2, color: primaryColor),
+                          color: primaryColor[50],
+                        ),
+                        child:Image.asset('assets/icons/drawer_icons/my-course-sltd.png'),
+                      ),
+                      childrenPadding: EdgeInsets.only(left:60), //children padding
+                      children: [
+                        ListTile(
+                          title: Text("Class list"),
+                          onTap: (){
+                          },
+                        ),
+                        ListTile(
+                          title: Text("Add class"),
+                          onTap: (){
+                            //action on press
+                          },
+                        ),
+
+                        //more child menu
+                      ],
+                    ),
+                    ExpansionTile(
+                      title: Text("Courses",style: TextStyle(fontSize: 16),),
+                      leading: Container(
+                        height: 38,
+                        width: 38.0,
+                        padding: const EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(width: 2, color: primaryColor),
+                          color: primaryColor[50],
+                        ),
+                        child:Image.asset('assets/icons/drawer_icons/my-course-sltd.png'),
+                      ),
+                      childrenPadding: EdgeInsets.only(left:60), //children padding
+                      children: [
+                        ListTile(
+                          title: Text("My Courses"),
+                          onTap: (){
+                          },
+                        ),
+
+                        ListTile(
+                          title: Text("Add Course"),
+                          onTap: (){
+                            //action on press
+                          },
+                        ),
+
+                        //more child menu
+                      ],
+                    ),
+                    ExpansionTile(
+                      title: Text("Instructors",style: TextStyle(fontSize: 16),),
+                      leading: Container(
+                        height: 38,
+                        width: 38.0,
+                        padding: const EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(width: 2, color: primaryColor),
+                          color: primaryColor[50],
+                        ),
+                        child:Image.asset('assets/icons/drawer_icons/my-course-sltd.png'),
+                      ),
+                      childrenPadding: EdgeInsets.only(left:60), //children padding
+                      children: [
+                        ListTile(
+                          title: Text("Instructor list"),
+                          onTap: (){
+                          },
+                        ),
+                        ListTile(
+                          title: Text("Add Instructors"),
+                          onTap: (){
+                            //action on press
+                          },
+                        ),
+
+                        //more child menu
+                      ],
+                    ),
+                    ExpansionTile(
+                      title: Text("Students",style: TextStyle(fontSize: 16),),
+                      leading: Container(
+                        height: 38,
+                        width: 38.0,
+                        padding: const EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(width: 2, color: primaryColor),
+                          color: primaryColor[50],
+                        ),
+                        child:Image.asset('assets/icons/drawer_icons/my-course-sltd.png'),
+                      ),
+                      childrenPadding: EdgeInsets.only(left:60), //children padding
+                      children: [
+                        ListTile(
+                          title: Text("Student list"),
+                          onTap: (){
+                          },
+                        ),
+                        _drawerMenuItem(
+                            Image.asset(
+                                'assets/icons/drawer_icons/my-course-sltd.png'),
+                            'Add Students', () {
+                          Get.to(() => AddStudentScreen(
+                          ));
+                        }),
+                        //more child menu
+                      ],
+                    ),
                     _drawerMenuItem(
                         Image.asset(
                             'assets/icons/drawer_icons/my-course-sltd.png'),
@@ -230,7 +332,6 @@ class InstitutionDrawerWidget extends StatelessWidget {
                             child: const Text('Yes'),
                             onPressed: () {
                               Navigator.pop(context);
-
                               SharedPrefs.logOut();
                             },
                           ),
@@ -246,48 +347,50 @@ class InstitutionDrawerWidget extends StatelessWidget {
   }
 
   Widget _drawerMenuItem(Widget widget, String title, Function onTap) {
-    return Material(
-      color: secondaryColor[100],
-      child: InkWell(
-          child: Container(
-              color: Colors.white,
-              padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 3),
-              child: Container(
-                decoration: BoxDecoration(
-
-                    border: Border.all(color: Colors.white!, width: .2),
-                    borderRadius: BorderRadius.circular(0)),
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Row(children: [
-                    Container(
-                      height: 38,
-                      width: 38.0,
-                      padding: const EdgeInsets.all(3),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(width: 2, color: primaryColor),
-                        color: primaryColor[50],
+    return Padding(
+      padding: const EdgeInsets.only(left: 6),
+      child: Material(
+        color: secondaryColor[100],
+        child: InkWell(
+            child: Container(
+                color: Colors.white,
+                padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 3),
+                child: Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.white!, width: .2),
+                      borderRadius: BorderRadius.circular(0)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(children: [
+                      Container(
+                        height: 38,
+                        width: 38.0,
+                        padding: const EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(width: 2, color: primaryColor),
+                          color: primaryColor[50],
+                        ),
+                        child: widget,
                       ),
-                      child: widget,
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                        child: Text(
-                          title,
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                            fontSize: 16,
-                          ),
-                        ))
-                  ]),
-                ),
-              )),
-          onTap: () {
-            scaffoldKey.currentState!.openEndDrawer();
-            onTap();
-          }),
+                      const SizedBox(width: 12),
+                      Expanded(
+                          child: Text(
+                            title,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                              fontSize: 16,
+                            ),
+                          ))
+                    ]),
+                  ),
+                )),
+            onTap: () {
+              scaffoldKey.currentState!.openEndDrawer();
+              onTap();
+            }),
+      ),
     );
   }
 }

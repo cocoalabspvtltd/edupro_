@@ -232,7 +232,6 @@ class InstructorDrawerWidget extends StatelessWidget {
                             child: const Text('Yes'),
                             onPressed: () {
                               Navigator.pop(context);
-
                               SharedPrefs.logOut();
                             },
                           ),
@@ -256,7 +255,6 @@ class InstructorDrawerWidget extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 3),
               child: Container(
                 decoration: BoxDecoration(
-
                     border: Border.all(color: Colors.white!, width: .2),
                     borderRadius: BorderRadius.circular(0)),
                 child: Padding(
