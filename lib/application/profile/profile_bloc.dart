@@ -105,7 +105,8 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         address: event.addressStr,
         submitFailedOrSuccessOption: none(),
       ));
-    });
+    }
+    );
 
     on<_SaveAndUpdatePressed>((event, emit) async {
       final isEmailValid = state.emailAddress.isValid();
