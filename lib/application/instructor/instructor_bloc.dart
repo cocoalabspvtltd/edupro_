@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:pgs_edupro/domain/core/network/network_failures.dart';
@@ -16,60 +17,20 @@ class InstructorBloc extends Bloc<InstructorEvent, InstructorState> {
   final CourseRepository addCoursesInstructor;
   InstructorBloc(this.addCoursesInstructor) : super(InstructorState.initial()) {
     on<InstructorEvent>((event, emit) async {});
-    on<_TitleChanged>((event, emit) {
-      emit(state.copyWith(
-        title: event.titleStr,
-        submitFailedOrSuccessOption: none(),
-      ));
-    });
-    on<_AboutTitleChanged>((event, emit) {
-      emit(state.copyWith(
-        aboutTitle: event.aboutTitleStr,
-        submitFailedOrSuccessOption: none(),
-      ));
-    });
+
+
+
     on<_CategoryChanged>((event, emit) {
       emit(state.copyWith(
         category: event.categoryValue,
         submitFailedOrSuccessOption: none(),
       ));
     });
-    on<_AmountChanged>((event, emit) {
-      emit(state.copyWith(
-        amount: event.amountStr,
-        submitFailedOrSuccessOption: none(),
-      ));
-    });
-    on<_DurationChanged>((event, emit) {
-      emit(state.copyWith(
-        duration: event.durationStr,
-        submitFailedOrSuccessOption: none(),
-      ));
-    });
-    on<_UrlChanged>((event, emit) {
-      emit(state.copyWith(
-        url: event.urlStr,
-        submitFailedOrSuccessOption: none(),
-      ));
-    });
-    on<_WhatYChanged>((event, emit) {
-      emit(state.copyWith(
-        whatYouLearn: event.WhatYouStr,
-        submitFailedOrSuccessOption: none(),
-      ));
-    });
-    on<_AreThereAnyChanged>((event, emit) {
-      emit(state.copyWith(
-        areThere: event.AreThereAnyStr,
-        submitFailedOrSuccessOption: none(),
-      ));
-    });
-    on<_whoThiChanged>((event, emit) {
-      emit(state.copyWith(
-        whoIsThis: event.whoThiStr,
-        submitFailedOrSuccessOption: none(),
-      ));
-    });
+
+
+
+
+
     on<_SubmitPressed>((event, emit) async {
       final isTitleValid = state.title != '' ? true : false;
       final isAboutTitleValid = state.aboutTitle != '' ? true : false;

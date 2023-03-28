@@ -137,7 +137,7 @@ class InstructorDrawerWidget extends StatelessWidget {
                         Image.asset(
                             'assets/icons/drawer_icons/my-course-sltd.png'),
                         'Add courses', () {
-                      Get.to(() => AddCourseScreen());
+                  Get.to(() => AddCourse());
                     }),
                     _drawerMenuItem(
                         Image.asset(
