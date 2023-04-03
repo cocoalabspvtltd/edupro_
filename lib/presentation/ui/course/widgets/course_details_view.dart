@@ -48,6 +48,7 @@ class CourseDetailsView extends StatelessWidget {
     OderId = OrderIdResponse["orderId"];
     print("orderId->${OderId}");
     if(response.statusCode==200){
+
       Get.to(() =>  PaymentFormScreen(orderid:OderId, courseDetails: courseList,));
     }
      return response;
