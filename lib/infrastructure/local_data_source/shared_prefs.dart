@@ -99,7 +99,7 @@ class SharedPrefs {
         userDetails.phoneNumber ?? '',
         userDetails.dob ?? '',
         userDetails.address ?? '',
-        userDetails.profilePhoto ?? '');
+        userDetails.profilePhoto ?? '',);
     return true;
   }
 
@@ -116,8 +116,6 @@ class SharedPrefs {
   }
 
   static bool getBool(String key) {
-
     return _preferences.getBool(key) ?? false;
-
   }
 }

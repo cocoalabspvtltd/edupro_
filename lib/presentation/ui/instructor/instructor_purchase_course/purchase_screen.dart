@@ -1,131 +1,111 @@
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:pgs_edupro/application/course/courses_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
-import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/my_course/my_courses_response.dart';
-import 'package:pgs_edupro/presentation/ui/instructor/instructor_purchase_course/purchase_course_details_screen.dart';
-import 'package:pgs_edupro/presentation/ui/my_courses/my_course_details_screen.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/repositories/course/course_repository.dart';
+import 'package:pgs_edupro/presentation/ui/course/widgets/my_course.dart';
+import 'package:pgs_edupro/presentation/widgets/common_result_empty_widget.dart';
+import 'package:pgs_edupro/presentation/widgets/common_server_error_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class PurchaseScreen extends StatelessWidget {
-  const PurchaseScreen({super.key,});
+class PurchasedCoursesScreen extends StatelessWidget {
+  final bool fromHome;
+  const PurchasedCoursesScreen({super.key, this.fromHome = true});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text(
-          "Purchased Courses",
-          style: boldValuePrimaryColor,
-        ),
-      ),
-      body: Column(
-        children: [
-          thickSpace,
-          ListView.builder(
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            scrollDirection: Axis.vertical,
-            itemCount: 5,
-            itemBuilder: (BuildContext context, int index) {
-              return InkWell(
-                onTap: () {
-                  Get.to(() => PurchaseDetailsScreen());
-                },
-                child: Container(
-                  margin: const EdgeInsets.all(8),
-                  padding: const EdgeInsets.all(4),
-                  color: Colors.grey[200],
-                  height: 100,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        width: 80,
-                        height: 80,
-                        margin: const EdgeInsets.all(8),
-                        decoration: const BoxDecoration(
-                          color: Colors.black,
-                          borderRadius: BorderRadius.all(Radius.circular(6)),
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(6),
-                          child: CachedNetworkImage(
-                            fit: BoxFit.cover,
-                            imageUrl: 'assets/images/video_thumpnail_error.png',
-                            imageBuilder: (context, imageProvider) => Container(
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image: imageProvider, fit: BoxFit.cover))),
-                            placeholder: (context, url) => const Center(
-                              child: CircularProgressIndicator(),
-                            ),
-                            errorWidget: (context, url, error) => const Image(
-                              image: AssetImage('assets/images/video_thumpnail_error.png'),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
+    return BlocProvider(
+      create: (_) => CoursesBloc(CourseRepository())
+        ..add(const CoursesEvent.loadPurchaseCourses()),
+      child: Scaffold(
+        body: BlocBuilder<CoursesBloc, CoursesState>(
+          builder: (context, state) {
+            return RefreshIndicator(
+              onRefresh: () async {
+                return context
+                    .read<CoursesBloc>()
+                    .add(const CoursesEvent.loadPurchaseCourses());
+              },
+              child: SizedBox(
+                height: screenHeight,
+                child: SingleChildScrollView(
+                  physics: const AlwaysScrollableScrollPhysics(),
+                  child: state.map(
+                    initial: (_) => Container(),
+                    loadInProgress: (_) => SizedBox(
+                      height: screenHeight - 180,
+                      child: const Center(
+                        child: CircularProgressIndicator(),
                       ),
-                      thickSpace,
-                      Padding(
-                        padding: const EdgeInsets.only(top: 5, bottom: 5),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              width: screenWidth - 120,
-                              child: Text(
-                                "Course Titile",
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600,
-                                    color: primaryColor),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 8,
-                            ),
-                            SizedBox(
-                              height: 15,
-                              child: ListView.separated(
-                                separatorBuilder: (BuildContext context, int index) =>
-                                const VerticalDivider(
-                                    thickness: 1, color: Colors.black54),
-                                scrollDirection: Axis.horizontal,
-                                physics: const NeverScrollableScrollPhysics(),
-                                shrinkWrap: true,
-                                itemCount: 4,
-                                itemBuilder: (BuildContext context, int position) {
-                                  return Text(
-                                        'Name ',
-                                    style: smallText,
-                                  );
-                                },
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 4,
-                            ),
-                            Text(
-                              "Course Duration 1 year",
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: smallText,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
+                    ),
+                    loadSuccess: (state) {
+                      InstructorCourseListResponse res = state.response;
+                      return res.course != null ||
+                          res.course!.isNotEmpty
+                          ? InstructorCourseListView(course: res.course!,)
+                          : SizedBox(
+                          height: screenHeight -
+                              180, //!fromHome ? screenHeight : 300,
+                          width: screenWidth,
+                          child: const CommonResultsEmptyWidget());
+                    },
+                    loadFailure: (state) {
+                      return state.networkFailure.map(
+                          unexpected: ((value) {
+                            return SizedBox(
+                              height: screenHeight - 180,
+                              child: CommonApiErrorWidget(
+                                  "Unexpected Error \nTry Again", () {
+                                context
+                                    .read<CoursesBloc>()
+                                    .add(const CoursesEvent.loadPurchaseCourses());
+                              }),
+                            );
+                          }),
+                          serverError: ((value) {
+                            return SizedBox(
+                              height: screenHeight - 180,
+                              child: CommonApiErrorWidget(
+                                  "Server Error \n${value.errorCode}", () {
+                                context
+                                    .read<CoursesBloc>()
+                                    .add(const CoursesEvent.loadPurchaseCourses());
+                              }),
+                            );
+                          }),
+                          nullData: ((value) => SizedBox(
+                              height:
+                              screenHeight, //!fromHome ? screenHeight : 200,
+                              width: screenWidth,
+                              child: const CommonResultsEmptyWidget())),
+                          serverTimeOut: (value) {
+                            return SizedBox(
+                              height: screenHeight - 180,
+                              child: CommonApiErrorWidget(
+                                  "Server Time Out \nTry Again", () {
+                                context
+                                    .read<CoursesBloc>()
+                                    .add(const CoursesEvent.loadPurchaseCourses());
+                              }),
+                            );
+                          },
+                          unAuthorized: (value) => SizedBox(
+                            height: screenHeight - 180,
+                            child: CommonApiErrorWidget(value.message, () {
+                              context
+                                  .read<CoursesBloc>()
+                                  .add(const CoursesEvent.loadPurchaseCourses());
+                            }),
+                          ));
+                    },
+                    loadMoreInProgress: (LoadMoreInProgress value) =>
+                        Container(),
                   ),
                 ),
-              );
-            },
-          ),
-        ],
+              ),
+            );
+          },
+        ),
       ),
     );
   }

@@ -294,11 +294,9 @@ print("fcsdc");
                   child: const Text('Save And Update'),
                 ),
               ),
-              thickSpace,
-              thickSpace,
               // if (state.isSubmitting) ...[
-              //   const SizedBox(height: 8),
-              //   const LinearProgressIndicator(value: null),
+              //    SizedBox(height: 8),
+              //    LinearProgressIndicator(value: null),
               // ],
               thickSpace,
               thickSpace,

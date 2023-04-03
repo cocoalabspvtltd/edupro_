@@ -151,7 +151,7 @@ class InstructorDrawerWidget extends StatelessWidget {
                         Image.asset('assets/icons/drawer_icons/report.png',color: primaryColor,),
                         'Purchased Courses',
                             () {
-                          Get.to(() => const  PurchaseScreen());
+                          Get.to(() => const  PurchasedCoursesScreen());
 
                         }),
                     _drawerMenuItem(
