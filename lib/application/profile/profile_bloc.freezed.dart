@@ -2715,7 +2715,7 @@ mixin _$ProfileState {
   Password get oldPassword => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
   Password get confirmPassword => throw _privateConstructorUsedError;
-  Name get name => throw _privateConstructorUsedError;
+  Name get    name => throw _privateConstructorUsedError;
   PhoneNumber get phoneNumber => throw _privateConstructorUsedError;
   DateFormatted? get dob => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;

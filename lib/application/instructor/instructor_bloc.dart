@@ -7,6 +7,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:pgs_edupro/domain/core/network/network_failures.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/course/course_repository.dart';
 
+import '../../presentation/widgets/app_dialogs.dart';
+
 part 'instructor_event.dart';
 
 part 'instructor_state.dart';
@@ -61,9 +63,13 @@ class InstructorBloc extends Bloc<InstructorEvent, InstructorState> {
               "${state.description.text}<br><br><p>${state.whatYouLearn.text}</p><br><br><p>${state.areThere.text}</p><br><br><p>${state.whoIsThis.text}",
           "course_thumbnail":state.displayPicture
         };
-        //AppDialogs.loading();
+        //   "${state.description}<br><br><p>${state.whatYouLearn}</p><br><br><p>${state.areThere}</p><br><br><p>${state.whoIsThis}",
+        //           "course_thumbnail":state.displayPicture
+    //    AppDialogs.loading();
         failureOrSuccess = await addCoursesInstructor.addCourseInstructor(body);
-        //getx.Get.back();
+
+       // getx.Get.back();
+
       }
 
       emit(state.copyWith(

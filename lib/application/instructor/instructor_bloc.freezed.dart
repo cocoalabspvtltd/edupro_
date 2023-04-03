@@ -2405,7 +2405,7 @@ abstract class _whoThiChanged implements InstructorEvent {
 
 /// @nodoc
 mixin _$InstructorState {
-  TextEditingController get title => throw _privateConstructorUsedError;
+  TextEditingController get  title => throw _privateConstructorUsedError;
   TextEditingController get aboutTitle => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
   TextEditingController get amount => throw _privateConstructorUsedError;

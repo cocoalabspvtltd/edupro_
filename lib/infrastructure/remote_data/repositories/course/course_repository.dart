@@ -136,7 +136,7 @@ class CourseRepository implements ICourseRepository {
       Response response = await apiClient!
           .getJsonInstance()
           .post(Api.addCourses, data: body);
-
+print("response->${response.data}");
       return response.data;
     } on DioError catch (e) {
       if (e.response != null) {

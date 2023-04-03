@@ -27,8 +27,8 @@ class ProfileRepository implements IProfileRepository {
 
       return right(MyProfileResponse.fromJson(response.data));
     } on DioError catch (e) {
+      if (e.response!.statusCode == 401) {
       if (e.response != null) {
-        if (e.response!.statusCode == 401) {
           return left(
               NetworkFailure.unAuthorized(e.response!.data["message"] ?? ''));
         }
