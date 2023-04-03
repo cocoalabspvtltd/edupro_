@@ -1,18 +1,62 @@
+import 'dart:convert';
+
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:get/get.dart';
 import 'package:pgs_edupro/application/payment/payment_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
+import 'package:pgs_edupro/domain/core/network/api_provider.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_in_category_response.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/source/api.dart';
+import 'package:pgs_edupro/presentation/ui/payment/payment_form_screen.dart';
 import 'package:pgs_edupro/presentation/widgets/youtube_player_widget.dart';
+import 'package:http/http.dart' as http;
 
 class CourseDetailsView extends StatelessWidget {
   final CourseList courseList;
-  const CourseDetailsView({super.key, required this.courseList});
+   CourseDetailsView({super.key, required this.courseList});
+  Map OrderIdResponse ={};
+  String OderId="";
+  ApiProvider? apiprovider;
+  Future getOrderId() async {
+    print("Get order");
+    // final response =
+    // await apiprovider?.getJsonInstance().get(Api.getOrderId);
+    // final response = await apiprovider?.getJsonInstance()
+    //     .get("https://pgsedu.com/EduPro/index.php/api/get_orderId",
+    //     options: Options(
+    //         headers: {
+    //           'Accept':'application/json',
+    //           'Authorization':"Bearer " + UserDetailsLocal.apiToken,
+    //         }
+    //     )
+    // );
+    http.Response response = await http.get(Uri.parse('https://pgsedu.com/EduPro/index.php/api/get_orderId'),
+      headers: <String, String>{
+        'Accept': "appilication/json",
+        'Authorization': 'Bearer ${UserDetailsLocal.apiToken}',
+
+      },);
+    print("Response${response.body}");
+    var jsonData = json.decode(response.body);
+    OrderIdResponse = jsonData;
+    OderId = OrderIdResponse["orderId"];
+    print("orderId->${OderId}");
+    if(response.statusCode==200){
+
+      Get.to(() =>  PaymentFormScreen(orderid:OderId, courseDetails: courseList,));
+    }
+     return response;
+  }
+  @override
+  void initState() {
+    getOrderId();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -173,11 +217,17 @@ class CourseDetailsView extends StatelessWidget {
                       width: screenWidth,
                       height: 50,
                       child: ElevatedButton(
-                          onPressed: () => context.read<PaymentBloc>().add(
-                                PaymentEvent.startPayment(
-                                    courseList.price ?? '', "COURSE PAYMENT",
-                                    courseId: courseList.courseId),
-                              ),
+                          onPressed: () {
+                            print("---->${OderId}");
+                            getOrderId();
+
+
+                          },
+                          // => context.read<PaymentBloc>().add(
+                          //       PaymentEvent.startPayment(
+                          //           courseList.price ?? '', "COURSE PAYMENT",
+                          //           courseId: courseList.courseId),
+                          //     ),
                           child: const Text("Buy Now")),
                     ),
                     thickSpace,
