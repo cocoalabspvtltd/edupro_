@@ -52,6 +52,9 @@ class ProfileForm extends StatelessWidget {
         });
       },
       builder: (context, state) {
+        print("Name-->${state.name}");
+        print("emailAddress-->${state.emailAddress}");
+        print("dob-->${state.dob}");
         return state.isLoading
             ? SizedBox(
                 height: screenHeight - 180,
