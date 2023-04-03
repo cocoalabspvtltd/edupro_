@@ -31,7 +31,12 @@ class InstructorBloc extends Bloc<InstructorEvent, InstructorState> {
 
 
 
-
+    // on<_$_TitleChanged>((event, emit) {
+    //   emit(state.copyWith(
+    //     title: Title(event.titleStr),
+    //     submitFailedOrSuccessOption: none(),
+    //   ));
+    // });
 
     on<_SubmitPressed>((event, emit) async {
       final isTitleValid = state.title != '' ? true : false;
@@ -48,15 +53,15 @@ class InstructorBloc extends Bloc<InstructorEvent, InstructorState> {
         );
 
         Map body = {
-          "title": "reer",
-          "about_title": "erfgf",
-          "amount": "455",
-          "duration": "",
-          "category": "tgt",
-          "url": "gfg",
-          "description":"erferfre",
-          "course_thumbnail":"IMG_20221208_144948.jpg"
-
+          "title": state.title.text,
+          "about_title": state.aboutTitle.text,
+          "amount": state.amount.text,
+          "duration": state.duration.text,
+          "category": state.category,
+          "url": state.url.text,
+          "description":
+              "${state.description.text}<br><br><p>${state.whatYouLearn.text}</p><br><br><p>${state.areThere.text}</p><br><br><p>${state.whoIsThis.text}",
+          "course_thumbnail":state.displayPicture
         };
         //   "${state.description}<br><br><p>${state.whatYouLearn}</p><br><br><p>${state.areThere}</p><br><br><p>${state.whoIsThis}",
         //           "course_thumbnail":state.displayPicture

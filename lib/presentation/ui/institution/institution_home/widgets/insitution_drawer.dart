@@ -148,18 +148,16 @@ class InstitutionDrawerWidget extends StatelessWidget {
                       ),
                       childrenPadding: EdgeInsets.only(left:60), //children padding
                       children: [
-                        ListTile(
-                          title: Text("Class list"),
-                          onTap: (){
-                          },
-                        ),
-                        ListTile(
-                          title: Text("Add class"),
-                          onTap: (){
-                            //action on press
-                          },
-                        ),
-
+                        _drawerMenuItem(
+                            'Class list', () {
+                          // Get.to(() => AddStudentScreen(
+                          // ));
+                        }),
+                        _drawerMenuItem(
+                            'Add class', () {
+                          // Get.to(() => AddStudentScreen(
+                          // ));
+                        }),
                         //more child menu
                       ],
                     ),
@@ -178,19 +176,16 @@ class InstitutionDrawerWidget extends StatelessWidget {
                       ),
                       childrenPadding: EdgeInsets.only(left:60), //children padding
                       children: [
-                        ListTile(
-                          title: Text("My Courses"),
-                          onTap: (){
-                          },
-                        ),
-
-                        ListTile(
-                          title: Text("Add Course"),
-                          onTap: (){
-                            //action on press
-                          },
-                        ),
-
+                        _drawerMenuItem(
+                            'My Courses', () {
+                          // Get.to(() => AddStudentScreen(
+                          // ));
+                        }),
+                        _drawerMenuItem(
+                            'Add Course', () {
+                          // Get.to(() => AddStudentScreen(
+                          // ));
+                        }),
                         //more child menu
                       ],
                     ),
@@ -209,17 +204,16 @@ class InstitutionDrawerWidget extends StatelessWidget {
                       ),
                       childrenPadding: EdgeInsets.only(left:60), //children padding
                       children: [
-                        ListTile(
-                          title: Text("Instructor list"),
-                          onTap: (){
-                          },
-                        ),
-                        ListTile(
-                          title: Text("Add Instructors"),
-                          onTap: (){
-                            //action on press
-                          },
-                        ),
+                        _drawerMenuItem(
+                            'Instructor list ', () {
+                          // Get.to(() => AddStudentScreen(
+                          // ));
+                        }),
+                        _drawerMenuItem(
+                            'Add Instructors', () {
+                          // Get.to(() => AddStudentScreen(
+                          // ));
+                        }),
 
                         //more child menu
                       ],
@@ -239,14 +233,12 @@ class InstitutionDrawerWidget extends StatelessWidget {
                       ),
                       childrenPadding: EdgeInsets.only(left:60), //children padding
                       children: [
-                        ListTile(
-                          title: Text("Student list"),
-                          onTap: (){
-                          },
-                        ),
                         _drawerMenuItem(
-                            Image.asset(
-                                'assets/icons/drawer_icons/my-course-sltd.png'),
+                            'Student list', () {
+                          // Get.to(() => AddStudentScreen(
+                          // ));
+                        }),
+                        _drawerMenuItem(
                             'Add Students', () {
                           Get.to(() => AddStudentScreen(
                           ));
@@ -254,20 +246,13 @@ class InstitutionDrawerWidget extends StatelessWidget {
                         //more child menu
                       ],
                     ),
-                    _drawerMenuItem(
-                        Image.asset(
-                            'assets/icons/drawer_icons/my-course-sltd.png'),
-                        'Live Sessions', () {
-                      Get.to(() => const LiveVideosScreen(
-                        fromHome: false,
-                      ));
-                    }),
                     Divider(),
-                    _drawerMenuItem(
-                        Image.asset('assets/icons/drawer_icons/report.png',color: primaryColor),
+                    _drawerMenuItems(
+                        Image.asset('assets/icons/drawer_icons/report.png',color: primaryColor,),
                         'Privacy Policy',
                             () {}),
-                    _drawerMenuItem(
+                    SizedBox(height: 10,),
+                    _drawerMenuItems(
                         Image.asset('assets/icons/drawer_icons/report.png',color: primaryColor,),
                         'Terms and Conditions',
                             () {}),
@@ -346,7 +331,7 @@ class InstitutionDrawerWidget extends StatelessWidget {
     );
   }
 
-  Widget _drawerMenuItem(Widget widget, String title, Function onTap) {
+  Widget _drawerMenuItem(String title, Function onTap) {
     return Padding(
       padding: const EdgeInsets.only(left: 6),
       child: Material(
@@ -362,18 +347,6 @@ class InstitutionDrawerWidget extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Row(children: [
-                      Container(
-                        height: 38,
-                        width: 38.0,
-                        padding: const EdgeInsets.all(3),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(width: 2, color: primaryColor),
-                          color: primaryColor[50],
-                        ),
-                        child: widget,
-                      ),
-                      const SizedBox(width: 12),
                       Expanded(
                           child: Text(
                             title,
@@ -391,6 +364,51 @@ class InstitutionDrawerWidget extends StatelessWidget {
               onTap();
             }),
       ),
+    );
+  }
+
+  Widget _drawerMenuItems(Widget widget, String title, Function onTap) {
+    return Material(
+      color: secondaryColor[100],
+      child: InkWell(
+          child: Container(
+              color: Colors.white,
+              padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 3),
+              child: Container(
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.white!, width: .2),
+                    borderRadius: BorderRadius.circular(0)),
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Row(children: [
+                    Container(
+                      height: 38,
+                      width: 38.0,
+                      padding: const EdgeInsets.all(3),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(width: 2, color: primaryColor),
+                        color: primaryColor[50],
+                      ),
+                      child: widget,
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                        child: Text(
+                          title,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            fontSize: 16,
+                          ),
+                        ))
+                  ]),
+                ),
+              )),
+          onTap: () {
+            scaffoldKey.currentState!.openEndDrawer();
+            onTap();
+          }),
     );
   }
 }

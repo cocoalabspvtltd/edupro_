@@ -334,7 +334,6 @@ Widget _textForm(
       ),
       thickSpace,
       TextFormField(
-
         controller: controller,
         maxLines: maxLine,
         onChanged: onChanged,

@@ -23,8 +23,6 @@ class _DesignationDropdownState extends State<DesignationDropdown> {
   List Cate =[];
 
   Future getAllCategory() async {
-
-
     http.Response response = await http.get(Uri.parse('https://pgsedu.com/EduPro/index.php/api/category'), headers: <String, String>{
       'Accept': "appilication/json",
       'Authorization': 'Bearer ${UserDetailsLocal.apiToken}',
