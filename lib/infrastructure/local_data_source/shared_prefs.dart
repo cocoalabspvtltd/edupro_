@@ -31,7 +31,8 @@ class SharedPrefs {
         getString(spMobile),
         getString(spDob),
         getString(spAddress),
-        getString(spUserImageUrl));
+
+        getString(spUserImageUrl),);
   }
 
   static String getString(String key) {
@@ -61,7 +62,6 @@ class SharedPrefs {
 
     UserDetailsLocal.set(
       token,
-
       '${userDetails.id ?? ''}',
       userDetails.name ?? '',
       userDetails.email ?? '',
@@ -106,7 +106,6 @@ class SharedPrefs {
   static Future<bool> logOut() async {
     await _preferences.clear();
     UserDetailsLocal.set('', '', '', '', '', '', '', '',);
-
     Get.offAll(() => const LogInScreen());
     return true;
   }
