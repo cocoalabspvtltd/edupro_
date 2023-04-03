@@ -1,12 +1,16 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:pgs_edupro/domain/core/network/network_failures.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/course/course_repository.dart';
+import 'package:pgs_edupro/presentation/ui/instructor/instructor_add_course/add_course1.dart';
 
+import '../../infrastructure/remote_data/models/my_course/addcourses.dart';
 import '../../presentation/widgets/app_dialogs.dart';
 
 part 'instructor_event.dart';
@@ -36,7 +40,7 @@ class InstructorBloc extends Bloc<InstructorEvent, InstructorState> {
     on<_SubmitPressed>((event, emit) async {
       final isTitleValid = state.title != '' ? true : false;
       final isAboutTitleValid = state.aboutTitle != '' ? true : false;
-      Either<NetworkFailure, Unit>? failureOrSuccess;
+      Either<NetworkFailure, AddCoursesResponse>? failureOrSuccess;
 
       if (isTitleValid && isAboutTitleValid) {
         emit(
@@ -46,20 +50,24 @@ class InstructorBloc extends Bloc<InstructorEvent, InstructorState> {
             submitFailedOrSuccessOption: none(),
           ),
         );
-
-        Map body = {
-          "title": "reer",
-          "about_title": "erfgf",
-          "amount": "455",
-          "duration": "",
+        String? fileName = imageC!.path.split('/').last;
+        print("->${fileName}");
+        FormData body = FormData.fromMap({
+          "title": state.title.text,
+          "about_title": state.aboutTitle.text,
+          "amount": state.amount.text,
+          "duration":state.duration.text,
           "category": "tgt",
-          "url": "gfg",
-          "description":"erferfre",
-          "course_thumbnail":"IMG_20221208_144948.jpg"
+          "url": state.url.text,
+          "description":"${state.description.text}<br><br><p>${state.whatYouLearn.text}</p><br><br><p>${state.areThere.text}</p><br><br><p>${state.whoIsThis.text}",
+          "course_thumbnail":await MultipartFile.fromFile(imageC!.path, filename: fileName)
 
-        };
-        //   "${state.description}<br><br><p>${state.whatYouLearn}</p><br><br><p>${state.areThere}</p><br><br><p>${state.whoIsThis}",
-        //           "course_thumbnail":state.displayPicture
+        });
+        // Map body = {
+        //
+        //
+        // };
+
     //    AppDialogs.loading();
         failureOrSuccess = await addCoursesInstructor.addCourseInstructor(body);
 
@@ -67,15 +75,15 @@ class InstructorBloc extends Bloc<InstructorEvent, InstructorState> {
 
       }
 
-      emit(state.copyWith(
-        isLoading: false,
-        loadFailureOrSuccessOption: optionOf(failureOrSuccess),
-      ));
-
-      emit(state.copyWith(
-          isSubmitting: false,
-          showErrorMessages: true,
-          submitFailedOrSuccessOption: optionOf(failureOrSuccess)));
+      // emit(state.copyWith(
+      //   isLoading: false,
+      //   loadFailureOrSuccessOption: optionOf(failureOrSuccess),
+      // ));
+      //
+      // emit(state.copyWith(
+      //     isSubmitting: false,
+      //     showErrorMessages: true,
+      //     submitFailedOrSuccessOption: optionOf(failureOrSuccess)));
     });
   }
 }

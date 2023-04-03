@@ -11,6 +11,7 @@ class Api {
   static String getMembershipDetails = 'api/user/membership';
 
   static String getMyCources = 'api/my_courses';
+  static String getInstructorCources = 'api/course_list';
   static String getMyCourseVideos = 'api/classes';
   static String getQuestions = 'api/get_questions';
   static String askQuestion = 'api/ask_question';

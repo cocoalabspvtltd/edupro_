@@ -1,6 +1,9 @@
 import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:get/instance_manager.dart';
 import 'package:pgs_edupro/domain/core/network/api_provider.dart';
 import 'package:pgs_edupro/domain/core/network/network_failures.dart';
 import 'package:pgs_edupro/domain/profile/i_profile_repository.dart';
@@ -24,7 +27,10 @@ class ProfileRepository implements IProfileRepository {
       Response response = await apiClient!
           .getJsonInstance()
           .post(Api.editMyProfile, data: body);
-
+if(response.statusCode==200){
+  Fluttertoast.showToast(msg: "Cousres Added");
+  Get.back();
+}
       return right(MyProfileResponse.fromJson(response.data));
     } on DioError catch (e) {
       if (e.response!.statusCode == 401) {

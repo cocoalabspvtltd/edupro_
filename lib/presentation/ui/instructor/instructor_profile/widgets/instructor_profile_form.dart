@@ -274,29 +274,7 @@ class InstructorProfileForm extends StatelessWidget {
                 ),
                 thickSpace,
                 thickSpace,
-                // _textForm(
-                //     state.emailController,
-                //     (v) => context
-                //         .read<ProfileBloc>()
-                //         .add(ProfileEvent.emailChanged(v)),
-                //     (_) => context
-                //         .read<ProfileBloc>()
-                //         .state
-                //         .emailAddress
-                //         .value
-                //         .fold(
-                //           (f) => f.maybeMap(
-                //             invalidEmail: (_) => 'Invalid Email',
-                //             orElse: () => null,
-                //           ),
-                //           (_) => null,
-                //         ),
-                //     "Email Address",
-                //     'assets/icons/profile_icons/mail.png',
-                //     false,
-                //     TextInputType.emailAddress),
-                //thickSpace,
-                //thickSpace,
+
               ],
               _textForm(
                 state.phoneNumberController,

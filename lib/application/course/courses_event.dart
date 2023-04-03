@@ -6,6 +6,7 @@ class CoursesEvent with _$CoursesEvent {
   const factory CoursesEvent.loadCoursesInCatogory(String categoryName) =
       _LoadCoursesInCatogory;
   const factory CoursesEvent.loadMyCourses() = _LoadMyCourses;
+  const factory CoursesEvent.loadInstructorCourses() = _LoadInstructorCourses;
   const factory CoursesEvent.loadCourseReport(String fromDate, String toDate) =
       _LoadCourseReport;
 }

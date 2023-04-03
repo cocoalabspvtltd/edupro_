@@ -21,6 +21,7 @@ mixin _$CoursesEvent {
     required TResult Function() loadCourseCategories,
     required TResult Function(String categoryName) loadCoursesInCatogory,
     required TResult Function() loadMyCourses,
+    required TResult Function() loadInstructorCourses,
     required TResult Function(String fromDate, String toDate) loadCourseReport,
   }) =>
       throw _privateConstructorUsedError;
@@ -29,6 +30,7 @@ mixin _$CoursesEvent {
     TResult? Function()? loadCourseCategories,
     TResult? Function(String categoryName)? loadCoursesInCatogory,
     TResult? Function()? loadMyCourses,
+    TResult? Function()? loadInstructorCourses,
     TResult? Function(String fromDate, String toDate)? loadCourseReport,
   }) =>
       throw _privateConstructorUsedError;
@@ -37,6 +39,7 @@ mixin _$CoursesEvent {
     TResult Function()? loadCourseCategories,
     TResult Function(String categoryName)? loadCoursesInCatogory,
     TResult Function()? loadMyCourses,
+    TResult Function()? loadInstructorCourses,
     TResult Function(String fromDate, String toDate)? loadCourseReport,
     required TResult orElse(),
   }) =>
@@ -47,6 +50,8 @@ mixin _$CoursesEvent {
     required TResult Function(_LoadCoursesInCatogory value)
         loadCoursesInCatogory,
     required TResult Function(_LoadMyCourses value) loadMyCourses,
+    required TResult Function(_LoadInstructorCourses value)
+        loadInstructorCourses,
     required TResult Function(_LoadCourseReport value) loadCourseReport,
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +60,7 @@ mixin _$CoursesEvent {
     TResult? Function(_LoadCourseCategories value)? loadCourseCategories,
     TResult? Function(_LoadCoursesInCatogory value)? loadCoursesInCatogory,
     TResult? Function(_LoadMyCourses value)? loadMyCourses,
+    TResult? Function(_LoadInstructorCourses value)? loadInstructorCourses,
     TResult? Function(_LoadCourseReport value)? loadCourseReport,
   }) =>
       throw _privateConstructorUsedError;
@@ -63,6 +69,7 @@ mixin _$CoursesEvent {
     TResult Function(_LoadCourseCategories value)? loadCourseCategories,
     TResult Function(_LoadCoursesInCatogory value)? loadCoursesInCatogory,
     TResult Function(_LoadMyCourses value)? loadMyCourses,
+    TResult Function(_LoadInstructorCourses value)? loadInstructorCourses,
     TResult Function(_LoadCourseReport value)? loadCourseReport,
     required TResult orElse(),
   }) =>
@@ -128,6 +135,7 @@ class _$_LoadCourseCategories implements _LoadCourseCategories {
     required TResult Function() loadCourseCategories,
     required TResult Function(String categoryName) loadCoursesInCatogory,
     required TResult Function() loadMyCourses,
+    required TResult Function() loadInstructorCourses,
     required TResult Function(String fromDate, String toDate) loadCourseReport,
   }) {
     return loadCourseCategories();
@@ -139,6 +147,7 @@ class _$_LoadCourseCategories implements _LoadCourseCategories {
     TResult? Function()? loadCourseCategories,
     TResult? Function(String categoryName)? loadCoursesInCatogory,
     TResult? Function()? loadMyCourses,
+    TResult? Function()? loadInstructorCourses,
     TResult? Function(String fromDate, String toDate)? loadCourseReport,
   }) {
     return loadCourseCategories?.call();
@@ -150,6 +159,7 @@ class _$_LoadCourseCategories implements _LoadCourseCategories {
     TResult Function()? loadCourseCategories,
     TResult Function(String categoryName)? loadCoursesInCatogory,
     TResult Function()? loadMyCourses,
+    TResult Function()? loadInstructorCourses,
     TResult Function(String fromDate, String toDate)? loadCourseReport,
     required TResult orElse(),
   }) {
@@ -166,6 +176,8 @@ class _$_LoadCourseCategories implements _LoadCourseCategories {
     required TResult Function(_LoadCoursesInCatogory value)
         loadCoursesInCatogory,
     required TResult Function(_LoadMyCourses value) loadMyCourses,
+    required TResult Function(_LoadInstructorCourses value)
+        loadInstructorCourses,
     required TResult Function(_LoadCourseReport value) loadCourseReport,
   }) {
     return loadCourseCategories(this);
@@ -177,6 +189,7 @@ class _$_LoadCourseCategories implements _LoadCourseCategories {
     TResult? Function(_LoadCourseCategories value)? loadCourseCategories,
     TResult? Function(_LoadCoursesInCatogory value)? loadCoursesInCatogory,
     TResult? Function(_LoadMyCourses value)? loadMyCourses,
+    TResult? Function(_LoadInstructorCourses value)? loadInstructorCourses,
     TResult? Function(_LoadCourseReport value)? loadCourseReport,
   }) {
     return loadCourseCategories?.call(this);
@@ -188,6 +201,7 @@ class _$_LoadCourseCategories implements _LoadCourseCategories {
     TResult Function(_LoadCourseCategories value)? loadCourseCategories,
     TResult Function(_LoadCoursesInCatogory value)? loadCoursesInCatogory,
     TResult Function(_LoadMyCourses value)? loadMyCourses,
+    TResult Function(_LoadInstructorCourses value)? loadInstructorCourses,
     TResult Function(_LoadCourseReport value)? loadCourseReport,
     required TResult orElse(),
   }) {
@@ -271,6 +285,7 @@ class _$_LoadCoursesInCatogory implements _LoadCoursesInCatogory {
     required TResult Function() loadCourseCategories,
     required TResult Function(String categoryName) loadCoursesInCatogory,
     required TResult Function() loadMyCourses,
+    required TResult Function() loadInstructorCourses,
     required TResult Function(String fromDate, String toDate) loadCourseReport,
   }) {
     return loadCoursesInCatogory(categoryName);
@@ -282,6 +297,7 @@ class _$_LoadCoursesInCatogory implements _LoadCoursesInCatogory {
     TResult? Function()? loadCourseCategories,
     TResult? Function(String categoryName)? loadCoursesInCatogory,
     TResult? Function()? loadMyCourses,
+    TResult? Function()? loadInstructorCourses,
     TResult? Function(String fromDate, String toDate)? loadCourseReport,
   }) {
     return loadCoursesInCatogory?.call(categoryName);
@@ -293,6 +309,7 @@ class _$_LoadCoursesInCatogory implements _LoadCoursesInCatogory {
     TResult Function()? loadCourseCategories,
     TResult Function(String categoryName)? loadCoursesInCatogory,
     TResult Function()? loadMyCourses,
+    TResult Function()? loadInstructorCourses,
     TResult Function(String fromDate, String toDate)? loadCourseReport,
     required TResult orElse(),
   }) {
@@ -309,6 +326,8 @@ class _$_LoadCoursesInCatogory implements _LoadCoursesInCatogory {
     required TResult Function(_LoadCoursesInCatogory value)
         loadCoursesInCatogory,
     required TResult Function(_LoadMyCourses value) loadMyCourses,
+    required TResult Function(_LoadInstructorCourses value)
+        loadInstructorCourses,
     required TResult Function(_LoadCourseReport value) loadCourseReport,
   }) {
     return loadCoursesInCatogory(this);
@@ -320,6 +339,7 @@ class _$_LoadCoursesInCatogory implements _LoadCoursesInCatogory {
     TResult? Function(_LoadCourseCategories value)? loadCourseCategories,
     TResult? Function(_LoadCoursesInCatogory value)? loadCoursesInCatogory,
     TResult? Function(_LoadMyCourses value)? loadMyCourses,
+    TResult? Function(_LoadInstructorCourses value)? loadInstructorCourses,
     TResult? Function(_LoadCourseReport value)? loadCourseReport,
   }) {
     return loadCoursesInCatogory?.call(this);
@@ -331,6 +351,7 @@ class _$_LoadCoursesInCatogory implements _LoadCoursesInCatogory {
     TResult Function(_LoadCourseCategories value)? loadCourseCategories,
     TResult Function(_LoadCoursesInCatogory value)? loadCoursesInCatogory,
     TResult Function(_LoadMyCourses value)? loadMyCourses,
+    TResult Function(_LoadInstructorCourses value)? loadInstructorCourses,
     TResult Function(_LoadCourseReport value)? loadCourseReport,
     required TResult orElse(),
   }) {
@@ -392,6 +413,7 @@ class _$_LoadMyCourses implements _LoadMyCourses {
     required TResult Function() loadCourseCategories,
     required TResult Function(String categoryName) loadCoursesInCatogory,
     required TResult Function() loadMyCourses,
+    required TResult Function() loadInstructorCourses,
     required TResult Function(String fromDate, String toDate) loadCourseReport,
   }) {
     return loadMyCourses();
@@ -403,6 +425,7 @@ class _$_LoadMyCourses implements _LoadMyCourses {
     TResult? Function()? loadCourseCategories,
     TResult? Function(String categoryName)? loadCoursesInCatogory,
     TResult? Function()? loadMyCourses,
+    TResult? Function()? loadInstructorCourses,
     TResult? Function(String fromDate, String toDate)? loadCourseReport,
   }) {
     return loadMyCourses?.call();
@@ -414,6 +437,7 @@ class _$_LoadMyCourses implements _LoadMyCourses {
     TResult Function()? loadCourseCategories,
     TResult Function(String categoryName)? loadCoursesInCatogory,
     TResult Function()? loadMyCourses,
+    TResult Function()? loadInstructorCourses,
     TResult Function(String fromDate, String toDate)? loadCourseReport,
     required TResult orElse(),
   }) {
@@ -430,6 +454,8 @@ class _$_LoadMyCourses implements _LoadMyCourses {
     required TResult Function(_LoadCoursesInCatogory value)
         loadCoursesInCatogory,
     required TResult Function(_LoadMyCourses value) loadMyCourses,
+    required TResult Function(_LoadInstructorCourses value)
+        loadInstructorCourses,
     required TResult Function(_LoadCourseReport value) loadCourseReport,
   }) {
     return loadMyCourses(this);
@@ -441,6 +467,7 @@ class _$_LoadMyCourses implements _LoadMyCourses {
     TResult? Function(_LoadCourseCategories value)? loadCourseCategories,
     TResult? Function(_LoadCoursesInCatogory value)? loadCoursesInCatogory,
     TResult? Function(_LoadMyCourses value)? loadMyCourses,
+    TResult? Function(_LoadInstructorCourses value)? loadInstructorCourses,
     TResult? Function(_LoadCourseReport value)? loadCourseReport,
   }) {
     return loadMyCourses?.call(this);
@@ -452,6 +479,7 @@ class _$_LoadMyCourses implements _LoadMyCourses {
     TResult Function(_LoadCourseCategories value)? loadCourseCategories,
     TResult Function(_LoadCoursesInCatogory value)? loadCoursesInCatogory,
     TResult Function(_LoadMyCourses value)? loadMyCourses,
+    TResult Function(_LoadInstructorCourses value)? loadInstructorCourses,
     TResult Function(_LoadCourseReport value)? loadCourseReport,
     required TResult orElse(),
   }) {
@@ -464,6 +492,128 @@ class _$_LoadMyCourses implements _LoadMyCourses {
 
 abstract class _LoadMyCourses implements CoursesEvent {
   const factory _LoadMyCourses() = _$_LoadMyCourses;
+}
+
+/// @nodoc
+abstract class _$$_LoadInstructorCoursesCopyWith<$Res> {
+  factory _$$_LoadInstructorCoursesCopyWith(_$_LoadInstructorCourses value,
+          $Res Function(_$_LoadInstructorCourses) then) =
+      __$$_LoadInstructorCoursesCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_LoadInstructorCoursesCopyWithImpl<$Res>
+    extends _$CoursesEventCopyWithImpl<$Res, _$_LoadInstructorCourses>
+    implements _$$_LoadInstructorCoursesCopyWith<$Res> {
+  __$$_LoadInstructorCoursesCopyWithImpl(_$_LoadInstructorCourses _value,
+      $Res Function(_$_LoadInstructorCourses) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_LoadInstructorCourses implements _LoadInstructorCourses {
+  const _$_LoadInstructorCourses();
+
+  @override
+  String toString() {
+    return 'CoursesEvent.loadInstructorCourses()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_LoadInstructorCourses);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadCourseCategories,
+    required TResult Function(String categoryName) loadCoursesInCatogory,
+    required TResult Function() loadMyCourses,
+    required TResult Function() loadInstructorCourses,
+    required TResult Function(String fromDate, String toDate) loadCourseReport,
+  }) {
+    return loadInstructorCourses();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadCourseCategories,
+    TResult? Function(String categoryName)? loadCoursesInCatogory,
+    TResult? Function()? loadMyCourses,
+    TResult? Function()? loadInstructorCourses,
+    TResult? Function(String fromDate, String toDate)? loadCourseReport,
+  }) {
+    return loadInstructorCourses?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadCourseCategories,
+    TResult Function(String categoryName)? loadCoursesInCatogory,
+    TResult Function()? loadMyCourses,
+    TResult Function()? loadInstructorCourses,
+    TResult Function(String fromDate, String toDate)? loadCourseReport,
+    required TResult orElse(),
+  }) {
+    if (loadInstructorCourses != null) {
+      return loadInstructorCourses();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadCourseCategories value) loadCourseCategories,
+    required TResult Function(_LoadCoursesInCatogory value)
+        loadCoursesInCatogory,
+    required TResult Function(_LoadMyCourses value) loadMyCourses,
+    required TResult Function(_LoadInstructorCourses value)
+        loadInstructorCourses,
+    required TResult Function(_LoadCourseReport value) loadCourseReport,
+  }) {
+    return loadInstructorCourses(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadCourseCategories value)? loadCourseCategories,
+    TResult? Function(_LoadCoursesInCatogory value)? loadCoursesInCatogory,
+    TResult? Function(_LoadMyCourses value)? loadMyCourses,
+    TResult? Function(_LoadInstructorCourses value)? loadInstructorCourses,
+    TResult? Function(_LoadCourseReport value)? loadCourseReport,
+  }) {
+    return loadInstructorCourses?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadCourseCategories value)? loadCourseCategories,
+    TResult Function(_LoadCoursesInCatogory value)? loadCoursesInCatogory,
+    TResult Function(_LoadMyCourses value)? loadMyCourses,
+    TResult Function(_LoadInstructorCourses value)? loadInstructorCourses,
+    TResult Function(_LoadCourseReport value)? loadCourseReport,
+    required TResult orElse(),
+  }) {
+    if (loadInstructorCourses != null) {
+      return loadInstructorCourses(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadInstructorCourses implements CoursesEvent {
+  const factory _LoadInstructorCourses() = _$_LoadInstructorCourses;
 }
 
 /// @nodoc
@@ -542,6 +692,7 @@ class _$_LoadCourseReport implements _LoadCourseReport {
     required TResult Function() loadCourseCategories,
     required TResult Function(String categoryName) loadCoursesInCatogory,
     required TResult Function() loadMyCourses,
+    required TResult Function() loadInstructorCourses,
     required TResult Function(String fromDate, String toDate) loadCourseReport,
   }) {
     return loadCourseReport(fromDate, toDate);
@@ -553,6 +704,7 @@ class _$_LoadCourseReport implements _LoadCourseReport {
     TResult? Function()? loadCourseCategories,
     TResult? Function(String categoryName)? loadCoursesInCatogory,
     TResult? Function()? loadMyCourses,
+    TResult? Function()? loadInstructorCourses,
     TResult? Function(String fromDate, String toDate)? loadCourseReport,
   }) {
     return loadCourseReport?.call(fromDate, toDate);
@@ -564,6 +716,7 @@ class _$_LoadCourseReport implements _LoadCourseReport {
     TResult Function()? loadCourseCategories,
     TResult Function(String categoryName)? loadCoursesInCatogory,
     TResult Function()? loadMyCourses,
+    TResult Function()? loadInstructorCourses,
     TResult Function(String fromDate, String toDate)? loadCourseReport,
     required TResult orElse(),
   }) {
@@ -580,6 +733,8 @@ class _$_LoadCourseReport implements _LoadCourseReport {
     required TResult Function(_LoadCoursesInCatogory value)
         loadCoursesInCatogory,
     required TResult Function(_LoadMyCourses value) loadMyCourses,
+    required TResult Function(_LoadInstructorCourses value)
+        loadInstructorCourses,
     required TResult Function(_LoadCourseReport value) loadCourseReport,
   }) {
     return loadCourseReport(this);
@@ -591,6 +746,7 @@ class _$_LoadCourseReport implements _LoadCourseReport {
     TResult? Function(_LoadCourseCategories value)? loadCourseCategories,
     TResult? Function(_LoadCoursesInCatogory value)? loadCoursesInCatogory,
     TResult? Function(_LoadMyCourses value)? loadMyCourses,
+    TResult? Function(_LoadInstructorCourses value)? loadInstructorCourses,
     TResult? Function(_LoadCourseReport value)? loadCourseReport,
   }) {
     return loadCourseReport?.call(this);
@@ -602,6 +758,7 @@ class _$_LoadCourseReport implements _LoadCourseReport {
     TResult Function(_LoadCourseCategories value)? loadCourseCategories,
     TResult Function(_LoadCoursesInCatogory value)? loadCoursesInCatogory,
     TResult Function(_LoadMyCourses value)? loadMyCourses,
+    TResult Function(_LoadInstructorCourses value)? loadInstructorCourses,
     TResult Function(_LoadCourseReport value)? loadCourseReport,
     required TResult orElse(),
   }) {

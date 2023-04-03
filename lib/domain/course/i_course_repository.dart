@@ -11,6 +11,7 @@ abstract class ICourseRepository {
   Future<Either<NetworkFailure, CourseInCategoryResponse>> getCoursesInCategory(
       String userId, String categoryName);
   Future<Either<NetworkFailure, MyCoursesResponse>> getMyCourse(String userId);
+  Future<Either<NetworkFailure, InstructorCourseListResponse>> getInstructor(String userId);
   Future<Either<NetworkFailure, MyCourseReportResponse>> getCourseReport(
       Map data);
 }

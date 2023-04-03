@@ -92,3 +92,104 @@ class AboutCourse {
     aboutDescription = json['about_description'];
   }
 }
+class InstructorCourseListResponse {
+  bool? success;
+  int? statusCode;
+  List<Course>? course;
+
+  InstructorCourseListResponse({this.success, this.statusCode, this.course});
+
+  InstructorCourseListResponse.fromJson(Map<String, dynamic> json) {
+    success = json['success'];
+    statusCode = json['status_code'];
+    if (json['course'] != null) {
+      course = <Course>[];
+      json['course'].forEach((v) {
+        course!.add(new Course.fromJson(v));
+      });
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['success'] = this.success;
+    data['status_code'] = this.statusCode;
+    if (this.course != null) {
+      data['course'] = this.course!.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
+}
+
+class Course {
+  int? id;
+  String? title;
+  String? description;
+  String? category;
+  String? amount;
+  String? institution;
+  String? aboutTitle;
+  String? aboutDescription;
+  String? instructor;
+  String? url;
+  String? embadedUrl;
+  String? duration;
+  String? courseThumbnail;
+  String? createdAt;
+  String? updatedAt;
+
+  Course(
+      {this.id,
+        this.title,
+        this.description,
+        this.category,
+        this.amount,
+        this.institution,
+        this.aboutTitle,
+        this.aboutDescription,
+        this.instructor,
+        this.url,
+        this.embadedUrl,
+        this.duration,
+        this.courseThumbnail,
+        this.createdAt,
+        this.updatedAt});
+
+  Course.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    title = json['title'];
+    description = json['description'];
+    category = json['category'];
+    amount = json['amount'];
+    institution = json['institution'];
+    aboutTitle = json['about_title'];
+    aboutDescription = json['about_description'];
+    instructor = json['instructor'];
+    url = json['url'];
+    embadedUrl = json['embaded_url'];
+    duration = json['duration'];
+    courseThumbnail = json['course_thumbnail'];
+    createdAt = json['created_at'];
+    updatedAt = json['updated_at'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['title'] = this.title;
+    data['description'] = this.description;
+    data['category'] = this.category;
+    data['amount'] = this.amount;
+    data['institution'] = this.institution;
+    data['about_title'] = this.aboutTitle;
+    data['about_description'] = this.aboutDescription;
+    data['instructor'] = this.instructor;
+    data['url'] = this.url;
+    data['embaded_url'] = this.embadedUrl;
+    data['duration'] = this.duration;
+    data['course_thumbnail'] = this.courseThumbnail;
+    data['created_at'] = this.createdAt;
+    data['updated_at'] = this.updatedAt;
+    return data;
+  }
+}

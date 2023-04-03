@@ -48,6 +48,16 @@ class CoursesBloc extends Bloc<CoursesEvent, CoursesState> {
       failureOrSuccess.fold((l) => emit(CoursesState.loadFailure(l)),
           (r) => emit(CoursesState.loadSuccess(r)));
     });
+    on<_LoadInstructorCourses>((event, emit) async {
+      emit(const CoursesState.loadInProgress());
+      Either<NetworkFailure, InstructorCourseListResponse> failureOrSuccess;
+
+      failureOrSuccess =
+      await courseRepository.getInstructor(UserDetailsLocal.userId);
+
+      failureOrSuccess.fold((l) => emit(CoursesState.loadFailure(l)),
+              (r) => emit(CoursesState.loadSuccess(r)));
+    });
 
     on<_LoadCourseReport>((event, emit) async {
       emit(const CoursesState.loadInProgress());

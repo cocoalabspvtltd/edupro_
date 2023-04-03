@@ -4,6 +4,7 @@ import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:date_field/date_field.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pgs_edupro/application/course/courses_bloc.dart';
 import 'package:pgs_edupro/application/instructor/instructor_bloc.dart';
@@ -17,6 +18,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
+File? imageC;
 class AddcousresScreenForm extends StatefulWidget {
   const AddcousresScreenForm({
     super.key,
@@ -29,7 +31,8 @@ class AddcousresScreenForm extends StatefulWidget {
 class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
   String? fromDate;
   String? toDate;
-  File? _image;
+    XFile? _image;
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<InstructorBloc, InstructorState>(
@@ -168,7 +171,7 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
                   null,
                   "Url",
                   'assets/icons/profile_icons/location.png',
-                  TextInputType.number,
+                  TextInputType.text,
                   maxLine: 2),
               thickSpace,
               _image != null
@@ -181,7 +184,7 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
               )
                   : InkWell(
                 onTap: () {
-                  pickImage();
+                  _showpicker;
                 },
                 child: Container(
                   height: 45,
@@ -203,7 +206,10 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
                       Spacer(),
                       IconButton(
                           onPressed: () {
-                            pickImage();
+print("fcsdc");
+                            _showpicker(context);
+
+
                           },
                           icon: Icon(
                             Icons.file_present,
@@ -278,6 +284,7 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
                   onPressed:() => context
                       .read<InstructorBloc>()
                       .add( InstructorEvent.submitPressed()),
+
                   style: ElevatedButton.styleFrom(
                       elevation: 4, disabledBackgroundColor: Colors.grey
                     // shape: RoundedRectangleBorder(
@@ -289,10 +296,10 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
               ),
               thickSpace,
               thickSpace,
-              if (state.isSubmitting) ...[
-                const SizedBox(height: 8),
-                const LinearProgressIndicator(value: null),
-              ],
+              // if (state.isSubmitting) ...[
+              //   const SizedBox(height: 8),
+              //   const LinearProgressIndicator(value: null),
+              // ],
               thickSpace,
               thickSpace,
             ],
@@ -301,12 +308,91 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
       },
     );
   }
+  final ImagePicker _picker = ImagePicker();
+  _imagefromGallery(context) async {
+    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+    setState(() {
+      _image = image!;
+      print("wqswq=>${_image}");
+      imageC = File(_image!.path);
+      print("->>${imageC}");
+
+    });
+    Get.back();
+  }
+
+  _imagefromComera(context) async {
+    final XFile? photo = await _picker.pickImage(source: ImageSource.camera);
+    setState(() {
+      _image = photo!;
+    });
+    Get.back();
+  }
+
+  _showpicker(context) {
+    showModalBottomSheet(
+        shape:
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        backgroundColor: Colors.white,
+        context: context,
+        builder: (context) {
+          return SizedBox(
+            height: 100,
+            child: Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    children: [
+                      SizedBox(width: screenWidth * 0.1),
+                      CircleAvatar(
+                        radius: 24,
+                        backgroundColor: primaryColor,
+                        child: IconButton(
+                          onPressed: () {
+                            _imagefromComera(context);
+                          },
+                          icon: const Icon(Icons.camera_alt_rounded,
+                              color: Colors.white),
+                          iconSize: 30,
+                        ),
+                      ),
+                      const Text("Camera"),
+                    ],
+                  ),
+                  SizedBox(width: screenWidth * 0.08),
+                  Column(
+                    children: [
+                      CircleAvatar(
+                        radius: 24,
+                        backgroundColor: primaryColor,
+                        child: IconButton(
+                          onPressed: () {
+                            _imagefromGallery(context);
+                          },
+                          icon: const Icon(Icons.photo),
+                          color: Colors.white,
+                          iconSize: 30,
+                        ),
+                      ),
+                      const Text("Gallery"),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          );
+        });
+  }
   Future pickImage() async {
     try {
       final image = await ImagePicker().pickImage(source: ImageSource.gallery);
       if (image == null) return;
-      _image = File(image.path);
-      print(("=>${_image}"));
+      _image = XFile(image.path);
+
+
       setState(() {});
     } on PlatformException catch (e) {
       print('Failed to pick image: $e');

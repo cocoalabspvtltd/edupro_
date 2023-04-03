@@ -21,6 +21,8 @@ import 'package:pgs_edupro/presentation/ui/instructor/instructor_home/widgets/in
 import 'package:pgs_edupro/presentation/ui/instructor/instructor_profile/instructor_profile_screen.dart';
 import 'package:pgs_edupro/presentation/ui/profile/profile_screen.dart';
 
+import '../instructor_add_course/my_courses.dart';
+
 class InstructorHomeScreen extends StatefulWidget {
   final int selectedIndex;
   const InstructorHomeScreen({super.key, this.selectedIndex = 0});
@@ -102,9 +104,9 @@ class _InstructorHomeScreenState extends State<InstructorHomeScreen> {
               return Future.value(true);
             },
             child: _selectedIndex == 2
-                ? InstructorProfileScreen()
+                ? ProfileScreen()
                     : _selectedIndex == 1
-                        ? MyCourseScreen()
+                        ? MyCourseInstructorScreen()
                         : _selectedIndex == 0
                             ? IstructorHomeBody()
                             : Center(child: Text("hai"))),

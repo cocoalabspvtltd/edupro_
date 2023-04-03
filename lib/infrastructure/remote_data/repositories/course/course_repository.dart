@@ -14,6 +14,8 @@ import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_repor
 import 'package:pgs_edupro/infrastructure/remote_data/models/my_course/my_courses_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/source/api.dart';
 
+import '../../models/my_course/addcourses.dart';
+
 class CourseRepository implements ICourseRepository {
   ApiProvider? apiClient;
 
@@ -81,7 +83,7 @@ class CourseRepository implements ICourseRepository {
     try {
       Response response = await apiClient!
           .getJsonInstance()
-          .post(Api.getMyCources, data: {'user_id': UserDetailsLocal.userId});
+          .get(Api.getMyCources, queryParameters: {'user_id': UserDetailsLocal.userId});
 
       return right(MyCoursesResponse.fromJson(response.data));
     } on DioError catch (e) {
@@ -101,6 +103,7 @@ class CourseRepository implements ICourseRepository {
       return left(const NetworkFailure.unexpected());
     }
   }
+
 
   @override
   Future<Either<NetworkFailure, MyCourseReportResponse>> getCourseReport(
@@ -129,15 +132,15 @@ class CourseRepository implements ICourseRepository {
   }
 
   @override
-  Future<Either<NetworkFailure, Unit>> addCourseInstructor(
-      Map body) async {
+  Future<Either<NetworkFailure, AddCoursesResponse>> addCourseInstructor(
+      FormData body) async {
     log("body->${body}");
     try {
       Response response = await apiClient!
           .getJsonInstance()
           .post(Api.addCourses, data: body);
 print("response->${response.data}");
-      return response.data;
+     return right(AddCoursesResponse.fromJson(response.data));
     } on DioError catch (e) {
       if (e.response != null) {
         if (e.response!.statusCode == 401) {
@@ -151,6 +154,33 @@ print("response->${response.data}");
       }
       return left(const NetworkFailure.unexpected());
     } catch (e) {
+      return left(const NetworkFailure.unexpected());
+    }
+  }
+
+
+  @override
+  Future<Either<NetworkFailure, InstructorCourseListResponse>> getInstructor(String userId) async {
+    try {
+      Response response = await apiClient!
+          .getJsonInstance()
+          .post(Api.getInstructorCources, data: {'user_id': UserDetailsLocal.userId});
+
+      return right(InstructorCourseListResponse.fromJson(response.data));
+    } on DioError catch (e) {
+      if (e.response != null) {
+        if (e.response!.statusCode == 401) {
+          return left(
+              NetworkFailure.unAuthorized(e.response!.data["message"] ?? ''));
+        }
+        return left(NetworkFailure.serverError(
+            "Status Code ${e.response!.statusCode}"));
+      } else if (e.toString().contains('Connecting timed out')) {
+        return left(const NetworkFailure.serverTimeOut());
+      }
+      return left(const NetworkFailure.unexpected());
+    } catch (e) {
+      log(e.toString());
       return left(const NetworkFailure.unexpected());
     }
   }
