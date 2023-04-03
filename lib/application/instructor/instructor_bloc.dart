@@ -29,7 +29,12 @@ class InstructorBloc extends Bloc<InstructorEvent, InstructorState> {
 
 
 
-
+    // on<_$_TitleChanged>((event, emit) {
+    //   emit(state.copyWith(
+    //     title: Title(event.titleStr),
+    //     submitFailedOrSuccessOption: none(),
+    //   ));
+    // });
 
     on<_SubmitPressed>((event, emit) async {
       final isTitleValid = state.title != '' ? true : false;
@@ -46,14 +51,14 @@ class InstructorBloc extends Bloc<InstructorEvent, InstructorState> {
         );
 
         Map body = {
-          "title": state.title,
-          "about_title": state.aboutTitle,
-          "amount": state.amount,
-          "duration": state.duration,
+          "title": state.title.text,
+          "about_title": state.aboutTitle.text,
+          "amount": state.amount.text,
+          "duration": state.duration.text,
           "category": state.category,
-          "url": state.url,
+          "url": state.url.text,
           "description":
-              "${state.description}<br><br><p>${state.whatYouLearn}</p><br><br><p>${state.areThere}</p><br><br><p>${state.whoIsThis}",
+              "${state.description.text}<br><br><p>${state.whatYouLearn.text}</p><br><br><p>${state.areThere.text}</p><br><br><p>${state.whoIsThis.text}",
           "course_thumbnail":state.displayPicture
         };
         //AppDialogs.loading();

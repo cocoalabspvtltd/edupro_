@@ -12,6 +12,7 @@ class CourseCategoriesListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("List");
     return SizedBox(
       height: 113,
       //width: screenWidth,
