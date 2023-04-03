@@ -97,7 +97,7 @@ class ServerAuthFacade implements IAuthFacade {
                   r.user!.dob?.toString() ?? '',
                   r.user!.address ?? '',
                   '',
-                  '',);
+                  );
             } catch (e) {
               toastMessage('Unexpected Response');
               log("shared pref ${e.toString()}");
@@ -164,7 +164,7 @@ class ServerAuthFacade implements IAuthFacade {
                   r.instructor!.id.toString(),
                   r.instructor!.name!,
                   r.instructor!.email!,
-                  "","","","","",
+                  "","","","",
               );
             } catch (e) {
               toastMessage('Unexpected Response');
@@ -223,7 +223,7 @@ class ServerAuthFacade implements IAuthFacade {
                   r.instructor!.id.toString(),
                   r.instructor!.name!,
                   r.instructor!.email!,
-                  "","","","","",
+                  "","","","",
               );
             }
             else{
@@ -232,7 +232,7 @@ class ServerAuthFacade implements IAuthFacade {
                   r.token!,
                   r.user!.id.toString(),
                   r.user!.name ?? '',
-                  r.user!.email ?? '',"","","","",""
+                  r.user!.email ?? '',"","","","",
               );
 
             }

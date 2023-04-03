@@ -30,7 +30,6 @@ class SharedPrefs {
         getString(spEmail),
         getString(spMobile),
         getString(spDob),
-        getString(spType),
         getString(spAddress),
         getString(spUserImageUrl));
   }
@@ -51,7 +50,6 @@ class SharedPrefs {
     UserDetails userDetails = response.user!;
 
     await setString(spToken,token);
-    await setString(spType, type);
     await setString(spUserId, '${userDetails.id ?? ''}');
     await setString(spEmail, userDetails.email ?? '');
     await setString(spName, userDetails.name ?? '');
@@ -63,7 +61,7 @@ class SharedPrefs {
 
     UserDetailsLocal.set(
       token,
-      type,
+
       '${userDetails.id ?? ''}',
       userDetails.name ?? '',
       userDetails.email ?? '',
@@ -95,13 +93,11 @@ class SharedPrefs {
 
     UserDetailsLocal.set(
         token,
-        type,
         '${userDetails.id ?? ''}',
         userDetails.name ?? '',
         userDetails.email ?? '',
         userDetails.phoneNumber ?? '',
         userDetails.dob ?? '',
-
         userDetails.address ?? '',
         userDetails.profilePhoto ?? '');
     return true;
@@ -109,7 +105,7 @@ class SharedPrefs {
 
   static Future<bool> logOut() async {
     await _preferences.clear();
-    UserDetailsLocal.set('', '', '', '', '', '', '', '','');
+    UserDetailsLocal.set('', '', '', '', '', '', '', '',);
 
     Get.offAll(() => const LogInScreen());
     return true;
@@ -120,6 +116,8 @@ class SharedPrefs {
   }
 
   static bool getBool(String key) {
+
     return _preferences.getBool(key) ?? false;
+
   }
 }

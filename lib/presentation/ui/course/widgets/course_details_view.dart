@@ -12,7 +12,6 @@ import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_in_ca
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:pgs_edupro/infrastructure/remote_data/source/api.dart';
 import 'package:pgs_edupro/presentation/ui/payment/payment_form_screen.dart';
 import 'package:pgs_edupro/presentation/widgets/youtube_player_widget.dart';
 import 'package:http/http.dart' as http;
