@@ -16,6 +16,8 @@ class CourseListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+
     return BlocConsumer<PaymentBloc, PaymentState>(
       listener: (context, state) {
         state.getPaymentSuccessOrFailureOption.fold(() {}, (either) {
