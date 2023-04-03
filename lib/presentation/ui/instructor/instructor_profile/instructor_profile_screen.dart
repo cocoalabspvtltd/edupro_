@@ -28,7 +28,7 @@ class InstructorProfileScreen extends StatelessWidget {
                       color: Colors.black,
                       child: const Padding(
                         padding: EdgeInsets.all(15.0),
-                        child: InstructorDisplayPicture(),
+                        child: DisplayPicture(),
                       )),
                   const InstructorProfileForm(),
                 ],

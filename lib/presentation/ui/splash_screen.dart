@@ -37,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
             initial: (_) {},
             authenticated: (_) async =>
                 Future.delayed(const Duration(seconds: 1)).then((value) =>
-                    get_x.Get.offAll(() => const MembershipCheckScreen(),
+                    get_x.Get.offAll(() =>  MembershipCheckScreen(),
                         transition: get_x.Transition.zoom,
                         duration: const Duration(seconds: 1))),
             unauthenticated: (_) async =>

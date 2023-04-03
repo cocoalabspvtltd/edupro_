@@ -16,186 +16,6 @@ class InstructorProfileForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return
-    //   Form(
-    //   // key: _formKey,
-    //   // autovalidateMode: state.showErrorMessages
-    //   //     ? AutovalidateMode.always
-    //   //     : AutovalidateMode.disabled,
-    //   child: ListView(
-    //     shrinkWrap: true,
-    //     physics: const NeverScrollableScrollPhysics(),
-    //     padding: const EdgeInsets.all(15),
-    //     children: <Widget>[
-    //         _textForm(
-    //           nameController,
-    //               // (v) => context
-    //               // .read<ProfileBloc>()
-    //               // .add(ProfileEvent.nameChanged(v)),
-    //               // (_) =>
-    //               // context.read<ProfileBloc>().state.name.value.fold(
-    //               //       (f) => f.maybeMap(
-    //               //     invalidName: (_) => 'Invalid Name',
-    //               //     orElse: () => null,
-    //               //   ),
-    //               //       (_) => null,
-    //               // ),
-    //           "Name",
-    //           'assets/icons/profile_icons/person.png',
-    //           true,
-    //           TextInputType.name,
-    //           formatter: [
-    //             FilteringTextInputFormatter.allow(
-    //                 RegExp(r'[a-zA-Z\s]')),
-    //           ],
-    //         ),
-    //         thickSpace,
-    //         thickSpace,
-    //         // _textForm(
-    //         //     state.emailController,
-    //         //     (v) => context
-    //         //         .read<ProfileBloc>()
-    //         //         .add(ProfileEvent.emailChanged(v)),
-    //         //     (_) => context
-    //         //         .read<ProfileBloc>()
-    //         //         .state
-    //         //         .emailAddress
-    //         //         .value
-    //         //         .fold(
-    //         //           (f) => f.maybeMap(
-    //         //             invalidEmail: (_) => 'Invalid Email',
-    //         //             orElse: () => null,
-    //         //           ),
-    //         //           (_) => null,
-    //         //         ),
-    //         //     "Email Address",
-    //         //     'assets/icons/profile_icons/mail.png',
-    //         //     false,
-    //         //     TextInputType.emailAddress),
-    //         //thickSpace,
-    //         //thickSpace,
-    //       _textForm(
-    //         phoneNumberController,
-    //         //     (v) => context
-    //         //     .read<ProfileBloc>()
-    //         //     .add(ProfileEvent.phoneNumberChanged(v)),
-    //         //     (_) => context
-    //         //     .read<ProfileBloc>()
-    //         //     .state
-    //         //     .phoneNumber
-    //         //     .value
-    //         //     .fold(
-    //         //       (f) => f.maybeMap(
-    //         //     invalidPhoneNumber: (_) => 'Invalid Phone Number',
-    //         //     orElse: () => null,
-    //         //   ),
-    //         //       (_) => null,
-    //         // ),
-    //         "Phone Number",
-    //         'assets/icons/profile_icons/phone.png',
-    //         true,
-    //         TextInputType.number,
-    //         formatter: [
-    //           FilteringTextInputFormatter.digitsOnly,
-    //           LengthLimitingTextInputFormatter(10),
-    //         ],
-    //       ),
-    //       thickSpace,
-    //       thickSpace,
-    //       Text(
-    //         "Date of Birth",
-    //         style: boldValue,
-    //       ),
-    //       thickSpace,
-    //       DateTimeFormField(
-    //         initialValue: DateTime.now(),
-    //         dateTextStyle: const TextStyle(
-    //             fontWeight: FontWeight.w600, fontSize: 15),
-    //         enabled: true,
-    //         //dateFormat: DateFormat.yMd(),
-    //         decoration: InputDecoration(
-    //           //filled: true,
-    //           fillColor: primaryColor[100],
-    //           prefixIcon: Image.asset('assets/icons/profile_icons/calender.png'),
-    //           prefixIconConstraints: const BoxConstraints(
-    //             maxHeight: 30,
-    //             minHeight: 30,
-    //             maxWidth: 50,
-    //             minWidth: 50,
-    //           ),
-    //           hintStyle: TextStyle(color: primaryColor[200]),
-    //           border: const OutlineInputBorder(),
-    //           suffixIcon: const Icon(Icons.event_note),
-    //           enabledBorder:
-    //                OutlineInputBorder(
-    //               borderSide:
-    //               BorderSide(color: primaryColor, width: 2))
-    //         ),
-    //         mode: DateTimeFieldPickerMode.date,
-    //         //firstDate: DateTime.now().add(const Duration(days: 10)),
-    //         lastDate: DateTime.now().add(const Duration(days: 40)),
-    //         // initialDate:
-    //         //     DateTime.now().add(const Duration(days: 20)),
-    //         autovalidateMode: AutovalidateMode.always,
-    //         onDateSelected: (DateTime value) => context
-    //             .read<ProfileBloc>()
-    //             .add(ProfileEvent.dobChanged(
-    //             DateFormat("MM/dd/yyyy").format(value))),
-    //       ),
-    //       thickSpace,
-    //       thickSpace,
-    //       _textForm(
-    //           addressController,
-    //           //     (v) => context
-    //           //     .read<ProfileBloc>()
-    //           //     .add(ProfileEvent.addressChanged(v)),
-    //           // null,
-    //           "Address",
-    //           'assets/icons/profile_icons/location.png',
-    //           true,
-    //           TextInputType.streetAddress,
-    //           maxLine: 2),
-    //       thickSpace,
-    //       thickSpace,
-    //       thickSpace,
-    //       SizedBox(
-    //         height: 50,
-    //         width: screenWidth / 2 - 20,
-    //         child: ElevatedButton(
-    //           onPressed: (){},
-    //           // onPressed: !state.enableEdit
-    //           //     ? null
-    //           //     : () => context
-    //           //     .read<ProfileBloc>()
-    //           //     .add(const ProfileEvent.saveAndUpdatePressed()),
-    //           style: ElevatedButton.styleFrom(
-    //               elevation: 4, disabledBackgroundColor: Colors.grey
-    //             // shape: RoundedRectangleBorder(
-    //             //   borderRadius: BorderRadius.circular(50),
-    //             //),
-    //           ),
-    //           child: const Text('Save And Update'),
-    //         ),
-    //       ),
-    //       thickSpace,
-    //       thickSpace,
-    //       SizedBox(
-    //         width: screenWidth / 2 - 20,
-    //         height: 50,
-    //         child: ElevatedButton(
-    //             onPressed: () {
-    //               // Get.to(() => ChangePasswordScreen());
-    //             },
-    //             child: const Text("Change Password")),
-    //       ),
-    //       // if (state.isSubmitting) ...[
-    //       //   const SizedBox(height: 8),
-    //       //   const LinearProgressIndicator(value: null),
-    //       // ],
-    //       thickSpace,
-    //       thickSpace,
-    //     ],
-    //   ),
-    // );
       BlocConsumer<ProfileBloc, ProfileState>(
       listener: (context, state) {
         state.loadFailureOrSuccessOption.fold(
@@ -234,6 +54,9 @@ class InstructorProfileForm extends StatelessWidget {
         });
       },
       builder: (context, state) {
+        print("Name-->${state.name}");
+        print("emailAddress-->${state.emailAddress}");
+        print("dob-->${state.dob}");
         return state.isLoading
             ? SizedBox(
           height: screenHeight - 180,
@@ -468,3 +291,184 @@ class InstructorProfileForm extends StatelessWidget {
     );
   }
 }
+
+//   Form(
+//   // key: _formKey,
+//   // autovalidateMode: state.showErrorMessages
+//   //     ? AutovalidateMode.always
+//   //     : AutovalidateMode.disabled,
+//   child: ListView(
+//     shrinkWrap: true,
+//     physics: const NeverScrollableScrollPhysics(),
+//     padding: const EdgeInsets.all(15),
+//     children: <Widget>[
+//         _textForm(
+//           nameController,
+//               // (v) => context
+//               // .read<ProfileBloc>()
+//               // .add(ProfileEvent.nameChanged(v)),
+//               // (_) =>
+//               // context.read<ProfileBloc>().state.name.value.fold(
+//               //       (f) => f.maybeMap(
+//               //     invalidName: (_) => 'Invalid Name',
+//               //     orElse: () => null,
+//               //   ),
+//               //       (_) => null,
+//               // ),
+//           "Name",
+//           'assets/icons/profile_icons/person.png',
+//           true,
+//           TextInputType.name,
+//           formatter: [
+//             FilteringTextInputFormatter.allow(
+//                 RegExp(r'[a-zA-Z\s]')),
+//           ],
+//         ),
+//         thickSpace,
+//         thickSpace,
+//         // _textForm(
+//         //     state.emailController,
+//         //     (v) => context
+//         //         .read<ProfileBloc>()
+//         //         .add(ProfileEvent.emailChanged(v)),
+//         //     (_) => context
+//         //         .read<ProfileBloc>()
+//         //         .state
+//         //         .emailAddress
+//         //         .value
+//         //         .fold(
+//         //           (f) => f.maybeMap(
+//         //             invalidEmail: (_) => 'Invalid Email',
+//         //             orElse: () => null,
+//         //           ),
+//         //           (_) => null,
+//         //         ),
+//         //     "Email Address",
+//         //     'assets/icons/profile_icons/mail.png',
+//         //     false,
+//         //     TextInputType.emailAddress),
+//         //thickSpace,
+//         //thickSpace,
+//       _textForm(
+//         phoneNumberController,
+//         //     (v) => context
+//         //     .read<ProfileBloc>()
+//         //     .add(ProfileEvent.phoneNumberChanged(v)),
+//         //     (_) => context
+//         //     .read<ProfileBloc>()
+//         //     .state
+//         //     .phoneNumber
+//         //     .value
+//         //     .fold(
+//         //       (f) => f.maybeMap(
+//         //     invalidPhoneNumber: (_) => 'Invalid Phone Number',
+//         //     orElse: () => null,
+//         //   ),
+//         //       (_) => null,
+//         // ),
+//         "Phone Number",
+//         'assets/icons/profile_icons/phone.png',
+//         true,
+//         TextInputType.number,
+//         formatter: [
+//           FilteringTextInputFormatter.digitsOnly,
+//           LengthLimitingTextInputFormatter(10),
+//         ],
+//       ),
+//       thickSpace,
+//       thickSpace,
+//       Text(
+//         "Date of Birth",
+//         style: boldValue,
+//       ),
+//       thickSpace,
+//       DateTimeFormField(
+//         initialValue: DateTime.now(),
+//         dateTextStyle: const TextStyle(
+//             fontWeight: FontWeight.w600, fontSize: 15),
+//         enabled: true,
+//         //dateFormat: DateFormat.yMd(),
+//         decoration: InputDecoration(
+//           //filled: true,
+//           fillColor: primaryColor[100],
+//           prefixIcon: Image.asset('assets/icons/profile_icons/calender.png'),
+//           prefixIconConstraints: const BoxConstraints(
+//             maxHeight: 30,
+//             minHeight: 30,
+//             maxWidth: 50,
+//             minWidth: 50,
+//           ),
+//           hintStyle: TextStyle(color: primaryColor[200]),
+//           border: const OutlineInputBorder(),
+//           suffixIcon: const Icon(Icons.event_note),
+//           enabledBorder:
+//                OutlineInputBorder(
+//               borderSide:
+//               BorderSide(color: primaryColor, width: 2))
+//         ),
+//         mode: DateTimeFieldPickerMode.date,
+//         //firstDate: DateTime.now().add(const Duration(days: 10)),
+//         lastDate: DateTime.now().add(const Duration(days: 40)),
+//         // initialDate:
+//         //     DateTime.now().add(const Duration(days: 20)),
+//         autovalidateMode: AutovalidateMode.always,
+//         onDateSelected: (DateTime value) => context
+//             .read<ProfileBloc>()
+//             .add(ProfileEvent.dobChanged(
+//             DateFormat("MM/dd/yyyy").format(value))),
+//       ),
+//       thickSpace,
+//       thickSpace,
+//       _textForm(
+//           addressController,
+//           //     (v) => context
+//           //     .read<ProfileBloc>()
+//           //     .add(ProfileEvent.addressChanged(v)),
+//           // null,
+//           "Address",
+//           'assets/icons/profile_icons/location.png',
+//           true,
+//           TextInputType.streetAddress,
+//           maxLine: 2),
+//       thickSpace,
+//       thickSpace,
+//       thickSpace,
+//       SizedBox(
+//         height: 50,
+//         width: screenWidth / 2 - 20,
+//         child: ElevatedButton(
+//           onPressed: (){},
+//           // onPressed: !state.enableEdit
+//           //     ? null
+//           //     : () => context
+//           //     .read<ProfileBloc>()
+//           //     .add(const ProfileEvent.saveAndUpdatePressed()),
+//           style: ElevatedButton.styleFrom(
+//               elevation: 4, disabledBackgroundColor: Colors.grey
+//             // shape: RoundedRectangleBorder(
+//             //   borderRadius: BorderRadius.circular(50),
+//             //),
+//           ),
+//           child: const Text('Save And Update'),
+//         ),
+//       ),
+//       thickSpace,
+//       thickSpace,
+//       SizedBox(
+//         width: screenWidth / 2 - 20,
+//         height: 50,
+//         child: ElevatedButton(
+//             onPressed: () {
+//               // Get.to(() => ChangePasswordScreen());
+//             },
+//             child: const Text("Change Password")),
+//       ),
+//       // if (state.isSubmitting) ...[
+//       //   const SizedBox(height: 8),
+//       //   const LinearProgressIndicator(value: null),
+//       // ],
+//       thickSpace,
+//       thickSpace,
+//     ],
+//   ),
+// );

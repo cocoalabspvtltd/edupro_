@@ -134,7 +134,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
             submitFailedOrSuccessOption: none(),
           ),
         );
-        print("------>>>${UserDetailsLocal.userId}");
+        print("UserId------>>>${UserDetailsLocal.userId}");
         Map body = {
           "user_id": UserDetailsLocal.userId,
           "name": state.name.value.getOrElse(() => ''),
@@ -170,13 +170,14 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         ),
       );
       String fileName = state.displayPicture!.path.split('/').last;
-
+      print("Filename--->${fileName}");
       FormData body = FormData.fromMap({
         "user_id": UserDetailsLocal.userId,
         "profile_photo": await MultipartFile.fromFile(
             state.displayPicture!.path,
             filename: fileName),
       });
+      print("dataa-->${body.fields}");
       Either<NetworkFailure, MyProfileResponse>? failureOrSuccess;
 
       //  AppDialogs.loading();

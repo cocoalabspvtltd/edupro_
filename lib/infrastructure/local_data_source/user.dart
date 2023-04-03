@@ -21,7 +21,6 @@ class UserDetailsLocal {
       String email,
       String mobile,
       String dob,
-
       String address,
       String imageUrl,
 
