@@ -9,6 +9,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 class PaymentFormScreen extends StatefulWidget {
   final String orderid;
+
   final CourseList courseDetails;
   const PaymentFormScreen(
       {super.key, required this.orderid, required this.courseDetails});
