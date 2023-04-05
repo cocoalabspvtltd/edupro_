@@ -85,7 +85,7 @@ class _LogInFormState extends State<LogInForm> {
                       return;
                     }
                     if(state.userStatus == "instructor"){
-                      Get.offAll(() => const InstructorHomeScreen());
+                      Get.offAll(() =>  const InstructorHomeScreen());
                       return;
                     }
                     if (state.password != state.confirmPassword) {

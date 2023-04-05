@@ -1,13 +1,20 @@
+import 'dart:convert';
+
 import 'package:pgs_edupro/application/auth/auth_bloc.dart';
+import 'package:pgs_edupro/application/membership/membership_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/shared_prefs.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/models/auth/user_login_response.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/models/profile/get_my_profile_response.dart';
 import 'package:pgs_edupro/presentation/ui/auth/log_in/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart' as get_x;
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:pgs_edupro/presentation/ui/instructor/instructor_home/instructor_home_screen.dart';
 import 'package:pgs_edupro/presentation/ui/membership_check_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -35,22 +42,36 @@ class _SplashScreenState extends State<SplashScreen> {
       listener: (context, state) {
         state.map(
             initial: (_) {},
-            authenticated: (_) async =>
+            authenticated: (_) async {
+              SharedPreferences prefs = await SharedPreferences.getInstance();
+              var token=prefs.getString(SharedPrefs.spToken);
+              print("tttt${token}");
+              var data = prefs.getString(SharedPrefs.spUserStatus);
+              print("-------${data}");
+              if (data == "new_user") {
                 Future.delayed(const Duration(seconds: 1)).then((value) =>
-                    get_x.Get.offAll(() =>  MembershipCheckScreen(),
+                    get_x.Get.offAll(() =>MembershipCheckScreen(),
                         transition: get_x.Transition.zoom,
-                        duration: const Duration(seconds: 1))),
+                        duration: const Duration(seconds: 1)));
+              }
+              else if(data == "individual_instructor"){
+                Future.delayed(const Duration(seconds: 1)).then((value) =>
+                    get_x.Get.offAll(() =>InstructorHomeScreen(),
+                        transition: get_x.Transition.zoom,
+                        duration: const Duration(seconds: 1)));
+              }
+              else {
+                // Future.delayed(const Duration(seconds: 1)).then((value) =>
+                //     get_x.Get.offAll(() => InstructorHomeScreen(),
+                //         transition: get_x.Transition.zoom,
+                //         duration: const Duration(seconds: 1)));
+              }
+            },
             unauthenticated: (_) async =>
                 Future.delayed(const Duration(seconds: 1)).then((value) =>
                     get_x.Get.off(() => const LogInScreen(),
                         transition: get_x.Transition.zoom,
                         duration: const Duration(seconds: 1))));
-        // Navigator.push(
-        //     context,
-        //     PageTransition(
-        //         duration: Duration(seconds: 1),
-        //         type: PageTransitionType.fade,
-        //         child: LogInScreen()))));
       },
       child: _PageWidget(),
     );

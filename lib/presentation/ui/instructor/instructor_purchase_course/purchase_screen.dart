@@ -18,6 +18,13 @@ class PurchasedCoursesScreen extends StatelessWidget {
       create: (_) => CoursesBloc(CourseRepository())
         ..add(const CoursesEvent.loadPurchaseCourses()),
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.black,
+          title: Text(
+            "Purchases Courses",
+            style: boldValuePrimaryColor,
+          ),
+        ),
         body: BlocBuilder<CoursesBloc, CoursesState>(
           builder: (context, state) {
             return RefreshIndicator(

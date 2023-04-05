@@ -31,7 +31,6 @@ class SharedPrefs {
         getString(spMobile),
         getString(spDob),
         getString(spAddress),
-
         getString(spUserImageUrl),);
   }
 
@@ -68,7 +67,6 @@ class SharedPrefs {
       userDetails.phoneNumber ?? '',
       userDetails.dob ?? '',
       userDetails.address ?? '',
-
       '',
     );
     return true;

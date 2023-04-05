@@ -54,7 +54,6 @@ class LogInBloc extends Bloc<LogInEvent, LogInState> {
 
         emit(state.copyWith(
           isSubmitting: false,
-
           showErrorMessages: true,
           authFailureOrSuccessOption: optionOf(failureOrSuccess),
         ));

@@ -3,8 +3,6 @@ import 'dart:convert';
 import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pgs_edupro/domain/auth/auth_failure.dart';
 import 'package:pgs_edupro/domain/auth/i_auth_facade.dart';
 import 'package:pgs_edupro/domain/auth/user.dart';
@@ -12,9 +10,9 @@ import 'package:pgs_edupro/domain/auth/value_objects.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/domain/core/value_objects.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/shared_prefs.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/models/auth/user_login_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/auth/auth_repository.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/auth/server_user_mapper.dart';
-import 'package:pgs_edupro/infrastructure/remote_data/models/auth/user_login_response.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 
 class ServerAuthFacade implements IAuthFacade {
@@ -191,6 +189,8 @@ class ServerAuthFacade implements IAuthFacade {
   }) async {
     final emailAddressStr = emailAddress.value.getOrElse(() => 'INVALID EMAIL');
     final passwordStr = password.value.getOrElse(() => 'INVALID PASSWORD');
+   print("Email--${emailAddressStr}");
+    print("pass--${passwordStr}");
 
     Map body = {
       'email': emailAddressStr,
@@ -211,12 +211,12 @@ class ServerAuthFacade implements IAuthFacade {
             return left(const AuthFailure.serverError());
           }
         } else if (response.data['success'].toString() == 'true' ||
-            response.data['message'] == 'Loggined Successfully') {
+            response.data['message'] == 'Logged Successfully') {
           log("esds=>${response}");
-          final r = UserLogInResponse.fromJson(response.data);
-          log("esds=>${response.data["type"]}");
-          try {   log("esds=>");
+          final r =  UserLogInResponse.fromJson(response.data);
+          try {
             await SharedPrefs.logIn(r);
+            log("rrr=>${response.data["type"]}");
             if (response.data["type"]== "instructor") {
               UserDetailsLocal.set(
                   r.token!,
@@ -246,7 +246,7 @@ class ServerAuthFacade implements IAuthFacade {
         }
       });
     } catch (e) {
-      log("message");
+      // log("message");
       if (e.toString() == 'ERROR_WRONG_PASSWORD' ||
           e.toString() == 'ERROR_USER_NOT_FOUND') {
         return left(const AuthFailure.invalidEmailAndPasswordCombination());

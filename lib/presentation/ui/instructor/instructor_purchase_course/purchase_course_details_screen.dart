@@ -1,4 +1,3 @@
-import 'package:contained_tab_bar_view/contained_tab_bar_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,7 +11,6 @@ class PurchaseDetailsScreen extends StatefulWidget {
 }
 
 class _PurchaseDetailsScreenState extends State<PurchaseDetailsScreen> {
-  late ScrollController _itemsScrollController;
   static const _containerHeight = 50.0;
 
   var _fromTop = _containerHeight;
