@@ -100,7 +100,11 @@ class _RegistrationTypeScreenState extends State<RegistrationTypeScreen> {
                         context,
                         MaterialPageRoute(
                           builder: (context) =>
-                          RegisterationInstitutionScreen(userStatus: 'institution',),
+                          BlocProvider<LogInBloc>.value(
+                            value: logInBloc,
+                            child: RegisterationInstitutionScreen(userStatus: "institution",),
+
+                          ),
                         ),
                       );
                     },

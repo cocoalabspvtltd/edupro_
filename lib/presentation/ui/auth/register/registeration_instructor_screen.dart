@@ -1,4 +1,3 @@
-
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -31,24 +30,24 @@ class _RegisterationInstructorScreenState
       body: BlocConsumer<LogInBloc, LogInState>(
         listener: (context, state) {
           state.authFailureOrSuccessOption.fold(
-                () {},
-                (either) {
+            () {},
+            (either) {
               either.fold(
-                    (failure) {
+                (failure) {
                   FlushbarHelper.createError(
                     message: failure.map(
                       cancelledByUser: (_) => 'Cancelled',
                       serverError: (_) => 'Server error',
                       emailAlreadyInUse: (_) => 'Email already in use',
                       invalidEmailAndPasswordCombination: (_) =>
-                      'Invalid email and password combination',
+                          'Invalid email and password combination',
                       userVerificationPending: (_) => 'User not verified',
                       userVerificationFailed: (_) => '',
                       verificationCodeinvalid: (_) => '',
                     ),
                   ).show(context);
                 },
-                    (_) async {
+                (_) async {
                   if (widget.userStatus == 'individual_instructor') {
                     Get.offAll(() => InstructorHomeScreen());
                   }
@@ -94,19 +93,15 @@ class _RegisterationInstructorScreenState
                           onChanged: (value) => context
                               .read<LogInBloc>()
                               .add(LogInEvent.nameChanged(value)),
-                          validator: (_) => context
-                              .read<LogInBloc>()
-                              .state
-                              .name
-                              .value
-                              .fold(
-                                (f) => f.maybeMap(
-                              invalidName: (_) => 'Invalid Name',
-                              empty: (_) => 'Name cannot be empty',
-                              orElse: () => null,
-                            ),
-                                (_) => null,
-                          ),
+                          validator: (_) =>
+                              context.read<LogInBloc>().state.name.value.fold(
+                                    (f) => f.maybeMap(
+                                      invalidName: (_) => 'Invalid Name',
+                                      empty: (_) => 'Name cannot be empty',
+                                      orElse: () => null,
+                                    ),
+                                    (_) => null,
+                                  ),
                         ),
                         const SizedBox(height: 25),
                         TextFormField(
@@ -127,14 +122,12 @@ class _RegisterationInstructorScreenState
                               .value
                               .fold(
                                 (f) => f.maybeMap(
-                              invalidName: (_) =>
-                              'Invalid Qualification',
-                              empty: (_) =>
-                              'Qualification cannot be empty',
-                              orElse: () => null,
-                            ),
+                                  invalidName: (_) => 'Invalid Qualification',
+                                  empty: (_) => 'Qualification cannot be empty',
+                                  orElse: () => null,
+                                ),
                                 (_) => null,
-                          ),
+                              ),
                         ),
                         const SizedBox(height: 25),
                         TextFormField(
@@ -144,7 +137,7 @@ class _RegisterationInstructorScreenState
                             prefixIcon: const Icon(Icons.lock),
                             labelText: 'Confirm Password',
                             contentPadding:
-                            const EdgeInsets.only(right: 8, left: 8),
+                                const EdgeInsets.only(right: 8, left: 8),
                             suffix: GestureDetector(
                               onTap: () {
                                 obscureText = !obscureText;
@@ -152,23 +145,22 @@ class _RegisterationInstructorScreenState
                               },
                               child: obscureText
                                   ? const Icon(
-                                Icons.visibility,
-                                color: Colors.black,
-                              )
+                                      Icons.visibility,
+                                      color: Colors.black,
+                                    )
                                   : const Icon(
-                                Icons.visibility_off,
-                                color: Colors.black,
-                              ),
+                                      Icons.visibility_off,
+                                      color: Colors.black,
+                                    ),
                             ),
                           ),
                           obscureText: obscureText,
                           autocorrect: false,
                           onChanged: (value) => context
                               .read<LogInBloc>()
-                              .add(
-                              LogInEvent.confirmPasswordChanged(value)),
+                              .add(LogInEvent.confirmPasswordChanged(value)),
                           validator: (_) => state.password.value !=
-                              state.confirmPassword.value
+                                  state.confirmPassword.value
                               ? 'Password Do Not Match'
                               : null,
                         ),
@@ -176,21 +168,22 @@ class _RegisterationInstructorScreenState
                         thickSpace,
                         thickSpace,
                         Padding(
-                          padding:
-                          const EdgeInsets.only(left: 10, right: 10),
+                          padding: const EdgeInsets.only(left: 10, right: 10),
                           child: SizedBox(
                             height: 50,
                             child: ElevatedButton(
                               onPressed: () {
                                 print("->${state.userStatus}");
-    if (formKey.currentState!.validate()) {
-                                      context.read<LogInBloc>().add( LogInEvent.registerWithInstructorEmailAndPasswordPressed(widget.userStatus));
+                                if (formKey.currentState!.validate()) {
+                                  context.read<LogInBloc>().add(LogInEvent
+                                      .registerWithInstructorEmailAndPasswordPressed(
+                                          widget.userStatus));
 
-                                      //Get.offAll(() => InstructorHomeScreen());
-                                    }
-    // if (state.userStatus == 'Registered Successfully') {
-    //   Get.offAll(() => InstructorHomeScreen());
-    // }
+                                  //Get.offAll(() => InstructorHomeScreen());
+                                }
+                                // if (state.userStatus == 'Registered Successfully') {
+                                //   Get.offAll(() => InstructorHomeScreen());
+                                // }
                               },
                               style: ElevatedButton.styleFrom(
                                 shape: RoundedRectangleBorder(

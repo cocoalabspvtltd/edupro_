@@ -90,6 +90,21 @@ class LogInBloc extends Bloc<LogInEvent, LogInState> {
           authFailureOrSuccessOption: none(),
         ));
       }
+
+      if (event is AddressChanged) {
+        emit(state.copyWith(
+          address: Address(event.addressStr),
+          authFailureOrSuccessOption: none(),
+        ));
+      }
+
+      if (event is CodeChanged) {
+        emit(state.copyWith(
+          code: Code(event.codeStr),
+          authFailureOrSuccessOption: none(),
+        ));
+      }
+
       if (event is ConfirmPasswordChanged) {
         emit(state.copyWith(
           confirmPassword: Password(event.conPasswordStr),
@@ -157,6 +172,39 @@ class LogInBloc extends Bloc<LogInEvent, LogInState> {
 
 
        );
+        }
+        failureOrSuccess?.fold((l) => null,
+            ((r) => emit(state.copyWith(userStatus: r.message!))));
+        emit(state.copyWith(
+          isSubmitting: false,
+          showErrorMessages: true,
+          authFailureOrSuccessOption: optionOf(failureOrSuccess),
+        ));
+      }
+      if (event is RegisterWithInstitutionEmailAndPasswordPressed) {
+        Either<AuthFailure, UserLogInResponse>? failureOrSuccess;
+        final isEmailValid = state.emailAddress.isValid();
+        final isPasswordValid = state.password.isValid();
+        final isNameValid = state.name.isValid();
+        log(isEmailValid.toString());
+        log(isNameValid.toString());
+
+        if (isEmailValid && isPasswordValid && isNameValid) {
+          emit(state.copyWith(
+            isSubmitting: true,
+            authFailureOrSuccessOption: none(),
+          ));
+
+          failureOrSuccess = await authFacade!.registerWithInstitutionEmailAndPassword(
+              emailAddress: state.emailAddress,
+              password: state.password,
+              confirmPassword: state.confirmPassword,
+              name: state.name,
+              userStatus:"institution" ,
+              code:state.code,
+              address:state.address,
+
+          );
         }
         failureOrSuccess?.fold((l) => null,
             ((r) => emit(state.copyWith(userStatus: r.message!))));

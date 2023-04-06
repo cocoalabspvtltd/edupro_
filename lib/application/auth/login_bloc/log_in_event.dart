@@ -8,6 +8,8 @@ class LogInEvent with _$LogInEvent {
   const factory LogInEvent.registerPressed() = RegisterPressed;
   const factory LogInEvent.nameChanged(String nameStr) = NameChanged;
   const factory LogInEvent.qualificationChanged(String qualiStr) = QualificationChanged;
+  const factory LogInEvent.addressChanged(String addressStr) = AddressChanged;
+  const factory LogInEvent.codeChanged(String codeStr) = CodeChanged;
   const factory LogInEvent.confirmPasswordChanged(String conPasswordStr) =
       ConfirmPasswordChanged;
   const factory LogInEvent.userStatusChanged(String userStatusStr) =
@@ -18,6 +20,8 @@ class LogInEvent with _$LogInEvent {
       RegisterWithEmailAndPasswordPressed;
   const factory LogInEvent.registerWithInstructorEmailAndPasswordPressed(String userStatus) =
   RegisterWithInstructorEmailAndPasswordPressed;
+  const factory LogInEvent.registerWithInstitutionEmailAndPasswordPressed(String userStatus) =
+  RegisterWithInstitutionEmailAndPasswordPressed;
   const factory LogInEvent.signInWithEmailAndPasswordPressed() =
       SignInWithEmailAndPasswordPressed;
   const factory LogInEvent.verifyEduproUser() = VerifyEduproUser;
