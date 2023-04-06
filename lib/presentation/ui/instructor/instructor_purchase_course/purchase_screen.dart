@@ -46,10 +46,10 @@ class PurchasedCoursesScreen extends StatelessWidget {
                       ),
                     ),
                     loadSuccess: (state) {
-                      InstructorCourseListResponse res = state.response;
-                      return res.course != null ||
-                          res.course!.isNotEmpty
-                          ? InstructorCourseListView(course: res.course!,)
+                      MyCoursesResponse res = state.response;
+                      return res.myCourseData != null ||
+                          res.myCourseData!.isNotEmpty
+                          ? InstructorPurcahsedCourseListView(course: res.myCourseData!,)
                           : SizedBox(
                           height: screenHeight -
                               180, //!fromHome ? screenHeight : 300,

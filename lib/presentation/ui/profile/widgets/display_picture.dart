@@ -10,7 +10,8 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 class DisplayPicture extends StatefulWidget {
-  const DisplayPicture({super.key});
+  const
+  DisplayPicture({super.key});
 
   @override
   State<DisplayPicture> createState() => _DisplayPictureState();
@@ -22,6 +23,7 @@ class _DisplayPictureState extends State<DisplayPicture> {
   @override
   Widget build(BuildContext context) {
     print("Userid:${UserDetailsLocal.userId}");
+    print("apitoken->?${UserDetailsLocal.apiToken}");
     return BlocConsumer<ProfileBloc, ProfileState>(
       listener: (context, state) {
         state.submitFailedOrSuccessOption.fold(() {}, (either) {

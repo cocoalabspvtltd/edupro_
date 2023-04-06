@@ -113,17 +113,20 @@ class UserDetails {
     return data;
   }
 }
+
+
+
 class Instructor {
   int? id;
   String? name;
   String? email;
-  Null? phoneNumber;
-  Null? description;
-  Null? courses;
+  String? phoneNumber;
+  String? description;
+  String? courses;
   String? qualification;
   String? instituteName;
-  Null? displayPicture;
-  Null? approvalStatus;
+  String? displayPicture;
+  String? approvalStatus;
   String? createdAt;
   String? updatedAt;
 

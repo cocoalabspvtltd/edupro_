@@ -1,4 +1,4 @@
-class MyProfileResponse {
+class  MyProfileResponse {
   User? user;
   String? message;
   String? status;

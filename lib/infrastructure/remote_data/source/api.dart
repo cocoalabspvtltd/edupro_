@@ -5,7 +5,9 @@ class Api {
 
   static String getMyProfile = 'api/user/profile';
   static String editMyProfile = 'api/user/update_profile';
-  static String updateDisplayPicture = 'api/update_profile_picture';
+  static String updateDisplayPicture = 'api/user/update_profile_picture';
+  //static String updateDisplayPicture = 'api/instructor/update_picture';
+
   static String changePassword = 'api/user/change_password';
 
   static String getMembershipDetails = 'api/user/membership';
