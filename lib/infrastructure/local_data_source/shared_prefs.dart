@@ -1,6 +1,7 @@
 import 'package:pgs_edupro/infrastructure/remote_data/models/auth/user_login_response.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/profile/get_my_profile_response.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/models/profile/instructor_profile.dart';
 import 'package:pgs_edupro/presentation/ui/auth/log_in/login_screen.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -73,34 +74,67 @@ class SharedPrefs {
   }
 
   static Future<bool> setData(MyProfileResponse response) async {
-    if (response.user == null) return false;
+   if (response.user == null) return false;
 
-    String token = UserDetailsLocal.apiToken;
+
+    //final token = getString("spToken");
+    //print("sfdcvsd==>${token}");
+  //  String token = UserDetailsLocal.apiToken;
     String type = UserDetailsLocal.type;
     User userDetails = response.user!;
 
-    await setString(spToken, token);
+   // await setString(spToken, token);
     await setString(spUserId, '${userDetails.id ?? ''}');
     await setString(spEmail, userDetails.email ?? '');
     await setString(spName, userDetails.name ?? '');
     await setString(spMobile, userDetails.phoneNumber ?? '');
-    await setString(spAddress, userDetails.address ?? '');
-    await setString(spDob, userDetails.dob ?? '');
-    await setString(spUserStatus, userDetails.userStatus ?? '');
+    await setString(spAddress, userDetails.description ?? '');
+    await setString(spDob, userDetails.qualification ?? '');
+    await setString(spUserStatus, userDetails.instituteName ?? '');
     await setString(spUserImageUrl, userDetails.profilePhoto ?? '');
 
-    UserDetailsLocal.set(
-        token,
+    UserDetailsLocal.setData(
+
         '${userDetails.id ?? ''}',
         userDetails.name ?? '',
         userDetails.email ?? '',
         userDetails.phoneNumber ?? '',
-        userDetails.dob ?? '',
-        userDetails.address ?? '',
+        userDetails.qualification ?? '',
+        userDetails.instituteName ?? '',
         userDetails.profilePhoto ?? '',);
     return true;
   }
+  static Future<bool> setDataInstructor(InstructorProfileResponse response) async {
+    if (response.user == null) return false;
 
+
+    //final token = getString("spToken");
+    //print("sfdcvsd==>${token}");
+    //  String token = UserDetailsLocal.apiToken;
+    String type = UserDetailsLocal.type;
+    InstructorUser userDetails = response.user!;
+
+    // await setString(spToken, token);
+    await setString(spUserId, '${userDetails.id ?? ''}');
+    await setString(spEmail, userDetails.email ?? '');
+    await setString(spName, userDetails.name ?? '');
+    await setString(spMobile, userDetails.phoneNumber ?? '');
+    await setString(spAddress, userDetails.description ?? '');
+    await setString(spDob, userDetails.qualification ?? '');
+    await setString(spUserStatus, userDetails.instituteName ?? '');
+    await setString(spUserImageUrl, userDetails.profilePhoto ?? '');
+
+    UserDetailsLocal.setData(
+
+      '${userDetails.id ?? ''}',
+      userDetails.name ?? '',
+      userDetails.email ?? '',
+      userDetails.phoneNumber ?? '',
+      userDetails.qualification ?? '',
+      userDetails.instituteName ?? '',
+      userDetails.profilePhoto ?? '',);
+    return true;
+  }
   static Future<bool> logOut() async {
     await _preferences.clear();
     UserDetailsLocal.set('', '', '', '', '', '', '', '',);

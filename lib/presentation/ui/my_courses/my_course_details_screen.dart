@@ -748,3 +748,12 @@ class _InstructorCourseDetailsScreenState extends State<InstructorCourseDetailsS
 }
 
 
+
+class InstructorPurschaseCourseDetailsScreen extends StatefulWidget {
+  final MyCourseData courseDetails;
+  const InstructorPurschaseCourseDetailsScreen({super.key, required this.courseDetails});
+
+  @override
+  State<InstructorCourseDetailsScreen> createState() => _InstructorCourseDetailsScreenState();
+}
+

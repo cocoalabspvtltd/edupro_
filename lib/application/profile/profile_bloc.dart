@@ -20,6 +20,7 @@ part 'profile_bloc.freezed.dart';
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   final IProfileRepository profileRepository;
   ProfileBloc(this.profileRepository) : super(ProfileState.initial()) {
+    print("dcxs=>${UserDetailsLocal.apiToken}");
     on<_LoadMyProfile>((event, emit) async {
       emit(
         state.copyWith(
@@ -55,6 +56,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
               addressController: TextEditingController(text: user.address)),
         );
         await SharedPrefs.init();
+        print("data->${UserDetailsLocal.apiToken}");
         SharedPrefs.setData(r);
       }));
 
@@ -141,7 +143,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
           "email": state.emailAddress.value.getOrElse(() => ''),
           "phone_number": state.phoneNumber.value.getOrElse(() => ''),
           "dob": state.dob?.value.getOrElse(() => ''),
-          "address": state.address,
+          "address": state.address
         };
         //AppDialogs.loading();
         failureOrSuccess = await profileRepository.editMyProfile(body);
@@ -167,10 +169,14 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
           isSubmitting: true,
           displayPicture: event.displayPicture,
           submitFailedOrSuccessOption: none(),
-        ),
+                   ),
       );
       String fileName = state.displayPicture!.path.split('/').last;
-      print("Filename--->${fileName}");
+      print("Filename--->${await MultipartFile.fromFile(
+          state.displayPicture!.path,
+          filename: fileName)}");
+      print("token->${UserDetailsLocal.apiToken}");
+
       FormData body = FormData.fromMap({
         "user_id": UserDetailsLocal.userId,
         "profile_photo": await MultipartFile.fromFile(
@@ -188,6 +194,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       failureOrSuccess.fold((l) => null, ((r) async {
         emit(state.copyWith(
           displayImageUrl: r.user?.profilePhoto ?? '',
+
         ));
         await SharedPrefs.init();
         SharedPrefs.setData(r);

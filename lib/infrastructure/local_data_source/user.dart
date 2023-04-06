@@ -23,9 +23,29 @@ class UserDetailsLocal {
       String dob,
       String address,
       String imageUrl,
-
       ) {
     apiToken = token;
+    userId = id;
+    userName = name;
+    userEmail = email;
+    userMobile = mobile;
+    userDob = dob;
+    type = type;
+    userAddress = address;
+    userImageUrl = imageUrl;
+  }
+
+  static void setData(
+
+      String id,
+      String name,
+      String email,
+      String mobile,
+      String dob,
+      String address,
+      String imageUrl,
+      ) {
+
     userId = id;
     userName = name;
     userEmail = email;

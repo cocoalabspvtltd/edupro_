@@ -42,30 +42,21 @@ class _SplashScreenState extends State<SplashScreen> {
       listener: (context, state) {
         state.map(
             initial: (_) {},
-            authenticated: (_) async {
-              SharedPreferences prefs = await SharedPreferences.getInstance();
-              var token=prefs.getString(SharedPrefs.spToken);
-              print("tttt${token}");
-              var data = prefs.getString(SharedPrefs.spUserStatus);
-              print("-------${data}");
-              if (data == "new_user") {
+            authenticated: (user) async {
+
+
+
                 Future.delayed(const Duration(seconds: 1)).then((value) =>
                     get_x.Get.offAll(() =>MembershipCheckScreen(),
                         transition: get_x.Transition.zoom,
                         duration: const Duration(seconds: 1)));
-              }
-              else if(data == "individual_instructor"){
-                Future.delayed(const Duration(seconds: 1)).then((value) =>
-                    get_x.Get.offAll(() =>InstructorHomeScreen(),
-                        transition: get_x.Transition.zoom,
-                        duration: const Duration(seconds: 1)));
-              }
-              else {
+
+
                 // Future.delayed(const Duration(seconds: 1)).then((value) =>
                 //     get_x.Get.offAll(() => InstructorHomeScreen(),
                 //         transition: get_x.Transition.zoom,
                 //         duration: const Duration(seconds: 1)));
-              }
+
             },
             unauthenticated: (_) async =>
                 Future.delayed(const Duration(seconds: 1)).then((value) =>
