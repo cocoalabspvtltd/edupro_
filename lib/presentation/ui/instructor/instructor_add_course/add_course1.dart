@@ -4,6 +4,7 @@ import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:date_field/date_field.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pgs_edupro/application/course/courses_bloc.dart';
@@ -68,8 +69,8 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
               ),
             ).show(context);
           },
-                  (r) => FlushbarHelper.createSuccess(message: "hgh" ?? '')
-                  .show(context));
+                  (r) => Fluttertoast.showToast(msg: "hgjerhdhfge")
+                  );
         });
       },
       builder: (context, state) {
@@ -293,6 +294,7 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
               ),
               if (state.isSubmitting) ...[
                  SizedBox(height: 8),
+
                  LinearProgressIndicator(value: null),
               ],
               thickSpace,

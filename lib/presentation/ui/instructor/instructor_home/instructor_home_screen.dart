@@ -56,10 +56,10 @@ class _InstructorHomeScreenState extends State<InstructorHomeScreen> {
     print("name====${UserDetailsLocal.userName}");
     return MultiBlocProvider(
       providers: [
-        // BlocProvider(
-        //     create: (_) => ProfileBloc(ProfileRepository())
-        //       ..add(ProfileEvent.loadMyProfile(
-        //           int.parse(UserDetailsLocal.userId)))),
+        BlocProvider(
+            create: (_) => ProfileBloc(ProfileRepository())
+              ..add(ProfileEvent.loadMyProfile(
+                  int.parse(UserDetailsLocal.userId)))),
         BlocProvider(
           create: (_) => CoursesBloc(CourseRepository())
             ..add(const CoursesEvent.loadCourseCategories()),

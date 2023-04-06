@@ -31,9 +31,11 @@ required Qualification quali
     required Address address,
     required Code code,
   });
-  Future<Either<AuthFailure, UserLogInResponse>> signInWithEmailAndPassword({
+  Future<Either<AuthFailure, UserLogInResponse>>
+  signInWithEmailAndPassword({
     required EmailAddress emailAddress,
     required Password password,
+required String? type
   });
   Future<Either<AuthFailure, Unit>> verifyEduproUser({
     required String verificationCode,

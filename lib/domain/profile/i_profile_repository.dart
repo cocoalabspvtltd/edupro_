@@ -12,10 +12,10 @@ abstract class IProfileRepository {
       FormData body);
   Future<Either<NetworkFailure, CommonResponse>> changePassword(Map body);
 }
-abstract class InstructorProfileRepository {
-  Future<Either<NetworkFailure, InstructorProfileResponse>> getMyProfile(int userId);
-  Future<Either<NetworkFailure, InstructorProfileResponse>> editMyProfile(Map body);
-  Future<Either<NetworkFailure, InstructorProfileResponse>> updateDisplayPicture(
-      FormData body);
-  Future<Either<NetworkFailure, CommonResponse>> changePassword(Map body);
-}
+// abstract class InstructorProfileRepository {
+//   Future<Either<NetworkFailure, InstructorProfileResponse>> getMyProfile(int userId);
+//   Future<Either<NetworkFailure, InstructorProfileResponse>> editMyProfile(Map body);
+//   Future<Either<NetworkFailure, MyProfileResponse>> updateDisplayPicture(
+//       FormData body);
+//   Future<Either<NetworkFailure, CommonResponse>> changePassword(Map body);
+// }

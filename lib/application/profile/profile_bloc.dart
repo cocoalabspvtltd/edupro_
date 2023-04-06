@@ -20,8 +20,9 @@ part 'profile_bloc.freezed.dart';
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   final IProfileRepository profileRepository;
   ProfileBloc(this.profileRepository) : super(ProfileState.initial()) {
-    print("dcxs=>${UserDetailsLocal.apiToken}");
+    print("dcxs1=>${UserDetailsLocal.apiToken}");
     on<_LoadMyProfile>((event, emit) async {
+      print("dcxs2=>${UserDetailsLocal.apiToken}");
       emit(
         state.copyWith(
           isLoading: true,
@@ -30,32 +31,36 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
           loadFailureOrSuccessOption: none(),
         ),
       );
-
+      print("dcxs3=>${UserDetailsLocal.apiToken}");
       Either<NetworkFailure, MyProfileResponse> failureOrSuccess;
-
+      print("dcx4=>${UserDetailsLocal.apiToken}");
       failureOrSuccess = await profileRepository.getMyProfile(event.userId);
-
+      print("dcx5=>${UserDetailsLocal.apiToken}");
       failureOrSuccess.fold((l) => null, ((r) async {
+        print("dcxs6=>${UserDetailsLocal.apiToken}");
         User user = r.user!;
+        print("dcxs7=>${UserDetailsLocal.apiToken}");
         emit(
           state.copyWith(
+
               displayImageUrl: user.profilePhoto ?? '',
               name: Name(user.name ?? ''),
               emailAddress: EmailAddress(user.email ?? ''),
               phoneNumber: PhoneNumber(user.phoneNumber ?? ''),
-              dob: user.dob == null
-                  ? null
-                  : DateFormatted(DateFormat("MM/dd/yyyy")
-                      .format(DateTime.parse(user.dob!))),
-              address: user.address ?? '',
+              // dob: user.dob == null
+              //     ? null
+              //     : DateFormatted(DateFormat("MM/dd/yyyy")
+              //         .format(DateTime.parse(user.dob!))),
+              // address: user.address ?? '',
               nameController: TextEditingController(text: user.name),
               emailController: TextEditingController(text: user.email),
               phoneNumberController:
                   TextEditingController(text: user.phoneNumber),
-              dobDT: user.dob != null ? DateTime.parse(user.dob!) : null,
-              addressController: TextEditingController(text: user.address)),
+              // dobDT: user.dob != null ? DateTime.parse(user.dob!) : null,
+              //addressController: TextEditingController(text: user.address)
+          ),
         );
-        await SharedPrefs.init();
+        // await SharedPrefs.init();
         print("data->${UserDetailsLocal.apiToken}");
         SharedPrefs.setData(r);
       }));
@@ -151,7 +156,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       }
 
       failureOrSuccess?.fold((l) => null, ((r) async {
-        await SharedPrefs.init();
+
         SharedPrefs.setData(r);
         //emit(state.copyWith(enableEdit: false));
       }));

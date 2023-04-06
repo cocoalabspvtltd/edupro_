@@ -33,14 +33,14 @@ class ServerAuthFacade implements IAuthFacade {
     String uStatus = SharedPrefs.getString('spUserStatus');
     String uPaymentStatus = 'true'; //SharedPrefs.getString('spPaymentStatus');
     User user = User(
-        id: '', name: StringSingleLine(''), emailAddress: EmailAddress(''));
+        id: '', name: StringSingleLine(''), emailAddress: EmailAddress(''), type: '');
     if (uStatus != 'edu_user' &&
         uPaymentStatus != 'false' &&
         uPaymentStatus != '') {
       user = User(
           id: uId,
           name: StringSingleLine(uName),
-          emailAddress: EmailAddress(uEmail));
+          emailAddress: EmailAddress(uEmail), type: UserDetailsLocal.type);
     }
     return optionOf(_serverUserMapper.toDomain(user));
   }
@@ -259,6 +259,7 @@ class ServerAuthFacade implements IAuthFacade {
   Future<Either<AuthFailure, UserLogInResponse>> signInWithEmailAndPassword({
     required EmailAddress emailAddress,
     required Password password,
+    required String? type
   }) async {
     final emailAddressStr = emailAddress.value.getOrElse(() => 'INVALID EMAIL');
     final passwordStr = password.value.getOrElse(() => 'INVALID PASSWORD');

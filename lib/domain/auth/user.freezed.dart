@@ -19,6 +19,7 @@ mixin _$User {
   String get id => throw _privateConstructorUsedError;
   StringSingleLine get name => throw _privateConstructorUsedError;
   EmailAddress get emailAddress => throw _privateConstructorUsedError;
+  String? get type => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
@@ -29,7 +30,11 @@ abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res, User>;
   @useResult
-  $Res call({String id, StringSingleLine name, EmailAddress emailAddress});
+  $Res call(
+      {String id,
+      StringSingleLine name,
+      EmailAddress emailAddress,
+      String? type});
 }
 
 /// @nodoc
@@ -48,6 +53,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? id = null,
     Object? name = null,
     Object? emailAddress = null,
+    Object? type = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -62,6 +68,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.emailAddress
           : emailAddress // ignore: cast_nullable_to_non_nullable
               as EmailAddress,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -72,7 +82,11 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       __$$_UserCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, StringSingleLine name, EmailAddress emailAddress});
+  $Res call(
+      {String id,
+      StringSingleLine name,
+      EmailAddress emailAddress,
+      String? type});
 }
 
 /// @nodoc
@@ -87,6 +101,7 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
     Object? id = null,
     Object? name = null,
     Object? emailAddress = null,
+    Object? type = freezed,
   }) {
     return _then(_$_User(
       id: null == id
@@ -101,6 +116,10 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
           ? _value.emailAddress
           : emailAddress // ignore: cast_nullable_to_non_nullable
               as EmailAddress,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -109,7 +128,10 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
 
 class _$_User implements _User {
   const _$_User(
-      {required this.id, required this.name, required this.emailAddress});
+      {required this.id,
+      required this.name,
+      required this.emailAddress,
+      required this.type});
 
   @override
   final String id;
@@ -117,10 +139,12 @@ class _$_User implements _User {
   final StringSingleLine name;
   @override
   final EmailAddress emailAddress;
+  @override
+  final String? type;
 
   @override
   String toString() {
-    return 'User(id: $id, name: $name, emailAddress: $emailAddress)';
+    return 'User(id: $id, name: $name, emailAddress: $emailAddress, type: $type)';
   }
 
   @override
@@ -131,11 +155,12 @@ class _$_User implements _User {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.emailAddress, emailAddress) ||
-                other.emailAddress == emailAddress));
+                other.emailAddress == emailAddress) &&
+            (identical(other.type, type) || other.type == type));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, emailAddress);
+  int get hashCode => Object.hash(runtimeType, id, name, emailAddress, type);
 
   @JsonKey(ignore: true)
   @override
@@ -148,7 +173,8 @@ abstract class _User implements User {
   const factory _User(
       {required final String id,
       required final StringSingleLine name,
-      required final EmailAddress emailAddress}) = _$_User;
+      required final EmailAddress emailAddress,
+      required final String? type}) = _$_User;
 
   @override
   String get id;
@@ -156,6 +182,8 @@ abstract class _User implements User {
   StringSingleLine get name;
   @override
   EmailAddress get emailAddress;
+  @override
+  String? get type;
   @override
   @JsonKey(ignore: true)
   _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;

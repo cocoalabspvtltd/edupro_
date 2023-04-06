@@ -18,13 +18,13 @@ class ProfileScreen extends StatelessWidget {
       create: (context) => ProfileBloc(ProfileRepository())..add(ProfileEvent.loadMyProfile(int.parse(UserDetailsLocal.userId))),
       child: Scaffold(
           body: RefreshIndicator(
-        onRefresh: () async {
-          context.read<ProfileBloc>().add(
-              ProfileEvent.loadMyProfile(int.parse(UserDetailsLocal.userId)));
-        },
-        child: const SingleChildScrollView(
-            physics: AlwaysScrollableScrollPhysics(), child: ProfileWidget()),
-      )),
+            onRefresh: () async {
+              context.read<ProfileBloc>().add(
+                  ProfileEvent.loadMyProfile(int.parse(UserDetailsLocal.userId)));
+            },
+            child: const SingleChildScrollView(
+                physics: AlwaysScrollableScrollPhysics(), child: ProfileWidget()),
+          )),
     );
   }
 }

@@ -79,10 +79,10 @@ class _HomeScreenState extends State<HomeScreen> {
           create: (_) => CoursesBloc(CourseRepository())
             ..add(const CoursesEvent.loadCourseCategories()),
         ),
-        BlocProvider(
-            create: (_) => ProfileBloc(ProfileRepository())
-              ..add(ProfileEvent.loadMyProfile(
-                  int.parse(UserDetailsLocal.userId)))),
+        // BlocProvider(
+        //     create: (_) => ProfileBloc(ProfileRepository())
+        //       ..add(ProfileEvent.loadMyProfile(
+        //           int.parse(UserDetailsLocal.userId)))),
         BlocProvider(
             create: (_) =>
                 AdsBloc(AdsRepository())..add(const AdsEvent.getAds())),
