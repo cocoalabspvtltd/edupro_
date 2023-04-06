@@ -44,7 +44,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-
     daysRemaining = int.parse(SharedPrefs.getString('spSuscriptionPeriod'));
     _pageController = PageController();
     _selectedIndex = widget.selectedIndex;

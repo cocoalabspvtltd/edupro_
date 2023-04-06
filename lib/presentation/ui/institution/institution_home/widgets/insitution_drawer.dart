@@ -3,7 +3,10 @@ import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/shared_prefs.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/presentation/ui/institution/institution_home/institution_home_screen.dart';
-import 'package:pgs_edupro/presentation/ui/institution/students_of_institution/add_students.dart';
+import 'package:pgs_edupro/presentation/ui/institution/instructosrs_of_institution/add_instructors_screen.dart';
+import 'package:pgs_edupro/presentation/ui/institution/instructosrs_of_institution/instructors_list_screen.dart';
+import 'package:pgs_edupro/presentation/ui/institution/students_of_institution/add_students_screen.dart';
+import 'package:pgs_edupro/presentation/ui/institution/students_of_institution/students_list_screen.dart';
 import 'package:pgs_edupro/presentation/ui/videos/live_videos_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -222,17 +225,13 @@ class InstitutionDrawerWidget extends StatelessWidget {
                       childrenPadding:
                           EdgeInsets.only(left: 60), //children padding
                       children: [
-                        ListTile(
-                          title: Text("Instructor list"),
-                          onTap: () {},
-                        ),
-                        ListTile(
-                          title: Text("Add Instructors"),
-                          onTap: () {
-                            //action on press
-                          },
-                        ),
+                        _drawerMenuItem1('Instructors List', () {
+                          Get.to(() => InstructorsListScreen());
 
+                        }),
+                        _drawerMenuItem1('Add Instructors', () {
+                          Get.to(() => AddInstructorScreen());
+                        }),
                         //more child menu
                       ],
                     ),
@@ -256,10 +255,9 @@ class InstitutionDrawerWidget extends StatelessWidget {
                       childrenPadding:
                           EdgeInsets.only(left: 60), //children padding
                       children: [
-                        ListTile(
-                          title: Text("Student list"),
-                          onTap: () {},
-                        ),
+                        _drawerMenuItem1('Student List', () {
+                          Get.to(() => StudentsListScreen());
+                        }),
                         _drawerMenuItem1('Add Students', () {
                           Get.to(() => AddStudentScreen());
                         }),

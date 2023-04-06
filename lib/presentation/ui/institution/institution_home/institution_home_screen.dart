@@ -1,5 +1,4 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pgs_edupro/application/ads/ads_bloc.dart';
@@ -27,20 +26,25 @@ class _InstitutionHomeScreenState extends State<InstitutionHomeScreen> {
   DateTime? currentBackPressTime;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   late int _selectedIndex;
-  // late PageController _pageController;
+  late PageController _pageController;
   List title = ['Home', 'My Courses','Library', 'My Profile'];
 
   @override
   void initState() {
     super.initState();
+    _pageController = PageController();
     _selectedIndex = widget.selectedIndex;
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      _pageController.animateToPage(_selectedIndex,
+          duration: const Duration(milliseconds: 300), curve: Curves.ease);
+    });
   }
 
   @override
-  // void dispose() {
-  //   _pageController.dispose();
-  //   super.dispose();
-  // }
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -93,15 +97,28 @@ class _InstitutionHomeScreenState extends State<InstitutionHomeScreen> {
               }
               return Future.value(true);
             },
-            child: _selectedIndex == 3
-                ? Text("Profile")
-                :_selectedIndex == 2
-                ? Text("Library")
-                : _selectedIndex == 1
-                ? Text("Course")
-                : _selectedIndex == 0
-                ? InstitutionHomeBody()
-                : Center(child: Text("hai"))),
+            child:  PageView(
+                controller: _pageController,
+                onPageChanged: (index) {
+                  setState(() => _selectedIndex = index);
+                },
+                children:[
+                  InstitutionHomeBody(),
+                  Text("Course"),
+                  Text("Library"),
+                  Text("Profile"),
+                ]
+            ),
+            // _selectedIndex == 3
+            //     ? Text("Profile")
+            //     :_selectedIndex == 2
+            //     ? Text("Library")
+            //     : _selectedIndex == 1
+            //     ? Text("Course")
+            //     : _selectedIndex == 0
+            //     ? InstitutionHomeBody()
+            //     : Center(child: Text("hai"))
+        ),
         bottomNavigationBar: BottomNavyBar(
             backgroundColor: Colors.black,
             //containerHeight: 60,
@@ -110,6 +127,9 @@ class _InstitutionHomeScreenState extends State<InstitutionHomeScreen> {
             itemCornerRadius: 6,
             onItemSelected: (index) => setState(() {
               _selectedIndex = index;
+              _pageController.animateToPage(index,
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.ease);
             }),
             items: [
               BottomNavyBarItem(

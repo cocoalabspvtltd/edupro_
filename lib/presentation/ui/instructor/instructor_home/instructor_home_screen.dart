@@ -35,20 +35,24 @@ class _InstructorHomeScreenState extends State<InstructorHomeScreen> {
   DateTime? currentBackPressTime;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   late int _selectedIndex;
-  // late PageController _pageController;
+  late PageController _pageController;
   List title = ['Home', 'My Courses', 'My Profile'];
-
   @override
   void initState() {
     super.initState();
+    _pageController = PageController();
     _selectedIndex = widget.selectedIndex;
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      _pageController.animateToPage(_selectedIndex,
+          duration: const Duration(milliseconds: 300), curve: Curves.ease);
+    });
   }
 
   @override
-  // void dispose() {
-  //   _pageController.dispose();
-  //   super.dispose();
-  // }
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,10 +60,10 @@ class _InstructorHomeScreenState extends State<InstructorHomeScreen> {
     print("name====${UserDetailsLocal.userName}");
     return MultiBlocProvider(
       providers: [
-        // BlocProvider(
-        //     create: (_) => ProfileBloc(ProfileRepository())
-        //       ..add(ProfileEvent.loadMyProfile(
-        //           int.parse(UserDetailsLocal.userId)))),
+        BlocProvider(
+            create: (_) => ProfileBloc(ProfileRepository())
+              ..add(ProfileEvent.loadMyProfile(
+                  int.parse(UserDetailsLocal.userId)))),
         BlocProvider(
           create: (_) => CoursesBloc(CourseRepository())
             ..add(const CoursesEvent.loadCourseCategories()),
@@ -103,13 +107,26 @@ class _InstructorHomeScreenState extends State<InstructorHomeScreen> {
               }
               return Future.value(true);
             },
-            child: _selectedIndex == 2
-                ?ProfileScreen()
-                    : _selectedIndex == 1
-                        ? MyCourseInstructorScreen()
-                        : _selectedIndex == 0
-                            ? IstructorHomeBody()
-                            : Center(child: Text("hai"))),
+            child:
+            PageView(
+                controller: _pageController,
+                onPageChanged: (index) {
+                  setState(() => _selectedIndex = index);
+                },
+                children:[
+                  IstructorHomeBody(),
+                  MyCourseInstructorScreen(),
+                  ProfileScreen()
+                ]
+            ),
+            // _selectedIndex == 2
+            //     ?ProfileScreen()
+            //         : _selectedIndex == 1
+            //             ? MyCourseInstructorScreen()
+            //             : _selectedIndex == 0
+            //                 ? IstructorHomeBody()
+            //                 : Center(child: Text("hai"))
+        ),
         bottomNavigationBar: BottomNavyBar(
             backgroundColor: Colors.black,
             //containerHeight: 60,
@@ -118,6 +135,9 @@ class _InstructorHomeScreenState extends State<InstructorHomeScreen> {
             itemCornerRadius: 6,
             onItemSelected: (index) => setState(() {
                   _selectedIndex = index;
+                  _pageController.animateToPage(index,
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.ease);
                 }),
             items: [
               BottomNavyBarItem(
