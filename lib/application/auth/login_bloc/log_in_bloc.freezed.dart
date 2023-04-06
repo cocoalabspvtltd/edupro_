@@ -23,12 +23,16 @@ mixin _$LogInEvent {
     required TResult Function() registerPressed,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String qualiStr) qualificationChanged,
+    required TResult Function(String addressStr) addressChanged,
+    required TResult Function(String codeStr) codeChanged,
     required TResult Function(String conPasswordStr) confirmPasswordChanged,
     required TResult Function(String userStatusStr) userStatusChanged,
     required TResult Function(int verificationCode) verificationCodeChanged,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function(String userStatus)
         registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(String userStatus)
+        registerWithInstitutionEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() verifyEduproUser,
   }) =>
@@ -40,12 +44,16 @@ mixin _$LogInEvent {
     TResult? Function()? registerPressed,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String qualiStr)? qualificationChanged,
+    TResult? Function(String addressStr)? addressChanged,
+    TResult? Function(String codeStr)? codeChanged,
     TResult? Function(String conPasswordStr)? confirmPasswordChanged,
     TResult? Function(String userStatusStr)? userStatusChanged,
     TResult? Function(int verificationCode)? verificationCodeChanged,
     TResult? Function()? registerWithEmailAndPasswordPressed,
     TResult? Function(String userStatus)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult? Function()? signInWithEmailAndPasswordPressed,
     TResult? Function()? verifyEduproUser,
   }) =>
@@ -57,12 +65,16 @@ mixin _$LogInEvent {
     TResult Function()? registerPressed,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String qualiStr)? qualificationChanged,
+    TResult Function(String addressStr)? addressChanged,
+    TResult Function(String codeStr)? codeChanged,
     TResult Function(String conPasswordStr)? confirmPasswordChanged,
     TResult Function(String userStatusStr)? userStatusChanged,
     TResult Function(int verificationCode)? verificationCodeChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function(String userStatus)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? verifyEduproUser,
     required TResult orElse(),
@@ -75,6 +87,8 @@ mixin _$LogInEvent {
     required TResult Function(RegisterPressed value) registerPressed,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(QualificationChanged value) qualificationChanged,
+    required TResult Function(AddressChanged value) addressChanged,
+    required TResult Function(CodeChanged value) codeChanged,
     required TResult Function(ConfirmPasswordChanged value)
         confirmPasswordChanged,
     required TResult Function(UserStatusChanged value) userStatusChanged,
@@ -85,6 +99,9 @@ mixin _$LogInEvent {
     required TResult Function(
             RegisterWithInstructorEmailAndPasswordPressed value)
         registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(
+            RegisterWithInstitutionEmailAndPasswordPressed value)
+        registerWithInstitutionEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
         signInWithEmailAndPasswordPressed,
     required TResult Function(VerifyEduproUser value) verifyEduproUser,
@@ -97,6 +114,8 @@ mixin _$LogInEvent {
     TResult? Function(RegisterPressed value)? registerPressed,
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(QualificationChanged value)? qualificationChanged,
+    TResult? Function(AddressChanged value)? addressChanged,
+    TResult? Function(CodeChanged value)? codeChanged,
     TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult? Function(UserStatusChanged value)? userStatusChanged,
     TResult? Function(VerificationCodeChanged value)? verificationCodeChanged,
@@ -104,6 +123,8 @@ mixin _$LogInEvent {
         registerWithEmailAndPasswordPressed,
     TResult? Function(RegisterWithInstructorEmailAndPasswordPressed value)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult? Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult? Function(VerifyEduproUser value)? verifyEduproUser,
@@ -116,6 +137,8 @@ mixin _$LogInEvent {
     TResult Function(RegisterPressed value)? registerPressed,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(QualificationChanged value)? qualificationChanged,
+    TResult Function(AddressChanged value)? addressChanged,
+    TResult Function(CodeChanged value)? codeChanged,
     TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(UserStatusChanged value)? userStatusChanged,
     TResult Function(VerificationCodeChanged value)? verificationCodeChanged,
@@ -123,6 +146,8 @@ mixin _$LogInEvent {
         registerWithEmailAndPasswordPressed,
     TResult Function(RegisterWithInstructorEmailAndPasswordPressed value)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult Function(VerifyEduproUser value)? verifyEduproUser,
@@ -219,12 +244,16 @@ class _$EmailChanged implements EmailChanged {
     required TResult Function() registerPressed,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String qualiStr) qualificationChanged,
+    required TResult Function(String addressStr) addressChanged,
+    required TResult Function(String codeStr) codeChanged,
     required TResult Function(String conPasswordStr) confirmPasswordChanged,
     required TResult Function(String userStatusStr) userStatusChanged,
     required TResult Function(int verificationCode) verificationCodeChanged,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function(String userStatus)
         registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(String userStatus)
+        registerWithInstitutionEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() verifyEduproUser,
   }) {
@@ -239,12 +268,16 @@ class _$EmailChanged implements EmailChanged {
     TResult? Function()? registerPressed,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String qualiStr)? qualificationChanged,
+    TResult? Function(String addressStr)? addressChanged,
+    TResult? Function(String codeStr)? codeChanged,
     TResult? Function(String conPasswordStr)? confirmPasswordChanged,
     TResult? Function(String userStatusStr)? userStatusChanged,
     TResult? Function(int verificationCode)? verificationCodeChanged,
     TResult? Function()? registerWithEmailAndPasswordPressed,
     TResult? Function(String userStatus)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult? Function()? signInWithEmailAndPasswordPressed,
     TResult? Function()? verifyEduproUser,
   }) {
@@ -259,12 +292,16 @@ class _$EmailChanged implements EmailChanged {
     TResult Function()? registerPressed,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String qualiStr)? qualificationChanged,
+    TResult Function(String addressStr)? addressChanged,
+    TResult Function(String codeStr)? codeChanged,
     TResult Function(String conPasswordStr)? confirmPasswordChanged,
     TResult Function(String userStatusStr)? userStatusChanged,
     TResult Function(int verificationCode)? verificationCodeChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function(String userStatus)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? verifyEduproUser,
     required TResult orElse(),
@@ -283,6 +320,8 @@ class _$EmailChanged implements EmailChanged {
     required TResult Function(RegisterPressed value) registerPressed,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(QualificationChanged value) qualificationChanged,
+    required TResult Function(AddressChanged value) addressChanged,
+    required TResult Function(CodeChanged value) codeChanged,
     required TResult Function(ConfirmPasswordChanged value)
         confirmPasswordChanged,
     required TResult Function(UserStatusChanged value) userStatusChanged,
@@ -293,6 +332,9 @@ class _$EmailChanged implements EmailChanged {
     required TResult Function(
             RegisterWithInstructorEmailAndPasswordPressed value)
         registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(
+            RegisterWithInstitutionEmailAndPasswordPressed value)
+        registerWithInstitutionEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
         signInWithEmailAndPasswordPressed,
     required TResult Function(VerifyEduproUser value) verifyEduproUser,
@@ -308,6 +350,8 @@ class _$EmailChanged implements EmailChanged {
     TResult? Function(RegisterPressed value)? registerPressed,
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(QualificationChanged value)? qualificationChanged,
+    TResult? Function(AddressChanged value)? addressChanged,
+    TResult? Function(CodeChanged value)? codeChanged,
     TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult? Function(UserStatusChanged value)? userStatusChanged,
     TResult? Function(VerificationCodeChanged value)? verificationCodeChanged,
@@ -315,6 +359,8 @@ class _$EmailChanged implements EmailChanged {
         registerWithEmailAndPasswordPressed,
     TResult? Function(RegisterWithInstructorEmailAndPasswordPressed value)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult? Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult? Function(VerifyEduproUser value)? verifyEduproUser,
@@ -330,6 +376,8 @@ class _$EmailChanged implements EmailChanged {
     TResult Function(RegisterPressed value)? registerPressed,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(QualificationChanged value)? qualificationChanged,
+    TResult Function(AddressChanged value)? addressChanged,
+    TResult Function(CodeChanged value)? codeChanged,
     TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(UserStatusChanged value)? userStatusChanged,
     TResult Function(VerificationCodeChanged value)? verificationCodeChanged,
@@ -337,6 +385,8 @@ class _$EmailChanged implements EmailChanged {
         registerWithEmailAndPasswordPressed,
     TResult Function(RegisterWithInstructorEmailAndPasswordPressed value)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult Function(VerifyEduproUser value)? verifyEduproUser,
@@ -428,12 +478,16 @@ class _$PasswordChanged implements PasswordChanged {
     required TResult Function() registerPressed,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String qualiStr) qualificationChanged,
+    required TResult Function(String addressStr) addressChanged,
+    required TResult Function(String codeStr) codeChanged,
     required TResult Function(String conPasswordStr) confirmPasswordChanged,
     required TResult Function(String userStatusStr) userStatusChanged,
     required TResult Function(int verificationCode) verificationCodeChanged,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function(String userStatus)
         registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(String userStatus)
+        registerWithInstitutionEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() verifyEduproUser,
   }) {
@@ -448,12 +502,16 @@ class _$PasswordChanged implements PasswordChanged {
     TResult? Function()? registerPressed,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String qualiStr)? qualificationChanged,
+    TResult? Function(String addressStr)? addressChanged,
+    TResult? Function(String codeStr)? codeChanged,
     TResult? Function(String conPasswordStr)? confirmPasswordChanged,
     TResult? Function(String userStatusStr)? userStatusChanged,
     TResult? Function(int verificationCode)? verificationCodeChanged,
     TResult? Function()? registerWithEmailAndPasswordPressed,
     TResult? Function(String userStatus)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult? Function()? signInWithEmailAndPasswordPressed,
     TResult? Function()? verifyEduproUser,
   }) {
@@ -468,12 +526,16 @@ class _$PasswordChanged implements PasswordChanged {
     TResult Function()? registerPressed,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String qualiStr)? qualificationChanged,
+    TResult Function(String addressStr)? addressChanged,
+    TResult Function(String codeStr)? codeChanged,
     TResult Function(String conPasswordStr)? confirmPasswordChanged,
     TResult Function(String userStatusStr)? userStatusChanged,
     TResult Function(int verificationCode)? verificationCodeChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function(String userStatus)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? verifyEduproUser,
     required TResult orElse(),
@@ -492,6 +554,8 @@ class _$PasswordChanged implements PasswordChanged {
     required TResult Function(RegisterPressed value) registerPressed,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(QualificationChanged value) qualificationChanged,
+    required TResult Function(AddressChanged value) addressChanged,
+    required TResult Function(CodeChanged value) codeChanged,
     required TResult Function(ConfirmPasswordChanged value)
         confirmPasswordChanged,
     required TResult Function(UserStatusChanged value) userStatusChanged,
@@ -502,6 +566,9 @@ class _$PasswordChanged implements PasswordChanged {
     required TResult Function(
             RegisterWithInstructorEmailAndPasswordPressed value)
         registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(
+            RegisterWithInstitutionEmailAndPasswordPressed value)
+        registerWithInstitutionEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
         signInWithEmailAndPasswordPressed,
     required TResult Function(VerifyEduproUser value) verifyEduproUser,
@@ -517,6 +584,8 @@ class _$PasswordChanged implements PasswordChanged {
     TResult? Function(RegisterPressed value)? registerPressed,
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(QualificationChanged value)? qualificationChanged,
+    TResult? Function(AddressChanged value)? addressChanged,
+    TResult? Function(CodeChanged value)? codeChanged,
     TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult? Function(UserStatusChanged value)? userStatusChanged,
     TResult? Function(VerificationCodeChanged value)? verificationCodeChanged,
@@ -524,6 +593,8 @@ class _$PasswordChanged implements PasswordChanged {
         registerWithEmailAndPasswordPressed,
     TResult? Function(RegisterWithInstructorEmailAndPasswordPressed value)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult? Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult? Function(VerifyEduproUser value)? verifyEduproUser,
@@ -539,6 +610,8 @@ class _$PasswordChanged implements PasswordChanged {
     TResult Function(RegisterPressed value)? registerPressed,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(QualificationChanged value)? qualificationChanged,
+    TResult Function(AddressChanged value)? addressChanged,
+    TResult Function(CodeChanged value)? codeChanged,
     TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(UserStatusChanged value)? userStatusChanged,
     TResult Function(VerificationCodeChanged value)? verificationCodeChanged,
@@ -546,6 +619,8 @@ class _$PasswordChanged implements PasswordChanged {
         registerWithEmailAndPasswordPressed,
     TResult Function(RegisterWithInstructorEmailAndPasswordPressed value)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult Function(VerifyEduproUser value)? verifyEduproUser,
@@ -610,12 +685,16 @@ class _$RegisterPressed implements RegisterPressed {
     required TResult Function() registerPressed,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String qualiStr) qualificationChanged,
+    required TResult Function(String addressStr) addressChanged,
+    required TResult Function(String codeStr) codeChanged,
     required TResult Function(String conPasswordStr) confirmPasswordChanged,
     required TResult Function(String userStatusStr) userStatusChanged,
     required TResult Function(int verificationCode) verificationCodeChanged,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function(String userStatus)
         registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(String userStatus)
+        registerWithInstitutionEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() verifyEduproUser,
   }) {
@@ -630,12 +709,16 @@ class _$RegisterPressed implements RegisterPressed {
     TResult? Function()? registerPressed,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String qualiStr)? qualificationChanged,
+    TResult? Function(String addressStr)? addressChanged,
+    TResult? Function(String codeStr)? codeChanged,
     TResult? Function(String conPasswordStr)? confirmPasswordChanged,
     TResult? Function(String userStatusStr)? userStatusChanged,
     TResult? Function(int verificationCode)? verificationCodeChanged,
     TResult? Function()? registerWithEmailAndPasswordPressed,
     TResult? Function(String userStatus)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult? Function()? signInWithEmailAndPasswordPressed,
     TResult? Function()? verifyEduproUser,
   }) {
@@ -650,12 +733,16 @@ class _$RegisterPressed implements RegisterPressed {
     TResult Function()? registerPressed,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String qualiStr)? qualificationChanged,
+    TResult Function(String addressStr)? addressChanged,
+    TResult Function(String codeStr)? codeChanged,
     TResult Function(String conPasswordStr)? confirmPasswordChanged,
     TResult Function(String userStatusStr)? userStatusChanged,
     TResult Function(int verificationCode)? verificationCodeChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function(String userStatus)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? verifyEduproUser,
     required TResult orElse(),
@@ -674,6 +761,8 @@ class _$RegisterPressed implements RegisterPressed {
     required TResult Function(RegisterPressed value) registerPressed,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(QualificationChanged value) qualificationChanged,
+    required TResult Function(AddressChanged value) addressChanged,
+    required TResult Function(CodeChanged value) codeChanged,
     required TResult Function(ConfirmPasswordChanged value)
         confirmPasswordChanged,
     required TResult Function(UserStatusChanged value) userStatusChanged,
@@ -684,6 +773,9 @@ class _$RegisterPressed implements RegisterPressed {
     required TResult Function(
             RegisterWithInstructorEmailAndPasswordPressed value)
         registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(
+            RegisterWithInstitutionEmailAndPasswordPressed value)
+        registerWithInstitutionEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
         signInWithEmailAndPasswordPressed,
     required TResult Function(VerifyEduproUser value) verifyEduproUser,
@@ -699,6 +791,8 @@ class _$RegisterPressed implements RegisterPressed {
     TResult? Function(RegisterPressed value)? registerPressed,
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(QualificationChanged value)? qualificationChanged,
+    TResult? Function(AddressChanged value)? addressChanged,
+    TResult? Function(CodeChanged value)? codeChanged,
     TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult? Function(UserStatusChanged value)? userStatusChanged,
     TResult? Function(VerificationCodeChanged value)? verificationCodeChanged,
@@ -706,6 +800,8 @@ class _$RegisterPressed implements RegisterPressed {
         registerWithEmailAndPasswordPressed,
     TResult? Function(RegisterWithInstructorEmailAndPasswordPressed value)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult? Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult? Function(VerifyEduproUser value)? verifyEduproUser,
@@ -721,6 +817,8 @@ class _$RegisterPressed implements RegisterPressed {
     TResult Function(RegisterPressed value)? registerPressed,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(QualificationChanged value)? qualificationChanged,
+    TResult Function(AddressChanged value)? addressChanged,
+    TResult Function(CodeChanged value)? codeChanged,
     TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(UserStatusChanged value)? userStatusChanged,
     TResult Function(VerificationCodeChanged value)? verificationCodeChanged,
@@ -728,6 +826,8 @@ class _$RegisterPressed implements RegisterPressed {
         registerWithEmailAndPasswordPressed,
     TResult Function(RegisterWithInstructorEmailAndPasswordPressed value)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult Function(VerifyEduproUser value)? verifyEduproUser,
@@ -813,12 +913,16 @@ class _$NameChanged implements NameChanged {
     required TResult Function() registerPressed,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String qualiStr) qualificationChanged,
+    required TResult Function(String addressStr) addressChanged,
+    required TResult Function(String codeStr) codeChanged,
     required TResult Function(String conPasswordStr) confirmPasswordChanged,
     required TResult Function(String userStatusStr) userStatusChanged,
     required TResult Function(int verificationCode) verificationCodeChanged,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function(String userStatus)
         registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(String userStatus)
+        registerWithInstitutionEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() verifyEduproUser,
   }) {
@@ -833,12 +937,16 @@ class _$NameChanged implements NameChanged {
     TResult? Function()? registerPressed,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String qualiStr)? qualificationChanged,
+    TResult? Function(String addressStr)? addressChanged,
+    TResult? Function(String codeStr)? codeChanged,
     TResult? Function(String conPasswordStr)? confirmPasswordChanged,
     TResult? Function(String userStatusStr)? userStatusChanged,
     TResult? Function(int verificationCode)? verificationCodeChanged,
     TResult? Function()? registerWithEmailAndPasswordPressed,
     TResult? Function(String userStatus)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult? Function()? signInWithEmailAndPasswordPressed,
     TResult? Function()? verifyEduproUser,
   }) {
@@ -853,12 +961,16 @@ class _$NameChanged implements NameChanged {
     TResult Function()? registerPressed,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String qualiStr)? qualificationChanged,
+    TResult Function(String addressStr)? addressChanged,
+    TResult Function(String codeStr)? codeChanged,
     TResult Function(String conPasswordStr)? confirmPasswordChanged,
     TResult Function(String userStatusStr)? userStatusChanged,
     TResult Function(int verificationCode)? verificationCodeChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function(String userStatus)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? verifyEduproUser,
     required TResult orElse(),
@@ -877,6 +989,8 @@ class _$NameChanged implements NameChanged {
     required TResult Function(RegisterPressed value) registerPressed,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(QualificationChanged value) qualificationChanged,
+    required TResult Function(AddressChanged value) addressChanged,
+    required TResult Function(CodeChanged value) codeChanged,
     required TResult Function(ConfirmPasswordChanged value)
         confirmPasswordChanged,
     required TResult Function(UserStatusChanged value) userStatusChanged,
@@ -887,6 +1001,9 @@ class _$NameChanged implements NameChanged {
     required TResult Function(
             RegisterWithInstructorEmailAndPasswordPressed value)
         registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(
+            RegisterWithInstitutionEmailAndPasswordPressed value)
+        registerWithInstitutionEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
         signInWithEmailAndPasswordPressed,
     required TResult Function(VerifyEduproUser value) verifyEduproUser,
@@ -902,6 +1019,8 @@ class _$NameChanged implements NameChanged {
     TResult? Function(RegisterPressed value)? registerPressed,
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(QualificationChanged value)? qualificationChanged,
+    TResult? Function(AddressChanged value)? addressChanged,
+    TResult? Function(CodeChanged value)? codeChanged,
     TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult? Function(UserStatusChanged value)? userStatusChanged,
     TResult? Function(VerificationCodeChanged value)? verificationCodeChanged,
@@ -909,6 +1028,8 @@ class _$NameChanged implements NameChanged {
         registerWithEmailAndPasswordPressed,
     TResult? Function(RegisterWithInstructorEmailAndPasswordPressed value)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult? Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult? Function(VerifyEduproUser value)? verifyEduproUser,
@@ -924,6 +1045,8 @@ class _$NameChanged implements NameChanged {
     TResult Function(RegisterPressed value)? registerPressed,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(QualificationChanged value)? qualificationChanged,
+    TResult Function(AddressChanged value)? addressChanged,
+    TResult Function(CodeChanged value)? codeChanged,
     TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(UserStatusChanged value)? userStatusChanged,
     TResult Function(VerificationCodeChanged value)? verificationCodeChanged,
@@ -931,6 +1054,8 @@ class _$NameChanged implements NameChanged {
         registerWithEmailAndPasswordPressed,
     TResult Function(RegisterWithInstructorEmailAndPasswordPressed value)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult Function(VerifyEduproUser value)? verifyEduproUser,
@@ -1023,12 +1148,16 @@ class _$QualificationChanged implements QualificationChanged {
     required TResult Function() registerPressed,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String qualiStr) qualificationChanged,
+    required TResult Function(String addressStr) addressChanged,
+    required TResult Function(String codeStr) codeChanged,
     required TResult Function(String conPasswordStr) confirmPasswordChanged,
     required TResult Function(String userStatusStr) userStatusChanged,
     required TResult Function(int verificationCode) verificationCodeChanged,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function(String userStatus)
         registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(String userStatus)
+        registerWithInstitutionEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() verifyEduproUser,
   }) {
@@ -1043,12 +1172,16 @@ class _$QualificationChanged implements QualificationChanged {
     TResult? Function()? registerPressed,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String qualiStr)? qualificationChanged,
+    TResult? Function(String addressStr)? addressChanged,
+    TResult? Function(String codeStr)? codeChanged,
     TResult? Function(String conPasswordStr)? confirmPasswordChanged,
     TResult? Function(String userStatusStr)? userStatusChanged,
     TResult? Function(int verificationCode)? verificationCodeChanged,
     TResult? Function()? registerWithEmailAndPasswordPressed,
     TResult? Function(String userStatus)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult? Function()? signInWithEmailAndPasswordPressed,
     TResult? Function()? verifyEduproUser,
   }) {
@@ -1063,12 +1196,16 @@ class _$QualificationChanged implements QualificationChanged {
     TResult Function()? registerPressed,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String qualiStr)? qualificationChanged,
+    TResult Function(String addressStr)? addressChanged,
+    TResult Function(String codeStr)? codeChanged,
     TResult Function(String conPasswordStr)? confirmPasswordChanged,
     TResult Function(String userStatusStr)? userStatusChanged,
     TResult Function(int verificationCode)? verificationCodeChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function(String userStatus)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? verifyEduproUser,
     required TResult orElse(),
@@ -1087,6 +1224,8 @@ class _$QualificationChanged implements QualificationChanged {
     required TResult Function(RegisterPressed value) registerPressed,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(QualificationChanged value) qualificationChanged,
+    required TResult Function(AddressChanged value) addressChanged,
+    required TResult Function(CodeChanged value) codeChanged,
     required TResult Function(ConfirmPasswordChanged value)
         confirmPasswordChanged,
     required TResult Function(UserStatusChanged value) userStatusChanged,
@@ -1097,6 +1236,9 @@ class _$QualificationChanged implements QualificationChanged {
     required TResult Function(
             RegisterWithInstructorEmailAndPasswordPressed value)
         registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(
+            RegisterWithInstitutionEmailAndPasswordPressed value)
+        registerWithInstitutionEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
         signInWithEmailAndPasswordPressed,
     required TResult Function(VerifyEduproUser value) verifyEduproUser,
@@ -1112,6 +1254,8 @@ class _$QualificationChanged implements QualificationChanged {
     TResult? Function(RegisterPressed value)? registerPressed,
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(QualificationChanged value)? qualificationChanged,
+    TResult? Function(AddressChanged value)? addressChanged,
+    TResult? Function(CodeChanged value)? codeChanged,
     TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult? Function(UserStatusChanged value)? userStatusChanged,
     TResult? Function(VerificationCodeChanged value)? verificationCodeChanged,
@@ -1119,6 +1263,8 @@ class _$QualificationChanged implements QualificationChanged {
         registerWithEmailAndPasswordPressed,
     TResult? Function(RegisterWithInstructorEmailAndPasswordPressed value)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult? Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult? Function(VerifyEduproUser value)? verifyEduproUser,
@@ -1134,6 +1280,8 @@ class _$QualificationChanged implements QualificationChanged {
     TResult Function(RegisterPressed value)? registerPressed,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(QualificationChanged value)? qualificationChanged,
+    TResult Function(AddressChanged value)? addressChanged,
+    TResult Function(CodeChanged value)? codeChanged,
     TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(UserStatusChanged value)? userStatusChanged,
     TResult Function(VerificationCodeChanged value)? verificationCodeChanged,
@@ -1141,6 +1289,8 @@ class _$QualificationChanged implements QualificationChanged {
         registerWithEmailAndPasswordPressed,
     TResult Function(RegisterWithInstructorEmailAndPasswordPressed value)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult Function(VerifyEduproUser value)? verifyEduproUser,
@@ -1160,6 +1310,473 @@ abstract class QualificationChanged implements LogInEvent {
   String get qualiStr;
   @JsonKey(ignore: true)
   _$$QualificationChangedCopyWith<_$QualificationChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddressChangedCopyWith<$Res> {
+  factory _$$AddressChangedCopyWith(
+          _$AddressChanged value, $Res Function(_$AddressChanged) then) =
+      __$$AddressChangedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String addressStr});
+}
+
+/// @nodoc
+class __$$AddressChangedCopyWithImpl<$Res>
+    extends _$LogInEventCopyWithImpl<$Res, _$AddressChanged>
+    implements _$$AddressChangedCopyWith<$Res> {
+  __$$AddressChangedCopyWithImpl(
+      _$AddressChanged _value, $Res Function(_$AddressChanged) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? addressStr = null,
+  }) {
+    return _then(_$AddressChanged(
+      null == addressStr
+          ? _value.addressStr
+          : addressStr // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddressChanged implements AddressChanged {
+  const _$AddressChanged(this.addressStr);
+
+  @override
+  final String addressStr;
+
+  @override
+  String toString() {
+    return 'LogInEvent.addressChanged(addressStr: $addressStr)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddressChanged &&
+            (identical(other.addressStr, addressStr) ||
+                other.addressStr == addressStr));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, addressStr);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddressChangedCopyWith<_$AddressChanged> get copyWith =>
+      __$$AddressChangedCopyWithImpl<_$AddressChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String emailStr) emailChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() registerPressed,
+    required TResult Function(String nameStr) nameChanged,
+    required TResult Function(String qualiStr) qualificationChanged,
+    required TResult Function(String addressStr) addressChanged,
+    required TResult Function(String codeStr) codeChanged,
+    required TResult Function(String conPasswordStr) confirmPasswordChanged,
+    required TResult Function(String userStatusStr) userStatusChanged,
+    required TResult Function(int verificationCode) verificationCodeChanged,
+    required TResult Function() registerWithEmailAndPasswordPressed,
+    required TResult Function(String userStatus)
+        registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(String userStatus)
+        registerWithInstitutionEmailAndPasswordPressed,
+    required TResult Function() signInWithEmailAndPasswordPressed,
+    required TResult Function() verifyEduproUser,
+  }) {
+    return addressChanged(addressStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String emailStr)? emailChanged,
+    TResult? Function(String passwordStr)? passwordChanged,
+    TResult? Function()? registerPressed,
+    TResult? Function(String nameStr)? nameChanged,
+    TResult? Function(String qualiStr)? qualificationChanged,
+    TResult? Function(String addressStr)? addressChanged,
+    TResult? Function(String codeStr)? codeChanged,
+    TResult? Function(String conPasswordStr)? confirmPasswordChanged,
+    TResult? Function(String userStatusStr)? userStatusChanged,
+    TResult? Function(int verificationCode)? verificationCodeChanged,
+    TResult? Function()? registerWithEmailAndPasswordPressed,
+    TResult? Function(String userStatus)?
+        registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
+    TResult? Function()? signInWithEmailAndPasswordPressed,
+    TResult? Function()? verifyEduproUser,
+  }) {
+    return addressChanged?.call(addressStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? registerPressed,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(String qualiStr)? qualificationChanged,
+    TResult Function(String addressStr)? addressChanged,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function(String conPasswordStr)? confirmPasswordChanged,
+    TResult Function(String userStatusStr)? userStatusChanged,
+    TResult Function(int verificationCode)? verificationCodeChanged,
+    TResult Function()? registerWithEmailAndPasswordPressed,
+    TResult Function(String userStatus)?
+        registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
+    TResult Function()? signInWithEmailAndPasswordPressed,
+    TResult Function()? verifyEduproUser,
+    required TResult orElse(),
+  }) {
+    if (addressChanged != null) {
+      return addressChanged(addressStr);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(RegisterPressed value) registerPressed,
+    required TResult Function(NameChanged value) nameChanged,
+    required TResult Function(QualificationChanged value) qualificationChanged,
+    required TResult Function(AddressChanged value) addressChanged,
+    required TResult Function(CodeChanged value) codeChanged,
+    required TResult Function(ConfirmPasswordChanged value)
+        confirmPasswordChanged,
+    required TResult Function(UserStatusChanged value) userStatusChanged,
+    required TResult Function(VerificationCodeChanged value)
+        verificationCodeChanged,
+    required TResult Function(RegisterWithEmailAndPasswordPressed value)
+        registerWithEmailAndPasswordPressed,
+    required TResult Function(
+            RegisterWithInstructorEmailAndPasswordPressed value)
+        registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(
+            RegisterWithInstitutionEmailAndPasswordPressed value)
+        registerWithInstitutionEmailAndPasswordPressed,
+    required TResult Function(SignInWithEmailAndPasswordPressed value)
+        signInWithEmailAndPasswordPressed,
+    required TResult Function(VerifyEduproUser value) verifyEduproUser,
+  }) {
+    return addressChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(EmailChanged value)? emailChanged,
+    TResult? Function(PasswordChanged value)? passwordChanged,
+    TResult? Function(RegisterPressed value)? registerPressed,
+    TResult? Function(NameChanged value)? nameChanged,
+    TResult? Function(QualificationChanged value)? qualificationChanged,
+    TResult? Function(AddressChanged value)? addressChanged,
+    TResult? Function(CodeChanged value)? codeChanged,
+    TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult? Function(UserStatusChanged value)? userStatusChanged,
+    TResult? Function(VerificationCodeChanged value)? verificationCodeChanged,
+    TResult? Function(RegisterWithEmailAndPasswordPressed value)?
+        registerWithEmailAndPasswordPressed,
+    TResult? Function(RegisterWithInstructorEmailAndPasswordPressed value)?
+        registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
+    TResult? Function(SignInWithEmailAndPasswordPressed value)?
+        signInWithEmailAndPasswordPressed,
+    TResult? Function(VerifyEduproUser value)? verifyEduproUser,
+  }) {
+    return addressChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(RegisterPressed value)? registerPressed,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(QualificationChanged value)? qualificationChanged,
+    TResult Function(AddressChanged value)? addressChanged,
+    TResult Function(CodeChanged value)? codeChanged,
+    TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult Function(UserStatusChanged value)? userStatusChanged,
+    TResult Function(VerificationCodeChanged value)? verificationCodeChanged,
+    TResult Function(RegisterWithEmailAndPasswordPressed value)?
+        registerWithEmailAndPasswordPressed,
+    TResult Function(RegisterWithInstructorEmailAndPasswordPressed value)?
+        registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
+    TResult Function(SignInWithEmailAndPasswordPressed value)?
+        signInWithEmailAndPasswordPressed,
+    TResult Function(VerifyEduproUser value)? verifyEduproUser,
+    required TResult orElse(),
+  }) {
+    if (addressChanged != null) {
+      return addressChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddressChanged implements LogInEvent {
+  const factory AddressChanged(final String addressStr) = _$AddressChanged;
+
+  String get addressStr;
+  @JsonKey(ignore: true)
+  _$$AddressChangedCopyWith<_$AddressChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CodeChangedCopyWith<$Res> {
+  factory _$$CodeChangedCopyWith(
+          _$CodeChanged value, $Res Function(_$CodeChanged) then) =
+      __$$CodeChangedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String codeStr});
+}
+
+/// @nodoc
+class __$$CodeChangedCopyWithImpl<$Res>
+    extends _$LogInEventCopyWithImpl<$Res, _$CodeChanged>
+    implements _$$CodeChangedCopyWith<$Res> {
+  __$$CodeChangedCopyWithImpl(
+      _$CodeChanged _value, $Res Function(_$CodeChanged) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? codeStr = null,
+  }) {
+    return _then(_$CodeChanged(
+      null == codeStr
+          ? _value.codeStr
+          : codeStr // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CodeChanged implements CodeChanged {
+  const _$CodeChanged(this.codeStr);
+
+  @override
+  final String codeStr;
+
+  @override
+  String toString() {
+    return 'LogInEvent.codeChanged(codeStr: $codeStr)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CodeChanged &&
+            (identical(other.codeStr, codeStr) || other.codeStr == codeStr));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, codeStr);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CodeChangedCopyWith<_$CodeChanged> get copyWith =>
+      __$$CodeChangedCopyWithImpl<_$CodeChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String emailStr) emailChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() registerPressed,
+    required TResult Function(String nameStr) nameChanged,
+    required TResult Function(String qualiStr) qualificationChanged,
+    required TResult Function(String addressStr) addressChanged,
+    required TResult Function(String codeStr) codeChanged,
+    required TResult Function(String conPasswordStr) confirmPasswordChanged,
+    required TResult Function(String userStatusStr) userStatusChanged,
+    required TResult Function(int verificationCode) verificationCodeChanged,
+    required TResult Function() registerWithEmailAndPasswordPressed,
+    required TResult Function(String userStatus)
+        registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(String userStatus)
+        registerWithInstitutionEmailAndPasswordPressed,
+    required TResult Function() signInWithEmailAndPasswordPressed,
+    required TResult Function() verifyEduproUser,
+  }) {
+    return codeChanged(codeStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String emailStr)? emailChanged,
+    TResult? Function(String passwordStr)? passwordChanged,
+    TResult? Function()? registerPressed,
+    TResult? Function(String nameStr)? nameChanged,
+    TResult? Function(String qualiStr)? qualificationChanged,
+    TResult? Function(String addressStr)? addressChanged,
+    TResult? Function(String codeStr)? codeChanged,
+    TResult? Function(String conPasswordStr)? confirmPasswordChanged,
+    TResult? Function(String userStatusStr)? userStatusChanged,
+    TResult? Function(int verificationCode)? verificationCodeChanged,
+    TResult? Function()? registerWithEmailAndPasswordPressed,
+    TResult? Function(String userStatus)?
+        registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
+    TResult? Function()? signInWithEmailAndPasswordPressed,
+    TResult? Function()? verifyEduproUser,
+  }) {
+    return codeChanged?.call(codeStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? registerPressed,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(String qualiStr)? qualificationChanged,
+    TResult Function(String addressStr)? addressChanged,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function(String conPasswordStr)? confirmPasswordChanged,
+    TResult Function(String userStatusStr)? userStatusChanged,
+    TResult Function(int verificationCode)? verificationCodeChanged,
+    TResult Function()? registerWithEmailAndPasswordPressed,
+    TResult Function(String userStatus)?
+        registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
+    TResult Function()? signInWithEmailAndPasswordPressed,
+    TResult Function()? verifyEduproUser,
+    required TResult orElse(),
+  }) {
+    if (codeChanged != null) {
+      return codeChanged(codeStr);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(RegisterPressed value) registerPressed,
+    required TResult Function(NameChanged value) nameChanged,
+    required TResult Function(QualificationChanged value) qualificationChanged,
+    required TResult Function(AddressChanged value) addressChanged,
+    required TResult Function(CodeChanged value) codeChanged,
+    required TResult Function(ConfirmPasswordChanged value)
+        confirmPasswordChanged,
+    required TResult Function(UserStatusChanged value) userStatusChanged,
+    required TResult Function(VerificationCodeChanged value)
+        verificationCodeChanged,
+    required TResult Function(RegisterWithEmailAndPasswordPressed value)
+        registerWithEmailAndPasswordPressed,
+    required TResult Function(
+            RegisterWithInstructorEmailAndPasswordPressed value)
+        registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(
+            RegisterWithInstitutionEmailAndPasswordPressed value)
+        registerWithInstitutionEmailAndPasswordPressed,
+    required TResult Function(SignInWithEmailAndPasswordPressed value)
+        signInWithEmailAndPasswordPressed,
+    required TResult Function(VerifyEduproUser value) verifyEduproUser,
+  }) {
+    return codeChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(EmailChanged value)? emailChanged,
+    TResult? Function(PasswordChanged value)? passwordChanged,
+    TResult? Function(RegisterPressed value)? registerPressed,
+    TResult? Function(NameChanged value)? nameChanged,
+    TResult? Function(QualificationChanged value)? qualificationChanged,
+    TResult? Function(AddressChanged value)? addressChanged,
+    TResult? Function(CodeChanged value)? codeChanged,
+    TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult? Function(UserStatusChanged value)? userStatusChanged,
+    TResult? Function(VerificationCodeChanged value)? verificationCodeChanged,
+    TResult? Function(RegisterWithEmailAndPasswordPressed value)?
+        registerWithEmailAndPasswordPressed,
+    TResult? Function(RegisterWithInstructorEmailAndPasswordPressed value)?
+        registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
+    TResult? Function(SignInWithEmailAndPasswordPressed value)?
+        signInWithEmailAndPasswordPressed,
+    TResult? Function(VerifyEduproUser value)? verifyEduproUser,
+  }) {
+    return codeChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(RegisterPressed value)? registerPressed,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(QualificationChanged value)? qualificationChanged,
+    TResult Function(AddressChanged value)? addressChanged,
+    TResult Function(CodeChanged value)? codeChanged,
+    TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult Function(UserStatusChanged value)? userStatusChanged,
+    TResult Function(VerificationCodeChanged value)? verificationCodeChanged,
+    TResult Function(RegisterWithEmailAndPasswordPressed value)?
+        registerWithEmailAndPasswordPressed,
+    TResult Function(RegisterWithInstructorEmailAndPasswordPressed value)?
+        registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
+    TResult Function(SignInWithEmailAndPasswordPressed value)?
+        signInWithEmailAndPasswordPressed,
+    TResult Function(VerifyEduproUser value)? verifyEduproUser,
+    required TResult orElse(),
+  }) {
+    if (codeChanged != null) {
+      return codeChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CodeChanged implements LogInEvent {
+  const factory CodeChanged(final String codeStr) = _$CodeChanged;
+
+  String get codeStr;
+  @JsonKey(ignore: true)
+  _$$CodeChangedCopyWith<_$CodeChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1234,12 +1851,16 @@ class _$ConfirmPasswordChanged implements ConfirmPasswordChanged {
     required TResult Function() registerPressed,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String qualiStr) qualificationChanged,
+    required TResult Function(String addressStr) addressChanged,
+    required TResult Function(String codeStr) codeChanged,
     required TResult Function(String conPasswordStr) confirmPasswordChanged,
     required TResult Function(String userStatusStr) userStatusChanged,
     required TResult Function(int verificationCode) verificationCodeChanged,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function(String userStatus)
         registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(String userStatus)
+        registerWithInstitutionEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() verifyEduproUser,
   }) {
@@ -1254,12 +1875,16 @@ class _$ConfirmPasswordChanged implements ConfirmPasswordChanged {
     TResult? Function()? registerPressed,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String qualiStr)? qualificationChanged,
+    TResult? Function(String addressStr)? addressChanged,
+    TResult? Function(String codeStr)? codeChanged,
     TResult? Function(String conPasswordStr)? confirmPasswordChanged,
     TResult? Function(String userStatusStr)? userStatusChanged,
     TResult? Function(int verificationCode)? verificationCodeChanged,
     TResult? Function()? registerWithEmailAndPasswordPressed,
     TResult? Function(String userStatus)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult? Function()? signInWithEmailAndPasswordPressed,
     TResult? Function()? verifyEduproUser,
   }) {
@@ -1274,12 +1899,16 @@ class _$ConfirmPasswordChanged implements ConfirmPasswordChanged {
     TResult Function()? registerPressed,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String qualiStr)? qualificationChanged,
+    TResult Function(String addressStr)? addressChanged,
+    TResult Function(String codeStr)? codeChanged,
     TResult Function(String conPasswordStr)? confirmPasswordChanged,
     TResult Function(String userStatusStr)? userStatusChanged,
     TResult Function(int verificationCode)? verificationCodeChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function(String userStatus)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? verifyEduproUser,
     required TResult orElse(),
@@ -1298,6 +1927,8 @@ class _$ConfirmPasswordChanged implements ConfirmPasswordChanged {
     required TResult Function(RegisterPressed value) registerPressed,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(QualificationChanged value) qualificationChanged,
+    required TResult Function(AddressChanged value) addressChanged,
+    required TResult Function(CodeChanged value) codeChanged,
     required TResult Function(ConfirmPasswordChanged value)
         confirmPasswordChanged,
     required TResult Function(UserStatusChanged value) userStatusChanged,
@@ -1308,6 +1939,9 @@ class _$ConfirmPasswordChanged implements ConfirmPasswordChanged {
     required TResult Function(
             RegisterWithInstructorEmailAndPasswordPressed value)
         registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(
+            RegisterWithInstitutionEmailAndPasswordPressed value)
+        registerWithInstitutionEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
         signInWithEmailAndPasswordPressed,
     required TResult Function(VerifyEduproUser value) verifyEduproUser,
@@ -1323,6 +1957,8 @@ class _$ConfirmPasswordChanged implements ConfirmPasswordChanged {
     TResult? Function(RegisterPressed value)? registerPressed,
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(QualificationChanged value)? qualificationChanged,
+    TResult? Function(AddressChanged value)? addressChanged,
+    TResult? Function(CodeChanged value)? codeChanged,
     TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult? Function(UserStatusChanged value)? userStatusChanged,
     TResult? Function(VerificationCodeChanged value)? verificationCodeChanged,
@@ -1330,6 +1966,8 @@ class _$ConfirmPasswordChanged implements ConfirmPasswordChanged {
         registerWithEmailAndPasswordPressed,
     TResult? Function(RegisterWithInstructorEmailAndPasswordPressed value)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult? Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult? Function(VerifyEduproUser value)? verifyEduproUser,
@@ -1345,6 +1983,8 @@ class _$ConfirmPasswordChanged implements ConfirmPasswordChanged {
     TResult Function(RegisterPressed value)? registerPressed,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(QualificationChanged value)? qualificationChanged,
+    TResult Function(AddressChanged value)? addressChanged,
+    TResult Function(CodeChanged value)? codeChanged,
     TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(UserStatusChanged value)? userStatusChanged,
     TResult Function(VerificationCodeChanged value)? verificationCodeChanged,
@@ -1352,6 +1992,8 @@ class _$ConfirmPasswordChanged implements ConfirmPasswordChanged {
         registerWithEmailAndPasswordPressed,
     TResult Function(RegisterWithInstructorEmailAndPasswordPressed value)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult Function(VerifyEduproUser value)? verifyEduproUser,
@@ -1444,12 +2086,16 @@ class _$UserStatusChanged implements UserStatusChanged {
     required TResult Function() registerPressed,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String qualiStr) qualificationChanged,
+    required TResult Function(String addressStr) addressChanged,
+    required TResult Function(String codeStr) codeChanged,
     required TResult Function(String conPasswordStr) confirmPasswordChanged,
     required TResult Function(String userStatusStr) userStatusChanged,
     required TResult Function(int verificationCode) verificationCodeChanged,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function(String userStatus)
         registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(String userStatus)
+        registerWithInstitutionEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() verifyEduproUser,
   }) {
@@ -1464,12 +2110,16 @@ class _$UserStatusChanged implements UserStatusChanged {
     TResult? Function()? registerPressed,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String qualiStr)? qualificationChanged,
+    TResult? Function(String addressStr)? addressChanged,
+    TResult? Function(String codeStr)? codeChanged,
     TResult? Function(String conPasswordStr)? confirmPasswordChanged,
     TResult? Function(String userStatusStr)? userStatusChanged,
     TResult? Function(int verificationCode)? verificationCodeChanged,
     TResult? Function()? registerWithEmailAndPasswordPressed,
     TResult? Function(String userStatus)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult? Function()? signInWithEmailAndPasswordPressed,
     TResult? Function()? verifyEduproUser,
   }) {
@@ -1484,12 +2134,16 @@ class _$UserStatusChanged implements UserStatusChanged {
     TResult Function()? registerPressed,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String qualiStr)? qualificationChanged,
+    TResult Function(String addressStr)? addressChanged,
+    TResult Function(String codeStr)? codeChanged,
     TResult Function(String conPasswordStr)? confirmPasswordChanged,
     TResult Function(String userStatusStr)? userStatusChanged,
     TResult Function(int verificationCode)? verificationCodeChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function(String userStatus)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? verifyEduproUser,
     required TResult orElse(),
@@ -1508,6 +2162,8 @@ class _$UserStatusChanged implements UserStatusChanged {
     required TResult Function(RegisterPressed value) registerPressed,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(QualificationChanged value) qualificationChanged,
+    required TResult Function(AddressChanged value) addressChanged,
+    required TResult Function(CodeChanged value) codeChanged,
     required TResult Function(ConfirmPasswordChanged value)
         confirmPasswordChanged,
     required TResult Function(UserStatusChanged value) userStatusChanged,
@@ -1518,6 +2174,9 @@ class _$UserStatusChanged implements UserStatusChanged {
     required TResult Function(
             RegisterWithInstructorEmailAndPasswordPressed value)
         registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(
+            RegisterWithInstitutionEmailAndPasswordPressed value)
+        registerWithInstitutionEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
         signInWithEmailAndPasswordPressed,
     required TResult Function(VerifyEduproUser value) verifyEduproUser,
@@ -1533,6 +2192,8 @@ class _$UserStatusChanged implements UserStatusChanged {
     TResult? Function(RegisterPressed value)? registerPressed,
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(QualificationChanged value)? qualificationChanged,
+    TResult? Function(AddressChanged value)? addressChanged,
+    TResult? Function(CodeChanged value)? codeChanged,
     TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult? Function(UserStatusChanged value)? userStatusChanged,
     TResult? Function(VerificationCodeChanged value)? verificationCodeChanged,
@@ -1540,6 +2201,8 @@ class _$UserStatusChanged implements UserStatusChanged {
         registerWithEmailAndPasswordPressed,
     TResult? Function(RegisterWithInstructorEmailAndPasswordPressed value)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult? Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult? Function(VerifyEduproUser value)? verifyEduproUser,
@@ -1555,6 +2218,8 @@ class _$UserStatusChanged implements UserStatusChanged {
     TResult Function(RegisterPressed value)? registerPressed,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(QualificationChanged value)? qualificationChanged,
+    TResult Function(AddressChanged value)? addressChanged,
+    TResult Function(CodeChanged value)? codeChanged,
     TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(UserStatusChanged value)? userStatusChanged,
     TResult Function(VerificationCodeChanged value)? verificationCodeChanged,
@@ -1562,6 +2227,8 @@ class _$UserStatusChanged implements UserStatusChanged {
         registerWithEmailAndPasswordPressed,
     TResult Function(RegisterWithInstructorEmailAndPasswordPressed value)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult Function(VerifyEduproUser value)? verifyEduproUser,
@@ -1655,12 +2322,16 @@ class _$VerificationCodeChanged implements VerificationCodeChanged {
     required TResult Function() registerPressed,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String qualiStr) qualificationChanged,
+    required TResult Function(String addressStr) addressChanged,
+    required TResult Function(String codeStr) codeChanged,
     required TResult Function(String conPasswordStr) confirmPasswordChanged,
     required TResult Function(String userStatusStr) userStatusChanged,
     required TResult Function(int verificationCode) verificationCodeChanged,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function(String userStatus)
         registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(String userStatus)
+        registerWithInstitutionEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() verifyEduproUser,
   }) {
@@ -1675,12 +2346,16 @@ class _$VerificationCodeChanged implements VerificationCodeChanged {
     TResult? Function()? registerPressed,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String qualiStr)? qualificationChanged,
+    TResult? Function(String addressStr)? addressChanged,
+    TResult? Function(String codeStr)? codeChanged,
     TResult? Function(String conPasswordStr)? confirmPasswordChanged,
     TResult? Function(String userStatusStr)? userStatusChanged,
     TResult? Function(int verificationCode)? verificationCodeChanged,
     TResult? Function()? registerWithEmailAndPasswordPressed,
     TResult? Function(String userStatus)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult? Function()? signInWithEmailAndPasswordPressed,
     TResult? Function()? verifyEduproUser,
   }) {
@@ -1695,12 +2370,16 @@ class _$VerificationCodeChanged implements VerificationCodeChanged {
     TResult Function()? registerPressed,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String qualiStr)? qualificationChanged,
+    TResult Function(String addressStr)? addressChanged,
+    TResult Function(String codeStr)? codeChanged,
     TResult Function(String conPasswordStr)? confirmPasswordChanged,
     TResult Function(String userStatusStr)? userStatusChanged,
     TResult Function(int verificationCode)? verificationCodeChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function(String userStatus)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? verifyEduproUser,
     required TResult orElse(),
@@ -1719,6 +2398,8 @@ class _$VerificationCodeChanged implements VerificationCodeChanged {
     required TResult Function(RegisterPressed value) registerPressed,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(QualificationChanged value) qualificationChanged,
+    required TResult Function(AddressChanged value) addressChanged,
+    required TResult Function(CodeChanged value) codeChanged,
     required TResult Function(ConfirmPasswordChanged value)
         confirmPasswordChanged,
     required TResult Function(UserStatusChanged value) userStatusChanged,
@@ -1729,6 +2410,9 @@ class _$VerificationCodeChanged implements VerificationCodeChanged {
     required TResult Function(
             RegisterWithInstructorEmailAndPasswordPressed value)
         registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(
+            RegisterWithInstitutionEmailAndPasswordPressed value)
+        registerWithInstitutionEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
         signInWithEmailAndPasswordPressed,
     required TResult Function(VerifyEduproUser value) verifyEduproUser,
@@ -1744,6 +2428,8 @@ class _$VerificationCodeChanged implements VerificationCodeChanged {
     TResult? Function(RegisterPressed value)? registerPressed,
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(QualificationChanged value)? qualificationChanged,
+    TResult? Function(AddressChanged value)? addressChanged,
+    TResult? Function(CodeChanged value)? codeChanged,
     TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult? Function(UserStatusChanged value)? userStatusChanged,
     TResult? Function(VerificationCodeChanged value)? verificationCodeChanged,
@@ -1751,6 +2437,8 @@ class _$VerificationCodeChanged implements VerificationCodeChanged {
         registerWithEmailAndPasswordPressed,
     TResult? Function(RegisterWithInstructorEmailAndPasswordPressed value)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult? Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult? Function(VerifyEduproUser value)? verifyEduproUser,
@@ -1766,6 +2454,8 @@ class _$VerificationCodeChanged implements VerificationCodeChanged {
     TResult Function(RegisterPressed value)? registerPressed,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(QualificationChanged value)? qualificationChanged,
+    TResult Function(AddressChanged value)? addressChanged,
+    TResult Function(CodeChanged value)? codeChanged,
     TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(UserStatusChanged value)? userStatusChanged,
     TResult Function(VerificationCodeChanged value)? verificationCodeChanged,
@@ -1773,6 +2463,8 @@ class _$VerificationCodeChanged implements VerificationCodeChanged {
         registerWithEmailAndPasswordPressed,
     TResult Function(RegisterWithInstructorEmailAndPasswordPressed value)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult Function(VerifyEduproUser value)? verifyEduproUser,
@@ -1843,12 +2535,16 @@ class _$RegisterWithEmailAndPasswordPressed
     required TResult Function() registerPressed,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String qualiStr) qualificationChanged,
+    required TResult Function(String addressStr) addressChanged,
+    required TResult Function(String codeStr) codeChanged,
     required TResult Function(String conPasswordStr) confirmPasswordChanged,
     required TResult Function(String userStatusStr) userStatusChanged,
     required TResult Function(int verificationCode) verificationCodeChanged,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function(String userStatus)
         registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(String userStatus)
+        registerWithInstitutionEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() verifyEduproUser,
   }) {
@@ -1863,12 +2559,16 @@ class _$RegisterWithEmailAndPasswordPressed
     TResult? Function()? registerPressed,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String qualiStr)? qualificationChanged,
+    TResult? Function(String addressStr)? addressChanged,
+    TResult? Function(String codeStr)? codeChanged,
     TResult? Function(String conPasswordStr)? confirmPasswordChanged,
     TResult? Function(String userStatusStr)? userStatusChanged,
     TResult? Function(int verificationCode)? verificationCodeChanged,
     TResult? Function()? registerWithEmailAndPasswordPressed,
     TResult? Function(String userStatus)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult? Function()? signInWithEmailAndPasswordPressed,
     TResult? Function()? verifyEduproUser,
   }) {
@@ -1883,12 +2583,16 @@ class _$RegisterWithEmailAndPasswordPressed
     TResult Function()? registerPressed,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String qualiStr)? qualificationChanged,
+    TResult Function(String addressStr)? addressChanged,
+    TResult Function(String codeStr)? codeChanged,
     TResult Function(String conPasswordStr)? confirmPasswordChanged,
     TResult Function(String userStatusStr)? userStatusChanged,
     TResult Function(int verificationCode)? verificationCodeChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function(String userStatus)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? verifyEduproUser,
     required TResult orElse(),
@@ -1907,6 +2611,8 @@ class _$RegisterWithEmailAndPasswordPressed
     required TResult Function(RegisterPressed value) registerPressed,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(QualificationChanged value) qualificationChanged,
+    required TResult Function(AddressChanged value) addressChanged,
+    required TResult Function(CodeChanged value) codeChanged,
     required TResult Function(ConfirmPasswordChanged value)
         confirmPasswordChanged,
     required TResult Function(UserStatusChanged value) userStatusChanged,
@@ -1917,6 +2623,9 @@ class _$RegisterWithEmailAndPasswordPressed
     required TResult Function(
             RegisterWithInstructorEmailAndPasswordPressed value)
         registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(
+            RegisterWithInstitutionEmailAndPasswordPressed value)
+        registerWithInstitutionEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
         signInWithEmailAndPasswordPressed,
     required TResult Function(VerifyEduproUser value) verifyEduproUser,
@@ -1932,6 +2641,8 @@ class _$RegisterWithEmailAndPasswordPressed
     TResult? Function(RegisterPressed value)? registerPressed,
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(QualificationChanged value)? qualificationChanged,
+    TResult? Function(AddressChanged value)? addressChanged,
+    TResult? Function(CodeChanged value)? codeChanged,
     TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult? Function(UserStatusChanged value)? userStatusChanged,
     TResult? Function(VerificationCodeChanged value)? verificationCodeChanged,
@@ -1939,6 +2650,8 @@ class _$RegisterWithEmailAndPasswordPressed
         registerWithEmailAndPasswordPressed,
     TResult? Function(RegisterWithInstructorEmailAndPasswordPressed value)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult? Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult? Function(VerifyEduproUser value)? verifyEduproUser,
@@ -1954,6 +2667,8 @@ class _$RegisterWithEmailAndPasswordPressed
     TResult Function(RegisterPressed value)? registerPressed,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(QualificationChanged value)? qualificationChanged,
+    TResult Function(AddressChanged value)? addressChanged,
+    TResult Function(CodeChanged value)? codeChanged,
     TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(UserStatusChanged value)? userStatusChanged,
     TResult Function(VerificationCodeChanged value)? verificationCodeChanged,
@@ -1961,6 +2676,8 @@ class _$RegisterWithEmailAndPasswordPressed
         registerWithEmailAndPasswordPressed,
     TResult Function(RegisterWithInstructorEmailAndPasswordPressed value)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult Function(VerifyEduproUser value)? verifyEduproUser,
@@ -2056,12 +2773,16 @@ class _$RegisterWithInstructorEmailAndPasswordPressed
     required TResult Function() registerPressed,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String qualiStr) qualificationChanged,
+    required TResult Function(String addressStr) addressChanged,
+    required TResult Function(String codeStr) codeChanged,
     required TResult Function(String conPasswordStr) confirmPasswordChanged,
     required TResult Function(String userStatusStr) userStatusChanged,
     required TResult Function(int verificationCode) verificationCodeChanged,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function(String userStatus)
         registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(String userStatus)
+        registerWithInstitutionEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() verifyEduproUser,
   }) {
@@ -2076,12 +2797,16 @@ class _$RegisterWithInstructorEmailAndPasswordPressed
     TResult? Function()? registerPressed,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String qualiStr)? qualificationChanged,
+    TResult? Function(String addressStr)? addressChanged,
+    TResult? Function(String codeStr)? codeChanged,
     TResult? Function(String conPasswordStr)? confirmPasswordChanged,
     TResult? Function(String userStatusStr)? userStatusChanged,
     TResult? Function(int verificationCode)? verificationCodeChanged,
     TResult? Function()? registerWithEmailAndPasswordPressed,
     TResult? Function(String userStatus)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult? Function()? signInWithEmailAndPasswordPressed,
     TResult? Function()? verifyEduproUser,
   }) {
@@ -2096,12 +2821,16 @@ class _$RegisterWithInstructorEmailAndPasswordPressed
     TResult Function()? registerPressed,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String qualiStr)? qualificationChanged,
+    TResult Function(String addressStr)? addressChanged,
+    TResult Function(String codeStr)? codeChanged,
     TResult Function(String conPasswordStr)? confirmPasswordChanged,
     TResult Function(String userStatusStr)? userStatusChanged,
     TResult Function(int verificationCode)? verificationCodeChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function(String userStatus)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? verifyEduproUser,
     required TResult orElse(),
@@ -2120,6 +2849,8 @@ class _$RegisterWithInstructorEmailAndPasswordPressed
     required TResult Function(RegisterPressed value) registerPressed,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(QualificationChanged value) qualificationChanged,
+    required TResult Function(AddressChanged value) addressChanged,
+    required TResult Function(CodeChanged value) codeChanged,
     required TResult Function(ConfirmPasswordChanged value)
         confirmPasswordChanged,
     required TResult Function(UserStatusChanged value) userStatusChanged,
@@ -2130,6 +2861,9 @@ class _$RegisterWithInstructorEmailAndPasswordPressed
     required TResult Function(
             RegisterWithInstructorEmailAndPasswordPressed value)
         registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(
+            RegisterWithInstitutionEmailAndPasswordPressed value)
+        registerWithInstitutionEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
         signInWithEmailAndPasswordPressed,
     required TResult Function(VerifyEduproUser value) verifyEduproUser,
@@ -2145,6 +2879,8 @@ class _$RegisterWithInstructorEmailAndPasswordPressed
     TResult? Function(RegisterPressed value)? registerPressed,
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(QualificationChanged value)? qualificationChanged,
+    TResult? Function(AddressChanged value)? addressChanged,
+    TResult? Function(CodeChanged value)? codeChanged,
     TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult? Function(UserStatusChanged value)? userStatusChanged,
     TResult? Function(VerificationCodeChanged value)? verificationCodeChanged,
@@ -2152,6 +2888,8 @@ class _$RegisterWithInstructorEmailAndPasswordPressed
         registerWithEmailAndPasswordPressed,
     TResult? Function(RegisterWithInstructorEmailAndPasswordPressed value)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult? Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult? Function(VerifyEduproUser value)? verifyEduproUser,
@@ -2167,6 +2905,8 @@ class _$RegisterWithInstructorEmailAndPasswordPressed
     TResult Function(RegisterPressed value)? registerPressed,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(QualificationChanged value)? qualificationChanged,
+    TResult Function(AddressChanged value)? addressChanged,
+    TResult Function(CodeChanged value)? codeChanged,
     TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(UserStatusChanged value)? userStatusChanged,
     TResult Function(VerificationCodeChanged value)? verificationCodeChanged,
@@ -2174,6 +2914,8 @@ class _$RegisterWithInstructorEmailAndPasswordPressed
         registerWithEmailAndPasswordPressed,
     TResult Function(RegisterWithInstructorEmailAndPasswordPressed value)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult Function(VerifyEduproUser value)? verifyEduproUser,
@@ -2196,6 +2938,253 @@ abstract class RegisterWithInstructorEmailAndPasswordPressed
   @JsonKey(ignore: true)
   _$$RegisterWithInstructorEmailAndPasswordPressedCopyWith<
           _$RegisterWithInstructorEmailAndPasswordPressed>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RegisterWithInstitutionEmailAndPasswordPressedCopyWith<$Res> {
+  factory _$$RegisterWithInstitutionEmailAndPasswordPressedCopyWith(
+          _$RegisterWithInstitutionEmailAndPasswordPressed value,
+          $Res Function(_$RegisterWithInstitutionEmailAndPasswordPressed)
+              then) =
+      __$$RegisterWithInstitutionEmailAndPasswordPressedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String userStatus});
+}
+
+/// @nodoc
+class __$$RegisterWithInstitutionEmailAndPasswordPressedCopyWithImpl<$Res>
+    extends _$LogInEventCopyWithImpl<$Res,
+        _$RegisterWithInstitutionEmailAndPasswordPressed>
+    implements _$$RegisterWithInstitutionEmailAndPasswordPressedCopyWith<$Res> {
+  __$$RegisterWithInstitutionEmailAndPasswordPressedCopyWithImpl(
+      _$RegisterWithInstitutionEmailAndPasswordPressed _value,
+      $Res Function(_$RegisterWithInstitutionEmailAndPasswordPressed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userStatus = null,
+  }) {
+    return _then(_$RegisterWithInstitutionEmailAndPasswordPressed(
+      null == userStatus
+          ? _value.userStatus
+          : userStatus // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RegisterWithInstitutionEmailAndPasswordPressed
+    implements RegisterWithInstitutionEmailAndPasswordPressed {
+  const _$RegisterWithInstitutionEmailAndPasswordPressed(this.userStatus);
+
+  @override
+  final String userStatus;
+
+  @override
+  String toString() {
+    return 'LogInEvent.registerWithInstitutionEmailAndPasswordPressed(userStatus: $userStatus)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RegisterWithInstitutionEmailAndPasswordPressed &&
+            (identical(other.userStatus, userStatus) ||
+                other.userStatus == userStatus));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, userStatus);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RegisterWithInstitutionEmailAndPasswordPressedCopyWith<
+          _$RegisterWithInstitutionEmailAndPasswordPressed>
+      get copyWith =>
+          __$$RegisterWithInstitutionEmailAndPasswordPressedCopyWithImpl<
+                  _$RegisterWithInstitutionEmailAndPasswordPressed>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String emailStr) emailChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() registerPressed,
+    required TResult Function(String nameStr) nameChanged,
+    required TResult Function(String qualiStr) qualificationChanged,
+    required TResult Function(String addressStr) addressChanged,
+    required TResult Function(String codeStr) codeChanged,
+    required TResult Function(String conPasswordStr) confirmPasswordChanged,
+    required TResult Function(String userStatusStr) userStatusChanged,
+    required TResult Function(int verificationCode) verificationCodeChanged,
+    required TResult Function() registerWithEmailAndPasswordPressed,
+    required TResult Function(String userStatus)
+        registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(String userStatus)
+        registerWithInstitutionEmailAndPasswordPressed,
+    required TResult Function() signInWithEmailAndPasswordPressed,
+    required TResult Function() verifyEduproUser,
+  }) {
+    return registerWithInstitutionEmailAndPasswordPressed(userStatus);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String emailStr)? emailChanged,
+    TResult? Function(String passwordStr)? passwordChanged,
+    TResult? Function()? registerPressed,
+    TResult? Function(String nameStr)? nameChanged,
+    TResult? Function(String qualiStr)? qualificationChanged,
+    TResult? Function(String addressStr)? addressChanged,
+    TResult? Function(String codeStr)? codeChanged,
+    TResult? Function(String conPasswordStr)? confirmPasswordChanged,
+    TResult? Function(String userStatusStr)? userStatusChanged,
+    TResult? Function(int verificationCode)? verificationCodeChanged,
+    TResult? Function()? registerWithEmailAndPasswordPressed,
+    TResult? Function(String userStatus)?
+        registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
+    TResult? Function()? signInWithEmailAndPasswordPressed,
+    TResult? Function()? verifyEduproUser,
+  }) {
+    return registerWithInstitutionEmailAndPasswordPressed?.call(userStatus);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? registerPressed,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(String qualiStr)? qualificationChanged,
+    TResult Function(String addressStr)? addressChanged,
+    TResult Function(String codeStr)? codeChanged,
+    TResult Function(String conPasswordStr)? confirmPasswordChanged,
+    TResult Function(String userStatusStr)? userStatusChanged,
+    TResult Function(int verificationCode)? verificationCodeChanged,
+    TResult Function()? registerWithEmailAndPasswordPressed,
+    TResult Function(String userStatus)?
+        registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
+    TResult Function()? signInWithEmailAndPasswordPressed,
+    TResult Function()? verifyEduproUser,
+    required TResult orElse(),
+  }) {
+    if (registerWithInstitutionEmailAndPasswordPressed != null) {
+      return registerWithInstitutionEmailAndPasswordPressed(userStatus);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(RegisterPressed value) registerPressed,
+    required TResult Function(NameChanged value) nameChanged,
+    required TResult Function(QualificationChanged value) qualificationChanged,
+    required TResult Function(AddressChanged value) addressChanged,
+    required TResult Function(CodeChanged value) codeChanged,
+    required TResult Function(ConfirmPasswordChanged value)
+        confirmPasswordChanged,
+    required TResult Function(UserStatusChanged value) userStatusChanged,
+    required TResult Function(VerificationCodeChanged value)
+        verificationCodeChanged,
+    required TResult Function(RegisterWithEmailAndPasswordPressed value)
+        registerWithEmailAndPasswordPressed,
+    required TResult Function(
+            RegisterWithInstructorEmailAndPasswordPressed value)
+        registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(
+            RegisterWithInstitutionEmailAndPasswordPressed value)
+        registerWithInstitutionEmailAndPasswordPressed,
+    required TResult Function(SignInWithEmailAndPasswordPressed value)
+        signInWithEmailAndPasswordPressed,
+    required TResult Function(VerifyEduproUser value) verifyEduproUser,
+  }) {
+    return registerWithInstitutionEmailAndPasswordPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(EmailChanged value)? emailChanged,
+    TResult? Function(PasswordChanged value)? passwordChanged,
+    TResult? Function(RegisterPressed value)? registerPressed,
+    TResult? Function(NameChanged value)? nameChanged,
+    TResult? Function(QualificationChanged value)? qualificationChanged,
+    TResult? Function(AddressChanged value)? addressChanged,
+    TResult? Function(CodeChanged value)? codeChanged,
+    TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult? Function(UserStatusChanged value)? userStatusChanged,
+    TResult? Function(VerificationCodeChanged value)? verificationCodeChanged,
+    TResult? Function(RegisterWithEmailAndPasswordPressed value)?
+        registerWithEmailAndPasswordPressed,
+    TResult? Function(RegisterWithInstructorEmailAndPasswordPressed value)?
+        registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
+    TResult? Function(SignInWithEmailAndPasswordPressed value)?
+        signInWithEmailAndPasswordPressed,
+    TResult? Function(VerifyEduproUser value)? verifyEduproUser,
+  }) {
+    return registerWithInstitutionEmailAndPasswordPressed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(RegisterPressed value)? registerPressed,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(QualificationChanged value)? qualificationChanged,
+    TResult Function(AddressChanged value)? addressChanged,
+    TResult Function(CodeChanged value)? codeChanged,
+    TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult Function(UserStatusChanged value)? userStatusChanged,
+    TResult Function(VerificationCodeChanged value)? verificationCodeChanged,
+    TResult Function(RegisterWithEmailAndPasswordPressed value)?
+        registerWithEmailAndPasswordPressed,
+    TResult Function(RegisterWithInstructorEmailAndPasswordPressed value)?
+        registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
+    TResult Function(SignInWithEmailAndPasswordPressed value)?
+        signInWithEmailAndPasswordPressed,
+    TResult Function(VerifyEduproUser value)? verifyEduproUser,
+    required TResult orElse(),
+  }) {
+    if (registerWithInstitutionEmailAndPasswordPressed != null) {
+      return registerWithInstitutionEmailAndPasswordPressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RegisterWithInstitutionEmailAndPasswordPressed
+    implements LogInEvent {
+  const factory RegisterWithInstitutionEmailAndPasswordPressed(
+          final String userStatus) =
+      _$RegisterWithInstitutionEmailAndPasswordPressed;
+
+  String get userStatus;
+  @JsonKey(ignore: true)
+  _$$RegisterWithInstitutionEmailAndPasswordPressedCopyWith<
+          _$RegisterWithInstitutionEmailAndPasswordPressed>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -2246,12 +3235,16 @@ class _$SignInWithEmailAndPasswordPressed
     required TResult Function() registerPressed,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String qualiStr) qualificationChanged,
+    required TResult Function(String addressStr) addressChanged,
+    required TResult Function(String codeStr) codeChanged,
     required TResult Function(String conPasswordStr) confirmPasswordChanged,
     required TResult Function(String userStatusStr) userStatusChanged,
     required TResult Function(int verificationCode) verificationCodeChanged,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function(String userStatus)
         registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(String userStatus)
+        registerWithInstitutionEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() verifyEduproUser,
   }) {
@@ -2266,12 +3259,16 @@ class _$SignInWithEmailAndPasswordPressed
     TResult? Function()? registerPressed,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String qualiStr)? qualificationChanged,
+    TResult? Function(String addressStr)? addressChanged,
+    TResult? Function(String codeStr)? codeChanged,
     TResult? Function(String conPasswordStr)? confirmPasswordChanged,
     TResult? Function(String userStatusStr)? userStatusChanged,
     TResult? Function(int verificationCode)? verificationCodeChanged,
     TResult? Function()? registerWithEmailAndPasswordPressed,
     TResult? Function(String userStatus)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult? Function()? signInWithEmailAndPasswordPressed,
     TResult? Function()? verifyEduproUser,
   }) {
@@ -2286,12 +3283,16 @@ class _$SignInWithEmailAndPasswordPressed
     TResult Function()? registerPressed,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String qualiStr)? qualificationChanged,
+    TResult Function(String addressStr)? addressChanged,
+    TResult Function(String codeStr)? codeChanged,
     TResult Function(String conPasswordStr)? confirmPasswordChanged,
     TResult Function(String userStatusStr)? userStatusChanged,
     TResult Function(int verificationCode)? verificationCodeChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function(String userStatus)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? verifyEduproUser,
     required TResult orElse(),
@@ -2310,6 +3311,8 @@ class _$SignInWithEmailAndPasswordPressed
     required TResult Function(RegisterPressed value) registerPressed,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(QualificationChanged value) qualificationChanged,
+    required TResult Function(AddressChanged value) addressChanged,
+    required TResult Function(CodeChanged value) codeChanged,
     required TResult Function(ConfirmPasswordChanged value)
         confirmPasswordChanged,
     required TResult Function(UserStatusChanged value) userStatusChanged,
@@ -2320,6 +3323,9 @@ class _$SignInWithEmailAndPasswordPressed
     required TResult Function(
             RegisterWithInstructorEmailAndPasswordPressed value)
         registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(
+            RegisterWithInstitutionEmailAndPasswordPressed value)
+        registerWithInstitutionEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
         signInWithEmailAndPasswordPressed,
     required TResult Function(VerifyEduproUser value) verifyEduproUser,
@@ -2335,6 +3341,8 @@ class _$SignInWithEmailAndPasswordPressed
     TResult? Function(RegisterPressed value)? registerPressed,
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(QualificationChanged value)? qualificationChanged,
+    TResult? Function(AddressChanged value)? addressChanged,
+    TResult? Function(CodeChanged value)? codeChanged,
     TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult? Function(UserStatusChanged value)? userStatusChanged,
     TResult? Function(VerificationCodeChanged value)? verificationCodeChanged,
@@ -2342,6 +3350,8 @@ class _$SignInWithEmailAndPasswordPressed
         registerWithEmailAndPasswordPressed,
     TResult? Function(RegisterWithInstructorEmailAndPasswordPressed value)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult? Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult? Function(VerifyEduproUser value)? verifyEduproUser,
@@ -2357,6 +3367,8 @@ class _$SignInWithEmailAndPasswordPressed
     TResult Function(RegisterPressed value)? registerPressed,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(QualificationChanged value)? qualificationChanged,
+    TResult Function(AddressChanged value)? addressChanged,
+    TResult Function(CodeChanged value)? codeChanged,
     TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(UserStatusChanged value)? userStatusChanged,
     TResult Function(VerificationCodeChanged value)? verificationCodeChanged,
@@ -2364,6 +3376,8 @@ class _$SignInWithEmailAndPasswordPressed
         registerWithEmailAndPasswordPressed,
     TResult Function(RegisterWithInstructorEmailAndPasswordPressed value)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult Function(VerifyEduproUser value)? verifyEduproUser,
@@ -2424,12 +3438,16 @@ class _$VerifyEduproUser implements VerifyEduproUser {
     required TResult Function() registerPressed,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String qualiStr) qualificationChanged,
+    required TResult Function(String addressStr) addressChanged,
+    required TResult Function(String codeStr) codeChanged,
     required TResult Function(String conPasswordStr) confirmPasswordChanged,
     required TResult Function(String userStatusStr) userStatusChanged,
     required TResult Function(int verificationCode) verificationCodeChanged,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function(String userStatus)
         registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(String userStatus)
+        registerWithInstitutionEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() verifyEduproUser,
   }) {
@@ -2444,12 +3462,16 @@ class _$VerifyEduproUser implements VerifyEduproUser {
     TResult? Function()? registerPressed,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String qualiStr)? qualificationChanged,
+    TResult? Function(String addressStr)? addressChanged,
+    TResult? Function(String codeStr)? codeChanged,
     TResult? Function(String conPasswordStr)? confirmPasswordChanged,
     TResult? Function(String userStatusStr)? userStatusChanged,
     TResult? Function(int verificationCode)? verificationCodeChanged,
     TResult? Function()? registerWithEmailAndPasswordPressed,
     TResult? Function(String userStatus)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult? Function()? signInWithEmailAndPasswordPressed,
     TResult? Function()? verifyEduproUser,
   }) {
@@ -2464,12 +3486,16 @@ class _$VerifyEduproUser implements VerifyEduproUser {
     TResult Function()? registerPressed,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String qualiStr)? qualificationChanged,
+    TResult Function(String addressStr)? addressChanged,
+    TResult Function(String codeStr)? codeChanged,
     TResult Function(String conPasswordStr)? confirmPasswordChanged,
     TResult Function(String userStatusStr)? userStatusChanged,
     TResult Function(int verificationCode)? verificationCodeChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function(String userStatus)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(String userStatus)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? verifyEduproUser,
     required TResult orElse(),
@@ -2488,6 +3514,8 @@ class _$VerifyEduproUser implements VerifyEduproUser {
     required TResult Function(RegisterPressed value) registerPressed,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(QualificationChanged value) qualificationChanged,
+    required TResult Function(AddressChanged value) addressChanged,
+    required TResult Function(CodeChanged value) codeChanged,
     required TResult Function(ConfirmPasswordChanged value)
         confirmPasswordChanged,
     required TResult Function(UserStatusChanged value) userStatusChanged,
@@ -2498,6 +3526,9 @@ class _$VerifyEduproUser implements VerifyEduproUser {
     required TResult Function(
             RegisterWithInstructorEmailAndPasswordPressed value)
         registerWithInstructorEmailAndPasswordPressed,
+    required TResult Function(
+            RegisterWithInstitutionEmailAndPasswordPressed value)
+        registerWithInstitutionEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
         signInWithEmailAndPasswordPressed,
     required TResult Function(VerifyEduproUser value) verifyEduproUser,
@@ -2513,6 +3544,8 @@ class _$VerifyEduproUser implements VerifyEduproUser {
     TResult? Function(RegisterPressed value)? registerPressed,
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(QualificationChanged value)? qualificationChanged,
+    TResult? Function(AddressChanged value)? addressChanged,
+    TResult? Function(CodeChanged value)? codeChanged,
     TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult? Function(UserStatusChanged value)? userStatusChanged,
     TResult? Function(VerificationCodeChanged value)? verificationCodeChanged,
@@ -2520,6 +3553,8 @@ class _$VerifyEduproUser implements VerifyEduproUser {
         registerWithEmailAndPasswordPressed,
     TResult? Function(RegisterWithInstructorEmailAndPasswordPressed value)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult? Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult? Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult? Function(VerifyEduproUser value)? verifyEduproUser,
@@ -2535,6 +3570,8 @@ class _$VerifyEduproUser implements VerifyEduproUser {
     TResult Function(RegisterPressed value)? registerPressed,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(QualificationChanged value)? qualificationChanged,
+    TResult Function(AddressChanged value)? addressChanged,
+    TResult Function(CodeChanged value)? codeChanged,
     TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(UserStatusChanged value)? userStatusChanged,
     TResult Function(VerificationCodeChanged value)? verificationCodeChanged,
@@ -2542,6 +3579,8 @@ class _$VerifyEduproUser implements VerifyEduproUser {
         registerWithEmailAndPasswordPressed,
     TResult Function(RegisterWithInstructorEmailAndPasswordPressed value)?
         registerWithInstructorEmailAndPasswordPressed,
+    TResult Function(RegisterWithInstitutionEmailAndPasswordPressed value)?
+        registerWithInstitutionEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult Function(VerifyEduproUser value)? verifyEduproUser,
@@ -2564,6 +3603,8 @@ mixin _$LogInState {
   Password get password => throw _privateConstructorUsedError;
   Name get name => throw _privateConstructorUsedError;
   Qualification get qualification => throw _privateConstructorUsedError;
+  Address get address => throw _privateConstructorUsedError;
+  Code get code => throw _privateConstructorUsedError;
   Password get confirmPassword => throw _privateConstructorUsedError;
   String get userStatus => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
@@ -2590,6 +3631,8 @@ abstract class $LogInStateCopyWith<$Res> {
       Password password,
       Name name,
       Qualification qualification,
+      Address address,
+      Code code,
       Password confirmPassword,
       String userStatus,
       bool showErrorMessages,
@@ -2616,6 +3659,8 @@ class _$LogInStateCopyWithImpl<$Res, $Val extends LogInState>
     Object? password = null,
     Object? name = null,
     Object? qualification = null,
+    Object? address = null,
+    Object? code = null,
     Object? confirmPassword = null,
     Object? userStatus = null,
     Object? showErrorMessages = null,
@@ -2641,6 +3686,14 @@ class _$LogInStateCopyWithImpl<$Res, $Val extends LogInState>
           ? _value.qualification
           : qualification // ignore: cast_nullable_to_non_nullable
               as Qualification,
+      address: null == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as Address,
+      code: null == code
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as Code,
       confirmPassword: null == confirmPassword
           ? _value.confirmPassword
           : confirmPassword // ignore: cast_nullable_to_non_nullable
@@ -2686,6 +3739,8 @@ abstract class _$$_LogInStateCopyWith<$Res>
       Password password,
       Name name,
       Qualification qualification,
+      Address address,
+      Code code,
       Password confirmPassword,
       String userStatus,
       bool showErrorMessages,
@@ -2710,6 +3765,8 @@ class __$$_LogInStateCopyWithImpl<$Res>
     Object? password = null,
     Object? name = null,
     Object? qualification = null,
+    Object? address = null,
+    Object? code = null,
     Object? confirmPassword = null,
     Object? userStatus = null,
     Object? showErrorMessages = null,
@@ -2735,6 +3792,14 @@ class __$$_LogInStateCopyWithImpl<$Res>
           ? _value.qualification
           : qualification // ignore: cast_nullable_to_non_nullable
               as Qualification,
+      address: null == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as Address,
+      code: null == code
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as Code,
       confirmPassword: null == confirmPassword
           ? _value.confirmPassword
           : confirmPassword // ignore: cast_nullable_to_non_nullable
@@ -2775,6 +3840,8 @@ class _$_LogInState implements _LogInState {
       required this.password,
       required this.name,
       required this.qualification,
+      required this.address,
+      required this.code,
       required this.confirmPassword,
       required this.userStatus,
       required this.showErrorMessages,
@@ -2791,6 +3858,10 @@ class _$_LogInState implements _LogInState {
   final Name name;
   @override
   final Qualification qualification;
+  @override
+  final Address address;
+  @override
+  final Code code;
   @override
   final Password confirmPassword;
   @override
@@ -2809,7 +3880,7 @@ class _$_LogInState implements _LogInState {
 
   @override
   String toString() {
-    return 'LogInState(emailAddress: $emailAddress, password: $password, name: $name, qualification: $qualification, confirmPassword: $confirmPassword, userStatus: $userStatus, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption, verificationCode: $verificationCode, verifyFailureOrSuccessOption: $verifyFailureOrSuccessOption)';
+    return 'LogInState(emailAddress: $emailAddress, password: $password, name: $name, qualification: $qualification, address: $address, code: $code, confirmPassword: $confirmPassword, userStatus: $userStatus, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption, verificationCode: $verificationCode, verifyFailureOrSuccessOption: $verifyFailureOrSuccessOption)';
   }
 
   @override
@@ -2824,6 +3895,8 @@ class _$_LogInState implements _LogInState {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.qualification, qualification) ||
                 other.qualification == qualification) &&
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.code, code) || other.code == code) &&
             (identical(other.confirmPassword, confirmPassword) ||
                 other.confirmPassword == confirmPassword) &&
             (identical(other.userStatus, userStatus) ||
@@ -2851,6 +3924,8 @@ class _$_LogInState implements _LogInState {
       password,
       name,
       qualification,
+      address,
+      code,
       confirmPassword,
       userStatus,
       showErrorMessages,
@@ -2872,6 +3947,8 @@ abstract class _LogInState implements LogInState {
       required final Password password,
       required final Name name,
       required final Qualification qualification,
+      required final Address address,
+      required final Code code,
       required final Password confirmPassword,
       required final String userStatus,
       required final bool showErrorMessages,
@@ -2890,6 +3967,10 @@ abstract class _LogInState implements LogInState {
   Name get name;
   @override
   Qualification get qualification;
+  @override
+  Address get address;
+  @override
+  Code get code;
   @override
   Password get confirmPassword;
   @override

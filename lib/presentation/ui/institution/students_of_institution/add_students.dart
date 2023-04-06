@@ -55,7 +55,7 @@ class _AddStudentScreenState extends State<AddStudentScreen> {
             child: Column(
               children: [
                 const SizedBox(
-                  height: 30,
+                  height: 25,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 15),
@@ -116,8 +116,9 @@ class _AddStudentScreenState extends State<AddStudentScreen> {
                           TextInputType.streetAddress,
                           maxLine: 1,
                           hint: "Address"),
-                      const SizedBox(height: 20),
-                      Text("",style: TextStyle(color: Colors.black,fontSize: 16),),
+                      const SizedBox(height: 10),
+                      Text("Date of birth",style: TextStyle(color: Colors.black,fontSize: 16),),
+                      const SizedBox(height: 6),
                       DateTimeFormField(
                         // initialValue: state.dobDT,
                         dateTextStyle: const TextStyle(
@@ -147,7 +148,7 @@ class _AddStudentScreenState extends State<AddStudentScreen> {
                         //     .add(ProfileEvent.dobChanged(
                         //     DateFormat("MM/dd/yyyy").format(value))),
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 10),
                       Text("Courses",style: TextStyle(color: Colors.black,fontSize: 16),),
                       const SizedBox(height: 10),
                       Container(

@@ -24,7 +24,7 @@ class InstitutionDrawerWidget extends StatelessWidget {
       child: Drawer(
         elevation: 0,
         shape: const RoundedRectangleBorder(),
-        backgroundColor:Colors.white,
+        backgroundColor: Colors.white,
         width: screenWidth - (screenWidth / 5),
         child: Column(
           mainAxisSize: MainAxisSize.max,
@@ -46,8 +46,8 @@ class InstitutionDrawerWidget extends StatelessWidget {
                         InkWell(
                           onTap: () {
                             Get.offAll(() => const InstitutionHomeScreen(
-                              selectedIndex: 3,
-                            ));
+                                  selectedIndex: 3,
+                                ));
                           },
                           child: Container(
                               width: screenWidth * .14,
@@ -71,50 +71,48 @@ class InstitutionDrawerWidget extends StatelessWidget {
                                   ),
                                   imageBuilder: (context, imageProvider) =>
                                       Container(
-                                        margin: const EdgeInsets.all(0),
-                                        decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                                image: imageProvider,
-                                                fit: BoxFit.cover)),
-                                      ),
+                                    margin: const EdgeInsets.all(0),
+                                    decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            image: imageProvider,
+                                            fit: BoxFit.cover)),
+                                  ),
                                   errorWidget: (context, url, error) =>
                                       Container(
-                                        width: screenWidth * .14,
-                                        height: screenWidth * .14,
-                                        padding: const EdgeInsets.all(5),
-                                        child: const Image(
-                                          image: AssetImage(
-                                              'assets/icons/drawer_icons/display-picture-sltd.png'),
-                                          height: double.infinity,
-                                          width: double.infinity,
-                                        ),
-                                      ),
+                                    width: screenWidth * .14,
+                                    height: screenWidth * .14,
+                                    padding: const EdgeInsets.all(5),
+                                    child: const Image(
+                                      image: AssetImage(
+                                          'assets/icons/drawer_icons/display-picture-sltd.png'),
+                                      height: double.infinity,
+                                      width: double.infinity,
+                                    ),
+                                  ),
                                 ),
                               )),
                         ),
                         const SizedBox(width: 12),
                         Expanded(
                             child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
-                                Text(
-                                  "userName",
-                                  // "${UserDetailsLocal.userName}",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                                const SizedBox(height: 4),
-                                Text(
-                                  "userEmail",
-                                  // "${UserDetailsLocal.userEmail}",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w400),
-                                ),
-                              ],
-                            )),
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Text(
+                              "${UserDetailsLocal.userName}",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500),
+                            ),
+                            const SizedBox(height: 4),
+                            Text(
+                              "${UserDetailsLocal.userEmail}",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                          ],
+                        )),
                         Icon(
                           Icons.close,
                           color: Colors.black,
@@ -132,9 +130,14 @@ class InstitutionDrawerWidget extends StatelessWidget {
                   shrinkWrap: true,
                   physics: const BouncingScrollPhysics(),
                   children: [
-                    SizedBox(height: 10,),
+                    SizedBox(
+                      height: 10,
+                    ),
                     ExpansionTile(
-                      title: Text("Classes",style: TextStyle(fontSize: 16),),
+                      title: Text(
+                        "Classes",
+                        style: TextStyle(fontSize: 16),
+                      ),
                       leading: Container(
                         height: 38,
                         width: 38.0,
@@ -144,18 +147,19 @@ class InstitutionDrawerWidget extends StatelessWidget {
                           border: Border.all(width: 2, color: primaryColor),
                           color: primaryColor[50],
                         ),
-                        child:Image.asset('assets/icons/drawer_icons/my-course-sltd.png'),
+                        child: Image.asset(
+                            'assets/icons/drawer_icons/my-course-sltd.png'),
                       ),
-                      childrenPadding: EdgeInsets.only(left:60), //children padding
+                      childrenPadding:
+                          EdgeInsets.only(left: 60), //children padding
                       children: [
                         ListTile(
                           title: Text("Class list"),
-                          onTap: (){
-                          },
+                          onTap: () {},
                         ),
                         ListTile(
                           title: Text("Add class"),
-                          onTap: (){
+                          onTap: () {
                             //action on press
                           },
                         ),
@@ -164,7 +168,10 @@ class InstitutionDrawerWidget extends StatelessWidget {
                       ],
                     ),
                     ExpansionTile(
-                      title: Text("Courses",style: TextStyle(fontSize: 16),),
+                      title: Text(
+                        "Courses",
+                        style: TextStyle(fontSize: 16),
+                      ),
                       leading: Container(
                         height: 38,
                         width: 38.0,
@@ -174,19 +181,20 @@ class InstitutionDrawerWidget extends StatelessWidget {
                           border: Border.all(width: 2, color: primaryColor),
                           color: primaryColor[50],
                         ),
-                        child:Image.asset('assets/icons/drawer_icons/my-course-sltd.png'),
+                        child: Image.asset(
+                            'assets/icons/drawer_icons/my-course-sltd.png'),
                       ),
-                      childrenPadding: EdgeInsets.only(left:60), //children padding
+                      childrenPadding:
+                          EdgeInsets.only(left: 60), //children padding
                       children: [
                         ListTile(
                           title: Text("My Courses"),
-                          onTap: (){
-                          },
+                          onTap: () {},
                         ),
 
                         ListTile(
                           title: Text("Add Course"),
-                          onTap: (){
+                          onTap: () {
                             //action on press
                           },
                         ),
@@ -195,7 +203,10 @@ class InstitutionDrawerWidget extends StatelessWidget {
                       ],
                     ),
                     ExpansionTile(
-                      title: Text("Instructors",style: TextStyle(fontSize: 16),),
+                      title: Text(
+                        "Instructors",
+                        style: TextStyle(fontSize: 16),
+                      ),
                       leading: Container(
                         height: 38,
                         width: 38.0,
@@ -205,18 +216,19 @@ class InstitutionDrawerWidget extends StatelessWidget {
                           border: Border.all(width: 2, color: primaryColor),
                           color: primaryColor[50],
                         ),
-                        child:Image.asset('assets/icons/drawer_icons/my-course-sltd.png'),
+                        child: Image.asset(
+                            'assets/icons/drawer_icons/my-course-sltd.png'),
                       ),
-                      childrenPadding: EdgeInsets.only(left:60), //children padding
+                      childrenPadding:
+                          EdgeInsets.only(left: 60), //children padding
                       children: [
                         ListTile(
                           title: Text("Instructor list"),
-                          onTap: (){
-                          },
+                          onTap: () {},
                         ),
                         ListTile(
                           title: Text("Add Instructors"),
-                          onTap: (){
+                          onTap: () {
                             //action on press
                           },
                         ),
@@ -225,7 +237,10 @@ class InstitutionDrawerWidget extends StatelessWidget {
                       ],
                     ),
                     ExpansionTile(
-                      title: Text("Students",style: TextStyle(fontSize: 16),),
+                      title: Text(
+                        "Students",
+                        style: TextStyle(fontSize: 16),
+                      ),
                       leading: Container(
                         height: 38,
                         width: 38.0,
@@ -235,21 +250,18 @@ class InstitutionDrawerWidget extends StatelessWidget {
                           border: Border.all(width: 2, color: primaryColor),
                           color: primaryColor[50],
                         ),
-                        child:Image.asset('assets/icons/drawer_icons/my-course-sltd.png'),
+                        child: Image.asset(
+                            'assets/icons/drawer_icons/my-course-sltd.png'),
                       ),
-                      childrenPadding: EdgeInsets.only(left:60), //children padding
+                      childrenPadding:
+                          EdgeInsets.only(left: 60), //children padding
                       children: [
                         ListTile(
                           title: Text("Student list"),
-                          onTap: (){
-                          },
+                          onTap: () {},
                         ),
-                        _drawerMenuItem(
-                            Image.asset(
-                                'assets/icons/drawer_icons/my-course-sltd.png'),
-                            'Add Students', () {
-                          Get.to(() => AddStudentScreen(
-                          ));
+                        _drawerMenuItem1('Add Students', () {
+                          Get.to(() => AddStudentScreen());
                         }),
                         //more child menu
                       ],
@@ -259,18 +271,22 @@ class InstitutionDrawerWidget extends StatelessWidget {
                             'assets/icons/drawer_icons/my-course-sltd.png'),
                         'Live Sessions', () {
                       Get.to(() => const LiveVideosScreen(
-                        fromHome: false,
-                      ));
+                            fromHome: false,
+                          ));
                     }),
                     Divider(),
                     _drawerMenuItem(
-                        Image.asset('assets/icons/drawer_icons/report.png',color: primaryColor),
+                        Image.asset('assets/icons/drawer_icons/report.png',
+                            color: primaryColor),
                         'Privacy Policy',
-                            () {}),
+                        () {}),
                     _drawerMenuItem(
-                        Image.asset('assets/icons/drawer_icons/report.png',color: primaryColor,),
+                        Image.asset(
+                          'assets/icons/drawer_icons/report.png',
+                          color: primaryColor,
+                        ),
                         'Terms and Conditions',
-                            () {}),
+                        () {}),
                   ],
                 ),
               ),
@@ -296,12 +312,12 @@ class InstitutionDrawerWidget extends StatelessWidget {
                             const SizedBox(width: 12),
                             Expanded(
                                 child: Text(
-                                  'Logout',
-                                  style: TextStyle(
-                                      color: secondaryColor[50],
-                                      fontSize: 17,
-                                      fontWeight: FontWeight.bold),
-                                ))
+                              'Logout',
+                              style: TextStyle(
+                                  color: secondaryColor[50],
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.bold),
+                            ))
                           ]),
                     ),
                   ),
@@ -376,14 +392,52 @@ class InstitutionDrawerWidget extends StatelessWidget {
                       const SizedBox(width: 12),
                       Expanded(
                           child: Text(
+                        title,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                          fontSize: 16,
+                        ),
+                      ))
+                    ]),
+                  ),
+                )),
+            onTap: () {
+              scaffoldKey.currentState!.openEndDrawer();
+              onTap();
+            }),
+      ),
+    );
+  }
+
+  Widget _drawerMenuItem1(String title, Function onTap) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 6),
+      child: Material(
+        color: secondaryColor[100],
+        child: InkWell(
+            child: Container(
+                color: Colors.white,
+                padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 3),
+                child: Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.white!, width: .2),
+                      borderRadius: BorderRadius.circular(0)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Expanded(
+                              child: Text(
                             title,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.black,
-                              fontSize: 16,
+                              fontSize: 15,
                             ),
                           ))
-                    ]),
+                        ]),
                   ),
                 )),
             onTap: () {

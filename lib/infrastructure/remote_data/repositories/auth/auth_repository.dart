@@ -32,5 +32,3 @@ class AuthRepository {
     return response;
   }
 }
-// {success: true, status: 200, type: instructor, message: Logged Successfully, instructor:
-   // {success: true, status: verified, type: user, message: Logged Successfully, user:

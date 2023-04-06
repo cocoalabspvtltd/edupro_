@@ -182,6 +182,77 @@ class ServerAuthFacade implements IAuthFacade {
       }
     }
   }
+
+  @override
+  Future<Either<AuthFailure, UserLogInResponse>> registerWithInstitutionEmailAndPassword({
+    required Name name,
+    required EmailAddress emailAddress,
+    required Password password,
+    required Password confirmPassword,
+    required String userStatus,
+    required Address address,
+    required Code code,
+
+  }) async {
+    final emailAddressStr = emailAddress.value.getOrElse(() => 'INVALID EMAIL');
+    final passwordStr = password.value.getOrElse(() => 'INVALID PASSWORD');
+    final nameStr = name.value.getOrElse(() => 'INVALID NAME');
+    final addressStr = address.value.getOrElse(() => 'INVALID NAME');
+    final codeStr = code.value.getOrElse(() => 'INVALID NAME');
+    Map body = {
+      'email': emailAddressStr,
+      'password': passwordStr,
+      'password_confirmation': passwordStr,
+      'name': nameStr,
+      'user_status': userStatus,
+      'address':addressStr,
+      'code':codeStr,
+    };
+    print("map=>${body}");
+    try {
+      return await _authRepository
+          .registerUser(json.encode(body))
+          .then((response) async {
+        log("=->${response}");
+        if (response.data['status_code'] == '422') {
+          if (response.data['message'] == 'The email has already been taken') {
+            return left(const AuthFailure.emailAlreadyInUse());
+          } else {
+            return left(const AuthFailure.serverError());
+          }
+        } else if (response.data['message'] == 'Successfully Created' ||
+            response.data['success'].toString() == 'true') {
+          final r = UserLogInResponse.fromJson(response.data);
+          log("->${userStatus}");
+          if (userStatus == 'institution') {
+            try {
+              await SharedPrefs.logIn(r);
+              log("->${r.institution!.name}");
+              UserDetailsLocal.set(
+                r.token!,
+                r.institution!.id.toString(),
+                r.institution!.name!,
+                r.institution!.email!,
+                "","","","",
+              );
+            } catch (e) {
+              toastMessage('Unexpected Response');
+              log("shared pref ${e.toString()}");
+            }
+          }
+          return right(r);
+        } else {
+          return left(const AuthFailure.serverError());
+        }
+      });
+    } catch (e) {
+      if (e.toString() == 'ERROR_EMAIL_ALREADY_IN_USE') {
+        return left(const AuthFailure.emailAlreadyInUse());
+      } else {
+        return left(const AuthFailure.serverError());
+      }
+    }
+  }
   @override
   Future<Either<AuthFailure, UserLogInResponse>> signInWithEmailAndPassword({
     required EmailAddress emailAddress,
@@ -224,6 +295,15 @@ class ServerAuthFacade implements IAuthFacade {
                   r.instructor!.name!,
                   r.instructor!.email!,
                   "","","","",
+              );
+            }
+            else if(response.data["type"]== "institution"){
+              UserDetailsLocal.set(
+                r.token!,
+                r.institution!.id.toString(),
+                r.institution!.name!,
+                r.institution!.email!,
+                "","","","",
               );
             }
             else{

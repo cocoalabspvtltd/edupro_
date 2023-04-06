@@ -21,6 +21,16 @@ abstract class IAuthFacade {
     required String userStatus,
 required Qualification quali
   });
+
+  Future<Either<AuthFailure, UserLogInResponse>> registerWithInstitutionEmailAndPassword({
+    required Name name,
+    required EmailAddress emailAddress,
+    required Password password,
+    required Password confirmPassword,
+    required String userStatus,
+    required Address address,
+    required Code code,
+  });
   Future<Either<AuthFailure, UserLogInResponse>> signInWithEmailAndPassword({
     required EmailAddress emailAddress,
     required Password password,

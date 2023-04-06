@@ -8,6 +8,7 @@ import 'package:pgs_edupro/presentation/ui/auth/register/registration_screen.dar
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
+import 'package:pgs_edupro/presentation/ui/institution/institution_home/institution_home_screen.dart';
 import 'package:pgs_edupro/presentation/ui/instructor/instructor_home/instructor_home_screen.dart';
 import 'package:pgs_edupro/presentation/ui/membership_check_screen.dart';
 
@@ -86,6 +87,10 @@ class _LogInFormState extends State<LogInForm> {
                     }
                     if(state.userStatus == "instructor"){
                       Get.offAll(() =>  const InstructorHomeScreen());
+                      return;
+                    }
+                    if(state.userStatus == "institution"){
+                      Get.offAll(() =>  const InstitutionHomeScreen());
                       return;
                     }
                     if (state.password != state.confirmPassword) {

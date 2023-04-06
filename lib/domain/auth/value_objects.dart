@@ -61,6 +61,37 @@ class Qualification extends ValueObject<String> {
 
   const Qualification._(this.value);
 }
+
+class Address extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory Address(String input) {
+    // ignore: unnecessary_null_comparison
+    assert(input != null);
+    return Address._(
+      validateStringNotEmpty(input),
+    );
+  }
+
+  const Address._(this.value);
+}
+
+class  Code extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory Code(String input) {
+    // ignore: unnecessary_null_comparison
+    assert(input != null);
+    return Code._(
+      validateStringNotEmpty(input),
+    );
+  }
+
+  const Code._(this.value);
+}
+
 class PhoneNumber extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
