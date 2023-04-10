@@ -3,8 +3,6 @@ class InstructorProfileResponse {
   String ?message;
   InstructorUser? user;
 
-
-
   InstructorProfileResponse({this.status, this.message,this.user});
 
   InstructorProfileResponse.fromJson(Map<String, dynamic> json) {

@@ -14,6 +14,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print("apitoken->?${UserDetailsLocal.apiToken}");
+    print("id--->${UserDetailsLocal.userId}");
     return BlocProvider(
       create: (context) => ProfileBloc(ProfileRepository())..add(ProfileEvent.loadMyProfile(int.parse(UserDetailsLocal.userId))),
       child: Scaffold(

@@ -22,10 +22,10 @@ class _DisplayPictureState extends State<DisplayPicture> {
   final ImagePicker _picker = ImagePicker();
   @override
   Widget build(BuildContext context) {
-    print("Userid:${UserDetailsLocal.userId}");
-    print("apitoken->?${UserDetailsLocal.apiToken}");
     return BlocConsumer<ProfileBloc, ProfileState>(
       listener: (context, state) {
+        print("Name:${state.name}");
+        print("Email${state.emailAddress}");
         state.submitFailedOrSuccessOption.fold(() {}, (either) {
           either.fold((failure) {
             FlushbarHelper.createError(

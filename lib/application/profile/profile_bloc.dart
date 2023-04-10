@@ -12,7 +12,6 @@ import 'package:pgs_edupro/infrastructure/remote_data/models/profile/get_my_prof
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:intl/intl.dart';
 part 'profile_event.dart';
 part 'profile_state.dart';
 part 'profile_bloc.freezed.dart';
@@ -33,24 +32,15 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       );
       print("dcxs3=>${UserDetailsLocal.apiToken}");
       Either<NetworkFailure, MyProfileResponse> failureOrSuccess;
-      print("dcx4=>${UserDetailsLocal.apiToken}");
       failureOrSuccess = await profileRepository.getMyProfile(event.userId);
-      print("dcx5=>${UserDetailsLocal.apiToken}");
       failureOrSuccess.fold((l) => null, ((r) async {
-        print("dcxs6=>${UserDetailsLocal.apiToken}");
         User user = r.user!;
         emit(
           state.copyWith(
-
               displayImageUrl: user.profilePhoto ?? '',
               name: Name(user.name ?? ''),
               emailAddress: EmailAddress(user.email ?? ''),
               phoneNumber: PhoneNumber(user.phoneNumber ?? ''),
-              // dob: user.dob == null
-              //     ? null
-              //     : DateFormatted(DateFormat("MM/dd/yyyy")
-              //         .format(DateTime.parse(user.dob!))),
-              // address: user.address ?? '',
               nameController: TextEditingController(text: user.name),
               emailController: TextEditingController(text: user.email),
               phoneNumberController:
