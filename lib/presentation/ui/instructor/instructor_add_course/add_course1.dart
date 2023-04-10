@@ -1,23 +1,13 @@
 import 'dart:io';
-
 import 'package:another_flushbar/flushbar_helper.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:date_field/date_field.dart';
 import 'package:flutter/services.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:pgs_edupro/application/course/courses_bloc.dart';
 import 'package:pgs_edupro/application/instructor/instructor_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
-import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
-import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_report_response.dart';
 import 'package:pgs_edupro/presentation/ui/instructor/instructor_add_course/test.dart';
-import 'package:pgs_edupro/presentation/widgets/common_result_empty_widget.dart';
-import 'package:pgs_edupro/presentation/widgets/common_server_error_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
 
 File? imageC;
 class AddcousresScreenForm extends StatefulWidget {
@@ -69,8 +59,9 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
               ),
             ).show(context);
           },
-                  (r) => Fluttertoast.showToast(msg: "hgjerhdhfge")
-                  );
+                  (r) => FlushbarHelper.createSuccess(message: "Course added successfully" ?? '')
+                  .show(context));
+                  // (r) => Fluttertoast.showToast(msg: "Course added successfully"));
         });
       },
       builder: (context, state) {
@@ -282,7 +273,6 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
                   onPressed:() => context
                       .read<InstructorBloc>()
                       .add( InstructorEvent.submitPressed()),
-
                   style: ElevatedButton.styleFrom(
                       elevation: 4, disabledBackgroundColor: Colors.grey
                     // shape: RoundedRectangleBorder(
@@ -294,7 +284,6 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
               ),
               if (state.isSubmitting) ...[
                  SizedBox(height: 8),
-
                  LinearProgressIndicator(value: null),
               ],
               thickSpace,

@@ -1,9 +1,6 @@
-import 'dart:convert';
 import 'dart:developer';
-
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:html/parser.dart';
 import 'package:pgs_edupro/domain/course/i_course_repository.dart';
 import 'package:pgs_edupro/domain/core/network/api_provider.dart';
 import 'package:pgs_edupro/domain/core/network/network_failures.dart';
@@ -14,7 +11,6 @@ import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_repor
 import 'package:pgs_edupro/infrastructure/remote_data/models/my_course/my_courses_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/source/api.dart';
 
-import '../../models/my_course/addcourses.dart';
 
 class CourseRepository implements ICourseRepository {
   ApiProvider? apiClient;
