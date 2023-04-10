@@ -55,7 +55,7 @@ class InstitutionHomeBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               thickSpace,
-              Text("Welcome ${UserDetailsLocal.userName} ",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500),),
+              Text("Welcome ${UserDetailsLocal.userName} ",style: TextStyle(fontSize: 23,fontWeight: FontWeight.w500),),
               thickSpace,
               thickSpace,
               Container(
@@ -67,7 +67,7 @@ class InstitutionHomeBody extends StatelessWidget {
                           crossAxisCount: 2,
                           crossAxisSpacing: 14,
                           mainAxisSpacing: 10,
-                          childAspectRatio: 0.8 / 0.4),
+                          childAspectRatio: 0.7 / 0.4),
                       itemCount: titile.length,
                       itemBuilder: (BuildContext context, int index) {
                         return Container(
@@ -90,7 +90,7 @@ class InstitutionHomeBody extends StatelessWidget {
                                 ],
                               ),
                               Spacer(),
-                               Image.asset(images[index],width: 60,),
+                               Image.asset(images[index],width: screenWidth * 0.17,),
                               SizedBox(width: screenWidth * 0.08,)
                             ],
                           ),
