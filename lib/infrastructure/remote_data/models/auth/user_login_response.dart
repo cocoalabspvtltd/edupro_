@@ -191,7 +191,7 @@ class Institution {
   String? code;
   String? address;
   Null? contactNumber;
-  Null? image;
+  String? image;
   String? createdAt;
   String? updatedAt;
 
