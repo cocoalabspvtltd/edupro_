@@ -1,5 +1,5 @@
 part of 'instructor_bloc.dart';
-
+String categoryaName = "";
 @freezed
 class InstructorState with _$InstructorState {
   const factory InstructorState({
@@ -28,7 +28,7 @@ class InstructorState with _$InstructorState {
    factory InstructorState.initial() => InstructorState(
      title: TextEditingController(),
      aboutTitle: TextEditingController(),
-     category: "",
+     category: categoryaName,
      amount: TextEditingController(),
      duration: TextEditingController(),
      url: TextEditingController(),

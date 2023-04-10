@@ -72,7 +72,6 @@ class _DesignationDropdownState extends State<DesignationDropdown> {
               print("designatioids->>>>>>${categoryId}");
             });},
             value: item['id'].toString(),
-
             child: Text(item['name'].toString()),
           );
         }).toList(),

@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pgs_edupro/application/instructor/instructor_bloc.dart';
@@ -59,9 +60,8 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
               ),
             ).show(context);
           },
-                  (r) => FlushbarHelper.createSuccess(message: "Course added successfully" ?? '')
-                  .show(context));
-                  // (r) => Fluttertoast.showToast(msg: "Course added successfully"));
+
+                  (r) => Fluttertoast.showToast(msg: "Course added successfully"));
         });
       },
       builder: (context, state) {
@@ -212,11 +212,11 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
                   state.description,
                       (v) => context
                       .read<InstructorBloc>()
-                      .add(InstructorEvent.durationChanged(v)),
+                      .add(InstructorEvent.descriptionChanged(v)),
                   null,
                   "Description",
                   'assets/icons/profile_icons/location.png',
-                  TextInputType.number,
+                  TextInputType.text,
                   maxLine: 2),
               thickSpace,
               Divider(),
@@ -282,10 +282,10 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
                   child: const Text('Save And Update'),
                 ),
               ),
-              if (state.isSubmitting) ...[
-                 SizedBox(height: 8),
-                 LinearProgressIndicator(value: null),
-              ],
+              // if (state.isSubmitting) ...[
+              //    SizedBox(height: 8),
+              //    LinearProgressIndicator(value: null),
+              // ],
               thickSpace,
               thickSpace,
             ],

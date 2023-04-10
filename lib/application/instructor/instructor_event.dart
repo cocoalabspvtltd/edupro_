@@ -17,6 +17,8 @@ class InstructorEvent with _$InstructorEvent {
   _UrlChanged;
   const factory InstructorEvent.courseFile(File displayPicture) =
   _courseFilePicture;
+  const factory InstructorEvent.descriptionChanged(String descrptionStr) =
+  _DescriptionChanged;
   const factory InstructorEvent.whatYChanged(String WhatYouStr) =
   _WhatYChanged;
   const factory InstructorEvent.areThereAnyChanged(String AreThereAnyStr) =

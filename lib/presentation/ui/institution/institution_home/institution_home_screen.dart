@@ -12,6 +12,7 @@ import 'package:pgs_edupro/infrastructure/remote_data/repositories/videos/video_
 import 'package:pgs_edupro/presentation/ui/institution/institution_home/widgets/insitution_drawer.dart';
 import 'package:pgs_edupro/presentation/ui/institution/institution_home/widgets/insitution_home_body.dart';
 import 'package:pgs_edupro/presentation/ui/institution/institution_home/widgets/institution_menu_button.dart';
+import 'package:pgs_edupro/presentation/ui/profile/profile_screen.dart';
 
 
 class InstitutionHomeScreen extends StatefulWidget {
@@ -27,7 +28,7 @@ class _InstitutionHomeScreenState extends State<InstitutionHomeScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   late int _selectedIndex;
   late PageController _pageController;
-  List title = ['Home', 'My Courses','Library', 'My Profile'];
+  List title = ['Home', 'My Courses', 'My Profile'];
 
   @override
   void initState() {
@@ -105,8 +106,7 @@ class _InstitutionHomeScreenState extends State<InstitutionHomeScreen> {
                 children:[
                   InstitutionHomeBody(),
                   Text("Course"),
-                  Text("Library"),
-                  Text("Profile"),
+                  ProfileScreen(),
                 ]
             ),
             // _selectedIndex == 3
@@ -169,25 +169,7 @@ class _InstitutionHomeScreenState extends State<InstitutionHomeScreen> {
                 activeColor: primaryColor,
               ),
               BottomNavyBarItem(
-                icon: _selectedIndex == 2
-                    ? Image.asset(
-                  'assets/icons/drawer_icons/library-sltd.png',
-                  height: 30,
-                  fit: BoxFit.contain,
-                )
-                    : Image.asset(
-                  'assets/icons/drawer_icons/library.png',
-                  color: Colors.white,
-                  height: 25,
-                  fit: BoxFit.contain,
-                ),
-                title: const Text(
-                  'Library',
-                ),
-                activeColor: primaryColor,
-              ),
-              BottomNavyBarItem(
-                icon:  _selectedIndex == 3 ?Image.asset('assets/icons/drawer_icons/profile-sltd.png',
+                icon:  _selectedIndex == 2 ?Image.asset('assets/icons/drawer_icons/profile-sltd.png',
                   height: 30,
                   fit: BoxFit.contain,
                 ):Image.asset('assets/icons/drawer_icons/profile.png', color: Colors.white,
