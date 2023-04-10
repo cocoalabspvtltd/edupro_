@@ -1,15 +1,23 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:pgs_edupro/application/ads/ads_bloc.dart';
 import 'package:pgs_edupro/application/course/courses_bloc.dart';
+import 'package:pgs_edupro/application/insistution_count/insistution_bloc.dart';
 import 'package:pgs_edupro/application/video/top_videos/top_videos_bloc.dart';
 import 'package:pgs_edupro/application/video/trending_videos/trending_videos_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/count.dart';
 import 'package:pgs_edupro/presentation/ui/course/course_catogories_screen.dart';
 import 'package:pgs_edupro/presentation/ui/home/ads_screen.dart';
 import 'package:pgs_edupro/presentation/ui/videos/top_videos_screen.dart';
 import 'package:pgs_edupro/presentation/ui/videos/trending_videos_screen.dart';
+import 'package:http/http.dart' as http;
+import '../../../../../domain/core/network/api_provider.dart';
+import 'countscreen.dart';
 
 class InstitutionHomeBody extends StatelessWidget {
   InstitutionHomeBody({super.key});
@@ -31,7 +39,52 @@ class InstitutionHomeBody extends StatelessWidget {
     fontSize: 14.0,
     fontFamily: 'Horizon',
   );
+//
+//   Future getUsers() async {
+//     try {
+//       var url = Uri.parse("https://pgsedu.com/EduPro/index.php/api/count_list");
+//       var response = await http.get(url);
+//       if (response.statusCode == 200) {
+//         var re = jsonDecode(response.body);
+//         print("res->${re}");
+//         return re;
+//       }
+//     } catch (e) {
+//       log(e.toString());
+//     }
+//   }
+//   @override
+//   void initState() {
+// print("fcds");
+//     getUsers();
+//
+//   }
 
+  ApiProvider? apiprovider;
+  Future getOrderId() async {
+    print("Get order");
+
+    http.Response response = await http.get(Uri.parse('https://pgsedu.com/EduPro/index.php/api/count_list'),
+      headers: <String, String>{
+        'Accept': "appilication/json",
+        'Authorization': 'Bearer ${UserDetailsLocal.apiToken}',
+
+      },);
+    print("Response${response.body}");
+    var jsonData = json.decode(response.body);
+  var  OrderIdResponse = jsonData;
+  var  OderId = OrderIdResponse["user_count"];
+    print("orderId->${OderId}");
+    if(response.statusCode==200){
+
+     // Get.to(() =>  PaymentFormScreen(orderid:OderId, courseDetails: courseList,));
+    }
+    return response;
+  }
+  @override
+  void initState() {
+    getOrderId();
+  }
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
@@ -41,6 +94,9 @@ class InstitutionHomeBody extends StatelessWidget {
         context
             .read<TrendingVideosBloc>()
             .add(const TrendingVideosEvent.loadVideos());
+        context
+            .read<InsistutionBloc>()
+            .add(const InsistutionEvent.loadMyCourses());
         context
             .read<CoursesBloc>()
             .add(const CoursesEvent.loadCourseCategories());
@@ -58,44 +114,47 @@ class InstitutionHomeBody extends StatelessWidget {
               Text("Welcome ${UserDetailsLocal.userName} ",style: TextStyle(fontSize: 23,fontWeight: FontWeight.w500),),
               thickSpace,
               thickSpace,
-              Container(
-                  height: screenHeight * 0.28,
-                  width: screenWidth * 0.96,
-                  child: GridView.builder(
-                      gridDelegate:
-                      SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 14,
-                          mainAxisSpacing: 10,
-                          childAspectRatio: 0.7 / 0.4),
-                      itemCount: titile.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return Container(
-                          height:screenHeight * 0.4 ,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12.0),
-                            border: Border.all(
-                              color: Colors.black,
-                            ),
-                          ),
-                          child: Row(
-                            children: [
-                              SizedBox(width: screenWidth * 0.03,),
-                              Column(
-                                children: [
-                                  SizedBox(height: screenHeight * 0.02,),
-                                  Text(titile[index],style: TextStyle(color: Colors.grey[800],fontSize: 16),),
-                                  SizedBox(height: screenHeight * 0.01,),
-                                  Text(count[index],style: TextStyle(color: Colors.grey[800]),),
-                                ],
-                              ),
-                              Spacer(),
-                               Image.asset(images[index],width: screenWidth * 0.17,),
-                              SizedBox(width: screenWidth * 0.08,)
-                            ],
-                          ),
-                        );
-                      })),
+              GestureDetector(onTap: (){getOrderId();},
+                  child: Text("ddd")),
+              // Container(
+              //     height: screenHeight * 0.28,
+              //     width: screenWidth * 0.96,
+              //     child: GridView.builder(
+              //         gridDelegate:
+              //         SliverGridDelegateWithFixedCrossAxisCount(
+              //             crossAxisCount: 2,
+              //             crossAxisSpacing: 14,
+              //             mainAxisSpacing: 10,
+              //             childAspectRatio: 0.7 / 0.4),
+              //         itemCount: titile.length,
+              //         itemBuilder: (BuildContext context, int index) {
+              //           return Container(
+              //             height:screenHeight * 0.4 ,
+              //             decoration: BoxDecoration(
+              //               borderRadius: BorderRadius.circular(12.0),
+              //               border: Border.all(
+              //                 color: Colors.black,
+              //               ),
+              //             ),
+              //             child: Row(
+              //               children: [
+              //                 SizedBox(width: screenWidth * 0.03,),
+              //                 Column(
+              //                   children: [
+              //                     SizedBox(height: screenHeight * 0.02,),
+              //                     Text(titile[index],style: TextStyle(color: Colors.grey[800],fontSize: 16),),
+              //                     SizedBox(height: screenHeight * 0.01,),
+              //                     Text(count[index],style: TextStyle(color: Colors.grey[800]),),
+              //                   ],
+              //                 ),
+              //                 Spacer(),
+              //                 Image.asset(images[index],width: screenWidth * 0.17,),
+              //                 SizedBox(width: screenWidth * 0.08,)
+              //               ],
+              //             ),
+              //           );
+              //         })),
+              CourtScreen(),
               thickSpace,
               TrendingVideosScreen(
                 key: key,

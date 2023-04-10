@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pgs_edupro/application/ads/ads_bloc.dart';
 import 'package:pgs_edupro/application/course/courses_bloc.dart';
+import 'package:pgs_edupro/application/insistution_count/insistution_bloc.dart';
 import 'package:pgs_edupro/application/video/top_videos/top_videos_bloc.dart';
 import 'package:pgs_edupro/application/video/trending_videos/trending_videos_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
@@ -58,6 +59,10 @@ class _InstitutionHomeScreenState extends State<InstitutionHomeScreen> {
         BlocProvider(
           create: (_) => CoursesBloc(CourseRepository())
             ..add(const CoursesEvent.loadCourseCategories()),
+        ),
+        BlocProvider(
+          create: (_) => InsistutionBloc(CourseRepository())
+            ..add(const InsistutionEvent.loadMyCourses()),
         ),
         BlocProvider(
             create: (_) =>
