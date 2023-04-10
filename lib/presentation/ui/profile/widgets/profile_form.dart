@@ -2,6 +2,7 @@ import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:date_field/date_field.dart';
 import 'package:pgs_edupro/application/profile/profile_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
+import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/presentation/ui/profile/change_password_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -14,6 +15,7 @@ class ProfileForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("token${UserDetailsLocal.apiToken}");
     return BlocConsumer<ProfileBloc, ProfileState>(
       listener: (context, state) {
         state.loadFailureOrSuccessOption.fold(

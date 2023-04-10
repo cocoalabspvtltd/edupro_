@@ -39,7 +39,6 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       failureOrSuccess.fold((l) => null, ((r) async {
         print("dcxs6=>${UserDetailsLocal.apiToken}");
         User user = r.user!;
-        print("dcxs7=>${UserDetailsLocal.apiToken}");
         emit(
           state.copyWith(
 
