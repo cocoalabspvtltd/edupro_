@@ -37,6 +37,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
 
       failureOrSuccess.fold((l) => null, ((r) async {
         User user = r.user!;
+
         emit(
           state.copyWith(
               displayImageUrl: user.profilePhoto ?? '',

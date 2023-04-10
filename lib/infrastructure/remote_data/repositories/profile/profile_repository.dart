@@ -215,6 +215,7 @@ class InsProfileRepository implements InstructorProfileRepository {
           .getJsonInstance()
           .post(Api.updateDisplayPicture, data: body);
       print("reson=${response.data}");
+
       return right(InstructorProfileResponse.fromJson(response.data));
     } on DioError catch (e) {
       if (e.response != null) {
