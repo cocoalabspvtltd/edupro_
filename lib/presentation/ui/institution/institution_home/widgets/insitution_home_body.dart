@@ -16,6 +16,9 @@ class InstitutionHomeBody extends StatelessWidget {
 
   List<String> titile = ["Code", "Courses", 'Instructors', "Students"];
   List<String> count = ["Code", "40", '30', "50"];
+  List images=["assets/images/home/institute.jpg","assets/images/home/course.png",
+    "assets/images/home/instructor.png","assets/images/home/students.png"];
+
   final colorizeColors = [
     Colors.purple,
     Colors.blue,
@@ -56,8 +59,8 @@ class InstitutionHomeBody extends StatelessWidget {
               ),
               thickSpace,
               Container(
-                  height: screenHeight * 0.18,
-                  width: screenWidth * 0.95,
+                  height: screenHeight * 0.25,
+                  width: screenWidth * 0.96,
                   child: Padding(
                       padding: const EdgeInsets.only(left: 15),
                       child: GridView.builder(
@@ -66,21 +69,30 @@ class InstitutionHomeBody extends StatelessWidget {
                               crossAxisCount: 2,
                               crossAxisSpacing: 10,
                               mainAxisSpacing: 10,
-                              childAspectRatio: 1.2 / 0.4),
+                              childAspectRatio: 0.8 / 0.4),
                           itemCount: titile.length,
                           itemBuilder: (BuildContext context, int index) {
                             return Container(
-                              height:screenHeight * 0.2 ,
+                              height:screenHeight * 0.4 ,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20.0),
-                                color: primaryColor,
+                                borderRadius: BorderRadius.circular(12.0),
+                                border: Border.all(
+                                  color: Colors.black,
+                                ),
                               ),
                               child: Row(
                                 children: [
-                                  SizedBox(width: screenWidth * 0.07,),
-                                  Text(titile[index],style: TextStyle(color: Colors.grey[800],fontSize: 18),),
+                                  SizedBox(width: screenWidth * 0.03,),
+                                  Column(
+                                    children: [
+                                      SizedBox(height: screenHeight * 0.02,),
+                                      Text(titile[index],style: TextStyle(color: Colors.grey[800],fontSize: 16),),
+                                      SizedBox(height: screenHeight * 0.01,),
+                                      Text(count[index],style: TextStyle(color: Colors.grey[800]),),
+                                    ],
+                                  ),
                                   Spacer(),
-                                  Text(count[index],style: TextStyle(color: Colors.grey[800]),),
+                                   Image.asset(images[index],width: 60,),
                                   SizedBox(width: screenWidth * 0.08,)
                                 ],
                               ),

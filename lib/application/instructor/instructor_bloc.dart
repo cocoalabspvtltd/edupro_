@@ -24,8 +24,6 @@ class InstructorBloc extends Bloc<InstructorEvent, InstructorState> {
   InstructorBloc(this.addCoursesInstructor) : super(InstructorState.initial()) {
     on<InstructorEvent>((event, emit) async {});
 
-
-
     on<_CategoryChanged>((event, emit) {
       emit(state.copyWith(
         category: event.categoryValue,
