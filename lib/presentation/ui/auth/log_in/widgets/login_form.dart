@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:pgs_edupro/application/auth/auth_bloc.dart';
 import 'package:pgs_edupro/application/auth/login_bloc/log_in_bloc.dart';
@@ -12,6 +14,10 @@ import 'package:pgs_edupro/presentation/ui/institution/institution_home/institut
 import 'package:pgs_edupro/presentation/ui/instructor/instructor_home/instructor_home_screen.dart';
 import 'package:pgs_edupro/presentation/ui/membership_check_screen.dart';
 
+import '../../../../../domain/core/network/api_provider.dart';
+import 'package:http/http.dart' as http;
+
+import '../../../../../infrastructure/local_data_source/user.dart';
 class LogInForm extends StatefulWidget {
   const LogInForm({super.key});
 
@@ -23,7 +29,28 @@ class _LogInFormState extends State<LogInForm> {
   late LogInBloc logInBloc;
   final _formKey = GlobalKey<FormState>();
   bool obscureText = true;
+  var  OderId;
+  ApiProvider? apiprovider;
+  Future getOrderId() async {
+    print("Get order");
 
+    http.Response response = await http.get(Uri.parse('https://pgsedu.com/EduPro/index.php/api/count_list'),
+      headers: <String, String>{
+        'Accept': "appilication/json",
+        'Authorization': 'Bearer ${UserDetailsLocal.apiToken}',
+
+      },);
+    print("Response${response.body}");
+    var jsonData = json.decode(response.body);
+    var  OrderIdResponse = jsonData;
+    var  OderId = OrderIdResponse["count"];
+    print("orderId->${OderId}");
+    if(response.statusCode==200){
+
+      // Get.to(() =>  PaymentFormScreen(orderid:OderId, courseDetails: courseList,));
+    }
+    return response;
+  }
   @override
   void initState() {
     logInBloc = BlocProvider.of<LogInBloc>(context);
@@ -199,6 +226,7 @@ class _LogInFormState extends State<LogInForm> {
                         onPressed: () => context.read<LogInBloc>().add(
                             const LogInEvent
                                 .signInWithEmailAndPasswordPressed()),
+
                         style: ElevatedButton.styleFrom(
                           elevation: 4,
                           shape: RoundedRectangleBorder(

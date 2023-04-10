@@ -210,9 +210,31 @@ print("response->${response.data}");
   }
 
   @override
-  Future<Either<NetworkFailure, CountResponse>> getCountCourses(String userId) {
-    // TODO: implement getCountCourses
-    throw UnimplementedError();
+  Future<Either<NetworkFailure, CountResponse>> getCountCourses(
+      String userId) async {
+    try {
+      Response response = await apiClient!
+          .getJsonInstance()
+          .get(Api.getCount, queryParameters: {'user_id': UserDetailsLocal.userId});
+
+      return right(CountResponse.fromJson(response.data));
+    } on DioError catch (e) {
+      if (e.response != null) {
+        if (e.response!.statusCode == 401) {
+          return left(
+              NetworkFailure.unAuthorized(e.response!.data["message"] ?? ''));
+        }
+        return left(NetworkFailure.serverError(
+            "Status Code ${e.response!.statusCode}"));
+      } else if (e.toString().contains('Connecting timed out')) {
+        return left(const NetworkFailure.serverTimeOut());
+      }
+      return left(const NetworkFailure.unexpected());
+    } catch (e) {
+      log(e.toString());
+      return left(const NetworkFailure.unexpected());
+    }
   }
+
 
 }

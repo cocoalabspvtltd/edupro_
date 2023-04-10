@@ -15,6 +15,7 @@ class Api {
   static String getMyCources = 'api/my_courses';
   static String getInstructorCources = 'api/course_list';
   static String getMyCourseVideos = 'api/classes';
+  static String getCount = 'api/count_list';
   static String getQuestions = 'api/get_questions';
   static String askQuestion = 'api/ask_question';
   static String submitAnswer = 'api/submit_answer';
