@@ -122,6 +122,8 @@ class UserDetails {
   }
 }
 
+
+
 class Instructor {
   int? id;
   String? name;
@@ -182,14 +184,13 @@ class Instructor {
     return data;
   }
 }
-
 class Institution {
   int? id;
   String? name;
   String? email;
   String? code;
   String? address;
-  String? contactNumber;
+  Null? contactNumber;
   String? image;
   String? createdAt;
   String? updatedAt;
