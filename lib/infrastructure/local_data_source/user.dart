@@ -36,7 +36,7 @@ class UserDetailsLocal {
   }
 
   static void setData(
-
+String? token,
       String id,
       String name,
       String email,

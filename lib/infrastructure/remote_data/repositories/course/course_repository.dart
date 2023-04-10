@@ -132,7 +132,7 @@ class CourseRepository implements ICourseRepository {
   }
 
   @override
-  Future<Either<NetworkFailure, AddCoursesResponse>> addCourseInstructor(
+  Future<Either<NetworkFailure, Unit>> addCourseInstructor(
       FormData body) async {
     log("body->${body}");
     try {
@@ -140,7 +140,7 @@ class CourseRepository implements ICourseRepository {
           .getJsonInstance()
           .post(Api.addCourses, data: body);
 print("response->${response.data}");
-     return right(AddCoursesResponse.fromJson(response.data));
+     return right(response.data);
     } on DioError catch (e) {
       if (e.response != null) {
         if (e.response!.statusCode == 401) {

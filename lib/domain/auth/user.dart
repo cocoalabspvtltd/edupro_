@@ -13,6 +13,7 @@ class User with _$User implements IEntity {
     required String id,
     required StringSingleLine name,
     required EmailAddress emailAddress,
+    required String? type
   }) = _User;
 }
 

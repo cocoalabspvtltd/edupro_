@@ -4,6 +4,7 @@ import 'package:pgs_edupro/domain/auth/auth_failure.dart';
 import 'package:pgs_edupro/domain/auth/i_auth_facade.dart';
 import 'package:pgs_edupro/domain/auth/value_objects.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/shared_prefs.dart';
+import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/auth/user_login_response.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -46,6 +47,7 @@ class LogInBloc extends Bloc<LogInEvent, LogInState> {
           failureOrSuccess = await authFacade!.signInWithEmailAndPassword(
             emailAddress: state.emailAddress,
             password: state.password,
+            type :UserDetailsLocal.type
           );
         }
 

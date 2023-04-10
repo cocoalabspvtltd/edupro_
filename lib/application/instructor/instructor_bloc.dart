@@ -69,7 +69,7 @@ class InstructorBloc extends Bloc<InstructorEvent, InstructorState> {
         // };
 
     //    AppDialogs.loading();
-        failureOrSuccess = await addCoursesInstructor.addCourseInstructor(body);
+       // failureOrSuccess = await addCoursesInstructor.addCourseInstructor(body);
 
        // getx.Get.back();
 

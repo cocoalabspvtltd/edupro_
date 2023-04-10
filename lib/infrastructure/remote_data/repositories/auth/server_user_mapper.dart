@@ -8,6 +8,7 @@ class ServerUserMapper {
             id: (u.id),
             name: u.name,
             emailAddress: u.emailAddress,
+      type: u.type
           );
   }
 }
