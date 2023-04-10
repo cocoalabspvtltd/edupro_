@@ -26,6 +26,7 @@ mixin _$InstructorEvent {
     required TResult Function(String durationStr) durationChanged,
     required TResult Function(String urlStr) urlChanged,
     required TResult Function(File displayPicture) courseFile,
+    required TResult Function(String descrptionStr) descriptionChanged,
     required TResult Function(String WhatYouStr) whatYChanged,
     required TResult Function(String AreThereAnyStr) areThereAnyChanged,
     required TResult Function(File Image) displayPicture,
@@ -43,6 +44,7 @@ mixin _$InstructorEvent {
     TResult? Function(String durationStr)? durationChanged,
     TResult? Function(String urlStr)? urlChanged,
     TResult? Function(File displayPicture)? courseFile,
+    TResult? Function(String descrptionStr)? descriptionChanged,
     TResult? Function(String WhatYouStr)? whatYChanged,
     TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult? Function(File Image)? displayPicture,
@@ -60,6 +62,7 @@ mixin _$InstructorEvent {
     TResult Function(String durationStr)? durationChanged,
     TResult Function(String urlStr)? urlChanged,
     TResult Function(File displayPicture)? courseFile,
+    TResult Function(String descrptionStr)? descriptionChanged,
     TResult Function(String WhatYouStr)? whatYChanged,
     TResult Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult Function(File Image)? displayPicture,
@@ -78,6 +81,7 @@ mixin _$InstructorEvent {
     required TResult Function(_DurationChanged value) durationChanged,
     required TResult Function(_UrlChanged value) urlChanged,
     required TResult Function(_courseFilePicture value) courseFile,
+    required TResult Function(_DescriptionChanged value) descriptionChanged,
     required TResult Function(_WhatYChanged value) whatYChanged,
     required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
     required TResult Function(_ImageChanged value) displayPicture,
@@ -95,6 +99,7 @@ mixin _$InstructorEvent {
     TResult? Function(_DurationChanged value)? durationChanged,
     TResult? Function(_UrlChanged value)? urlChanged,
     TResult? Function(_courseFilePicture value)? courseFile,
+    TResult? Function(_DescriptionChanged value)? descriptionChanged,
     TResult? Function(_WhatYChanged value)? whatYChanged,
     TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
@@ -112,6 +117,7 @@ mixin _$InstructorEvent {
     TResult Function(_DurationChanged value)? durationChanged,
     TResult Function(_UrlChanged value)? urlChanged,
     TResult Function(_courseFilePicture value)? courseFile,
+    TResult Function(_DescriptionChanged value)? descriptionChanged,
     TResult Function(_WhatYChanged value)? whatYChanged,
     TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult Function(_ImageChanged value)? displayPicture,
@@ -185,6 +191,7 @@ class _$_Started implements _Started {
     required TResult Function(String durationStr) durationChanged,
     required TResult Function(String urlStr) urlChanged,
     required TResult Function(File displayPicture) courseFile,
+    required TResult Function(String descrptionStr) descriptionChanged,
     required TResult Function(String WhatYouStr) whatYChanged,
     required TResult Function(String AreThereAnyStr) areThereAnyChanged,
     required TResult Function(File Image) displayPicture,
@@ -205,6 +212,7 @@ class _$_Started implements _Started {
     TResult? Function(String durationStr)? durationChanged,
     TResult? Function(String urlStr)? urlChanged,
     TResult? Function(File displayPicture)? courseFile,
+    TResult? Function(String descrptionStr)? descriptionChanged,
     TResult? Function(String WhatYouStr)? whatYChanged,
     TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult? Function(File Image)? displayPicture,
@@ -225,6 +233,7 @@ class _$_Started implements _Started {
     TResult Function(String durationStr)? durationChanged,
     TResult Function(String urlStr)? urlChanged,
     TResult Function(File displayPicture)? courseFile,
+    TResult Function(String descrptionStr)? descriptionChanged,
     TResult Function(String WhatYouStr)? whatYChanged,
     TResult Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult Function(File Image)? displayPicture,
@@ -249,6 +258,7 @@ class _$_Started implements _Started {
     required TResult Function(_DurationChanged value) durationChanged,
     required TResult Function(_UrlChanged value) urlChanged,
     required TResult Function(_courseFilePicture value) courseFile,
+    required TResult Function(_DescriptionChanged value) descriptionChanged,
     required TResult Function(_WhatYChanged value) whatYChanged,
     required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
     required TResult Function(_ImageChanged value) displayPicture,
@@ -269,6 +279,7 @@ class _$_Started implements _Started {
     TResult? Function(_DurationChanged value)? durationChanged,
     TResult? Function(_UrlChanged value)? urlChanged,
     TResult? Function(_courseFilePicture value)? courseFile,
+    TResult? Function(_DescriptionChanged value)? descriptionChanged,
     TResult? Function(_WhatYChanged value)? whatYChanged,
     TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
@@ -289,6 +300,7 @@ class _$_Started implements _Started {
     TResult Function(_DurationChanged value)? durationChanged,
     TResult Function(_UrlChanged value)? urlChanged,
     TResult Function(_courseFilePicture value)? courseFile,
+    TResult Function(_DescriptionChanged value)? descriptionChanged,
     TResult Function(_WhatYChanged value)? whatYChanged,
     TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult Function(_ImageChanged value)? displayPicture,
@@ -380,6 +392,7 @@ class _$_TitleChanged implements _TitleChanged {
     required TResult Function(String durationStr) durationChanged,
     required TResult Function(String urlStr) urlChanged,
     required TResult Function(File displayPicture) courseFile,
+    required TResult Function(String descrptionStr) descriptionChanged,
     required TResult Function(String WhatYouStr) whatYChanged,
     required TResult Function(String AreThereAnyStr) areThereAnyChanged,
     required TResult Function(File Image) displayPicture,
@@ -400,6 +413,7 @@ class _$_TitleChanged implements _TitleChanged {
     TResult? Function(String durationStr)? durationChanged,
     TResult? Function(String urlStr)? urlChanged,
     TResult? Function(File displayPicture)? courseFile,
+    TResult? Function(String descrptionStr)? descriptionChanged,
     TResult? Function(String WhatYouStr)? whatYChanged,
     TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult? Function(File Image)? displayPicture,
@@ -420,6 +434,7 @@ class _$_TitleChanged implements _TitleChanged {
     TResult Function(String durationStr)? durationChanged,
     TResult Function(String urlStr)? urlChanged,
     TResult Function(File displayPicture)? courseFile,
+    TResult Function(String descrptionStr)? descriptionChanged,
     TResult Function(String WhatYouStr)? whatYChanged,
     TResult Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult Function(File Image)? displayPicture,
@@ -444,6 +459,7 @@ class _$_TitleChanged implements _TitleChanged {
     required TResult Function(_DurationChanged value) durationChanged,
     required TResult Function(_UrlChanged value) urlChanged,
     required TResult Function(_courseFilePicture value) courseFile,
+    required TResult Function(_DescriptionChanged value) descriptionChanged,
     required TResult Function(_WhatYChanged value) whatYChanged,
     required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
     required TResult Function(_ImageChanged value) displayPicture,
@@ -464,6 +480,7 @@ class _$_TitleChanged implements _TitleChanged {
     TResult? Function(_DurationChanged value)? durationChanged,
     TResult? Function(_UrlChanged value)? urlChanged,
     TResult? Function(_courseFilePicture value)? courseFile,
+    TResult? Function(_DescriptionChanged value)? descriptionChanged,
     TResult? Function(_WhatYChanged value)? whatYChanged,
     TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
@@ -484,6 +501,7 @@ class _$_TitleChanged implements _TitleChanged {
     TResult Function(_DurationChanged value)? durationChanged,
     TResult Function(_UrlChanged value)? urlChanged,
     TResult Function(_courseFilePicture value)? courseFile,
+    TResult Function(_DescriptionChanged value)? descriptionChanged,
     TResult Function(_WhatYChanged value)? whatYChanged,
     TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult Function(_ImageChanged value)? displayPicture,
@@ -581,6 +599,7 @@ class _$_AboutTitleChanged implements _AboutTitleChanged {
     required TResult Function(String durationStr) durationChanged,
     required TResult Function(String urlStr) urlChanged,
     required TResult Function(File displayPicture) courseFile,
+    required TResult Function(String descrptionStr) descriptionChanged,
     required TResult Function(String WhatYouStr) whatYChanged,
     required TResult Function(String AreThereAnyStr) areThereAnyChanged,
     required TResult Function(File Image) displayPicture,
@@ -601,6 +620,7 @@ class _$_AboutTitleChanged implements _AboutTitleChanged {
     TResult? Function(String durationStr)? durationChanged,
     TResult? Function(String urlStr)? urlChanged,
     TResult? Function(File displayPicture)? courseFile,
+    TResult? Function(String descrptionStr)? descriptionChanged,
     TResult? Function(String WhatYouStr)? whatYChanged,
     TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult? Function(File Image)? displayPicture,
@@ -621,6 +641,7 @@ class _$_AboutTitleChanged implements _AboutTitleChanged {
     TResult Function(String durationStr)? durationChanged,
     TResult Function(String urlStr)? urlChanged,
     TResult Function(File displayPicture)? courseFile,
+    TResult Function(String descrptionStr)? descriptionChanged,
     TResult Function(String WhatYouStr)? whatYChanged,
     TResult Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult Function(File Image)? displayPicture,
@@ -645,6 +666,7 @@ class _$_AboutTitleChanged implements _AboutTitleChanged {
     required TResult Function(_DurationChanged value) durationChanged,
     required TResult Function(_UrlChanged value) urlChanged,
     required TResult Function(_courseFilePicture value) courseFile,
+    required TResult Function(_DescriptionChanged value) descriptionChanged,
     required TResult Function(_WhatYChanged value) whatYChanged,
     required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
     required TResult Function(_ImageChanged value) displayPicture,
@@ -665,6 +687,7 @@ class _$_AboutTitleChanged implements _AboutTitleChanged {
     TResult? Function(_DurationChanged value)? durationChanged,
     TResult? Function(_UrlChanged value)? urlChanged,
     TResult? Function(_courseFilePicture value)? courseFile,
+    TResult? Function(_DescriptionChanged value)? descriptionChanged,
     TResult? Function(_WhatYChanged value)? whatYChanged,
     TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
@@ -685,6 +708,7 @@ class _$_AboutTitleChanged implements _AboutTitleChanged {
     TResult Function(_DurationChanged value)? durationChanged,
     TResult Function(_UrlChanged value)? urlChanged,
     TResult Function(_courseFilePicture value)? courseFile,
+    TResult Function(_DescriptionChanged value)? descriptionChanged,
     TResult Function(_WhatYChanged value)? whatYChanged,
     TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult Function(_ImageChanged value)? displayPicture,
@@ -782,6 +806,7 @@ class _$_CategoryChanged implements _CategoryChanged {
     required TResult Function(String durationStr) durationChanged,
     required TResult Function(String urlStr) urlChanged,
     required TResult Function(File displayPicture) courseFile,
+    required TResult Function(String descrptionStr) descriptionChanged,
     required TResult Function(String WhatYouStr) whatYChanged,
     required TResult Function(String AreThereAnyStr) areThereAnyChanged,
     required TResult Function(File Image) displayPicture,
@@ -802,6 +827,7 @@ class _$_CategoryChanged implements _CategoryChanged {
     TResult? Function(String durationStr)? durationChanged,
     TResult? Function(String urlStr)? urlChanged,
     TResult? Function(File displayPicture)? courseFile,
+    TResult? Function(String descrptionStr)? descriptionChanged,
     TResult? Function(String WhatYouStr)? whatYChanged,
     TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult? Function(File Image)? displayPicture,
@@ -822,6 +848,7 @@ class _$_CategoryChanged implements _CategoryChanged {
     TResult Function(String durationStr)? durationChanged,
     TResult Function(String urlStr)? urlChanged,
     TResult Function(File displayPicture)? courseFile,
+    TResult Function(String descrptionStr)? descriptionChanged,
     TResult Function(String WhatYouStr)? whatYChanged,
     TResult Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult Function(File Image)? displayPicture,
@@ -846,6 +873,7 @@ class _$_CategoryChanged implements _CategoryChanged {
     required TResult Function(_DurationChanged value) durationChanged,
     required TResult Function(_UrlChanged value) urlChanged,
     required TResult Function(_courseFilePicture value) courseFile,
+    required TResult Function(_DescriptionChanged value) descriptionChanged,
     required TResult Function(_WhatYChanged value) whatYChanged,
     required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
     required TResult Function(_ImageChanged value) displayPicture,
@@ -866,6 +894,7 @@ class _$_CategoryChanged implements _CategoryChanged {
     TResult? Function(_DurationChanged value)? durationChanged,
     TResult? Function(_UrlChanged value)? urlChanged,
     TResult? Function(_courseFilePicture value)? courseFile,
+    TResult? Function(_DescriptionChanged value)? descriptionChanged,
     TResult? Function(_WhatYChanged value)? whatYChanged,
     TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
@@ -886,6 +915,7 @@ class _$_CategoryChanged implements _CategoryChanged {
     TResult Function(_DurationChanged value)? durationChanged,
     TResult Function(_UrlChanged value)? urlChanged,
     TResult Function(_courseFilePicture value)? courseFile,
+    TResult Function(_DescriptionChanged value)? descriptionChanged,
     TResult Function(_WhatYChanged value)? whatYChanged,
     TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult Function(_ImageChanged value)? displayPicture,
@@ -983,6 +1013,7 @@ class _$_AmountChanged implements _AmountChanged {
     required TResult Function(String durationStr) durationChanged,
     required TResult Function(String urlStr) urlChanged,
     required TResult Function(File displayPicture) courseFile,
+    required TResult Function(String descrptionStr) descriptionChanged,
     required TResult Function(String WhatYouStr) whatYChanged,
     required TResult Function(String AreThereAnyStr) areThereAnyChanged,
     required TResult Function(File Image) displayPicture,
@@ -1003,6 +1034,7 @@ class _$_AmountChanged implements _AmountChanged {
     TResult? Function(String durationStr)? durationChanged,
     TResult? Function(String urlStr)? urlChanged,
     TResult? Function(File displayPicture)? courseFile,
+    TResult? Function(String descrptionStr)? descriptionChanged,
     TResult? Function(String WhatYouStr)? whatYChanged,
     TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult? Function(File Image)? displayPicture,
@@ -1023,6 +1055,7 @@ class _$_AmountChanged implements _AmountChanged {
     TResult Function(String durationStr)? durationChanged,
     TResult Function(String urlStr)? urlChanged,
     TResult Function(File displayPicture)? courseFile,
+    TResult Function(String descrptionStr)? descriptionChanged,
     TResult Function(String WhatYouStr)? whatYChanged,
     TResult Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult Function(File Image)? displayPicture,
@@ -1047,6 +1080,7 @@ class _$_AmountChanged implements _AmountChanged {
     required TResult Function(_DurationChanged value) durationChanged,
     required TResult Function(_UrlChanged value) urlChanged,
     required TResult Function(_courseFilePicture value) courseFile,
+    required TResult Function(_DescriptionChanged value) descriptionChanged,
     required TResult Function(_WhatYChanged value) whatYChanged,
     required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
     required TResult Function(_ImageChanged value) displayPicture,
@@ -1067,6 +1101,7 @@ class _$_AmountChanged implements _AmountChanged {
     TResult? Function(_DurationChanged value)? durationChanged,
     TResult? Function(_UrlChanged value)? urlChanged,
     TResult? Function(_courseFilePicture value)? courseFile,
+    TResult? Function(_DescriptionChanged value)? descriptionChanged,
     TResult? Function(_WhatYChanged value)? whatYChanged,
     TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
@@ -1087,6 +1122,7 @@ class _$_AmountChanged implements _AmountChanged {
     TResult Function(_DurationChanged value)? durationChanged,
     TResult Function(_UrlChanged value)? urlChanged,
     TResult Function(_courseFilePicture value)? courseFile,
+    TResult Function(_DescriptionChanged value)? descriptionChanged,
     TResult Function(_WhatYChanged value)? whatYChanged,
     TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult Function(_ImageChanged value)? displayPicture,
@@ -1183,6 +1219,7 @@ class _$_DurationChanged implements _DurationChanged {
     required TResult Function(String durationStr) durationChanged,
     required TResult Function(String urlStr) urlChanged,
     required TResult Function(File displayPicture) courseFile,
+    required TResult Function(String descrptionStr) descriptionChanged,
     required TResult Function(String WhatYouStr) whatYChanged,
     required TResult Function(String AreThereAnyStr) areThereAnyChanged,
     required TResult Function(File Image) displayPicture,
@@ -1203,6 +1240,7 @@ class _$_DurationChanged implements _DurationChanged {
     TResult? Function(String durationStr)? durationChanged,
     TResult? Function(String urlStr)? urlChanged,
     TResult? Function(File displayPicture)? courseFile,
+    TResult? Function(String descrptionStr)? descriptionChanged,
     TResult? Function(String WhatYouStr)? whatYChanged,
     TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult? Function(File Image)? displayPicture,
@@ -1223,6 +1261,7 @@ class _$_DurationChanged implements _DurationChanged {
     TResult Function(String durationStr)? durationChanged,
     TResult Function(String urlStr)? urlChanged,
     TResult Function(File displayPicture)? courseFile,
+    TResult Function(String descrptionStr)? descriptionChanged,
     TResult Function(String WhatYouStr)? whatYChanged,
     TResult Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult Function(File Image)? displayPicture,
@@ -1247,6 +1286,7 @@ class _$_DurationChanged implements _DurationChanged {
     required TResult Function(_DurationChanged value) durationChanged,
     required TResult Function(_UrlChanged value) urlChanged,
     required TResult Function(_courseFilePicture value) courseFile,
+    required TResult Function(_DescriptionChanged value) descriptionChanged,
     required TResult Function(_WhatYChanged value) whatYChanged,
     required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
     required TResult Function(_ImageChanged value) displayPicture,
@@ -1267,6 +1307,7 @@ class _$_DurationChanged implements _DurationChanged {
     TResult? Function(_DurationChanged value)? durationChanged,
     TResult? Function(_UrlChanged value)? urlChanged,
     TResult? Function(_courseFilePicture value)? courseFile,
+    TResult? Function(_DescriptionChanged value)? descriptionChanged,
     TResult? Function(_WhatYChanged value)? whatYChanged,
     TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
@@ -1287,6 +1328,7 @@ class _$_DurationChanged implements _DurationChanged {
     TResult Function(_DurationChanged value)? durationChanged,
     TResult Function(_UrlChanged value)? urlChanged,
     TResult Function(_courseFilePicture value)? courseFile,
+    TResult Function(_DescriptionChanged value)? descriptionChanged,
     TResult Function(_WhatYChanged value)? whatYChanged,
     TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult Function(_ImageChanged value)? displayPicture,
@@ -1382,6 +1424,7 @@ class _$_UrlChanged implements _UrlChanged {
     required TResult Function(String durationStr) durationChanged,
     required TResult Function(String urlStr) urlChanged,
     required TResult Function(File displayPicture) courseFile,
+    required TResult Function(String descrptionStr) descriptionChanged,
     required TResult Function(String WhatYouStr) whatYChanged,
     required TResult Function(String AreThereAnyStr) areThereAnyChanged,
     required TResult Function(File Image) displayPicture,
@@ -1402,6 +1445,7 @@ class _$_UrlChanged implements _UrlChanged {
     TResult? Function(String durationStr)? durationChanged,
     TResult? Function(String urlStr)? urlChanged,
     TResult? Function(File displayPicture)? courseFile,
+    TResult? Function(String descrptionStr)? descriptionChanged,
     TResult? Function(String WhatYouStr)? whatYChanged,
     TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult? Function(File Image)? displayPicture,
@@ -1422,6 +1466,7 @@ class _$_UrlChanged implements _UrlChanged {
     TResult Function(String durationStr)? durationChanged,
     TResult Function(String urlStr)? urlChanged,
     TResult Function(File displayPicture)? courseFile,
+    TResult Function(String descrptionStr)? descriptionChanged,
     TResult Function(String WhatYouStr)? whatYChanged,
     TResult Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult Function(File Image)? displayPicture,
@@ -1446,6 +1491,7 @@ class _$_UrlChanged implements _UrlChanged {
     required TResult Function(_DurationChanged value) durationChanged,
     required TResult Function(_UrlChanged value) urlChanged,
     required TResult Function(_courseFilePicture value) courseFile,
+    required TResult Function(_DescriptionChanged value) descriptionChanged,
     required TResult Function(_WhatYChanged value) whatYChanged,
     required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
     required TResult Function(_ImageChanged value) displayPicture,
@@ -1466,6 +1512,7 @@ class _$_UrlChanged implements _UrlChanged {
     TResult? Function(_DurationChanged value)? durationChanged,
     TResult? Function(_UrlChanged value)? urlChanged,
     TResult? Function(_courseFilePicture value)? courseFile,
+    TResult? Function(_DescriptionChanged value)? descriptionChanged,
     TResult? Function(_WhatYChanged value)? whatYChanged,
     TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
@@ -1486,6 +1533,7 @@ class _$_UrlChanged implements _UrlChanged {
     TResult Function(_DurationChanged value)? durationChanged,
     TResult Function(_UrlChanged value)? urlChanged,
     TResult Function(_courseFilePicture value)? courseFile,
+    TResult Function(_DescriptionChanged value)? descriptionChanged,
     TResult Function(_WhatYChanged value)? whatYChanged,
     TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult Function(_ImageChanged value)? displayPicture,
@@ -1583,6 +1631,7 @@ class _$_courseFilePicture implements _courseFilePicture {
     required TResult Function(String durationStr) durationChanged,
     required TResult Function(String urlStr) urlChanged,
     required TResult Function(File displayPicture) courseFile,
+    required TResult Function(String descrptionStr) descriptionChanged,
     required TResult Function(String WhatYouStr) whatYChanged,
     required TResult Function(String AreThereAnyStr) areThereAnyChanged,
     required TResult Function(File Image) displayPicture,
@@ -1603,6 +1652,7 @@ class _$_courseFilePicture implements _courseFilePicture {
     TResult? Function(String durationStr)? durationChanged,
     TResult? Function(String urlStr)? urlChanged,
     TResult? Function(File displayPicture)? courseFile,
+    TResult? Function(String descrptionStr)? descriptionChanged,
     TResult? Function(String WhatYouStr)? whatYChanged,
     TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult? Function(File Image)? displayPicture,
@@ -1623,6 +1673,7 @@ class _$_courseFilePicture implements _courseFilePicture {
     TResult Function(String durationStr)? durationChanged,
     TResult Function(String urlStr)? urlChanged,
     TResult Function(File displayPicture)? courseFile,
+    TResult Function(String descrptionStr)? descriptionChanged,
     TResult Function(String WhatYouStr)? whatYChanged,
     TResult Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult Function(File Image)? displayPicture,
@@ -1647,6 +1698,7 @@ class _$_courseFilePicture implements _courseFilePicture {
     required TResult Function(_DurationChanged value) durationChanged,
     required TResult Function(_UrlChanged value) urlChanged,
     required TResult Function(_courseFilePicture value) courseFile,
+    required TResult Function(_DescriptionChanged value) descriptionChanged,
     required TResult Function(_WhatYChanged value) whatYChanged,
     required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
     required TResult Function(_ImageChanged value) displayPicture,
@@ -1667,6 +1719,7 @@ class _$_courseFilePicture implements _courseFilePicture {
     TResult? Function(_DurationChanged value)? durationChanged,
     TResult? Function(_UrlChanged value)? urlChanged,
     TResult? Function(_courseFilePicture value)? courseFile,
+    TResult? Function(_DescriptionChanged value)? descriptionChanged,
     TResult? Function(_WhatYChanged value)? whatYChanged,
     TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
@@ -1687,6 +1740,7 @@ class _$_courseFilePicture implements _courseFilePicture {
     TResult Function(_DurationChanged value)? durationChanged,
     TResult Function(_UrlChanged value)? urlChanged,
     TResult Function(_courseFilePicture value)? courseFile,
+    TResult Function(_DescriptionChanged value)? descriptionChanged,
     TResult Function(_WhatYChanged value)? whatYChanged,
     TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult Function(_ImageChanged value)? displayPicture,
@@ -1708,6 +1762,214 @@ abstract class _courseFilePicture implements InstructorEvent {
   File get displayPicture;
   @JsonKey(ignore: true)
   _$$_courseFilePictureCopyWith<_$_courseFilePicture> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_DescriptionChangedCopyWith<$Res> {
+  factory _$$_DescriptionChangedCopyWith(_$_DescriptionChanged value,
+          $Res Function(_$_DescriptionChanged) then) =
+      __$$_DescriptionChangedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String descrptionStr});
+}
+
+/// @nodoc
+class __$$_DescriptionChangedCopyWithImpl<$Res>
+    extends _$InstructorEventCopyWithImpl<$Res, _$_DescriptionChanged>
+    implements _$$_DescriptionChangedCopyWith<$Res> {
+  __$$_DescriptionChangedCopyWithImpl(
+      _$_DescriptionChanged _value, $Res Function(_$_DescriptionChanged) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? descrptionStr = null,
+  }) {
+    return _then(_$_DescriptionChanged(
+      null == descrptionStr
+          ? _value.descrptionStr
+          : descrptionStr // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_DescriptionChanged implements _DescriptionChanged {
+  const _$_DescriptionChanged(this.descrptionStr);
+
+  @override
+  final String descrptionStr;
+
+  @override
+  String toString() {
+    return 'InstructorEvent.descriptionChanged(descrptionStr: $descrptionStr)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_DescriptionChanged &&
+            (identical(other.descrptionStr, descrptionStr) ||
+                other.descrptionStr == descrptionStr));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, descrptionStr);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_DescriptionChangedCopyWith<_$_DescriptionChanged> get copyWith =>
+      __$$_DescriptionChangedCopyWithImpl<_$_DescriptionChanged>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String titleStr) titleChanged,
+    required TResult Function(String aboutTitleStr) aboutTitleChanged,
+    required TResult Function(String categoryValue) categoryChanged,
+    required TResult Function(String amountStr) amountChanged,
+    required TResult Function(String durationStr) durationChanged,
+    required TResult Function(String urlStr) urlChanged,
+    required TResult Function(File displayPicture) courseFile,
+    required TResult Function(String descrptionStr) descriptionChanged,
+    required TResult Function(String WhatYouStr) whatYChanged,
+    required TResult Function(String AreThereAnyStr) areThereAnyChanged,
+    required TResult Function(File Image) displayPicture,
+    required TResult Function() submitPressed,
+    required TResult Function(String whoThiStr) whoThisChanged,
+  }) {
+    return descriptionChanged(descrptionStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String titleStr)? titleChanged,
+    TResult? Function(String aboutTitleStr)? aboutTitleChanged,
+    TResult? Function(String categoryValue)? categoryChanged,
+    TResult? Function(String amountStr)? amountChanged,
+    TResult? Function(String durationStr)? durationChanged,
+    TResult? Function(String urlStr)? urlChanged,
+    TResult? Function(File displayPicture)? courseFile,
+    TResult? Function(String descrptionStr)? descriptionChanged,
+    TResult? Function(String WhatYouStr)? whatYChanged,
+    TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
+    TResult? Function(File Image)? displayPicture,
+    TResult? Function()? submitPressed,
+    TResult? Function(String whoThiStr)? whoThisChanged,
+  }) {
+    return descriptionChanged?.call(descrptionStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String titleStr)? titleChanged,
+    TResult Function(String aboutTitleStr)? aboutTitleChanged,
+    TResult Function(String categoryValue)? categoryChanged,
+    TResult Function(String amountStr)? amountChanged,
+    TResult Function(String durationStr)? durationChanged,
+    TResult Function(String urlStr)? urlChanged,
+    TResult Function(File displayPicture)? courseFile,
+    TResult Function(String descrptionStr)? descriptionChanged,
+    TResult Function(String WhatYouStr)? whatYChanged,
+    TResult Function(String AreThereAnyStr)? areThereAnyChanged,
+    TResult Function(File Image)? displayPicture,
+    TResult Function()? submitPressed,
+    TResult Function(String whoThiStr)? whoThisChanged,
+    required TResult orElse(),
+  }) {
+    if (descriptionChanged != null) {
+      return descriptionChanged(descrptionStr);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_TitleChanged value) titleChanged,
+    required TResult Function(_AboutTitleChanged value) aboutTitleChanged,
+    required TResult Function(_CategoryChanged value) categoryChanged,
+    required TResult Function(_AmountChanged value) amountChanged,
+    required TResult Function(_DurationChanged value) durationChanged,
+    required TResult Function(_UrlChanged value) urlChanged,
+    required TResult Function(_courseFilePicture value) courseFile,
+    required TResult Function(_DescriptionChanged value) descriptionChanged,
+    required TResult Function(_WhatYChanged value) whatYChanged,
+    required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
+    required TResult Function(_ImageChanged value) displayPicture,
+    required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_whoThiChanged value) whoThisChanged,
+  }) {
+    return descriptionChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_TitleChanged value)? titleChanged,
+    TResult? Function(_AboutTitleChanged value)? aboutTitleChanged,
+    TResult? Function(_CategoryChanged value)? categoryChanged,
+    TResult? Function(_AmountChanged value)? amountChanged,
+    TResult? Function(_DurationChanged value)? durationChanged,
+    TResult? Function(_UrlChanged value)? urlChanged,
+    TResult? Function(_courseFilePicture value)? courseFile,
+    TResult? Function(_DescriptionChanged value)? descriptionChanged,
+    TResult? Function(_WhatYChanged value)? whatYChanged,
+    TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
+    TResult? Function(_ImageChanged value)? displayPicture,
+    TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_whoThiChanged value)? whoThisChanged,
+  }) {
+    return descriptionChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_TitleChanged value)? titleChanged,
+    TResult Function(_AboutTitleChanged value)? aboutTitleChanged,
+    TResult Function(_CategoryChanged value)? categoryChanged,
+    TResult Function(_AmountChanged value)? amountChanged,
+    TResult Function(_DurationChanged value)? durationChanged,
+    TResult Function(_UrlChanged value)? urlChanged,
+    TResult Function(_courseFilePicture value)? courseFile,
+    TResult Function(_DescriptionChanged value)? descriptionChanged,
+    TResult Function(_WhatYChanged value)? whatYChanged,
+    TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
+    TResult Function(_ImageChanged value)? displayPicture,
+    TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_whoThiChanged value)? whoThisChanged,
+    required TResult orElse(),
+  }) {
+    if (descriptionChanged != null) {
+      return descriptionChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DescriptionChanged implements InstructorEvent {
+  const factory _DescriptionChanged(final String descrptionStr) =
+      _$_DescriptionChanged;
+
+  String get descrptionStr;
+  @JsonKey(ignore: true)
+  _$$_DescriptionChangedCopyWith<_$_DescriptionChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1784,6 +2046,7 @@ class _$_WhatYChanged implements _WhatYChanged {
     required TResult Function(String durationStr) durationChanged,
     required TResult Function(String urlStr) urlChanged,
     required TResult Function(File displayPicture) courseFile,
+    required TResult Function(String descrptionStr) descriptionChanged,
     required TResult Function(String WhatYouStr) whatYChanged,
     required TResult Function(String AreThereAnyStr) areThereAnyChanged,
     required TResult Function(File Image) displayPicture,
@@ -1804,6 +2067,7 @@ class _$_WhatYChanged implements _WhatYChanged {
     TResult? Function(String durationStr)? durationChanged,
     TResult? Function(String urlStr)? urlChanged,
     TResult? Function(File displayPicture)? courseFile,
+    TResult? Function(String descrptionStr)? descriptionChanged,
     TResult? Function(String WhatYouStr)? whatYChanged,
     TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult? Function(File Image)? displayPicture,
@@ -1824,6 +2088,7 @@ class _$_WhatYChanged implements _WhatYChanged {
     TResult Function(String durationStr)? durationChanged,
     TResult Function(String urlStr)? urlChanged,
     TResult Function(File displayPicture)? courseFile,
+    TResult Function(String descrptionStr)? descriptionChanged,
     TResult Function(String WhatYouStr)? whatYChanged,
     TResult Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult Function(File Image)? displayPicture,
@@ -1848,6 +2113,7 @@ class _$_WhatYChanged implements _WhatYChanged {
     required TResult Function(_DurationChanged value) durationChanged,
     required TResult Function(_UrlChanged value) urlChanged,
     required TResult Function(_courseFilePicture value) courseFile,
+    required TResult Function(_DescriptionChanged value) descriptionChanged,
     required TResult Function(_WhatYChanged value) whatYChanged,
     required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
     required TResult Function(_ImageChanged value) displayPicture,
@@ -1868,6 +2134,7 @@ class _$_WhatYChanged implements _WhatYChanged {
     TResult? Function(_DurationChanged value)? durationChanged,
     TResult? Function(_UrlChanged value)? urlChanged,
     TResult? Function(_courseFilePicture value)? courseFile,
+    TResult? Function(_DescriptionChanged value)? descriptionChanged,
     TResult? Function(_WhatYChanged value)? whatYChanged,
     TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
@@ -1888,6 +2155,7 @@ class _$_WhatYChanged implements _WhatYChanged {
     TResult Function(_DurationChanged value)? durationChanged,
     TResult Function(_UrlChanged value)? urlChanged,
     TResult Function(_courseFilePicture value)? courseFile,
+    TResult Function(_DescriptionChanged value)? descriptionChanged,
     TResult Function(_WhatYChanged value)? whatYChanged,
     TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult Function(_ImageChanged value)? displayPicture,
@@ -1985,6 +2253,7 @@ class _$_AreThereAnyChanged implements _AreThereAnyChanged {
     required TResult Function(String durationStr) durationChanged,
     required TResult Function(String urlStr) urlChanged,
     required TResult Function(File displayPicture) courseFile,
+    required TResult Function(String descrptionStr) descriptionChanged,
     required TResult Function(String WhatYouStr) whatYChanged,
     required TResult Function(String AreThereAnyStr) areThereAnyChanged,
     required TResult Function(File Image) displayPicture,
@@ -2005,6 +2274,7 @@ class _$_AreThereAnyChanged implements _AreThereAnyChanged {
     TResult? Function(String durationStr)? durationChanged,
     TResult? Function(String urlStr)? urlChanged,
     TResult? Function(File displayPicture)? courseFile,
+    TResult? Function(String descrptionStr)? descriptionChanged,
     TResult? Function(String WhatYouStr)? whatYChanged,
     TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult? Function(File Image)? displayPicture,
@@ -2025,6 +2295,7 @@ class _$_AreThereAnyChanged implements _AreThereAnyChanged {
     TResult Function(String durationStr)? durationChanged,
     TResult Function(String urlStr)? urlChanged,
     TResult Function(File displayPicture)? courseFile,
+    TResult Function(String descrptionStr)? descriptionChanged,
     TResult Function(String WhatYouStr)? whatYChanged,
     TResult Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult Function(File Image)? displayPicture,
@@ -2049,6 +2320,7 @@ class _$_AreThereAnyChanged implements _AreThereAnyChanged {
     required TResult Function(_DurationChanged value) durationChanged,
     required TResult Function(_UrlChanged value) urlChanged,
     required TResult Function(_courseFilePicture value) courseFile,
+    required TResult Function(_DescriptionChanged value) descriptionChanged,
     required TResult Function(_WhatYChanged value) whatYChanged,
     required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
     required TResult Function(_ImageChanged value) displayPicture,
@@ -2069,6 +2341,7 @@ class _$_AreThereAnyChanged implements _AreThereAnyChanged {
     TResult? Function(_DurationChanged value)? durationChanged,
     TResult? Function(_UrlChanged value)? urlChanged,
     TResult? Function(_courseFilePicture value)? courseFile,
+    TResult? Function(_DescriptionChanged value)? descriptionChanged,
     TResult? Function(_WhatYChanged value)? whatYChanged,
     TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
@@ -2089,6 +2362,7 @@ class _$_AreThereAnyChanged implements _AreThereAnyChanged {
     TResult Function(_DurationChanged value)? durationChanged,
     TResult Function(_UrlChanged value)? urlChanged,
     TResult Function(_courseFilePicture value)? courseFile,
+    TResult Function(_DescriptionChanged value)? descriptionChanged,
     TResult Function(_WhatYChanged value)? whatYChanged,
     TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult Function(_ImageChanged value)? displayPicture,
@@ -2185,6 +2459,7 @@ class _$_ImageChanged implements _ImageChanged {
     required TResult Function(String durationStr) durationChanged,
     required TResult Function(String urlStr) urlChanged,
     required TResult Function(File displayPicture) courseFile,
+    required TResult Function(String descrptionStr) descriptionChanged,
     required TResult Function(String WhatYouStr) whatYChanged,
     required TResult Function(String AreThereAnyStr) areThereAnyChanged,
     required TResult Function(File Image) displayPicture,
@@ -2205,6 +2480,7 @@ class _$_ImageChanged implements _ImageChanged {
     TResult? Function(String durationStr)? durationChanged,
     TResult? Function(String urlStr)? urlChanged,
     TResult? Function(File displayPicture)? courseFile,
+    TResult? Function(String descrptionStr)? descriptionChanged,
     TResult? Function(String WhatYouStr)? whatYChanged,
     TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult? Function(File Image)? displayPicture,
@@ -2225,6 +2501,7 @@ class _$_ImageChanged implements _ImageChanged {
     TResult Function(String durationStr)? durationChanged,
     TResult Function(String urlStr)? urlChanged,
     TResult Function(File displayPicture)? courseFile,
+    TResult Function(String descrptionStr)? descriptionChanged,
     TResult Function(String WhatYouStr)? whatYChanged,
     TResult Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult Function(File Image)? displayPicture,
@@ -2249,6 +2526,7 @@ class _$_ImageChanged implements _ImageChanged {
     required TResult Function(_DurationChanged value) durationChanged,
     required TResult Function(_UrlChanged value) urlChanged,
     required TResult Function(_courseFilePicture value) courseFile,
+    required TResult Function(_DescriptionChanged value) descriptionChanged,
     required TResult Function(_WhatYChanged value) whatYChanged,
     required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
     required TResult Function(_ImageChanged value) displayPicture,
@@ -2269,6 +2547,7 @@ class _$_ImageChanged implements _ImageChanged {
     TResult? Function(_DurationChanged value)? durationChanged,
     TResult? Function(_UrlChanged value)? urlChanged,
     TResult? Function(_courseFilePicture value)? courseFile,
+    TResult? Function(_DescriptionChanged value)? descriptionChanged,
     TResult? Function(_WhatYChanged value)? whatYChanged,
     TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
@@ -2289,6 +2568,7 @@ class _$_ImageChanged implements _ImageChanged {
     TResult Function(_DurationChanged value)? durationChanged,
     TResult Function(_UrlChanged value)? urlChanged,
     TResult Function(_courseFilePicture value)? courseFile,
+    TResult Function(_DescriptionChanged value)? descriptionChanged,
     TResult Function(_WhatYChanged value)? whatYChanged,
     TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult Function(_ImageChanged value)? displayPicture,
@@ -2358,6 +2638,7 @@ class _$_SubmitPressed implements _SubmitPressed {
     required TResult Function(String durationStr) durationChanged,
     required TResult Function(String urlStr) urlChanged,
     required TResult Function(File displayPicture) courseFile,
+    required TResult Function(String descrptionStr) descriptionChanged,
     required TResult Function(String WhatYouStr) whatYChanged,
     required TResult Function(String AreThereAnyStr) areThereAnyChanged,
     required TResult Function(File Image) displayPicture,
@@ -2378,6 +2659,7 @@ class _$_SubmitPressed implements _SubmitPressed {
     TResult? Function(String durationStr)? durationChanged,
     TResult? Function(String urlStr)? urlChanged,
     TResult? Function(File displayPicture)? courseFile,
+    TResult? Function(String descrptionStr)? descriptionChanged,
     TResult? Function(String WhatYouStr)? whatYChanged,
     TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult? Function(File Image)? displayPicture,
@@ -2398,6 +2680,7 @@ class _$_SubmitPressed implements _SubmitPressed {
     TResult Function(String durationStr)? durationChanged,
     TResult Function(String urlStr)? urlChanged,
     TResult Function(File displayPicture)? courseFile,
+    TResult Function(String descrptionStr)? descriptionChanged,
     TResult Function(String WhatYouStr)? whatYChanged,
     TResult Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult Function(File Image)? displayPicture,
@@ -2422,6 +2705,7 @@ class _$_SubmitPressed implements _SubmitPressed {
     required TResult Function(_DurationChanged value) durationChanged,
     required TResult Function(_UrlChanged value) urlChanged,
     required TResult Function(_courseFilePicture value) courseFile,
+    required TResult Function(_DescriptionChanged value) descriptionChanged,
     required TResult Function(_WhatYChanged value) whatYChanged,
     required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
     required TResult Function(_ImageChanged value) displayPicture,
@@ -2442,6 +2726,7 @@ class _$_SubmitPressed implements _SubmitPressed {
     TResult? Function(_DurationChanged value)? durationChanged,
     TResult? Function(_UrlChanged value)? urlChanged,
     TResult? Function(_courseFilePicture value)? courseFile,
+    TResult? Function(_DescriptionChanged value)? descriptionChanged,
     TResult? Function(_WhatYChanged value)? whatYChanged,
     TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
@@ -2462,6 +2747,7 @@ class _$_SubmitPressed implements _SubmitPressed {
     TResult Function(_DurationChanged value)? durationChanged,
     TResult Function(_UrlChanged value)? urlChanged,
     TResult Function(_courseFilePicture value)? courseFile,
+    TResult Function(_DescriptionChanged value)? descriptionChanged,
     TResult Function(_WhatYChanged value)? whatYChanged,
     TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult Function(_ImageChanged value)? displayPicture,
@@ -2553,6 +2839,7 @@ class _$_whoThiChanged implements _whoThiChanged {
     required TResult Function(String durationStr) durationChanged,
     required TResult Function(String urlStr) urlChanged,
     required TResult Function(File displayPicture) courseFile,
+    required TResult Function(String descrptionStr) descriptionChanged,
     required TResult Function(String WhatYouStr) whatYChanged,
     required TResult Function(String AreThereAnyStr) areThereAnyChanged,
     required TResult Function(File Image) displayPicture,
@@ -2573,6 +2860,7 @@ class _$_whoThiChanged implements _whoThiChanged {
     TResult? Function(String durationStr)? durationChanged,
     TResult? Function(String urlStr)? urlChanged,
     TResult? Function(File displayPicture)? courseFile,
+    TResult? Function(String descrptionStr)? descriptionChanged,
     TResult? Function(String WhatYouStr)? whatYChanged,
     TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult? Function(File Image)? displayPicture,
@@ -2593,6 +2881,7 @@ class _$_whoThiChanged implements _whoThiChanged {
     TResult Function(String durationStr)? durationChanged,
     TResult Function(String urlStr)? urlChanged,
     TResult Function(File displayPicture)? courseFile,
+    TResult Function(String descrptionStr)? descriptionChanged,
     TResult Function(String WhatYouStr)? whatYChanged,
     TResult Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult Function(File Image)? displayPicture,
@@ -2617,6 +2906,7 @@ class _$_whoThiChanged implements _whoThiChanged {
     required TResult Function(_DurationChanged value) durationChanged,
     required TResult Function(_UrlChanged value) urlChanged,
     required TResult Function(_courseFilePicture value) courseFile,
+    required TResult Function(_DescriptionChanged value) descriptionChanged,
     required TResult Function(_WhatYChanged value) whatYChanged,
     required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
     required TResult Function(_ImageChanged value) displayPicture,
@@ -2637,6 +2927,7 @@ class _$_whoThiChanged implements _whoThiChanged {
     TResult? Function(_DurationChanged value)? durationChanged,
     TResult? Function(_UrlChanged value)? urlChanged,
     TResult? Function(_courseFilePicture value)? courseFile,
+    TResult? Function(_DescriptionChanged value)? descriptionChanged,
     TResult? Function(_WhatYChanged value)? whatYChanged,
     TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
@@ -2657,6 +2948,7 @@ class _$_whoThiChanged implements _whoThiChanged {
     TResult Function(_DurationChanged value)? durationChanged,
     TResult Function(_UrlChanged value)? urlChanged,
     TResult Function(_courseFilePicture value)? courseFile,
+    TResult Function(_DescriptionChanged value)? descriptionChanged,
     TResult Function(_WhatYChanged value)? whatYChanged,
     TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult Function(_ImageChanged value)? displayPicture,

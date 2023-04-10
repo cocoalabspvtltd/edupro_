@@ -1,6 +1,8 @@
 import 'dart:io';
 import 'dart:math';
-
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart' as getx;
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
@@ -59,18 +61,16 @@ class InstructorBloc extends Bloc<InstructorEvent, InstructorState> {
           "url": state.url.text,
           "description":"${state.description.text}<br><br><p>${state.whatYouLearn.text}</p><br><br><p>${state.areThere.text}</p><br><br><p>${state.whoIsThis.text}",
           "course_thumbnail":await MultipartFile.fromFile(imageC!.path, filename: fileName)
-
         });
         // Map body = {
         //
         //
         // };
 
-    //    AppDialogs.loading();
-       // failureOrSuccess = await addCoursesInstructor.addCourseInstructor(body);
-
-       // getx.Get.back();
-
+       //AppDialogs.loading();
+       failureOrSuccess = await addCoursesInstructor.addCourseInstructor(body);
+        Fluttertoast.showToast(msg:"Course added Successfully");
+        getx.Get.back();
       }
 
       // emit(state.copyWith(

@@ -8,6 +8,7 @@ import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_categories_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_in_category_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_report_response.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/models/my_course/addcourses.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/my_course/my_courses_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/source/api.dart';
 
@@ -128,7 +129,7 @@ class CourseRepository implements ICourseRepository {
   }
 
   @override
-  Future<Either<NetworkFailure, Unit>> addCourseInstructor(
+  Future<Either<NetworkFailure, AddCoursesResponse>> addCourseInstructor(
       FormData body) async {
     log("body->${body}");
     try {

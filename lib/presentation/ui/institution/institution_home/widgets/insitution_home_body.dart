@@ -49,58 +49,53 @@ class InstitutionHomeBody extends StatelessWidget {
       child: SingleChildScrollView(
         physics: const AlwaysScrollableScrollPhysics(),
         child: Padding(
-          padding: const EdgeInsets.all(0.0),
+          padding: const EdgeInsets.all(10.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AdsScreen(
-                key: key,
-              ),
+              thickSpace,
+              Text("Welcome ${UserDetailsLocal.userName} ",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500),),
+              thickSpace,
               thickSpace,
               Container(
-                  height: screenHeight * 0.25,
+                  height: screenHeight * 0.28,
                   width: screenWidth * 0.96,
-                  child: Padding(
-                      padding: const EdgeInsets.only(left: 15),
-                      child: GridView.builder(
-                          gridDelegate:
-                          SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              crossAxisSpacing: 10,
-                              mainAxisSpacing: 10,
-                              childAspectRatio: 0.8 / 0.4),
-                          itemCount: titile.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return Container(
-                              height:screenHeight * 0.4 ,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(12.0),
-                                border: Border.all(
-                                  color: Colors.black,
-                                ),
-                              ),
-                              child: Row(
+                  child: GridView.builder(
+                      gridDelegate:
+                      SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 14,
+                          mainAxisSpacing: 10,
+                          childAspectRatio: 0.8 / 0.4),
+                      itemCount: titile.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Container(
+                          height:screenHeight * 0.4 ,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12.0),
+                            border: Border.all(
+                              color: Colors.black,
+                            ),
+                          ),
+                          child: Row(
+                            children: [
+                              SizedBox(width: screenWidth * 0.03,),
+                              Column(
                                 children: [
-                                  SizedBox(width: screenWidth * 0.03,),
-                                  Column(
-                                    children: [
-                                      SizedBox(height: screenHeight * 0.02,),
-                                      Text(titile[index],style: TextStyle(color: Colors.grey[800],fontSize: 16),),
-                                      SizedBox(height: screenHeight * 0.01,),
-                                      Text(count[index],style: TextStyle(color: Colors.grey[800]),),
-                                    ],
-                                  ),
-                                  Spacer(),
-                                   Image.asset(images[index],width: 60,),
-                                  SizedBox(width: screenWidth * 0.08,)
+                                  SizedBox(height: screenHeight * 0.02,),
+                                  Text(titile[index],style: TextStyle(color: Colors.grey[800],fontSize: 16),),
+                                  SizedBox(height: screenHeight * 0.01,),
+                                  Text(count[index],style: TextStyle(color: Colors.grey[800]),),
                                 ],
                               ),
-                            );
-                          }))),
-              CourseCategoriesScreen(
-                key: key,
-              ),
+                              Spacer(),
+                               Image.asset(images[index],width: 60,),
+                              SizedBox(width: screenWidth * 0.08,)
+                            ],
+                          ),
+                        );
+                      })),
               thickSpace,
               TrendingVideosScreen(
                 key: key,
