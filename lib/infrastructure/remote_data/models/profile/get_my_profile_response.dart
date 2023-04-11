@@ -1,76 +1,4 @@
-// class  MyProfileResponse {
-//   User? user;
-//   String? message;
-//   String? status;
-//
-//   MyProfileResponse({this.user, this.message, this.status});
-//
-//   MyProfileResponse.fromJson(Map<String, dynamic> json) {
-//     user = json['user'] != null
-//         ? User.fromJson(json['user'])
-//         : json['data'] != null
-//             ? User.fromJson(json['data'])
-//             : null;
-//     message = json['message'];
-//     status = json['status'];
-//   }
-// }
-//
-// class User {
-//   int? id;
-//   String? name;
-//   String? email;
-//   String? phoneNumber;
-//   String? dob;
-//   String? address;
-//   String? userStatus;
-//   String? profilePhoto;
-//   String? description;
-//   String? courses;
-//   String? qualification;
-//   String? instituteName;
-//   String? displayPicture;
-//   Null? approvalStatus;
-//   // int? status;
-//   // int? verificationCode;
-//
-//   User({
-//     this.id,
-//     this.name,
-//     this.email,
-//     this.phoneNumber,
-//     this.dob,
-//     this.address,
-//     this.userStatus,
-//     this.profilePhoto,
-//     this.qualification,
-//     this.description,
-//     this.courses,
-//     this.displayPicture,
-//     this.instituteName,
-//     // this.approvalStatus,
-//     // this.status,
-//     // this.verificationCode
-//   });
-//
-//   User.fromJson(Map<String, dynamic> json) {
-//     id = json['id'];
-//     name = json['name'];
-//     email = json['email'];
-//     phoneNumber = json['phone_number'];
-//     dob = json['dob'];
-//     address = json['address'];
-//     userStatus = json['user_status'];
-//     profilePhoto = json['profile_photo'];
-//     description = json['description'];
-//     courses = json['courses'];
-//     qualification = json['qualification'];
-//     instituteName = json['institute_name'];
-//     displayPicture = json['display_picture'];
-//   }
-// }
-//
-//
+
 class MyProfileResponse {
   String ?status;
   String? message;
@@ -100,6 +28,8 @@ class User {
   String? name;
   String? email;
   String? phoneNumber;
+  String? dob;
+  String? address;
   String? description;
   String? courses;
   String? qualification;
@@ -115,6 +45,8 @@ class User {
         this.name,
         this.email,
         this.phoneNumber,
+        this.dob,
+        this.address,
         this.description,
         this.courses,
         this.qualification,
@@ -130,6 +62,8 @@ class User {
     name = json['name'];
     email = json['email'];
     phoneNumber = json['phone_number'];
+    dob = json['dob'];
+    address = json['address'];
     description = json['description'];
     courses = json['courses'];
     qualification = json['qualification'];
@@ -147,6 +81,8 @@ class User {
     data['name'] = this.name;
     data['email'] = this.email;
     data['phone_number'] = this.phoneNumber;
+    data['dob'] = this.dob;
+    data['address']=this.address;
     data['description'] = this.description;
     data['courses'] = this.courses;
     data['qualification'] = this.qualification;

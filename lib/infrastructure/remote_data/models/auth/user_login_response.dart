@@ -122,8 +122,6 @@ class UserDetails {
   }
 }
 
-
-
 class Instructor {
   int? id;
   String? name;
@@ -184,6 +182,7 @@ class Instructor {
     return data;
   }
 }
+
 class Institution {
   int? id;
   String? name;

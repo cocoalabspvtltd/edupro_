@@ -46,7 +46,6 @@ class SharedPrefs {
     if (response.user == null) return false;
 
     String token = response.token ?? UserDetailsLocal.apiToken;
-    String type = response.type ?? UserDetailsLocal.type;
     UserDetails userDetails = response.user!;
 
     await setString(spToken,token);
@@ -76,10 +75,8 @@ class SharedPrefs {
    if (response.user == null) return false;
 
 
-    //final token = getString("spToken");
-    //print("sfdcvsd==>${token}");
-   String token = "2546|IcAIMRodQMViUdKlbZmT4nXZMQh1wctJiqWBhEHK";
-    String type = UserDetailsLocal.type;
+   String token = UserDetailsLocal.apiToken;
+
     User userDetails = response.user!;
 
     await setString(spToken, token);

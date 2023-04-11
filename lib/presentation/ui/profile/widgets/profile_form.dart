@@ -57,6 +57,8 @@ class ProfileForm extends StatelessWidget {
         print("Name-->${state.name}");
         print("emailAddress-->${state.emailAddress}");
         print("dob-->${state.dob}");
+        print("address--->${state.address}");
+        print("ph-->${state.phoneNumber}");
         return state.isLoading
             ? SizedBox(
                 height: screenHeight - 180,
@@ -161,7 +163,6 @@ class ProfileForm extends StatelessWidget {
                       enabled: state.enableEdit,
                       //dateFormat: DateFormat.yMd(),
                       decoration: InputDecoration(
-                        //filled: true,
                         fillColor: primaryColor[100],
                         prefixIcon: Image.asset(state.enableEdit
                             ? 'assets/icons/profile_icons/calender_theme.png'
@@ -174,8 +175,7 @@ class ProfileForm extends StatelessWidget {
                         ),
                         hintStyle: TextStyle(color: primaryColor[200]),
                         border: const OutlineInputBorder(),
-                        suffixIcon: const Icon(Icons.event_note),
-
+                        // suffixIcon: const Icon(Icons.event_note),
                         enabledBorder: state.enableEdit
                             ? OutlineInputBorder(
                                 borderSide:
