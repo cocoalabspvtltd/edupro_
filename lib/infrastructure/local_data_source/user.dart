@@ -11,7 +11,6 @@ class UserDetailsLocal {
   static String type ='';
   static String userAddress = '';
   static String userImageUrl = '';
-  static String institutionCode='';
 
   static ValueNotifier userImageUrlValueNotifier = ValueNotifier("");
 
@@ -24,7 +23,6 @@ class UserDetailsLocal {
       String dob,
       String address,
       String imageUrl,
-      String code,
       ) {
     apiToken = token;
     userId = id;
@@ -35,7 +33,6 @@ class UserDetailsLocal {
     type = type;
     userAddress = address;
     userImageUrl = imageUrl;
-    institutionCode = code;
   }
 
   static void setData(
@@ -47,7 +44,6 @@ String? token,
       String dob,
       String address,
       String imageUrl,
-      String code,
       ) {
 
     userId = id;
@@ -58,7 +54,6 @@ String? token,
     type = type;
     userAddress = address;
     userImageUrl = imageUrl;
-    institutionCode = code;
   }
 
   static void setImageUrl(String value) {
