@@ -190,7 +190,7 @@ class Institution {
   String? email;
   String? code;
   String? address;
-  Null? contactNumber;
+  String? contactNumber;
   String? image;
   String? createdAt;
   String? updatedAt;

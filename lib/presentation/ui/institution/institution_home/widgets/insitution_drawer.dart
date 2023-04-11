@@ -7,9 +7,12 @@ import 'package:pgs_edupro/presentation/ui/institution/instructosrs_of_instituti
 import 'package:pgs_edupro/presentation/ui/institution/instructosrs_of_institution/instructors_list_screen.dart';
 import 'package:pgs_edupro/presentation/ui/institution/students_of_institution/add_students_screen.dart';
 import 'package:pgs_edupro/presentation/ui/institution/students_of_institution/students_list_screen.dart';
+import 'package:pgs_edupro/presentation/ui/institution/students_of_institution/widgets/student_list.dart';
 import 'package:pgs_edupro/presentation/ui/videos/live_videos_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../courses_of_insisitution/courses_list.dart';
 
 class InstitutionDrawerWidget extends StatelessWidget {
   final BuildContext context;
@@ -192,7 +195,7 @@ class InstitutionDrawerWidget extends StatelessWidget {
                       children: [
                         ListTile(
                           title: Text("My Courses"),
-                          onTap: () {},
+                          onTap: () { Get.to(() => InsistutionCoursesScreen());},
                         ),
 
                         ListTile(
@@ -226,7 +229,7 @@ class InstitutionDrawerWidget extends StatelessWidget {
                           EdgeInsets.only(left: 60), //children padding
                       children: [
                         _drawerMenuItem1('Instructors List', () {
-                          Get.to(() => InstructorsListScreen());
+                          Get.to(() => InsistutionInstructorListScreen());
 
                         }),
                         _drawerMenuItem1('Add Instructors', () {
@@ -235,6 +238,7 @@ class InstitutionDrawerWidget extends StatelessWidget {
                         //more child menu
                       ],
                     ),
+
                     ExpansionTile(
                       title: Text(
                         "Students",
@@ -256,7 +260,7 @@ class InstitutionDrawerWidget extends StatelessWidget {
                           EdgeInsets.only(left: 60), //children padding
                       children: [
                         _drawerMenuItem1('Student List', () {
-                          Get.to(() => StudentsListScreen());
+                          Get.to(() => InsistutionCategoryScreen());
                         }),
                         _drawerMenuItem1('Add Students', () {
                           Get.to(() => AddStudentScreen());
@@ -264,14 +268,36 @@ class InstitutionDrawerWidget extends StatelessWidget {
                         //more child menu
                       ],
                     ),
-                    _drawerMenuItem(
-                        Image.asset(
+                    ExpansionTile(
+                      title: Text(
+                        "Instructors",
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      leading: Container(
+                        height: 38,
+                        width: 38.0,
+                        padding: const EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(width: 2, color: primaryColor),
+                          color: primaryColor[50],
+                        ),
+                        child: Image.asset(
                             'assets/icons/drawer_icons/my-course-sltd.png'),
-                        'Live Sessions', () {
-                      Get.to(() => const LiveVideosScreen(
-                            fromHome: false,
-                          ));
-                    }),
+                      ),
+                      childrenPadding:
+                      EdgeInsets.only(left: 60), //children padding
+                      children: [
+                        _drawerMenuItem1('Instructors List', () {
+                          Get.to(() => InsistutionInstructorListScreen());
+
+                        }),
+                        _drawerMenuItem1('Add Instructors', () {
+                          Get.to(() => AddInstructorScreen());
+                        }),
+                        //more child menu
+                      ],
+                    ),
                     Divider(),
                     _drawerMenuItem(
                         Image.asset('assets/icons/drawer_icons/report.png',

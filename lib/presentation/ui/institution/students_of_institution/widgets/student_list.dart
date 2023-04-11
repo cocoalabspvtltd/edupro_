@@ -11,9 +11,9 @@ import 'package:pgs_edupro/presentation/widgets/common_server_error_widget.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class InsistutionInstructorListScreen extends StatelessWidget {
+class InsistutionCategoryScreen extends StatelessWidget {
   final bool fromHome;
-  const InsistutionInstructorListScreen({super.key, this.fromHome = true});
+  const InsistutionCategoryScreen({super.key, this.fromHome = true});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class InsistutionInstructorListScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.black,
         title: Text(
-          "Instructors",
+          "students",
           style: boldValuePrimaryColor,
         ),
       ),
@@ -51,8 +51,8 @@ class InsistutionInstructorListScreen extends StatelessWidget {
                       ),
                       loadSuccess: (state) {
                         InsistutionResponse res = state.response;
-                        return res.instructors != null ||
-                            res.instructors!.isNotEmpty
+                        return res.studentList != null ||
+                            res.studentList!.isNotEmpty
                             ?  Column(
                           children: [
                             const SizedBox(
@@ -66,7 +66,7 @@ class InsistutionInstructorListScreen extends StatelessWidget {
                               },
                               physics: const ClampingScrollPhysics(),
                               shrinkWrap: true,
-                              itemCount: res.instructors!.length,
+                              itemCount: res.studentList!.length,
                               itemBuilder: (BuildContext context, int index) {
                                 return Card(
                                     elevation: 1,
@@ -82,7 +82,7 @@ class InsistutionInstructorListScreen extends StatelessWidget {
                                         title: Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
-                                            Text('${res.instructors![index].name} ',
+                                            Text('${res.studentList![index].name} ',
                                                 style: TextStyle(fontSize: 18,
                                                     color:
                                                     Colors.black
@@ -94,7 +94,7 @@ class InsistutionInstructorListScreen extends StatelessWidget {
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                              '${res.instructors![index].courses} ',
+                                              '${res.studentList![index].department} ',
                                               style: TextStyle(
                                                 fontSize: 18, color: Colors.black,),
                                             ),
