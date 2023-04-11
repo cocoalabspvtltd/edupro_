@@ -54,6 +54,7 @@ class _InstitutionHomeScreenState extends State<InstitutionHomeScreen> {
   Widget build(BuildContext context) {
     print("Id====${UserDetailsLocal.userId}");
     print("name====${UserDetailsLocal.userName}");
+    print("Code====${UserDetailsLocal.institutionCode}");
     return MultiBlocProvider(
       providers: [
         BlocProvider(

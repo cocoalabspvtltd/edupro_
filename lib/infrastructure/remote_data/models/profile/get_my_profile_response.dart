@@ -28,6 +28,8 @@ class User {
   String? name;
   String? email;
   String? phoneNumber;
+  String? dob;
+  String? address;
   String? description;
   String? courses;
   String? qualification;
@@ -43,6 +45,8 @@ class User {
         this.name,
         this.email,
         this.phoneNumber,
+        this.dob,
+        this.address,
         this.description,
         this.courses,
         this.qualification,
@@ -58,6 +62,8 @@ class User {
     name = json['name'];
     email = json['email'];
     phoneNumber = json['phone_number'];
+    dob = json['dob'];
+    address = json['address'];
     description = json['description'];
     courses = json['courses'];
     qualification = json['qualification'];
@@ -75,6 +81,8 @@ class User {
     data['name'] = this.name;
     data['email'] = this.email;
     data['phone_number'] = this.phoneNumber;
+    data['dob'] = this.dob;
+    data['address']=this.address;
     data['description'] = this.description;
     data['courses'] = this.courses;
     data['qualification'] = this.qualification;

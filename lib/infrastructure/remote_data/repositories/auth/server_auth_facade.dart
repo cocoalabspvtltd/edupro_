@@ -96,7 +96,7 @@ class ServerAuthFacade implements IAuthFacade {
                   r.user!.phoneNumber ?? '',
                   r.user!.dob?.toString() ?? '',
                   r.user!.address ?? '',
-                  '',
+                  '',''
                   );
             } catch (e) {
               toastMessage('Unexpected Response');
@@ -164,7 +164,7 @@ class ServerAuthFacade implements IAuthFacade {
                   r.instructor!.id.toString(),
                   r.instructor!.name!,
                   r.instructor!.email!,
-                  "","","","",
+                  "","","","",''
               );
             } catch (e) {
               toastMessage('Unexpected Response');
@@ -235,7 +235,7 @@ class ServerAuthFacade implements IAuthFacade {
                 r.institution!.id.toString(),
                 r.institution!.name!,
                 r.institution!.email!,
-                "","","","",
+                "","","","",r.institution!.code!
               );
             } catch (e) {
               toastMessage('Unexpected Response');
@@ -296,7 +296,7 @@ class ServerAuthFacade implements IAuthFacade {
                   r.instructor!.id.toString(),
                   r.instructor!.name!,
                   r.instructor!.email!,
-                  "","","","",
+                  "","","","",""
               );
             }
             else if(response.data["type"]== "institution"){
@@ -305,7 +305,7 @@ class ServerAuthFacade implements IAuthFacade {
                 r.institution!.id.toString(),
                 r.institution!.name!,
                 r.institution!.email!,
-                "","","","",
+                "","","","",r.institution!.code!
               );
             }
             else{
@@ -314,7 +314,7 @@ class ServerAuthFacade implements IAuthFacade {
                   r.token!,
                   r.user!.id.toString(),
                   r.user!.name ?? '',
-                  r.user!.email ?? '',"","","","",
+                  r.user!.email ?? '',"","","","",""
               );
 
             }
