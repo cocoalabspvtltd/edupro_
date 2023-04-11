@@ -4,11 +4,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pgs_edupro/application/ads/ads_bloc.dart';
 import 'package:pgs_edupro/application/course/courses_bloc.dart';
 import 'package:pgs_edupro/application/insistution_count/insistution_bloc.dart';
+import 'package:pgs_edupro/application/profile/profile_bloc.dart';
 import 'package:pgs_edupro/application/video/top_videos/top_videos_bloc.dart';
 import 'package:pgs_edupro/application/video/trending_videos/trending_videos_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
+import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/ads/ads_repository.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/course/course_repository.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/repositories/profile/profile_repository.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/videos/video_repository.dart';
 import 'package:pgs_edupro/presentation/ui/institution/institution_home/widgets/insitution_drawer.dart';
 import 'package:pgs_edupro/presentation/ui/institution/institution_home/widgets/insitution_home_body.dart';
@@ -50,12 +53,14 @@ class _InstitutionHomeScreenState extends State<InstitutionHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    print("Id====${UserDetailsLocal.userId}");
+    print("name====${UserDetailsLocal.userName}");
     return MultiBlocProvider(
       providers: [
-        // BlocProvider(
-        //     create: (_) => ProfileBloc(ProfileRepository())
-        //       ..add(ProfileEvent.loadMyProfile(
-        //           int.parse(UserDetailsLocal.userId)))),
+        BlocProvider(
+            create: (_) => ProfileBloc(ProfileRepository())
+              ..add(ProfileEvent.loadMyProfile(
+                  int.parse(UserDetailsLocal.userId)))),
         BlocProvider(
           create: (_) => CoursesBloc(CourseRepository())
             ..add(const CoursesEvent.loadCourseCategories()),

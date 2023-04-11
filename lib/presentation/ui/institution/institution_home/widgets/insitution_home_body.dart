@@ -10,13 +10,8 @@ import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
-import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/count.dart';
-import 'package:pgs_edupro/presentation/ui/course/course_catogories_screen.dart';
-import 'package:pgs_edupro/presentation/ui/home/ads_screen.dart';
 import 'package:pgs_edupro/presentation/ui/videos/top_videos_screen.dart';
 import 'package:pgs_edupro/presentation/ui/videos/trending_videos_screen.dart';
-import 'package:http/http.dart' as http;
-import '../../../../../domain/core/network/api_provider.dart';
 import 'countscreen.dart';
 
 class InstitutionHomeBody extends StatelessWidget {
@@ -69,7 +64,6 @@ class InstitutionHomeBody extends StatelessWidget {
               Text("Welcome ${UserDetailsLocal.userName} ",style: TextStyle(fontSize: 23,fontWeight: FontWeight.w500),),
               thickSpace,
               thickSpace,
-
               // Container(
               //     height: screenHeight * 0.28,
               //     width: screenWidth * 0.96,

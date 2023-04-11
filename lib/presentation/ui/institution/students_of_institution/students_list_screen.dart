@@ -99,7 +99,6 @@ class _StudentsListScreenState extends State<StudentsListScreen> {
                                       backgroundColor: Colors.red,
                                       child: IconButton(
                                         onPressed: () {
-
                                         },
                                         icon: const Icon(Icons.delete,
                                           color: Colors.white, size: 15,),

@@ -169,7 +169,6 @@ class InstitutionDrawerWidget extends StatelessWidget {
                             //action on press
                           },
                         ),
-
                         //more child menu
                       ],
                     ),
@@ -264,36 +263,6 @@ class InstitutionDrawerWidget extends StatelessWidget {
                         }),
                         _drawerMenuItem1('Add Students', () {
                           Get.to(() => AddStudentScreen());
-                        }),
-                        //more child menu
-                      ],
-                    ),
-                    ExpansionTile(
-                      title: Text(
-                        "Instructors",
-                        style: TextStyle(fontSize: 16),
-                      ),
-                      leading: Container(
-                        height: 38,
-                        width: 38.0,
-                        padding: const EdgeInsets.all(3),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(width: 2, color: primaryColor),
-                          color: primaryColor[50],
-                        ),
-                        child: Image.asset(
-                            'assets/icons/drawer_icons/my-course-sltd.png'),
-                      ),
-                      childrenPadding:
-                      EdgeInsets.only(left: 60), //children padding
-                      children: [
-                        _drawerMenuItem1('Instructors List', () {
-                          Get.to(() => InsistutionInstructorListScreen());
-
-                        }),
-                        _drawerMenuItem1('Add Instructors', () {
-                          Get.to(() => AddInstructorScreen());
                         }),
                         //more child menu
                       ],
