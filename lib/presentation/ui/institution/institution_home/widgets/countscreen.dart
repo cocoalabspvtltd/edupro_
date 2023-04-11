@@ -55,7 +55,7 @@ class CourtScreen extends StatelessWidget {
                                 padding: const EdgeInsets.only(left: 0.0),
                                 child: Container(
                                   height: 100,
-                                  width: 180,
+                                  width: 160,
                                   child: Card(
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
@@ -79,11 +79,11 @@ class CourtScreen extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(
-                                width: 10,
+                                width: 15,
                               ),
                               Container(
                                 height: 100,
-                                width: 180,
+                                width: 160,
                                 child: Card(
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
@@ -109,7 +109,7 @@ class CourtScreen extends StatelessWidget {
                                 padding: const EdgeInsets.only(left: 0.0),
                                 child: Container(
                                   height: 100,
-                                  width: 180,
+                                  width: 160,
                                   child: Card(
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
@@ -130,11 +130,11 @@ class CourtScreen extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(
-                                width: 10,
+                                width: 15,
                               ),
                               Container(
                                 height: 100,
-                                width: 180,
+                                width: 160,
                                 child: Card(
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
