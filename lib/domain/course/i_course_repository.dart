@@ -4,6 +4,7 @@ import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_categ
 import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_in_category_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_report_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/count.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/insistutionResponse.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/my_course/my_courses_response.dart';
 
 abstract class ICourseRepository {
@@ -16,4 +17,6 @@ abstract class ICourseRepository {
   Future<Either<NetworkFailure, MyCoursesResponse>> getPurchasedCourses(String userId);
   Future<Either<NetworkFailure, MyCourseReportResponse>> getCourseReport(Map data);
   Future<Either<NetworkFailure, CountResponse>> getCountCourses(String userId);
+  Future<Either<NetworkFailure, InsistutionResponse>> getInsistutionCategories(String userId);
+
 }

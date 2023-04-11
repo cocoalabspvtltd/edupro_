@@ -9,6 +9,7 @@ import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_categ
 import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_in_category_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_report_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/count.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/insistutionResponse.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/my_course/addcourses.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/my_course/my_courses_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/source/api.dart';
@@ -218,6 +219,32 @@ print("response->${response.data}");
           .get(Api.getCount, queryParameters: {'user_id': UserDetailsLocal.userId});
 
       return right(CountResponse.fromJson(response.data));
+    } on DioError catch (e) {
+      if (e.response != null) {
+        if (e.response!.statusCode == 401) {
+          return left(
+              NetworkFailure.unAuthorized(e.response!.data["message"] ?? ''));
+        }
+        return left(NetworkFailure.serverError(
+            "Status Code ${e.response!.statusCode}"));
+      } else if (e.toString().contains('Connecting timed out')) {
+        return left(const NetworkFailure.serverTimeOut());
+      }
+      return left(const NetworkFailure.unexpected());
+    } catch (e) {
+      log(e.toString());
+      return left(const NetworkFailure.unexpected());
+    }
+  }
+
+  @override
+  Future<Either<NetworkFailure, InsistutionResponse>> getInsistutionCategories(String userId) async {
+    try {
+      Response response = await apiClient!
+          .getJsonInstance()
+          .post(Api.insistutionCategoriesList, queryParameters: {'user_id': UserDetailsLocal.userId});
+
+      return right(InsistutionResponse.fromJson(response.data));
     } on DioError catch (e) {
       if (e.response != null) {
         if (e.response!.statusCode == 401) {

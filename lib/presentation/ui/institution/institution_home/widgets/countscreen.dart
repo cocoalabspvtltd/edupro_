@@ -14,7 +14,8 @@ import 'package:get/get.dart';
 
 class CourtScreen extends StatelessWidget {
   final bool fromHome;
-   CourtScreen({super.key, this.fromHome = true});
+
+  CourtScreen({super.key, this.fromHome = true});
 
   @override
   Widget build(BuildContext context) {
@@ -24,107 +25,138 @@ class CourtScreen extends StatelessWidget {
           initial: (_) => Container(),
           loadInProgress: (_) => !fromHome
               ? SizedBox(
-            height: screenHeight,
-            child: const Center(
-              child: CircularProgressIndicator(),
-            ),
-          )
+                  height: screenHeight,
+                  child: const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                )
               : Container(
-            width: screenWidth,
-            height: 250,
-            decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage(
-                        "assets/gif/loaders/course_loader.gif"),
-                    fit: BoxFit.cover)),
-          ),
+                  width: screenWidth,
+                  height: 250,
+                  decoration: const BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage(
+                              "assets/gif/loaders/course_loader.gif"),
+                          fit: BoxFit.cover)),
+                ),
           loadSuccess: (state) {
             CountResponse res = state.response;
             return res.count!.isNotEmpty
                 ? !fromHome
-                ? Container(color: Colors.red,)
-                : Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                    height: screenHeight * 0.28,
-                    width: screenWidth * 0.96,
-                    child: GridView.builder(
-                        gridDelegate:
-                        SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            crossAxisSpacing: 14,
-                            mainAxisSpacing: 10,
-                            childAspectRatio: 0.7 / 0.4),
-                        itemCount: 1,
-                        itemBuilder: (BuildContext context, int index) {
-                          return Container(
-                            height:screenHeight * 0.4 ,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12.0),
-                              border: Border.all(
-                                color: Colors.black,
-                              ),
-                            ),
-                            child: Row(
-                              children: [
-                                SizedBox(width: screenWidth * 0.03,),
-                                Column(
-                                  children: [
-                                    SizedBox(height: screenHeight * 0.02,),
-                                    Text("user Count",style: TextStyle(color: Colors.grey[800],fontSize: 16),),
-                                    SizedBox(height: screenHeight * 0.01,),
-                                    Text("${res.userCount}",style: TextStyle(color: Colors.grey[800]),),
-                                  ],
+                    ? Container(
+                        color: Colors.red,
+                      )
+                    : Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 0.0),
+                                child: Container(
+                                  height: 100,
+                                  width: 180,
+                                  child: Card(
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: <Widget>[
+                                        ListTile(
+                                          leading: CircleAvatar(
+                                            backgroundImage: AssetImage(
+                                                "assets/images/home/institute.jpg"), // No matter how big it is, it won't overflow
+                                          ),
+                                          title: Text('Code'),
+                                          subtitle: SizedBox(
+                                              child: Text(
+                                            'Cd',
+                                            style: TextStyle(
+                                                color: Colors.lightBlue,fontSize: 19),
+                                          )),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
                                 ),
-                                Spacer(),
-                              //  Image.asset(images[index],width: screenWidth * 0.17,),
-                                SizedBox(width: screenWidth * 0.08,)
-                              ],
-                            ),
-                          );
-                        })),
-                Container(
-                    height: screenHeight * 0.28,
-                    width: screenWidth * 0.96,
-                    child: GridView.builder(
-                        gridDelegate:
-                        SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            crossAxisSpacing: 14,
-                            mainAxisSpacing: 10,
-                            childAspectRatio: 0.7 / 0.4),
-                        itemCount: 1,
-                        itemBuilder: (BuildContext context, int index) {
-                          return Container(
-                            height:screenHeight * 0.4 ,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12.0),
-                              border: Border.all(
-                                color: Colors.black,
                               ),
-                            ),
-                            child: Row(
-                              children: [
-                                SizedBox(width: screenWidth * 0.03,),
-                                Column(
-                                  children: [
-                                    SizedBox(height: screenHeight * 0.02,),
-                                    Text("Instructor Count",style: TextStyle(color: Colors.grey[800],fontSize: 16),),
-                                    SizedBox(height: screenHeight * 0.01,),
-                                    Text("${res.instructorCount}",style: TextStyle(color: Colors.grey[800]),),
-                                  ],
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Container(
+                                height: 100,
+                                width: 180,
+                                child: Card(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: <Widget>[
+                                      ListTile(
+                                        leading: CircleAvatar(
+                                          backgroundImage: AssetImage(
+                                              "assets/images/home/course.png"), // No matter how big it is, it won't overflow
+                                        ),
+                                        title: Text('Courses'),
+                                        subtitle: Text('${res.courseCount}' ,style: TextStyle(
+            color: Colors.lightBlue,fontSize: 19),),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                                Spacer(),
-                                //  Image.asset(images[index],width: screenWidth * 0.17,),
-                                SizedBox(width: screenWidth * 0.08,)
-                              ],
-                            ),
-                          );
-                        })),
-                //VideoVerticalListView(videoList: res.video!),
-              ],
-            )
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 0.0),
+                                child: Container(
+                                  height: 100,
+                                  width: 180,
+                                  child: Card(
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: <Widget>[
+                                        ListTile(
+                                          leading: CircleAvatar(
+                                            backgroundImage: AssetImage(
+                                                "assets/images/home/instructor.png"), // No matter how big it is, it won't overflow
+                                          ),
+                                          title: Text('Instructor'),
+                                          subtitle:
+                                              Text('${res.instructorCount}', style: TextStyle(
+                                                  color: Colors.lightBlue,fontSize: 19),),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Container(
+                                height: 100,
+                                width: 180,
+                                child: Card(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: <Widget>[
+                                      ListTile(
+                                        leading: CircleAvatar(
+                                          backgroundImage: AssetImage(
+                                              "assets/images/home/students.png"), // No matter how big it is, it won't overflow
+                                        ),
+                                        title: Text('Students'),
+                                        subtitle: Text('${res.userCount}', style: TextStyle(
+                                            color: Colors.lightBlue,fontSize: 19),),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          //VideoVerticalListView(videoList: res.video!),
+                        ],
+                      )
                 : Container();
             // SizedBox(
             //     height: !fromHome ? screenHeight : 300,

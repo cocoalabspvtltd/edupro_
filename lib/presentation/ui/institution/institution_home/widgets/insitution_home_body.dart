@@ -39,52 +39,7 @@ class InstitutionHomeBody extends StatelessWidget {
     fontSize: 14.0,
     fontFamily: 'Horizon',
   );
-//
-//   Future getUsers() async {
-//     try {
-//       var url = Uri.parse("https://pgsedu.com/EduPro/index.php/api/count_list");
-//       var response = await http.get(url);
-//       if (response.statusCode == 200) {
-//         var re = jsonDecode(response.body);
-//         print("res->${re}");
-//         return re;
-//       }
-//     } catch (e) {
-//       log(e.toString());
-//     }
-//   }
-//   @override
-//   void initState() {
-// print("fcds");
-//     getUsers();
-//
-//   }
 
-  ApiProvider? apiprovider;
-  Future getOrderId() async {
-    print("Get order");
-
-    http.Response response = await http.get(Uri.parse('https://pgsedu.com/EduPro/index.php/api/count_list'),
-      headers: <String, String>{
-        'Accept': "appilication/json",
-        'Authorization': 'Bearer ${UserDetailsLocal.apiToken}',
-
-      },);
-    print("Response${response.body}");
-    var jsonData = json.decode(response.body);
-  var  OrderIdResponse = jsonData;
-  var  OderId = OrderIdResponse["user_count"];
-    print("orderId->${OderId}");
-    if(response.statusCode==200){
-
-     // Get.to(() =>  PaymentFormScreen(orderid:OderId, courseDetails: courseList,));
-    }
-    return response;
-  }
-  @override
-  void initState() {
-    getOrderId();
-  }
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
@@ -114,8 +69,7 @@ class InstitutionHomeBody extends StatelessWidget {
               Text("Welcome ${UserDetailsLocal.userName} ",style: TextStyle(fontSize: 23,fontWeight: FontWeight.w500),),
               thickSpace,
               thickSpace,
-              GestureDetector(onTap: (){getOrderId();},
-                  child: Text("ddd")),
+
               // Container(
               //     height: screenHeight * 0.28,
               //     width: screenWidth * 0.96,
