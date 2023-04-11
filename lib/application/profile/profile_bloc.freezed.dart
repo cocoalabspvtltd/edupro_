@@ -2718,7 +2718,7 @@ mixin _$ProfileState {
   Name get name => throw _privateConstructorUsedError;
   PhoneNumber get phoneNumber => throw _privateConstructorUsedError;
   DateFormatted? get dob => throw _privateConstructorUsedError;
-  String get address => throw _privateConstructorUsedError;
+  Address get address => throw _privateConstructorUsedError;
   File? get displayPicture => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
@@ -2761,7 +2761,7 @@ abstract class $ProfileStateCopyWith<$Res> {
       Name name,
       PhoneNumber phoneNumber,
       DateFormatted? dob,
-      String address,
+      Address address,
       File? displayPicture,
       bool showErrorMessages,
       bool isLoading,
@@ -2849,7 +2849,7 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
       address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Address,
       displayPicture: freezed == displayPicture
           ? _value.displayPicture
           : displayPicture // ignore: cast_nullable_to_non_nullable
@@ -2927,7 +2927,7 @@ abstract class _$$_ProfileStateCopyWith<$Res>
       Name name,
       PhoneNumber phoneNumber,
       DateFormatted? dob,
-      String address,
+      Address address,
       File? displayPicture,
       bool showErrorMessages,
       bool isLoading,
@@ -3013,7 +3013,7 @@ class __$$_ProfileStateCopyWithImpl<$Res>
       address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Address,
       displayPicture: freezed == displayPicture
           ? _value.displayPicture
           : displayPicture // ignore: cast_nullable_to_non_nullable
@@ -3117,7 +3117,7 @@ class _$_ProfileState implements _ProfileState {
   @override
   final DateFormatted? dob;
   @override
-  final String address;
+  final Address address;
   @override
   final File? displayPicture;
   @override
@@ -3251,7 +3251,7 @@ abstract class _ProfileState implements ProfileState {
       required final Name name,
       required final PhoneNumber phoneNumber,
       required final DateFormatted? dob,
-      required final String address,
+      required final Address address,
       required final File? displayPicture,
       required final bool showErrorMessages,
       required final bool isLoading,
@@ -3285,7 +3285,7 @@ abstract class _ProfileState implements ProfileState {
   @override
   DateFormatted? get dob;
   @override
-  String get address;
+  Address get address;
   @override
   File? get displayPicture;
   @override

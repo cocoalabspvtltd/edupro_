@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:dartz/dartz.dart';
+import 'package:date_field/date_field.dart';
 import 'package:dio/dio.dart';
 import 'package:pgs_edupro/domain/auth/value_objects.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
@@ -12,7 +13,6 @@ import 'package:pgs_edupro/infrastructure/remote_data/models/profile/get_my_prof
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:intl/intl.dart';
 part 'profile_event.dart';
 part 'profile_state.dart';
 part 'profile_bloc.freezed.dart';
@@ -33,33 +33,25 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       );
       print("dcxs3=>${UserDetailsLocal.apiToken}");
       Either<NetworkFailure, MyProfileResponse> failureOrSuccess;
-      print("dcx4=>${UserDetailsLocal.apiToken}");
       failureOrSuccess = await profileRepository.getMyProfile(event.userId);
-      print("dcx5=>${UserDetailsLocal.apiToken}");
       failureOrSuccess.fold((l) => null, ((r) async {
-        print("dcxs6=>${UserDetailsLocal.apiToken}");
         User user = r.user!;
         emit(
           state.copyWith(
-
               displayImageUrl: user.profilePhoto ?? '',
               name: Name(user.name ?? ''),
               emailAddress: EmailAddress(user.email ?? ''),
               phoneNumber: PhoneNumber(user.phoneNumber ?? ''),
-              // dob: user.dob == null
-              //     ? null
-              //     : DateFormatted(DateFormat("MM/dd/yyyy")
-              //         .format(DateTime.parse(user.dob!))),
-              // address: user.address ?? '',
+              dob: DateFormatted(user.dob ?? ''),
+              address: Address(user.address ?? ''),
               nameController: TextEditingController(text: user.name),
               emailController: TextEditingController(text: user.email),
-              phoneNumberController:
-                  TextEditingController(text: user.phoneNumber),
-              // dobDT: user.dob != null ? DateTime.parse(user.dob!) : null,
-              //addressController: TextEditingController(text: user.address)
+              phoneNumberController: TextEditingController(text: user.phoneNumber),
+              dobDT: user.dob != null ? DateTime.parse(user.dob!) : null,
+              addressController: TextEditingController(text: user.address)
           ),
         );
-        // await SharedPrefs.init();
+        await SharedPrefs.init();
         print("data->${UserDetailsLocal.apiToken}");
         SharedPrefs.setData(r);
       }));
@@ -108,7 +100,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
 
     on<_AddressChanged>((event, emit) {
       emit(state.copyWith(
-        address: event.addressStr,
+        address:Address(event.addressStr),
         submitFailedOrSuccessOption: none(),
       ));
     }
@@ -118,7 +110,6 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       final isEmailValid = state.emailAddress.isValid();
       final isNameValid = state.name.isValid();
       // final isPhoneNumberValid = state.phoneNumber.isValid();
-      // final isDobValid = state.dob?.isValid();
       // final isAddressValid = state.address != '' ? true : false;
 
       Either<NetworkFailure, MyProfileResponse>? failureOrSuccess;
@@ -140,14 +131,13 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
             submitFailedOrSuccessOption: none(),
           ),
         );
-        print("UserId------>>>${UserDetailsLocal.userId}");
         Map body = {
           "user_id": UserDetailsLocal.userId,
           "name": state.name.value.getOrElse(() => ''),
           "email": state.emailAddress.value.getOrElse(() => ''),
           "phone_number": state.phoneNumber.value.getOrElse(() => ''),
-          "dob": state.dob?.value.getOrElse(() => ''),
-          "address": state.address
+          "dob": state.dob?.value.getOrElse(() => '') ,
+          "address": state.address.value.getOrElse(() => ''),
         };
         //AppDialogs.loading();
         failureOrSuccess = await profileRepository.editMyProfile(body);
@@ -193,14 +183,13 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       //  AppDialogs.loading();
       toastMessage("Profile being uploaded..");
       failureOrSuccess = await profileRepository.updateDisplayPicture(body);
-      // getx.Get.back();;
 
       failureOrSuccess.fold((l) => null, ((r) async {
         emit(state.copyWith(
           displayImageUrl: r.user?.profilePhoto ?? '',
 
         ));
-        await SharedPrefs.init();
+        // await SharedPrefs.init();
         SharedPrefs.setData(r);
       }));
 

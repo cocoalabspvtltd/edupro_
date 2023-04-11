@@ -29,7 +29,7 @@ class ProfileRepository implements IProfileRepository {
           .getJsonInstance()
           .post(Api.editMyProfile, data: body);
 if(response.statusCode==200){
-  Fluttertoast.showToast(msg: "Cousres Added");
+  Fluttertoast.showToast(msg: "Profile Updated");
   Get.back();
 }
       return right(MyProfileResponse.fromJson(response.data));
