@@ -19,7 +19,7 @@ class _ViewCourseDetailsCreenState extends State<ViewCourseDetailsCreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text('Instructor details',style: boldValuePrimaryColor,),
+        title: Text('Course details',style: boldValuePrimaryColor,),
       ),
       body: SafeArea(
         child: Column(
