@@ -123,7 +123,10 @@ TextStyle standardText = TextStyle(
 TextStyle smallText = const TextStyle(
     fontSize: 14, fontWeight: FontWeight.w400, color: Colors.black54);
 TextStyle details = TextStyle(
-    fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black);
+    fontSize: 18, fontWeight: FontWeight.w600, color: Colors.blue);
 SizedBox thickSpace = const SizedBox(
   height: 10,
+);
+SizedBox thickSpace1 = const SizedBox(
+  height: 20,
 );

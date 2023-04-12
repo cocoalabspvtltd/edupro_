@@ -204,7 +204,7 @@ class InsistutionCoursesScreen extends StatelessWidget {
                             ));
                       },
                       loadMoreInProgress: (LoadMoreInProgress value) =>
-                          Container(),
+                          Container(height:40,width:50,color: Colors.grey,),
                     ),
                   ),
                 ),
