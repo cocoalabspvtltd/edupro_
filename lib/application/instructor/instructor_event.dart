@@ -25,7 +25,7 @@ class InstructorEvent with _$InstructorEvent {
   _AreThereAnyChanged;
   const factory InstructorEvent.displayPicture(File Image) =
   _ImageChanged;
-  const factory InstructorEvent.submitPressed() =   _SubmitPressed;
+  const factory InstructorEvent.submitPressed() =  _SubmitPressed;
   const factory InstructorEvent.whoThisChanged(String whoThiStr) =
   _whoThiChanged;
 }
