@@ -24,7 +24,6 @@ class InstitutionInstructorState with _$InstitutionInstructorState {
   }) = _InstitutionInstructorState;
 
   factory InstitutionInstructorState.initial() => InstitutionInstructorState(
-
     name: TextEditingController(),
     mobile: TextEditingController(),
     category: categoryaName,
