@@ -18,6 +18,7 @@ part 'insiistution_student_event.dart';
 part 'insiistution_student_state.dart';
 part 'insiistution_student_bloc.freezed.dart';
 
+
 class InsiistutionStudentBloc extends Bloc<InsiistutionStudentEvent, InsiistutionStudentState> {
   final CourseRepository addCoursesInstructor;
   InsiistutionStudentBloc(this.addCoursesInstructor) : super(InsiistutionStudentState.initial()) {

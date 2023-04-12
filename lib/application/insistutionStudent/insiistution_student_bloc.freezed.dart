@@ -1976,6 +1976,7 @@ class _$_InsiistutionStudentState implements _InsiistutionStudentState {
   }
 
   @override
+
   int get hashCode => Object.hash(
       runtimeType,
       name,

@@ -2,6 +2,7 @@ part of 'insiistution_student_bloc.dart';
 
 @freezed
 class InsiistutionStudentEvent with _$InsiistutionStudentEvent {
+
   const factory InsiistutionStudentEvent.started() = _Started;
 
   const factory InsiistutionStudentEvent.name(String nameStr) =
