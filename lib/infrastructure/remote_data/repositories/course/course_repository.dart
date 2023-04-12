@@ -219,6 +219,7 @@ print("response->${response.data}");
           .getJsonInstance()
           .get(Api.getCount, queryParameters: {'user_id': UserDetailsLocal.userId});
 
+
       return right(CountResponse.fromJson(response.data));
     } on DioError catch (e) {
       if (e.response != null) {
