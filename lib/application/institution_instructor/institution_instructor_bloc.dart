@@ -2,15 +2,17 @@ import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart' as getx;
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:get/get_connect/http/src/multipart/form_data.dart';
-import 'package:get/get_connect/http/src/multipart/multipart_file.dart';
+
 import 'package:pgs_edupro/domain/core/network/network_failures.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/institution_instructor_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/course/course_repository.dart';
+
+import '../../presentation/ui/institution/instructosrs_of_institution/widgets/add_instructors_form.dart';
 
 part 'institution_instructor_event.dart';
 part 'institution_instructor_state.dart';
@@ -55,7 +57,6 @@ class InstitutionInstructorBloc extends Bloc<InstitutionInstructorEvent, Institu
               imageC!.path, filename: fileName)
         });
 
-        //AppDialogs.loading();
         failureOrSuccess = await addInstituitionInstructor.addInstitutionInstructor(body);
         Fluttertoast.showToast(msg: "Instructor added Successfully");
         getx.Get.back();
