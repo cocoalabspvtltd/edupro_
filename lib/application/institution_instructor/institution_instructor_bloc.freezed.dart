@@ -2152,3 +2152,426 @@ class _$_SubmitPressed implements _SubmitPressed {
 abstract class _SubmitPressed implements InstitutionInstructorEvent {
   const factory _SubmitPressed() = _$_SubmitPressed;
 }
+
+/// @nodoc
+mixin _$InstitutionInstructorState {
+  TextEditingController get name => throw _privateConstructorUsedError;
+  TextEditingController get mobile => throw _privateConstructorUsedError;
+  TextEditingController get addtionalmobile =>
+      throw _privateConstructorUsedError;
+  String get category => throw _privateConstructorUsedError;
+  TextEditingController get qualification => throw _privateConstructorUsedError;
+  File? get displayPicture => throw _privateConstructorUsedError;
+  TextEditingController get description => throw _privateConstructorUsedError;
+  TextEditingController get email => throw _privateConstructorUsedError;
+  TextEditingController get password => throw _privateConstructorUsedError;
+  bool get showErrorMessages => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
+  bool get isSubmitting => throw _privateConstructorUsedError;
+  Option<Either<NetworkFailure, Unit>> get loadFailureOrSuccessOption =>
+      throw _privateConstructorUsedError;
+  Option<Either<NetworkFailure, Unit>> get submitFailedOrSuccessOption =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $InstitutionInstructorStateCopyWith<InstitutionInstructorState>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $InstitutionInstructorStateCopyWith<$Res> {
+  factory $InstitutionInstructorStateCopyWith(InstitutionInstructorState value,
+          $Res Function(InstitutionInstructorState) then) =
+      _$InstitutionInstructorStateCopyWithImpl<$Res,
+          InstitutionInstructorState>;
+  @useResult
+  $Res call(
+      {TextEditingController name,
+      TextEditingController mobile,
+      TextEditingController addtionalmobile,
+      String category,
+      TextEditingController qualification,
+      File? displayPicture,
+      TextEditingController description,
+      TextEditingController email,
+      TextEditingController password,
+      bool showErrorMessages,
+      bool isLoading,
+      bool isSubmitting,
+      Option<Either<NetworkFailure, Unit>> loadFailureOrSuccessOption,
+      Option<Either<NetworkFailure, Unit>> submitFailedOrSuccessOption});
+}
+
+/// @nodoc
+class _$InstitutionInstructorStateCopyWithImpl<$Res,
+        $Val extends InstitutionInstructorState>
+    implements $InstitutionInstructorStateCopyWith<$Res> {
+  _$InstitutionInstructorStateCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? mobile = null,
+    Object? addtionalmobile = null,
+    Object? category = null,
+    Object? qualification = null,
+    Object? displayPicture = freezed,
+    Object? description = null,
+    Object? email = null,
+    Object? password = null,
+    Object? showErrorMessages = null,
+    Object? isLoading = null,
+    Object? isSubmitting = null,
+    Object? loadFailureOrSuccessOption = null,
+    Object? submitFailedOrSuccessOption = null,
+  }) {
+    return _then(_value.copyWith(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      mobile: null == mobile
+          ? _value.mobile
+          : mobile // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      addtionalmobile: null == addtionalmobile
+          ? _value.addtionalmobile
+          : addtionalmobile // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      category: null == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String,
+      qualification: null == qualification
+          ? _value.qualification
+          : qualification // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      displayPicture: freezed == displayPicture
+          ? _value.displayPicture
+          : displayPicture // ignore: cast_nullable_to_non_nullable
+              as File?,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      showErrorMessages: null == showErrorMessages
+          ? _value.showErrorMessages
+          : showErrorMessages // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSubmitting: null == isSubmitting
+          ? _value.isSubmitting
+          : isSubmitting // ignore: cast_nullable_to_non_nullable
+              as bool,
+      loadFailureOrSuccessOption: null == loadFailureOrSuccessOption
+          ? _value.loadFailureOrSuccessOption
+          : loadFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<NetworkFailure, Unit>>,
+      submitFailedOrSuccessOption: null == submitFailedOrSuccessOption
+          ? _value.submitFailedOrSuccessOption
+          : submitFailedOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<NetworkFailure, Unit>>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_InstitutionInstructorStateCopyWith<$Res>
+    implements $InstitutionInstructorStateCopyWith<$Res> {
+  factory _$$_InstitutionInstructorStateCopyWith(
+          _$_InstitutionInstructorState value,
+          $Res Function(_$_InstitutionInstructorState) then) =
+      __$$_InstitutionInstructorStateCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {TextEditingController name,
+      TextEditingController mobile,
+      TextEditingController addtionalmobile,
+      String category,
+      TextEditingController qualification,
+      File? displayPicture,
+      TextEditingController description,
+      TextEditingController email,
+      TextEditingController password,
+      bool showErrorMessages,
+      bool isLoading,
+      bool isSubmitting,
+      Option<Either<NetworkFailure, Unit>> loadFailureOrSuccessOption,
+      Option<Either<NetworkFailure, Unit>> submitFailedOrSuccessOption});
+}
+
+/// @nodoc
+class __$$_InstitutionInstructorStateCopyWithImpl<$Res>
+    extends _$InstitutionInstructorStateCopyWithImpl<$Res,
+        _$_InstitutionInstructorState>
+    implements _$$_InstitutionInstructorStateCopyWith<$Res> {
+  __$$_InstitutionInstructorStateCopyWithImpl(
+      _$_InstitutionInstructorState _value,
+      $Res Function(_$_InstitutionInstructorState) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? mobile = null,
+    Object? addtionalmobile = null,
+    Object? category = null,
+    Object? qualification = null,
+    Object? displayPicture = freezed,
+    Object? description = null,
+    Object? email = null,
+    Object? password = null,
+    Object? showErrorMessages = null,
+    Object? isLoading = null,
+    Object? isSubmitting = null,
+    Object? loadFailureOrSuccessOption = null,
+    Object? submitFailedOrSuccessOption = null,
+  }) {
+    return _then(_$_InstitutionInstructorState(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      mobile: null == mobile
+          ? _value.mobile
+          : mobile // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      addtionalmobile: null == addtionalmobile
+          ? _value.addtionalmobile
+          : addtionalmobile // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      category: null == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String,
+      qualification: null == qualification
+          ? _value.qualification
+          : qualification // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      displayPicture: freezed == displayPicture
+          ? _value.displayPicture
+          : displayPicture // ignore: cast_nullable_to_non_nullable
+              as File?,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      showErrorMessages: null == showErrorMessages
+          ? _value.showErrorMessages
+          : showErrorMessages // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSubmitting: null == isSubmitting
+          ? _value.isSubmitting
+          : isSubmitting // ignore: cast_nullable_to_non_nullable
+              as bool,
+      loadFailureOrSuccessOption: null == loadFailureOrSuccessOption
+          ? _value.loadFailureOrSuccessOption
+          : loadFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<NetworkFailure, Unit>>,
+      submitFailedOrSuccessOption: null == submitFailedOrSuccessOption
+          ? _value.submitFailedOrSuccessOption
+          : submitFailedOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<NetworkFailure, Unit>>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_InstitutionInstructorState implements _InstitutionInstructorState {
+  const _$_InstitutionInstructorState(
+      {required this.name,
+      required this.mobile,
+      required this.addtionalmobile,
+      required this.category,
+      required this.qualification,
+      required this.displayPicture,
+      required this.description,
+      required this.email,
+      required this.password,
+      required this.showErrorMessages,
+      required this.isLoading,
+      required this.isSubmitting,
+      required this.loadFailureOrSuccessOption,
+      required this.submitFailedOrSuccessOption});
+
+  @override
+  final TextEditingController name;
+  @override
+  final TextEditingController mobile;
+  @override
+  final TextEditingController addtionalmobile;
+  @override
+  final String category;
+  @override
+  final TextEditingController qualification;
+  @override
+  final File? displayPicture;
+  @override
+  final TextEditingController description;
+  @override
+  final TextEditingController email;
+  @override
+  final TextEditingController password;
+  @override
+  final bool showErrorMessages;
+  @override
+  final bool isLoading;
+  @override
+  final bool isSubmitting;
+  @override
+  final Option<Either<NetworkFailure, Unit>> loadFailureOrSuccessOption;
+  @override
+  final Option<Either<NetworkFailure, Unit>> submitFailedOrSuccessOption;
+
+  @override
+  String toString() {
+    return 'InstitutionInstructorState(name: $name, mobile: $mobile, addtionalmobile: $addtionalmobile, category: $category, qualification: $qualification, displayPicture: $displayPicture, description: $description, email: $email, password: $password, showErrorMessages: $showErrorMessages, isLoading: $isLoading, isSubmitting: $isSubmitting, loadFailureOrSuccessOption: $loadFailureOrSuccessOption, submitFailedOrSuccessOption: $submitFailedOrSuccessOption)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_InstitutionInstructorState &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.mobile, mobile) || other.mobile == mobile) &&
+            (identical(other.addtionalmobile, addtionalmobile) ||
+                other.addtionalmobile == addtionalmobile) &&
+            (identical(other.category, category) ||
+                other.category == category) &&
+            (identical(other.qualification, qualification) ||
+                other.qualification == qualification) &&
+            (identical(other.displayPicture, displayPicture) ||
+                other.displayPicture == displayPicture) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.showErrorMessages, showErrorMessages) ||
+                other.showErrorMessages == showErrorMessages) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.isSubmitting, isSubmitting) ||
+                other.isSubmitting == isSubmitting) &&
+            (identical(other.loadFailureOrSuccessOption,
+                    loadFailureOrSuccessOption) ||
+                other.loadFailureOrSuccessOption ==
+                    loadFailureOrSuccessOption) &&
+            (identical(other.submitFailedOrSuccessOption,
+                    submitFailedOrSuccessOption) ||
+                other.submitFailedOrSuccessOption ==
+                    submitFailedOrSuccessOption));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      name,
+      mobile,
+      addtionalmobile,
+      category,
+      qualification,
+      displayPicture,
+      description,
+      email,
+      password,
+      showErrorMessages,
+      isLoading,
+      isSubmitting,
+      loadFailureOrSuccessOption,
+      submitFailedOrSuccessOption);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_InstitutionInstructorStateCopyWith<_$_InstitutionInstructorState>
+      get copyWith => __$$_InstitutionInstructorStateCopyWithImpl<
+          _$_InstitutionInstructorState>(this, _$identity);
+}
+
+abstract class _InstitutionInstructorState
+    implements InstitutionInstructorState {
+  const factory _InstitutionInstructorState(
+      {required final TextEditingController name,
+      required final TextEditingController mobile,
+      required final TextEditingController addtionalmobile,
+      required final String category,
+      required final TextEditingController qualification,
+      required final File? displayPicture,
+      required final TextEditingController description,
+      required final TextEditingController email,
+      required final TextEditingController password,
+      required final bool showErrorMessages,
+      required final bool isLoading,
+      required final bool isSubmitting,
+      required final Option<Either<NetworkFailure, Unit>>
+          loadFailureOrSuccessOption,
+      required final Option<Either<NetworkFailure, Unit>>
+          submitFailedOrSuccessOption}) = _$_InstitutionInstructorState;
+
+  @override
+  TextEditingController get name;
+  @override
+  TextEditingController get mobile;
+  @override
+  TextEditingController get addtionalmobile;
+  @override
+  String get category;
+  @override
+  TextEditingController get qualification;
+  @override
+  File? get displayPicture;
+  @override
+  TextEditingController get description;
+  @override
+  TextEditingController get email;
+  @override
+  TextEditingController get password;
+  @override
+  bool get showErrorMessages;
+  @override
+  bool get isLoading;
+  @override
+  bool get isSubmitting;
+  @override
+  Option<Either<NetworkFailure, Unit>> get loadFailureOrSuccessOption;
+  @override
+  Option<Either<NetworkFailure, Unit>> get submitFailedOrSuccessOption;
+  @override
+  @JsonKey(ignore: true)
+  _$$_InstitutionInstructorStateCopyWith<_$_InstitutionInstructorState>
+      get copyWith => throw _privateConstructorUsedError;
+}
