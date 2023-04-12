@@ -121,7 +121,7 @@ class _AddStudentsFormState extends State<AddStudentsForm> {
                   null,
                   "Mobile",
                   'assets/icons/profile_icons/location.png',
-                  TextInputType.streetAddress,
+                  TextInputType.phone,
                   maxLine: 2),
               thickSpace,
               _textForm(
@@ -132,7 +132,7 @@ class _AddStudentsFormState extends State<AddStudentsForm> {
                   null,
                   "Add Number",
                   'assets/icons/profile_icons/location.png',
-                  TextInputType.streetAddress,
+                  TextInputType.phone,
                   maxLine: 2),
               thickSpace,
               _textForm(
@@ -141,7 +141,7 @@ class _AddStudentsFormState extends State<AddStudentsForm> {
                       .read<InsiistutionStudentBloc>()
                       .add(InsiistutionStudentEvent.addressChanged(v)),
                   null,
-                  "Add Number",
+                  "Address",
                   'assets/icons/profile_icons/location.png',
                   TextInputType.streetAddress,
                   maxLine: 2),
@@ -152,16 +152,13 @@ class _AddStudentsFormState extends State<AddStudentsForm> {
               ),
               thickSpace,
               DateTimeFormField(
-
                 dateTextStyle: const TextStyle(
                     fontWeight: FontWeight.w600, fontSize: 15),
-
                 //dateFormat: DateFormat.yMd(),
                 decoration: InputDecoration(
                   fillColor: primaryColor[100],
                   prefixIcon: Image.asset(
                       'assets/icons/profile_icons/calender_theme.png'),
-
                   prefixIconConstraints: const BoxConstraints(
                     maxHeight: 30,
                     minHeight: 30,
@@ -171,8 +168,6 @@ class _AddStudentsFormState extends State<AddStudentsForm> {
                   hintStyle: TextStyle(color: primaryColor[200]),
                   border: const OutlineInputBorder(),
                   // suffixIcon: const Icon(Icons.event_note),
-
-
                 ), mode: DateTimeFieldPickerMode.date,
                 //firstDate: DateTime.now().add(const Duration(days: 10)),
                 lastDate: DateTime.now().add(const Duration(days: 40)),

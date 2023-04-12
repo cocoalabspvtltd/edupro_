@@ -106,7 +106,7 @@ class _CoursesDropdownState extends State<CoursesDropdown> {
                                     onTap: (){setState((){
                                       String? id = item.title;
                                       categoryaName= id.toString();
-                                      print("designatioids->>>>>>${categoryId}");
+                                      print("designatioids->>>>>>${categoryaName}");
                                     });},
                                     value: item.id.toString(),
                                     child: Text(item.title.toString()),

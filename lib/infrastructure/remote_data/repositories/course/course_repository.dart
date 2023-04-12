@@ -6,12 +6,13 @@ import 'package:pgs_edupro/domain/core/network/api_provider.dart';
 import 'package:pgs_edupro/domain/core/network/network_failures.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/insiistution_adding_responses/insistution_student_response.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/insiistution_adding_responses/institution_course_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_categories_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_in_category_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_report_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/count.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/insistutionResponse.dart';
-import 'package:pgs_edupro/infrastructure/remote_data/models/institution_instructor_response.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/insiistution_adding_responses/institution_instructor_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/my_course/addcourses.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/my_course/my_courses_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/source/api.dart';
@@ -219,8 +220,6 @@ print("response->${response.data}");
       Response response = await apiClient!
           .getJsonInstance()
           .get(Api.getCount, queryParameters: {'user_id': UserDetailsLocal.userId});
-
-
       return right(CountResponse.fromJson(response.data));
     } on DioError catch (e) {
       if (e.response != null) {
@@ -322,6 +321,31 @@ print("response->${response.data}");
     }
   }
 
-
+  @override
+  Future<Either<NetworkFailure, AddCourseInstitutionResponse>> addCourseInstitution(
+      FormData body) async {
+    log("body->${body}");
+    try {
+      Response response = await apiClient!
+          .getJsonInstance()
+          .post(Api.addCoursesInstitution, data: body);
+      print("response->${response.data}");
+      return right(response.data);
+    } on DioError catch (e) {
+      if (e.response != null) {
+        if (e.response!.statusCode == 401) {
+          return left(
+              NetworkFailure.unAuthorized(e.response!.data["message"] ?? ''));
+        }
+        return left(NetworkFailure.serverError(
+            "Status Code ${e.response!.statusCode}"));
+      } else if (e.toString().contains('Connecting timed out')) {
+        return left(const NetworkFailure.serverTimeOut());
+      }
+      return left(const NetworkFailure.unexpected());
+    } catch (e) {
+      return left(const NetworkFailure.unexpected());
+    }
+  }
 
 }
