@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pgs_edupro/application/institution_instructor/institution_instructor_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/course/course_repository.dart';
-import 'package:pgs_edupro/presentation/ui/institution/instructosrs_of_institution/widgets/add_instructors_form.dart';
+import 'package:pgs_edupro/presentation/ui/institution/instructors_of_institution/widgets/add_instructors_form.dart';
 
 
 class AddInstructorScreen extends StatefulWidget {
