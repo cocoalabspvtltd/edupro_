@@ -6,7 +6,9 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
-import 'package:pgs_edupro/application/insistution_student/insistution_student_bloc.dart';
+import 'package:pgs_edupro/application/insistutionStudent/insiistution_student_bloc.dart';
+
+
 import 'package:pgs_edupro/application/instructor/instructor_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/presentation/ui/instructor/instructor_add_course/courses_dropdown.dart';
@@ -32,7 +34,7 @@ class _AddStudentsFormState extends State<AddStudentsForm> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<InsistutionStudentBloc, InsistutionStudentState>(
+    return BlocConsumer<InsiistutionStudentBloc, InsiistutionStudentState>(
       listener: (context, state) {
         state.loadFailureOrSuccessOption.fold(
               () {},
@@ -92,8 +94,8 @@ class _AddStudentsFormState extends State<AddStudentsForm> {
               _textForm(
                   state.name,
                       (v) => context
-                      .read<InsistutionStudentBloc>()
-                      .add(InsistutionStudentEvent.name(v)),
+                      .read<InsiistutionStudentBloc>()
+                      .add(InsiistutionStudentEvent.name(v)),
                   null,
                   "Name",
                   'assets/icons/profile_icons/location.png',
@@ -103,8 +105,8 @@ class _AddStudentsFormState extends State<AddStudentsForm> {
               _textForm(
                   state.email,
                       (v) => context
-                      .read<InsistutionStudentBloc>()
-                      .add(InsistutionStudentEvent.emailChanged(v)),
+                      .read<InsiistutionStudentBloc>()
+                      .add(InsiistutionStudentEvent.emailChanged(v)),
                   null,
                   "Email",
                   'assets/icons/profile_icons/location.png',
@@ -114,8 +116,8 @@ class _AddStudentsFormState extends State<AddStudentsForm> {
               _textForm(
                   state.mobile,
                       (v) => context
-                      .read<InsistutionStudentBloc>()
-                      .add(InsistutionStudentEvent.mobileChanged(v)),
+                      .read<InsiistutionStudentBloc>()
+                      .add(InsiistutionStudentEvent.mobileChanged(v)),
                   null,
                   "Mobile",
                   'assets/icons/profile_icons/location.png',
@@ -123,10 +125,10 @@ class _AddStudentsFormState extends State<AddStudentsForm> {
                   maxLine: 2),
               thickSpace,
               _textForm(
-                  state.additionalMobile,
+                  state.addtionalmobile,
                       (v) => context
-                      .read<InsistutionStudentBloc>()
-                      .add(InsistutionStudentEvent.additionalNumChanged(v)),
+                      .read<InsiistutionStudentBloc>()
+                      .add(InsiistutionStudentEvent.additionalNumChanged(v)),
                   null,
                   "Add Number",
                   'assets/icons/profile_icons/location.png',
@@ -136,8 +138,8 @@ class _AddStudentsFormState extends State<AddStudentsForm> {
               _textForm(
                   state.address,
                       (v) => context
-                      .read<InsistutionStudentBloc>()
-                      .add(InsistutionStudentEvent.addressChanged(v)),
+                      .read<InsiistutionStudentBloc>()
+                      .add(InsiistutionStudentEvent.addressChanged(v)),
                   null,
                   "Add Number",
                   'assets/icons/profile_icons/location.png',
@@ -178,8 +180,8 @@ class _AddStudentsFormState extends State<AddStudentsForm> {
                 //     DateTime.now().add(const Duration(days: 20)),
                 autovalidateMode: AutovalidateMode.always,
                 onDateSelected: (DateTime value) => context
-                    .read<InsistutionStudentBloc>()
-                    .add(InsistutionStudentEvent.dobChanged(
+                    .read<InsiistutionStudentBloc>()
+                    .add(InsiistutionStudentEvent.dobChanged(
                     DateFormat("MM/dd/yyyy").format(value))),
               ),
               const SizedBox(height: 10),
@@ -258,8 +260,8 @@ class _AddStudentsFormState extends State<AddStudentsForm> {
                   height: 50,
                   child: ElevatedButton(
                     onPressed:() => context
-                        .read<InsistutionStudentBloc>()
-                        .add( InsistutionStudentEvent.submitPressed()),
+                        .read<InsiistutionStudentBloc>()
+                        .add( InsiistutionStudentEvent.submitPressed()),
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5),

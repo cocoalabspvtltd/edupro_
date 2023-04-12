@@ -1,18 +1,19 @@
-part of 'institution_instructor_bloc.dart';
-String categoryaName = "";
+part of 'insiistution_student_bloc.dart';
+
 @freezed
-class InstitutionInstructorState with _$InstitutionInstructorState {
-  const factory InstitutionInstructorState({
+class InsiistutionStudentState with _$InsiistutionStudentState {
+
+  const factory InsiistutionStudentState({
 
     required TextEditingController name,
+    required TextEditingController email,
     required TextEditingController mobile,
     required TextEditingController addtionalmobile,
-    required String category,
-    required TextEditingController qualification,
+    required String course,
+    required String department,
+    required TextEditingController address,
     required File? displayPicture,
-    required TextEditingController description,
-    required TextEditingController email,
-    required TextEditingController password,
+    required TextEditingController dob,
     required bool showErrorMessages,
     required bool isLoading,
     required bool isSubmitting,
@@ -21,19 +22,18 @@ class InstitutionInstructorState with _$InstitutionInstructorState {
     required Option<Either<NetworkFailure, Unit>>
     submitFailedOrSuccessOption,
 
-  }) = _InstitutionInstructorState;
-
-  factory InstitutionInstructorState.initial() => InstitutionInstructorState(
+  }) = _InsiistutionStudentState;
+  factory InsiistutionStudentState.initial() => InsiistutionStudentState(
 
     name: TextEditingController(),
     mobile: TextEditingController(),
-    category: categoryaName,
-    addtionalmobile: TextEditingController(),
     email: TextEditingController(),
-    password: TextEditingController(),
-    qualification :TextEditingController(),
+    addtionalmobile: TextEditingController(),
+    course: categoryaName,
+    department:departmentName,
     displayPicture: null,
-    description: TextEditingController(),
+address: TextEditingController(),
+dob: TextEditingController(),
     showErrorMessages: false,
     isSubmitting: false,
     isLoading: false,
@@ -41,3 +41,4 @@ class InstitutionInstructorState with _$InstitutionInstructorState {
     submitFailedOrSuccessOption: none(),
   );
 }
+

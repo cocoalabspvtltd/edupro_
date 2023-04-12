@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'insistution_student_bloc.dart';
+part of 'insiistution_student_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$InsistutionStudentEvent {
+mixin _$InsiistutionStudentEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
@@ -99,17 +99,17 @@ mixin _$InsistutionStudentEvent {
 }
 
 /// @nodoc
-abstract class $InsistutionStudentEventCopyWith<$Res> {
-  factory $InsistutionStudentEventCopyWith(InsistutionStudentEvent value,
-          $Res Function(InsistutionStudentEvent) then) =
-      _$InsistutionStudentEventCopyWithImpl<$Res, InsistutionStudentEvent>;
+abstract class $InsiistutionStudentEventCopyWith<$Res> {
+  factory $InsiistutionStudentEventCopyWith(InsiistutionStudentEvent value,
+          $Res Function(InsiistutionStudentEvent) then) =
+      _$InsiistutionStudentEventCopyWithImpl<$Res, InsiistutionStudentEvent>;
 }
 
 /// @nodoc
-class _$InsistutionStudentEventCopyWithImpl<$Res,
-        $Val extends InsistutionStudentEvent>
-    implements $InsistutionStudentEventCopyWith<$Res> {
-  _$InsistutionStudentEventCopyWithImpl(this._value, this._then);
+class _$InsiistutionStudentEventCopyWithImpl<$Res,
+        $Val extends InsiistutionStudentEvent>
+    implements $InsiistutionStudentEventCopyWith<$Res> {
+  _$InsiistutionStudentEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -126,7 +126,7 @@ abstract class _$$_StartedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_StartedCopyWithImpl<$Res>
-    extends _$InsistutionStudentEventCopyWithImpl<$Res, _$_Started>
+    extends _$InsiistutionStudentEventCopyWithImpl<$Res, _$_Started>
     implements _$$_StartedCopyWith<$Res> {
   __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
       : super(_value, _then);
@@ -139,7 +139,7 @@ class _$_Started implements _Started {
 
   @override
   String toString() {
-    return 'InsistutionStudentEvent.started()';
+    return 'InsiistutionStudentEvent.started()';
   }
 
   @override
@@ -256,7 +256,7 @@ class _$_Started implements _Started {
   }
 }
 
-abstract class _Started implements InsistutionStudentEvent {
+abstract class _Started implements InsiistutionStudentEvent {
   const factory _Started() = _$_Started;
 }
 
@@ -271,7 +271,7 @@ abstract class _$$_TitleChangedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_TitleChangedCopyWithImpl<$Res>
-    extends _$InsistutionStudentEventCopyWithImpl<$Res, _$_TitleChanged>
+    extends _$InsiistutionStudentEventCopyWithImpl<$Res, _$_TitleChanged>
     implements _$$_TitleChangedCopyWith<$Res> {
   __$$_TitleChangedCopyWithImpl(
       _$_TitleChanged _value, $Res Function(_$_TitleChanged) _then)
@@ -301,7 +301,7 @@ class _$_TitleChanged implements _TitleChanged {
 
   @override
   String toString() {
-    return 'InsistutionStudentEvent.name(nameStr: $nameStr)';
+    return 'InsiistutionStudentEvent.name(nameStr: $nameStr)';
   }
 
   @override
@@ -426,7 +426,7 @@ class _$_TitleChanged implements _TitleChanged {
   }
 }
 
-abstract class _TitleChanged implements InsistutionStudentEvent {
+abstract class _TitleChanged implements InsiistutionStudentEvent {
   const factory _TitleChanged(final String nameStr) = _$_TitleChanged;
 
   String get nameStr;
@@ -446,7 +446,7 @@ abstract class _$$_AboutTitleChangedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_AboutTitleChangedCopyWithImpl<$Res>
-    extends _$InsistutionStudentEventCopyWithImpl<$Res, _$_AboutTitleChanged>
+    extends _$InsiistutionStudentEventCopyWithImpl<$Res, _$_AboutTitleChanged>
     implements _$$_AboutTitleChangedCopyWith<$Res> {
   __$$_AboutTitleChangedCopyWithImpl(
       _$_AboutTitleChanged _value, $Res Function(_$_AboutTitleChanged) _then)
@@ -476,7 +476,7 @@ class _$_AboutTitleChanged implements _AboutTitleChanged {
 
   @override
   String toString() {
-    return 'InsistutionStudentEvent.emailChanged(emailStr: $emailStr)';
+    return 'InsiistutionStudentEvent.emailChanged(emailStr: $emailStr)';
   }
 
   @override
@@ -603,7 +603,7 @@ class _$_AboutTitleChanged implements _AboutTitleChanged {
   }
 }
 
-abstract class _AboutTitleChanged implements InsistutionStudentEvent {
+abstract class _AboutTitleChanged implements InsiistutionStudentEvent {
   const factory _AboutTitleChanged(final String emailStr) =
       _$_AboutTitleChanged;
 
@@ -624,7 +624,7 @@ abstract class _$$_CategoryChangedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_CategoryChangedCopyWithImpl<$Res>
-    extends _$InsistutionStudentEventCopyWithImpl<$Res, _$_CategoryChanged>
+    extends _$InsiistutionStudentEventCopyWithImpl<$Res, _$_CategoryChanged>
     implements _$$_CategoryChangedCopyWith<$Res> {
   __$$_CategoryChangedCopyWithImpl(
       _$_CategoryChanged _value, $Res Function(_$_CategoryChanged) _then)
@@ -654,7 +654,7 @@ class _$_CategoryChanged implements _CategoryChanged {
 
   @override
   String toString() {
-    return 'InsistutionStudentEvent.mobileChanged(Value: $Value)';
+    return 'InsiistutionStudentEvent.mobileChanged(Value: $Value)';
   }
 
   @override
@@ -779,7 +779,7 @@ class _$_CategoryChanged implements _CategoryChanged {
   }
 }
 
-abstract class _CategoryChanged implements InsistutionStudentEvent {
+abstract class _CategoryChanged implements InsiistutionStudentEvent {
   const factory _CategoryChanged(final String Value) = _$_CategoryChanged;
 
   String get Value;
@@ -799,7 +799,7 @@ abstract class _$$_AmountChangedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_AmountChangedCopyWithImpl<$Res>
-    extends _$InsistutionStudentEventCopyWithImpl<$Res, _$_AmountChanged>
+    extends _$InsiistutionStudentEventCopyWithImpl<$Res, _$_AmountChanged>
     implements _$$_AmountChangedCopyWith<$Res> {
   __$$_AmountChangedCopyWithImpl(
       _$_AmountChanged _value, $Res Function(_$_AmountChanged) _then)
@@ -829,7 +829,7 @@ class _$_AmountChanged implements _AmountChanged {
 
   @override
   String toString() {
-    return 'InsistutionStudentEvent.additionalNumChanged(amountStr: $amountStr)';
+    return 'InsiistutionStudentEvent.additionalNumChanged(amountStr: $amountStr)';
   }
 
   @override
@@ -955,7 +955,7 @@ class _$_AmountChanged implements _AmountChanged {
   }
 }
 
-abstract class _AmountChanged implements InsistutionStudentEvent {
+abstract class _AmountChanged implements InsiistutionStudentEvent {
   const factory _AmountChanged(final String amountStr) = _$_AmountChanged;
 
   String get amountStr;
@@ -975,7 +975,7 @@ abstract class _$$_DurationChangedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_DurationChangedCopyWithImpl<$Res>
-    extends _$InsistutionStudentEventCopyWithImpl<$Res, _$_DurationChanged>
+    extends _$InsiistutionStudentEventCopyWithImpl<$Res, _$_DurationChanged>
     implements _$$_DurationChangedCopyWith<$Res> {
   __$$_DurationChangedCopyWithImpl(
       _$_DurationChanged _value, $Res Function(_$_DurationChanged) _then)
@@ -1005,7 +1005,7 @@ class _$_DurationChanged implements _DurationChanged {
 
   @override
   String toString() {
-    return 'InsistutionStudentEvent.addressChanged(durationStr: $durationStr)';
+    return 'InsiistutionStudentEvent.addressChanged(durationStr: $durationStr)';
   }
 
   @override
@@ -1131,7 +1131,7 @@ class _$_DurationChanged implements _DurationChanged {
   }
 }
 
-abstract class _DurationChanged implements InsistutionStudentEvent {
+abstract class _DurationChanged implements InsiistutionStudentEvent {
   const factory _DurationChanged(final String durationStr) = _$_DurationChanged;
 
   String get durationStr;
@@ -1151,7 +1151,7 @@ abstract class _$$_UrlChangedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_UrlChangedCopyWithImpl<$Res>
-    extends _$InsistutionStudentEventCopyWithImpl<$Res, _$_UrlChanged>
+    extends _$InsiistutionStudentEventCopyWithImpl<$Res, _$_UrlChanged>
     implements _$$_UrlChangedCopyWith<$Res> {
   __$$_UrlChangedCopyWithImpl(
       _$_UrlChanged _value, $Res Function(_$_UrlChanged) _then)
@@ -1181,7 +1181,7 @@ class _$_UrlChanged implements _UrlChanged {
 
   @override
   String toString() {
-    return 'InsistutionStudentEvent.dobChanged(urlStr: $urlStr)';
+    return 'InsiistutionStudentEvent.dobChanged(urlStr: $urlStr)';
   }
 
   @override
@@ -1306,7 +1306,7 @@ class _$_UrlChanged implements _UrlChanged {
   }
 }
 
-abstract class _UrlChanged implements InsistutionStudentEvent {
+abstract class _UrlChanged implements InsiistutionStudentEvent {
   const factory _UrlChanged(final String urlStr) = _$_UrlChanged;
 
   String get urlStr;
@@ -1326,7 +1326,7 @@ abstract class _$$_courseFilePictureCopyWith<$Res> {
 
 /// @nodoc
 class __$$_courseFilePictureCopyWithImpl<$Res>
-    extends _$InsistutionStudentEventCopyWithImpl<$Res, _$_courseFilePicture>
+    extends _$InsiistutionStudentEventCopyWithImpl<$Res, _$_courseFilePicture>
     implements _$$_courseFilePictureCopyWith<$Res> {
   __$$_courseFilePictureCopyWithImpl(
       _$_courseFilePicture _value, $Res Function(_$_courseFilePicture) _then)
@@ -1356,7 +1356,7 @@ class _$_courseFilePicture implements _courseFilePicture {
 
   @override
   String toString() {
-    return 'InsistutionStudentEvent.profileFile(displayPicture: $displayPicture)';
+    return 'InsiistutionStudentEvent.profileFile(displayPicture: $displayPicture)';
   }
 
   @override
@@ -1483,7 +1483,7 @@ class _$_courseFilePicture implements _courseFilePicture {
   }
 }
 
-abstract class _courseFilePicture implements InsistutionStudentEvent {
+abstract class _courseFilePicture implements InsiistutionStudentEvent {
   const factory _courseFilePicture(final File displayPicture) =
       _$_courseFilePicture;
 
@@ -1502,7 +1502,7 @@ abstract class _$$_SubmitPressedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_SubmitPressedCopyWithImpl<$Res>
-    extends _$InsistutionStudentEventCopyWithImpl<$Res, _$_SubmitPressed>
+    extends _$InsiistutionStudentEventCopyWithImpl<$Res, _$_SubmitPressed>
     implements _$$_SubmitPressedCopyWith<$Res> {
   __$$_SubmitPressedCopyWithImpl(
       _$_SubmitPressed _value, $Res Function(_$_SubmitPressed) _then)
@@ -1516,7 +1516,7 @@ class _$_SubmitPressed implements _SubmitPressed {
 
   @override
   String toString() {
-    return 'InsistutionStudentEvent.submitPressed()';
+    return 'InsiistutionStudentEvent.submitPressed()';
   }
 
   @override
@@ -1633,6 +1633,423 @@ class _$_SubmitPressed implements _SubmitPressed {
   }
 }
 
-abstract class _SubmitPressed implements InsistutionStudentEvent {
+abstract class _SubmitPressed implements InsiistutionStudentEvent {
   const factory _SubmitPressed() = _$_SubmitPressed;
+}
+
+/// @nodoc
+mixin _$InsiistutionStudentState {
+  TextEditingController get name => throw _privateConstructorUsedError;
+  TextEditingController get email => throw _privateConstructorUsedError;
+  TextEditingController get mobile => throw _privateConstructorUsedError;
+  TextEditingController get addtionalmobile =>
+      throw _privateConstructorUsedError;
+  String get course => throw _privateConstructorUsedError;
+  String get department => throw _privateConstructorUsedError;
+  TextEditingController get address => throw _privateConstructorUsedError;
+  File? get displayPicture => throw _privateConstructorUsedError;
+  TextEditingController get dob => throw _privateConstructorUsedError;
+  bool get showErrorMessages => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
+  bool get isSubmitting => throw _privateConstructorUsedError;
+  Option<Either<NetworkFailure, Unit>> get loadFailureOrSuccessOption =>
+      throw _privateConstructorUsedError;
+  Option<Either<NetworkFailure, Unit>> get submitFailedOrSuccessOption =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $InsiistutionStudentStateCopyWith<InsiistutionStudentState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $InsiistutionStudentStateCopyWith<$Res> {
+  factory $InsiistutionStudentStateCopyWith(InsiistutionStudentState value,
+          $Res Function(InsiistutionStudentState) then) =
+      _$InsiistutionStudentStateCopyWithImpl<$Res, InsiistutionStudentState>;
+  @useResult
+  $Res call(
+      {TextEditingController name,
+      TextEditingController email,
+      TextEditingController mobile,
+      TextEditingController addtionalmobile,
+      String course,
+      String department,
+      TextEditingController address,
+      File? displayPicture,
+      TextEditingController dob,
+      bool showErrorMessages,
+      bool isLoading,
+      bool isSubmitting,
+      Option<Either<NetworkFailure, Unit>> loadFailureOrSuccessOption,
+      Option<Either<NetworkFailure, Unit>> submitFailedOrSuccessOption});
+}
+
+/// @nodoc
+class _$InsiistutionStudentStateCopyWithImpl<$Res,
+        $Val extends InsiistutionStudentState>
+    implements $InsiistutionStudentStateCopyWith<$Res> {
+  _$InsiistutionStudentStateCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? email = null,
+    Object? mobile = null,
+    Object? addtionalmobile = null,
+    Object? course = null,
+    Object? department = null,
+    Object? address = null,
+    Object? displayPicture = freezed,
+    Object? dob = null,
+    Object? showErrorMessages = null,
+    Object? isLoading = null,
+    Object? isSubmitting = null,
+    Object? loadFailureOrSuccessOption = null,
+    Object? submitFailedOrSuccessOption = null,
+  }) {
+    return _then(_value.copyWith(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      mobile: null == mobile
+          ? _value.mobile
+          : mobile // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      addtionalmobile: null == addtionalmobile
+          ? _value.addtionalmobile
+          : addtionalmobile // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      course: null == course
+          ? _value.course
+          : course // ignore: cast_nullable_to_non_nullable
+              as String,
+      department: null == department
+          ? _value.department
+          : department // ignore: cast_nullable_to_non_nullable
+              as String,
+      address: null == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      displayPicture: freezed == displayPicture
+          ? _value.displayPicture
+          : displayPicture // ignore: cast_nullable_to_non_nullable
+              as File?,
+      dob: null == dob
+          ? _value.dob
+          : dob // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      showErrorMessages: null == showErrorMessages
+          ? _value.showErrorMessages
+          : showErrorMessages // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSubmitting: null == isSubmitting
+          ? _value.isSubmitting
+          : isSubmitting // ignore: cast_nullable_to_non_nullable
+              as bool,
+      loadFailureOrSuccessOption: null == loadFailureOrSuccessOption
+          ? _value.loadFailureOrSuccessOption
+          : loadFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<NetworkFailure, Unit>>,
+      submitFailedOrSuccessOption: null == submitFailedOrSuccessOption
+          ? _value.submitFailedOrSuccessOption
+          : submitFailedOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<NetworkFailure, Unit>>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_InsiistutionStudentStateCopyWith<$Res>
+    implements $InsiistutionStudentStateCopyWith<$Res> {
+  factory _$$_InsiistutionStudentStateCopyWith(
+          _$_InsiistutionStudentState value,
+          $Res Function(_$_InsiistutionStudentState) then) =
+      __$$_InsiistutionStudentStateCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {TextEditingController name,
+      TextEditingController email,
+      TextEditingController mobile,
+      TextEditingController addtionalmobile,
+      String course,
+      String department,
+      TextEditingController address,
+      File? displayPicture,
+      TextEditingController dob,
+      bool showErrorMessages,
+      bool isLoading,
+      bool isSubmitting,
+      Option<Either<NetworkFailure, Unit>> loadFailureOrSuccessOption,
+      Option<Either<NetworkFailure, Unit>> submitFailedOrSuccessOption});
+}
+
+/// @nodoc
+class __$$_InsiistutionStudentStateCopyWithImpl<$Res>
+    extends _$InsiistutionStudentStateCopyWithImpl<$Res,
+        _$_InsiistutionStudentState>
+    implements _$$_InsiistutionStudentStateCopyWith<$Res> {
+  __$$_InsiistutionStudentStateCopyWithImpl(_$_InsiistutionStudentState _value,
+      $Res Function(_$_InsiistutionStudentState) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? email = null,
+    Object? mobile = null,
+    Object? addtionalmobile = null,
+    Object? course = null,
+    Object? department = null,
+    Object? address = null,
+    Object? displayPicture = freezed,
+    Object? dob = null,
+    Object? showErrorMessages = null,
+    Object? isLoading = null,
+    Object? isSubmitting = null,
+    Object? loadFailureOrSuccessOption = null,
+    Object? submitFailedOrSuccessOption = null,
+  }) {
+    return _then(_$_InsiistutionStudentState(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      mobile: null == mobile
+          ? _value.mobile
+          : mobile // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      addtionalmobile: null == addtionalmobile
+          ? _value.addtionalmobile
+          : addtionalmobile // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      course: null == course
+          ? _value.course
+          : course // ignore: cast_nullable_to_non_nullable
+              as String,
+      department: null == department
+          ? _value.department
+          : department // ignore: cast_nullable_to_non_nullable
+              as String,
+      address: null == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      displayPicture: freezed == displayPicture
+          ? _value.displayPicture
+          : displayPicture // ignore: cast_nullable_to_non_nullable
+              as File?,
+      dob: null == dob
+          ? _value.dob
+          : dob // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      showErrorMessages: null == showErrorMessages
+          ? _value.showErrorMessages
+          : showErrorMessages // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSubmitting: null == isSubmitting
+          ? _value.isSubmitting
+          : isSubmitting // ignore: cast_nullable_to_non_nullable
+              as bool,
+      loadFailureOrSuccessOption: null == loadFailureOrSuccessOption
+          ? _value.loadFailureOrSuccessOption
+          : loadFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<NetworkFailure, Unit>>,
+      submitFailedOrSuccessOption: null == submitFailedOrSuccessOption
+          ? _value.submitFailedOrSuccessOption
+          : submitFailedOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<NetworkFailure, Unit>>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_InsiistutionStudentState implements _InsiistutionStudentState {
+  const _$_InsiistutionStudentState(
+      {required this.name,
+      required this.email,
+      required this.mobile,
+      required this.addtionalmobile,
+      required this.course,
+      required this.department,
+      required this.address,
+      required this.displayPicture,
+      required this.dob,
+      required this.showErrorMessages,
+      required this.isLoading,
+      required this.isSubmitting,
+      required this.loadFailureOrSuccessOption,
+      required this.submitFailedOrSuccessOption});
+
+  @override
+  final TextEditingController name;
+  @override
+  final TextEditingController email;
+  @override
+  final TextEditingController mobile;
+  @override
+  final TextEditingController addtionalmobile;
+  @override
+  final String course;
+  @override
+  final String department;
+  @override
+  final TextEditingController address;
+  @override
+  final File? displayPicture;
+  @override
+  final TextEditingController dob;
+  @override
+  final bool showErrorMessages;
+  @override
+  final bool isLoading;
+  @override
+  final bool isSubmitting;
+  @override
+  final Option<Either<NetworkFailure, Unit>> loadFailureOrSuccessOption;
+  @override
+  final Option<Either<NetworkFailure, Unit>> submitFailedOrSuccessOption;
+
+  @override
+  String toString() {
+    return 'InsiistutionStudentState(name: $name, email: $email, mobile: $mobile, addtionalmobile: $addtionalmobile, course: $course, department: $department, address: $address, displayPicture: $displayPicture, dob: $dob, showErrorMessages: $showErrorMessages, isLoading: $isLoading, isSubmitting: $isSubmitting, loadFailureOrSuccessOption: $loadFailureOrSuccessOption, submitFailedOrSuccessOption: $submitFailedOrSuccessOption)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_InsiistutionStudentState &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.mobile, mobile) || other.mobile == mobile) &&
+            (identical(other.addtionalmobile, addtionalmobile) ||
+                other.addtionalmobile == addtionalmobile) &&
+            (identical(other.course, course) || other.course == course) &&
+            (identical(other.department, department) ||
+                other.department == department) &&
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.displayPicture, displayPicture) ||
+                other.displayPicture == displayPicture) &&
+            (identical(other.dob, dob) || other.dob == dob) &&
+            (identical(other.showErrorMessages, showErrorMessages) ||
+                other.showErrorMessages == showErrorMessages) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.isSubmitting, isSubmitting) ||
+                other.isSubmitting == isSubmitting) &&
+            (identical(other.loadFailureOrSuccessOption,
+                    loadFailureOrSuccessOption) ||
+                other.loadFailureOrSuccessOption ==
+                    loadFailureOrSuccessOption) &&
+            (identical(other.submitFailedOrSuccessOption,
+                    submitFailedOrSuccessOption) ||
+                other.submitFailedOrSuccessOption ==
+                    submitFailedOrSuccessOption));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      name,
+      email,
+      mobile,
+      addtionalmobile,
+      course,
+      department,
+      address,
+      displayPicture,
+      dob,
+      showErrorMessages,
+      isLoading,
+      isSubmitting,
+      loadFailureOrSuccessOption,
+      submitFailedOrSuccessOption);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_InsiistutionStudentStateCopyWith<_$_InsiistutionStudentState>
+      get copyWith => __$$_InsiistutionStudentStateCopyWithImpl<
+          _$_InsiistutionStudentState>(this, _$identity);
+}
+
+abstract class _InsiistutionStudentState implements InsiistutionStudentState {
+  const factory _InsiistutionStudentState(
+      {required final TextEditingController name,
+      required final TextEditingController email,
+      required final TextEditingController mobile,
+      required final TextEditingController addtionalmobile,
+      required final String course,
+      required final String department,
+      required final TextEditingController address,
+      required final File? displayPicture,
+      required final TextEditingController dob,
+      required final bool showErrorMessages,
+      required final bool isLoading,
+      required final bool isSubmitting,
+      required final Option<Either<NetworkFailure, Unit>>
+          loadFailureOrSuccessOption,
+      required final Option<Either<NetworkFailure, Unit>>
+          submitFailedOrSuccessOption}) = _$_InsiistutionStudentState;
+
+  @override
+  TextEditingController get name;
+  @override
+  TextEditingController get email;
+  @override
+  TextEditingController get mobile;
+  @override
+  TextEditingController get addtionalmobile;
+  @override
+  String get course;
+  @override
+  String get department;
+  @override
+  TextEditingController get address;
+  @override
+  File? get displayPicture;
+  @override
+  TextEditingController get dob;
+  @override
+  bool get showErrorMessages;
+  @override
+  bool get isLoading;
+  @override
+  bool get isSubmitting;
+  @override
+  Option<Either<NetworkFailure, Unit>> get loadFailureOrSuccessOption;
+  @override
+  Option<Either<NetworkFailure, Unit>> get submitFailedOrSuccessOption;
+  @override
+  @JsonKey(ignore: true)
+  _$$_InsiistutionStudentStateCopyWith<_$_InsiistutionStudentState>
+      get copyWith => throw _privateConstructorUsedError;
 }
