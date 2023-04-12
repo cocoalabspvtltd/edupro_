@@ -22,7 +22,7 @@ class InstitutionInstructorEvent with _$InstitutionInstructorEvent {
   _PasswordChanged;
   const factory InstitutionInstructorEvent.displayPicture(File Image) =
   _ImageChanged;
-  const factory InstitutionInstructorEvent.submitPressed() =   _SubmitPressed;
+  const factory InstitutionInstructorEvent.submitPressed() = _SubmitPressed;
 
 }
 

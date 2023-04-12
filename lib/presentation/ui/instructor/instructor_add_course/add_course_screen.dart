@@ -27,7 +27,8 @@ class AddCourse extends StatelessWidget {
       body:
       BlocProvider(create: (_)=>InstructorBloc(CourseRepository()),
         child: SingleChildScrollView(
-            child: AddcousresScreenForm()),)
+            child: AddcousresScreenForm()),
+      )
     );
 
   }

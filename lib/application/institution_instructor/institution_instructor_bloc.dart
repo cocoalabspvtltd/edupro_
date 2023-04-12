@@ -43,18 +43,18 @@ class InstitutionInstructorBloc extends Bloc<InstitutionInstructorEvent, Institu
             submitFailedOrSuccessOption: none(),
           ),
         );
-        String? fileName = imageC!.path.split('/').last;
+        String? fileName = imageInstructorC!.path.split('/').last;
         print("->${fileName}");
         FormData body = FormData.fromMap({
           "name": state.name.text,
           "email": state.email.text,
-          "phone_number": state.mobile.text+ state.addtionalmobile.text,
-          "courses": state.category,
+          "phone_number": state.mobile.text+','+ state.addtionalmobile.text,
+          "courses": categoryaName,
           "qualification":state.qualification.text,
           "description": state.description.text,
           "password":state.password.text,
           "profile_picture": await MultipartFile.fromFile(
-              imageC!.path, filename: fileName)
+              imageInstructorC!.path, filename: fileName)
         });
 
         failureOrSuccess = await addInstituitionInstructor.addInstitutionInstructor(body);
