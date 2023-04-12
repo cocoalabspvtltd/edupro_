@@ -268,6 +268,7 @@ print("response->${response.data}");
   Future<Either<NetworkFailure, AddInstructorResponse>> addInstitutionInstructor(
       FormData body) async {
     log("body->${body}");
+
     try {
       Response response = await apiClient!
           .getJsonInstance()
