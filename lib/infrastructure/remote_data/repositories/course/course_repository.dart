@@ -10,6 +10,7 @@ import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_in_ca
 import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_report_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/count.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/insistutionResponse.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/models/institution_instructor_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/my_course/addcourses.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/my_course/my_courses_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/source/api.dart';
@@ -259,6 +260,33 @@ print("response->${response.data}");
       return left(const NetworkFailure.unexpected());
     } catch (e) {
       log(e.toString());
+      return left(const NetworkFailure.unexpected());
+    }
+  }
+
+
+  Future<Either<NetworkFailure, AddInstructorResponse>> addInstitutionInstructor(
+      FormData body) async {
+    log("body->${body}");
+    try {
+      Response response = await apiClient!
+          .getJsonInstance()
+          .post(Api.addInstructors, data: body);
+      print("response->${response.data}");
+      return right(response.data);
+    } on DioError catch (e) {
+      if (e.response != null) {
+        if (e.response!.statusCode == 401) {
+          return left(
+              NetworkFailure.unAuthorized(e.response!.data["message"] ?? ''));
+        }
+        return left(NetworkFailure.serverError(
+            "Status Code ${e.response!.statusCode}"));
+      } else if (e.toString().contains('Connecting timed out')) {
+        return left(const NetworkFailure.serverTimeOut());
+      }
+      return left(const NetworkFailure.unexpected());
+    } catch (e) {
       return left(const NetworkFailure.unexpected());
     }
   }

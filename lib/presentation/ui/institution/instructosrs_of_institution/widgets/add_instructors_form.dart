@@ -25,7 +25,6 @@ class _AddInstructorsFormState extends State<AddInstructorsForm> {
   TextEditingController qualificationcontroller = TextEditingController();
   TextEditingController mobilecontroller = TextEditingController();
   TextEditingController additionalmobilecontroller = TextEditingController();
-  TextEditingController addresscontroller = TextEditingController();
   TextEditingController descriptioncontroller = TextEditingController();
   @override
   void initState() {
@@ -73,14 +72,6 @@ class _AddInstructorsFormState extends State<AddInstructorsForm> {
               TextInputType.text,
               maxLine: 1,
               hint: "Qualification"),
-          const SizedBox(height: 10),
-          _textForm(
-              addresscontroller,
-              "Address",
-              true,
-              TextInputType.streetAddress,
-              maxLine: 1,
-              hint: "Address"),
           const SizedBox(height: 10),
           _textForm(
               descriptioncontroller,
