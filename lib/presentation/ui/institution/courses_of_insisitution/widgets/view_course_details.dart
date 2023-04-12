@@ -21,6 +21,7 @@ class _ViewCourseDetailsCreenState extends State<ViewCourseDetailsCreen> {
         backgroundColor: Colors.black,
         title: Text('Course  details',style: boldValuePrimaryColor,),
       ),
+
       body: SafeArea(
         child: Column(
           children: [
