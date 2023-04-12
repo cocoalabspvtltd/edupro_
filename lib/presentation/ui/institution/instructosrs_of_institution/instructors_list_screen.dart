@@ -1,11 +1,15 @@
 
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:get/get.dart';
 import 'package:pgs_edupro/application/Insistution_student_course_instructor/all_categories_bloc.dart';
 
 import 'package:pgs_edupro/domain/core/constants.dart';
+import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/insistutionResponse.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/my_course/my_courses_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/course/course_repository.dart';
 import 'package:pgs_edupro/presentation/ui/course/widgets/my_course.dart';
+import 'package:pgs_edupro/presentation/ui/institution/instructosrs_of_institution/widgets/view_instructor_details.dart';
 import 'package:pgs_edupro/presentation/widgets/common_result_empty_widget.dart';
 import 'package:pgs_edupro/presentation/widgets/common_server_error_widget.dart';
 import 'package:flutter/material.dart';
@@ -77,7 +81,48 @@ class InsistutionInstructorListScreen extends StatelessWidget {
                                     child: Padding(
                                       padding: const EdgeInsets.only(top: 8, bottom: 8),
                                       child: ListTile(
-                                        // selected: selectedIndex == index ? true : false,
+                                        leading:  Container(
+                                            width: screenWidth * .14,
+                                            height: screenWidth * .14,
+                                            padding: const EdgeInsets.all(1),
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius: BorderRadius.circular(8),
+                                            ),
+                                            child: ClipRRect(
+                                              borderRadius: BorderRadius.circular(8),
+                                              child: CachedNetworkImage(
+                                                fit: BoxFit.cover,
+                                                imageUrl: UserDetailsLocal.storageBaseUrl +
+                                                    '${res.instructors![index].displayPicture}',
+                                                placeholder: (context, url) => Container(
+                                                  margin: const EdgeInsets.all(1),
+                                                  child: const Center(
+                                                    child: CircularProgressIndicator(),
+                                                  ),
+                                                ),
+                                                imageBuilder: (context, imageProvider) =>
+                                                    Container(
+                                                      margin: const EdgeInsets.all(0),
+                                                      decoration: BoxDecoration(
+                                                          image: DecorationImage(
+                                                              image: imageProvider,
+                                                              fit: BoxFit.cover)),
+                                                    ),
+                                                errorWidget: (context, url, error) =>
+                                                    Container(
+                                                      width: screenWidth * .14,
+                                                      height: screenWidth * .14,
+                                                      padding: const EdgeInsets.all(5),
+                                                      child: const Image(
+                                                        image: AssetImage(
+                                                            'assets/icons/drawer_icons/display-picture-sltd.png'),
+                                                        height: double.infinity,
+                                                        width: double.infinity,
+                                                      ),
+                                                    ),
+                                              ),
+                                            )),
                                         isThreeLine: true,
                                         title: Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -117,7 +162,9 @@ class InsistutionInstructorListScreen extends StatelessWidget {
                                                   backgroundColor: Colors.blueAccent,
                                                   child: IconButton(
                                                     onPressed: () {
-
+                                                      Get.to(() => ViewInstructorDetailsCreen(
+                                                          instructordetails:res.instructors![index]
+                                                      ));
                                                     },
                                                     icon: const Icon(Icons.remove_red_eye,
                                                       color: Colors.white, size: 15,),

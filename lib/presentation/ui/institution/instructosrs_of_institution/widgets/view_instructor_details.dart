@@ -1,33 +1,28 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pgs_edupro/application/Insistution_student_course_instructor/all_categories_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/insistutionResponse.dart';
-import 'package:pgs_edupro/infrastructure/remote_data/repositories/course/course_repository.dart';
-import 'package:pgs_edupro/presentation/widgets/common_result_empty_widget.dart';
-import 'package:pgs_edupro/presentation/widgets/common_server_error_widget.dart';
 
-class ViewStudentDetailsCreen extends StatefulWidget {
-  final StudentList studentdetails;
-  const ViewStudentDetailsCreen({super.key, required this.studentdetails});
+class ViewInstructorDetailsCreen extends StatefulWidget {
+  final Instructors instructordetails;
+  const ViewInstructorDetailsCreen({super.key, required this.instructordetails});
 
   @override
-  State<ViewStudentDetailsCreen> createState() =>
-      _ViewStudentDetailsCreenState();
+  State<ViewInstructorDetailsCreen> createState() =>
+      _ViewInstructorDetailsCreenState();
 }
 
-class _ViewStudentDetailsCreenState extends State<ViewStudentDetailsCreen> {
+class _ViewInstructorDetailsCreenState extends State<ViewInstructorDetailsCreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text('Student details',style: boldValuePrimaryColor,),
+        title: Text('Instructor details',style: boldValuePrimaryColor,),
       ),
       body: SafeArea(
-        child:Column(
+        child: Column(
           children: [
             const SizedBox(
               height: 25,
@@ -51,12 +46,12 @@ class _ViewStudentDetailsCreenState extends State<ViewStudentDetailsCreen> {
                       thickSpace,
                       thickSpace,
                       Text(
-                        "Hello I am ${widget.studentdetails.name} ",
+                        "Hello I am ${widget.instructordetails.name} ",
                         style: TextStyle(
                             fontSize: 18,fontWeight: FontWeight.bold),
                       ),
                       thickSpace,
-                      Text("Nice to have back,What an exciting day ! \nget ready and Continue your lessons today"),
+                      Text("${widget.instructordetails.description}"),
                       thickSpace,
                     ],
                   ),
@@ -98,12 +93,12 @@ class _ViewStudentDetailsCreenState extends State<ViewStudentDetailsCreen> {
                                   borderRadius: BorderRadius.circular(60),
                                   child: CachedNetworkImage(
                                     fit: BoxFit.fill,
-                                    imageUrl:UserDetailsLocal.storageBaseUrl+'${widget.studentdetails.profilePhoto}',
+                                    imageUrl:UserDetailsLocal.storageBaseUrl+'${widget.instructordetails.displayPicture}',
                                     placeholder: (context, url) => Center(
                                       child: CircularProgressIndicator(),
                                     ),
                                     errorWidget: (context, url, error) => CircleAvatar(
-                                      radius: 60.0,
+                                      radius: 46.0,
                                       backgroundImage:
                                       AssetImage('assets/icons/profile_icons/person.png'),
                                       backgroundColor: Colors.grey,
@@ -116,31 +111,31 @@ class _ViewStudentDetailsCreenState extends State<ViewStudentDetailsCreen> {
                             Row(children: [
                               Icon(Icons.email_outlined,color: primaryColor,),
                               SizedBox(width: 10,),
-                              Text("${widget.studentdetails.email}",style: details,)
+                              Text("${widget.instructordetails.email}",style: details,)
                             ],),
                             thickSpace,
                             Row(children: [
                               Icon(Icons.call,color: primaryColor,),
                               SizedBox(width: 10,),
-                              Text("${widget.studentdetails.phoneNumber}",style: details,)
+                              Text("${widget.instructordetails.phoneNumber}",style: details,)
                             ],),
                             thickSpace,
                             Row(children: [
                               Icon(Icons.location_on_outlined,color: primaryColor,),
                               SizedBox(width: 10,),
-                              Text("${widget.studentdetails.address}",style: details,)
+                              Text("${widget.instructordetails.address}",style: details,)
                             ],),
                             thickSpace,
                             Row(children: [
-                              Icon(Icons.business_outlined,color: primaryColor,),
+                              Icon(Icons.school_outlined,color: primaryColor,),
                               SizedBox(width: 10,),
-                              Text("${widget.studentdetails.institution}",style: details,)
+                              Text("${widget.instructordetails.qualification}",style: details,)
                             ],),
                             thickSpace,
                             Row(children: [
                               Icon(Icons.collections_bookmark_sharp,color: primaryColor,),
                               SizedBox(width: 10,),
-                              Text("${widget.studentdetails.course}",style: details,)
+                              Text("${widget.instructordetails.courses}",style: details,)
                             ],),
                             thickSpace,
                           ],
