@@ -9,10 +9,11 @@ import 'package:get/get.dart' as getx;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:pgs_edupro/domain/core/network/network_failures.dart';
-import 'package:pgs_edupro/infrastructure/remote_data/models/institution_instructor_response.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/insiistution_adding_responses/institution_instructor_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/course/course_repository.dart';
 import 'package:pgs_edupro/presentation/ui/institution/courses_of_insisitution/widgets/add_course_form.dart';
 import 'package:pgs_edupro/presentation/ui/institution/instructors_of_institution/widgets/add_instructors_form.dart';
+import 'package:pgs_edupro/presentation/ui/instructor/instructor_add_course/courses_dropdown.dart';
 
 
 part 'institution_instructor_event.dart';

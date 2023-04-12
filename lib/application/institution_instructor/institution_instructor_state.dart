@@ -1,5 +1,5 @@
 part of 'institution_instructor_bloc.dart';
-String categoryaName = "";
+
 @freezed
 class InstitutionInstructorState with _$InstitutionInstructorState {
   const factory InstitutionInstructorState({
