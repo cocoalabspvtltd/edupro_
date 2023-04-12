@@ -19,8 +19,7 @@ class AddStudentsForm extends StatefulWidget {
 class _AddStudentsFormState extends State<AddStudentsForm> {
   final formKey = GlobalKey<FormState>();
   bool obscureText = true;
-  File? _image;
-  XFile? image1;
+  XFile? _image;
   final ImagePicker _picker = ImagePicker();
   TextEditingController namecontroller = TextEditingController();
   TextEditingController mailcontroller = TextEditingController();
@@ -146,16 +145,10 @@ class _AddStudentsFormState extends State<AddStudentsForm> {
           Text("Profile Photo",style: TextStyle(color: Colors.black,fontSize: 16),),
           const SizedBox(height: 10),
           _image != null
-              ? Container(
-            height: 100.00,
-            child: Image.file(
-              File(_image!.path),
-              fit: BoxFit.fill,
-            ),
-          )
+              ? Text("${_image?.path.split('/').last}")
               : InkWell(
             onTap: () {
-              pickImage();
+              _showpicker;
             },
             child: Container(
               height: 45,
@@ -177,7 +170,6 @@ class _AddStudentsFormState extends State<AddStudentsForm> {
                   Spacer(),
                   IconButton(
                       onPressed: () {
-                        // pickImage();
                         _showpicker(context);
                       },
                       icon: Icon(
@@ -212,12 +204,14 @@ class _AddStudentsFormState extends State<AddStudentsForm> {
       ),
     );
   }
+
   Future pickImage() async {
     try {
       final image = await ImagePicker().pickImage(source: ImageSource.gallery);
       if (image == null) return;
-      _image = File(image.path);
-      print(("=>${_image}"));
+      _image = XFile(image.path);
+
+
       setState(() {});
     } on PlatformException catch (e) {
       print('Failed to pick image: $e');
@@ -274,7 +268,7 @@ class _AddStudentsFormState extends State<AddStudentsForm> {
   _imagefromGallery(context) async {
     final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
     setState(() {
-      image1= image;
+      _image= image;
     });
     Get.back();
   }
@@ -282,7 +276,7 @@ class _AddStudentsFormState extends State<AddStudentsForm> {
   _imagefromComera(context) async {
     final XFile? photo = await _picker.pickImage(source: ImageSource.camera);
     setState(() {
-      image1 = photo;
+      _image = photo;
     });
     Get.back();
   }

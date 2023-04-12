@@ -1,13 +1,12 @@
 import 'dart:io';
 
-import 'package:date_field/date_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/presentation/ui/instructor/instructor_add_course/courses_dropdown.dart';
-
+File? imageC;
 class AddInstructorsForm extends StatefulWidget {
   const AddInstructorsForm({Key? key}) : super(key: key);
 
@@ -18,8 +17,8 @@ class AddInstructorsForm extends StatefulWidget {
 class _AddInstructorsFormState extends State<AddInstructorsForm> {
   final formKey = GlobalKey<FormState>();
   bool obscureText = true;
-  File? _image;
-  XFile? image1;
+  String? fileName='';
+  XFile? _image;
   final ImagePicker _picker = ImagePicker();
   TextEditingController namecontroller = TextEditingController();
   TextEditingController qualificationcontroller = TextEditingController();
@@ -98,16 +97,10 @@ class _AddInstructorsFormState extends State<AddInstructorsForm> {
           Text("Profile Photo",style: TextStyle(color: Colors.black,fontSize: 16),),
           const SizedBox(height: 10),
           _image != null
-              ? Container(
-            height: 100.00,
-            child: Image.file(
-              File(_image!.path),
-              fit: BoxFit.fill,
-            ),
-          )
+              ? Text("${_image?.path.split('/').last}")
               : InkWell(
             onTap: () {
-              pickImage();
+              _showpicker;
             },
             child: Container(
               height: 45,
@@ -129,7 +122,6 @@ class _AddInstructorsFormState extends State<AddInstructorsForm> {
                   Spacer(),
                   IconButton(
                       onPressed: () {
-                        // pickImage();
                         _showpicker(context);
                       },
                       icon: Icon(
@@ -168,8 +160,9 @@ class _AddInstructorsFormState extends State<AddInstructorsForm> {
     try {
       final image = await ImagePicker().pickImage(source: ImageSource.gallery);
       if (image == null) return;
-      _image = File(image.path);
-      print(("=>${_image}"));
+      _image = XFile(image.path);
+
+
       setState(() {});
     } on PlatformException catch (e) {
       print('Failed to pick image: $e');
@@ -226,7 +219,8 @@ class _AddInstructorsFormState extends State<AddInstructorsForm> {
   _imagefromGallery(context) async {
     final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
     setState(() {
-      image1= image;
+      _image= image;
+  // fileName = ;
     });
     Get.back();
   }
@@ -234,7 +228,7 @@ class _AddInstructorsFormState extends State<AddInstructorsForm> {
   _imagefromComera(context) async {
     final XFile? photo = await _picker.pickImage(source: ImageSource.camera);
     setState(() {
-      image1 = photo;
+      _image = photo;
     });
     Get.back();
   }
