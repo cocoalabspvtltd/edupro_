@@ -33,10 +33,6 @@ class InstructorBloc extends Bloc<InstructorEvent, InstructorState> {
       ));
     });
 
-
-
-
-
     on<_SubmitPressed>((event, emit) async {
       final isTitleValid = state.title != '' ? true : false;
       final isAboutTitleValid = state.aboutTitle != '' ? true : false;

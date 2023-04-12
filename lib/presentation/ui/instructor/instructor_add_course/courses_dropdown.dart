@@ -1,11 +1,6 @@
-import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:http/http.dart' as http;
-
-import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
-
 import '../../../../application/Insistution_student_course_instructor/all_categories_bloc.dart';
 import '../../../../domain/core/constants.dart';
 import '../../../../infrastructure/remote_data/models/insistution/insistutionResponse.dart';
@@ -68,11 +63,9 @@ class _CoursesDropdownState extends State<CoursesDropdown> {
       BlocProvider(
         create: (_) => AllCategoriesBloc(CourseRepository())
           ..add(const AllCategoriesEvent.loadMyCourses()),
-
           child: BlocBuilder<AllCategoriesBloc, AllCategoriesState>(
             builder: (context, state) {
               return
-
                 SizedBox(
                   height: screenHeight,
                   child: SingleChildScrollView(
@@ -91,16 +84,10 @@ class _CoursesDropdownState extends State<CoursesDropdown> {
                             res.course!.isNotEmpty
                             ?  Column(
                           children: [
-
                               DropdownButtonHideUnderline(
                               child: DropdownButton(
-                                hint: Padding(
-                                  padding: const EdgeInsets.only(left: 0.0),
-                                  child: Text('Select',style: TextStyle(fontWeight: FontWeight.w500,color: Colors.black54),),
-                                ),
+                                hint: Text('Select',style: TextStyle(fontWeight: FontWeight.w500,color: Colors.black54),),
                                 items: res.course?.map((item) {
-                                  // int id = Cate["id"];
-                                 //  print("id->>>>>${id}");
                                   return DropdownMenuItem(
                                     onTap: (){setState((){
                                       String? id = item.title;
@@ -114,7 +101,6 @@ class _CoursesDropdownState extends State<CoursesDropdown> {
                                 onChanged: (newVal) {
                                   setState(() {
                                     dropdownvalue = newVal;
-                                  //  categoryaName = dropdownvalue;
                                     print("categoryaName->>>>>>${dropdownvalue}");
                                   });
                                 },

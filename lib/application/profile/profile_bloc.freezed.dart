@@ -2717,7 +2717,7 @@ mixin _$ProfileState {
   Password get confirmPassword => throw _privateConstructorUsedError;
   Name get name => throw _privateConstructorUsedError;
   PhoneNumber get phoneNumber => throw _privateConstructorUsedError;
-  DateFormatted? get dob => throw _privateConstructorUsedError;
+  DateFormatted get dob => throw _privateConstructorUsedError;
   Address get address => throw _privateConstructorUsedError;
   File? get displayPicture => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
@@ -2760,7 +2760,7 @@ abstract class $ProfileStateCopyWith<$Res> {
       Password confirmPassword,
       Name name,
       PhoneNumber phoneNumber,
-      DateFormatted? dob,
+      DateFormatted dob,
       Address address,
       File? displayPicture,
       bool showErrorMessages,
@@ -2800,7 +2800,7 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
     Object? confirmPassword = null,
     Object? name = null,
     Object? phoneNumber = null,
-    Object? dob = freezed,
+    Object? dob = null,
     Object? address = null,
     Object? displayPicture = freezed,
     Object? showErrorMessages = null,
@@ -2842,10 +2842,10 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
               as PhoneNumber,
-      dob: freezed == dob
+      dob: null == dob
           ? _value.dob
           : dob // ignore: cast_nullable_to_non_nullable
-              as DateFormatted?,
+              as DateFormatted,
       address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -2926,7 +2926,7 @@ abstract class _$$_ProfileStateCopyWith<$Res>
       Password confirmPassword,
       Name name,
       PhoneNumber phoneNumber,
-      DateFormatted? dob,
+      DateFormatted dob,
       Address address,
       File? displayPicture,
       bool showErrorMessages,
@@ -2964,7 +2964,7 @@ class __$$_ProfileStateCopyWithImpl<$Res>
     Object? confirmPassword = null,
     Object? name = null,
     Object? phoneNumber = null,
-    Object? dob = freezed,
+    Object? dob = null,
     Object? address = null,
     Object? displayPicture = freezed,
     Object? showErrorMessages = null,
@@ -3006,10 +3006,10 @@ class __$$_ProfileStateCopyWithImpl<$Res>
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
               as PhoneNumber,
-      dob: freezed == dob
+      dob: null == dob
           ? _value.dob
           : dob // ignore: cast_nullable_to_non_nullable
-              as DateFormatted?,
+              as DateFormatted,
       address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -3115,7 +3115,7 @@ class _$_ProfileState implements _ProfileState {
   @override
   final PhoneNumber phoneNumber;
   @override
-  final DateFormatted? dob;
+  final DateFormatted dob;
   @override
   final Address address;
   @override
@@ -3250,7 +3250,7 @@ abstract class _ProfileState implements ProfileState {
       required final Password confirmPassword,
       required final Name name,
       required final PhoneNumber phoneNumber,
-      required final DateFormatted? dob,
+      required final DateFormatted dob,
       required final Address address,
       required final File? displayPicture,
       required final bool showErrorMessages,
@@ -3283,7 +3283,7 @@ abstract class _ProfileState implements ProfileState {
   @override
   PhoneNumber get phoneNumber;
   @override
-  DateFormatted? get dob;
+  DateFormatted get dob;
   @override
   Address get address;
   @override

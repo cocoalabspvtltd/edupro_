@@ -19,7 +19,7 @@ class _AddInstructorScreenState extends State<AddInstructorScreen> {
         appBar: AppBar(
           backgroundColor: Colors.black,
           title: Text(
-            "Add students",
+            "Add Instructors",
             style: boldValuePrimaryColor,
           ),
         ),
