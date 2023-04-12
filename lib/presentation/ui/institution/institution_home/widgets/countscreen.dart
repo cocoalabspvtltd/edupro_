@@ -55,7 +55,7 @@ class CourtScreen extends StatelessWidget {
                                 padding: const EdgeInsets.only(left: 0.0),
                                 child: Container(
                                   height: 100,
-                                  width: 160,
+                                  width: screenWidth * 0.45,
                                   child: Card(
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
@@ -70,7 +70,8 @@ class CourtScreen extends StatelessWidget {
                                               child: Text(
                                             'Cd',
                                             style: TextStyle(
-                                                color: Colors.lightBlue,fontSize: 19),
+                                                color: Colors.lightBlue,
+                                                fontSize: 19),
                                           )),
                                         ),
                                       ],
@@ -83,7 +84,7 @@ class CourtScreen extends StatelessWidget {
                               ),
                               Container(
                                 height: 100,
-                                width: 160,
+                                width: screenWidth * 0.45,
                                 child: Card(
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
@@ -94,8 +95,12 @@ class CourtScreen extends StatelessWidget {
                                               "assets/images/home/course.png"), // No matter how big it is, it won't overflow
                                         ),
                                         title: Text('Courses'),
-                                        subtitle: Text('${res.courseCount}' ,style: TextStyle(
-            color: Colors.lightBlue,fontSize: 19),),
+                                        subtitle: Text(
+                                          '${res.courseCount}',
+                                          style: TextStyle(
+                                              color: Colors.lightBlue,
+                                              fontSize: 19),
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -109,7 +114,7 @@ class CourtScreen extends StatelessWidget {
                                 padding: const EdgeInsets.only(left: 0.0),
                                 child: Container(
                                   height: 100,
-                                  width: 160,
+                                  width: screenWidth * 0.45,
                                   child: Card(
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
@@ -120,9 +125,12 @@ class CourtScreen extends StatelessWidget {
                                                 "assets/images/home/instructor.png"), // No matter how big it is, it won't overflow
                                           ),
                                           title: Text('Instructor'),
-                                          subtitle:
-                                              Text('${res.instructorCount}', style: TextStyle(
-                                                  color: Colors.lightBlue,fontSize: 19),),
+                                          subtitle: Text(
+                                            '${res.instructorCount}',
+                                            style: TextStyle(
+                                                color: Colors.lightBlue,
+                                                fontSize: 19),
+                                          ),
                                         ),
                                       ],
                                     ),
@@ -134,7 +142,7 @@ class CourtScreen extends StatelessWidget {
                               ),
                               Container(
                                 height: 100,
-                                width: 160,
+                                width: screenWidth * 0.45,
                                 child: Card(
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
@@ -145,8 +153,12 @@ class CourtScreen extends StatelessWidget {
                                               "assets/images/home/students.png"), // No matter how big it is, it won't overflow
                                         ),
                                         title: Text('Students'),
-                                        subtitle: Text('${res.userCount}', style: TextStyle(
-                                            color: Colors.lightBlue,fontSize: 19),),
+                                        subtitle: Text(
+                                          '${res.userCount}',
+                                          style: TextStyle(
+                                              color: Colors.lightBlue,
+                                              fontSize: 19),
+                                        ),
                                       ),
                                     ],
                                   ),

@@ -24,17 +24,6 @@ class CourseDetailsView extends StatelessWidget {
   ApiProvider? apiprovider;
   Future getOrderId() async {
     print("Get order");
-    // final response =
-    // await apiprovider?.getJsonInstance().get(Api.getOrderId);
-    // final response = await apiprovider?.getJsonInstance()
-    //     .get("https://pgsedu.com/EduPro/index.php/api/get_orderId",
-    //     options: Options(
-    //         headers: {
-    //           'Accept':'application/json',
-    //           'Authorization':"Bearer " + UserDetailsLocal.apiToken,
-    //         }
-    //     )
-    // );
     http.Response response = await http.get(Uri.parse('https://pgsedu.com/EduPro/index.php/api/get_orderId'),
       headers: <String, String>{
         'Accept': "appilication/json",

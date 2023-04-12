@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pgs_edupro/application/instructor/instructor_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
-import 'package:pgs_edupro/presentation/ui/instructor/instructor_add_course/test.dart';
+import 'package:pgs_edupro/presentation/ui/instructor/instructor_add_course/courses_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -129,7 +129,7 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
                     borderRadius:
                     BorderRadius.all(Radius.circular(7.0)),
                   ),
-                  child: DesignationDropdown()),
+                  child: CoursesDropdown()),
               thickSpace,
               _textForm(
                   state.amount,
@@ -311,6 +311,9 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
     final XFile? photo = await _picker.pickImage(source: ImageSource.camera);
     setState(() {
       _image = photo!;
+      print("wqswq=>${_image}");
+      imageC = File(_image!.path);
+      print("->>${imageC}");
     });
     Get.back();
   }

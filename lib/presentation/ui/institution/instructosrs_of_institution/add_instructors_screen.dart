@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pgs_edupro/application/institution_instructor/institution_instructor_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/repositories/course/course_repository.dart';
 import 'package:pgs_edupro/presentation/ui/institution/instructosrs_of_institution/widgets/add_instructors_form.dart';
 
 
@@ -19,35 +22,17 @@ class _AddInstructorScreenState extends State<AddInstructorScreen> {
         appBar: AppBar(
           backgroundColor: Colors.black,
           title: Text(
-            "Add students",
+            "Add Instructors",
             style: boldValuePrimaryColor,
           ),
         ),
-        body: SizedBox(
-          height: screenHeight,
-          width: screenWidth,
+        body: BlocProvider(create: (_)=>InstitutionInstructorBloc(CourseRepository()),
           child: SingleChildScrollView(
-            child: Column(
-              children: [
-                const SizedBox(
-                  height: 25,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 15),
-                  child: Align(
-                    alignment: AlignmentDirectional.topStart,
-                    child: Text(
-                      "Instructor Details",
-                      style:
-                      TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
-                AddInstructorsForm()
-              ],
-            ),
+              child:  AddInstructorsForm()
           ),
-        ));
+        )
+
+       );
   }
 
 }

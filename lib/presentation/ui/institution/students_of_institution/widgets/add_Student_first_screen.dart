@@ -4,15 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:pgs_edupro/application/insistution_student/insistution_student_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 
-import '../../../../application/instructor/instructor_bloc.dart';
-import '../../../../infrastructure/remote_data/repositories/course/course_repository.dart';
-import 'add_course1.dart';
+import '../../../../../infrastructure/remote_data/repositories/course/course_repository.dart';
+import 'add_students_form.dart';
 
 
-class AddCourse extends StatelessWidget {
-  const AddCourse({Key? key}) : super(key: key);
+class StudentAddCourse extends StatelessWidget {
+  const StudentAddCourse({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,15 +20,14 @@ class AddCourse extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.black,
           title: Text(
-            "Add Courses",
+            "Add Students",
             style: boldValuePrimaryColor,
           ),
         ),
-      body:
-      BlocProvider(create: (_)=>InstructorBloc(CourseRepository()),
-        child: SingleChildScrollView(
-            child: AddcousresScreenForm()),
-      )
+        body:
+        BlocProvider(create: (_)=>InsistutionStudentBloc(CourseRepository()),
+          child: SingleChildScrollView(
+              child: AddStudentsForm()),)
     );
 
   }

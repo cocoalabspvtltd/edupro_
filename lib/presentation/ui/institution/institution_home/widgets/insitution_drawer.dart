@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../courses_of_insisitution/courses_list.dart';
+import '../../students_of_institution/widgets/add_Student_first_screen.dart';
 
 class InstitutionDrawerWidget extends StatelessWidget {
   final BuildContext context;
@@ -262,7 +263,7 @@ class InstitutionDrawerWidget extends StatelessWidget {
                           Get.to(() => InsistutionCategoryScreen());
                         }),
                         _drawerMenuItem1('Add Students', () {
-                          Get.to(() => AddStudentScreen());
+                          Get.to(() => StudentAddCourse());
                         }),
                         //more child menu
                       ],

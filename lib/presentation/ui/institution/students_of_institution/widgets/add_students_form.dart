@@ -1,264 +1,290 @@
 import 'dart:io';
-
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:date_field/date_field.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
+import 'package:pgs_edupro/application/insistution_student/insistution_student_bloc.dart';
+import 'package:pgs_edupro/application/instructor/instructor_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
-import 'package:pgs_edupro/presentation/ui/instructor/instructor_add_course/test.dart';
+import 'package:pgs_edupro/presentation/ui/instructor/instructor_add_course/courses_dropdown.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../instructor/instructor_add_course/department_dropdown.dart';
+
+File? imageStudent;
 class AddStudentsForm extends StatefulWidget {
-  const AddStudentsForm({Key? key}) : super(key: key);
+  const AddStudentsForm({
+    super.key,
+  });
 
   @override
   State<AddStudentsForm> createState() => _AddStudentsFormState();
 }
 
 class _AddStudentsFormState extends State<AddStudentsForm> {
-  final formKey = GlobalKey<FormState>();
-  bool obscureText = true;
-  File? _image;
-  XFile? image1;
-  final ImagePicker _picker = ImagePicker();
-  TextEditingController namecontroller = TextEditingController();
-  TextEditingController mailcontroller = TextEditingController();
-  TextEditingController mobilecontroller = TextEditingController();
-  TextEditingController additionalmobilecontroller = TextEditingController();
-  TextEditingController addresscontroller = TextEditingController();
+  String? fromDate;
+  String? toDate;
+  XFile? _image;
+
   @override
-  void initState() {
-    super.initState();
-    DesignationDropdown();
-  }
   Widget build(BuildContext context) {
-    return  Form(
-      key: formKey,
-      child: ListView(
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        padding:
-        const EdgeInsets.only(left: 15, right: 15, bottom: 15),
-        children: <Widget>[
-          SizedBox(height: screenHeight * .02),
-          _textForm(
-              namecontroller,
-              "Name",
-              true,
-              TextInputType.name,
-              maxLine: 1,
-              hint: "Name"),
-          const SizedBox(height: 10),
-          _textForm(
-              mailcontroller,
-              "Email",
-              true,
-              TextInputType.emailAddress,
-              maxLine: 1,
-              hint: "Email"),
-          const SizedBox(height: 10),
-          _textForm(
-              mobilecontroller,
-              "Mobile",
-              true,
-              TextInputType.phone,
-              maxLine: 1,
-              hint: "Mobile"),
-          const SizedBox(height: 10),
-          _textForm(
-              additionalmobilecontroller,
-              "Additional Mobile",
-              true,
-              TextInputType.phone,
-              maxLine: 1,
-              hint: "Additional Mobile"),
-          const SizedBox(height: 10),
-          _textForm(
-              addresscontroller,
-              "Address",
-              true,
-              TextInputType.streetAddress,
-              maxLine: 1,
-              hint: "Address"),
-          const SizedBox(height: 10),
-          Text("Date of birth",style: TextStyle(color: Colors.black,fontSize: 16),),
-          const SizedBox(height: 6),
-          DateTimeFormField(
-            // initialValue: state.dobDT,
-            dateTextStyle: const TextStyle(
-                fontWeight: FontWeight.w600, fontSize: 15),
-            enabled: true,
-            //dateFormat: DateFormat.yMd(),
-            decoration: InputDecoration(
-              //filled: true,
-                hintText: "dd-mm-yyyy",
-                contentPadding: EdgeInsets.all(10.0),
-                fillColor: primaryColor[100],
-                hintStyle: TextStyle(color:Colors.black54 ),
-                border: const OutlineInputBorder(),
-                suffixIcon: const Icon(Icons.event_note),
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                    borderSide: BorderSide(color: Colors.grey))
-            ),
-            mode: DateTimeFieldPickerMode.date,
-            //firstDate: DateTime.now().add(const Duration(days: 10)),
-            lastDate: DateTime.now().add(const Duration(days: 40)),
-            // initialDate:
-            //     DateTime.now().add(const Duration(days: 20)),
-            autovalidateMode: AutovalidateMode.always,
-            // onDateSelected: (DateTime value) => context
-            //     .read<ProfileBloc>()
-            //     .add(ProfileEvent.dobChanged(
-            //     DateFormat("MM/dd/yyyy").format(value))),
-          ),
-          const SizedBox(height: 10),
-          Text("Courses",style: TextStyle(color: Colors.black,fontSize: 16),),
-          const SizedBox(height: 10),
-          Container(
-              width: screenWidth,
-              height: 45,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.grey,
-                ),
-                borderRadius:
-                BorderRadius.all(Radius.circular(7.0)),
-              ),
-              child: DesignationDropdown()),
-          const SizedBox(height: 10),
-          Text("Profile Photo",style: TextStyle(color: Colors.black,fontSize: 16),),
-          const SizedBox(height: 10),
-          _image != null
-              ? Container(
-            height: 100.00,
-            child: Image.file(
-              File(_image!.path),
-              fit: BoxFit.fill,
-            ),
-          )
-              : InkWell(
-            onTap: () {
-              pickImage();
-            },
-            child: Container(
-              height: 45,
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey),
-                borderRadius:
-                BorderRadius.all(Radius.circular(7.0)),
-              ),
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: 10,
+    return BlocConsumer<InsistutionStudentBloc, InsistutionStudentState>(
+      listener: (context, state) {
+        state.loadFailureOrSuccessOption.fold(
+              () {},
+              (either) {
+            either.fold(
+                  (failure) {
+                FlushbarHelper.createError(
+                  message: failure.map(
+                    unexpected: (value) => 'Unexpected Error',
+                    serverError: (value) => 'Server Error',
+                    serverTimeOut: (value) => 'Server Timed Out',
+                    unAuthorized: (value) => value.message,
+                    nullData: (value) => 'Data Not Found',
                   ),
-                  Text(
-                    "Choose file",
-                    style: TextStyle(
-                        color: Colors.black54, fontSize: 18),
-                  ),
-                  Spacer(),
-                  IconButton(
-                      onPressed: () {
-                        // pickImage();
-                        _showpicker(context);
-                      },
-                      icon: Icon(
-                        Icons.file_present,
-                        color: Colors.grey,
-                      ))
-                ],
+                ).show(context);
+              },
+                  (res) {},
+            );
+          },
+        );
+        state.submitFailedOrSuccessOption.fold(() {}, (either) {
+          either.fold((failure) {
+            FlushbarHelper.createError(
+              message: failure.map(
+                unexpected: (value) => 'Unexpected Error',
+                serverError: (value) => 'Server Error',
+                serverTimeOut: (value) => 'Server Timed Out',
+                unAuthorized: (value) => value.message,
+                nullData: (value) => 'Data Not Found',
               ),
-            ),
-          ),
-          thickSpace,
-          thickSpace,
-          thickSpace,
-          Padding(
-            padding: const EdgeInsets.only(left: 10, right: 10),
-            child: SizedBox(
-              height: 50,
-              child: ElevatedButton(
-                onPressed: () {
+            ).show(context);
+          },
 
+                  (r) => Fluttertoast.showToast(msg: "Course added successfully"));
+        });
+      },
+      builder: (context, state) {
+        return state.isLoading
+            ? SizedBox(
+          height: screenHeight - 180,
+          child: const Center(child: CircularProgressIndicator()),
+        )
+            : Form(
+          // key: _formKey,
+          autovalidateMode: state.showErrorMessages
+              ? AutovalidateMode.always
+              : AutovalidateMode.disabled,
+          child:
+
+          ListView(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            padding:
+            const EdgeInsets.only(left: 15, right: 15, bottom: 15),
+            children: <Widget>[
+              SizedBox(height: screenHeight * .02),
+              _textForm(
+                  state.name,
+                      (v) => context
+                      .read<InsistutionStudentBloc>()
+                      .add(InsistutionStudentEvent.name(v)),
+                  null,
+                  "Name",
+                  'assets/icons/profile_icons/location.png',
+                  TextInputType.streetAddress,
+                  maxLine: 2),
+              thickSpace,
+              _textForm(
+                  state.email,
+                      (v) => context
+                      .read<InsistutionStudentBloc>()
+                      .add(InsistutionStudentEvent.emailChanged(v)),
+                  null,
+                  "Email",
+                  'assets/icons/profile_icons/location.png',
+                  TextInputType.streetAddress,
+                  maxLine: 2),
+              thickSpace,
+              _textForm(
+                  state.mobile,
+                      (v) => context
+                      .read<InsistutionStudentBloc>()
+                      .add(InsistutionStudentEvent.mobileChanged(v)),
+                  null,
+                  "Mobile",
+                  'assets/icons/profile_icons/location.png',
+                  TextInputType.streetAddress,
+                  maxLine: 2),
+              thickSpace,
+              _textForm(
+                  state.additionalMobile,
+                      (v) => context
+                      .read<InsistutionStudentBloc>()
+                      .add(InsistutionStudentEvent.additionalNumChanged(v)),
+                  null,
+                  "Add Number",
+                  'assets/icons/profile_icons/location.png',
+                  TextInputType.streetAddress,
+                  maxLine: 2),
+              thickSpace,
+              _textForm(
+                  state.address,
+                      (v) => context
+                      .read<InsistutionStudentBloc>()
+                      .add(InsistutionStudentEvent.addressChanged(v)),
+                  null,
+                  "Add Number",
+                  'assets/icons/profile_icons/location.png',
+                  TextInputType.streetAddress,
+                  maxLine: 2),
+              thickSpace,
+              Text(
+                "Date of Birth",
+                style: boldValue,
+              ),
+              thickSpace,
+              DateTimeFormField(
+
+                dateTextStyle: const TextStyle(
+                    fontWeight: FontWeight.w600, fontSize: 15),
+
+                //dateFormat: DateFormat.yMd(),
+                decoration: InputDecoration(
+                  fillColor: primaryColor[100],
+                  prefixIcon: Image.asset(
+                      'assets/icons/profile_icons/calender_theme.png'),
+
+                  prefixIconConstraints: const BoxConstraints(
+                    maxHeight: 30,
+                    minHeight: 30,
+                    maxWidth: 50,
+                    minWidth: 50,
+                  ),
+                  hintStyle: TextStyle(color: primaryColor[200]),
+                  border: const OutlineInputBorder(),
+                  // suffixIcon: const Icon(Icons.event_note),
+
+
+                ), mode: DateTimeFieldPickerMode.date,
+                //firstDate: DateTime.now().add(const Duration(days: 10)),
+                lastDate: DateTime.now().add(const Duration(days: 40)),
+                // initialDate:
+                //     DateTime.now().add(const Duration(days: 20)),
+                autovalidateMode: AutovalidateMode.always,
+                onDateSelected: (DateTime value) => context
+                    .read<InsistutionStudentBloc>()
+                    .add(InsistutionStudentEvent.dobChanged(
+                    DateFormat("MM/dd/yyyy").format(value))),
+              ),
+              const SizedBox(height: 10),
+              Text("Courses",style: TextStyle(color: Colors.black,fontSize: 16),),
+              const SizedBox(height: 10),
+              Container(
+                  width: screenWidth,
+                  height: 45,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.grey,
+                    ),
+                    borderRadius:
+                    BorderRadius.all(Radius.circular(7.0)),
+                  ),
+                  child: CoursesDropdown()),
+              const SizedBox(height: 10),
+              Text("Courses",style: TextStyle(color: Colors.black,fontSize: 16),),
+              const SizedBox(height: 10),
+              Container(
+                  width: screenWidth,
+                  height: 45,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.grey,
+                    ),
+                    borderRadius:
+                    BorderRadius.all(Radius.circular(7.0)),
+                  ),
+                  child: DepartmentDropdown()),
+              const SizedBox(height: 10),
+              Text("Profile Photo",style: TextStyle(color: Colors.black,fontSize: 16),),
+              const SizedBox(height: 10),
+              _image != null
+                  ? Text("${_image?.path.split('/').last}")
+                  : InkWell(
+                onTap: () {
+                  _showpicker;
                 },
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5),
+                child: Container(
+                  height: 45,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey),
+                    borderRadius:
+                    BorderRadius.all(Radius.circular(7.0)),
+                  ),
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        "Choose file",
+                        style: TextStyle(
+                            color: Colors.black54, fontSize: 18),
+                      ),
+                      Spacer(),
+                      IconButton(
+                          onPressed: () {
+                            _showpicker(context);
+                          },
+                          icon: Icon(
+                            Icons.file_present,
+                            color: Colors.grey,
+                          ))
+                    ],
                   ),
                 ),
-                child: const Text('Submit'),
               ),
-            ),
+              thickSpace,
+              thickSpace,
+              thickSpace,
+              Padding(
+                padding: const EdgeInsets.only(left: 10, right: 10),
+                child: SizedBox(
+                  height: 50,
+                  child: ElevatedButton(
+                    onPressed:() => context
+                        .read<InsistutionStudentBloc>()
+                        .add( InsistutionStudentEvent.submitPressed()),
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                    ),
+
+                    child: const Text('Submit'),
+                  ),
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
-  Future pickImage() async {
-    try {
-      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
-      if (image == null) return;
-      _image = File(image.path);
-      print(("=>${_image}"));
-      setState(() {});
-    } on PlatformException catch (e) {
-      print('Failed to pick image: $e');
-    }
-  }
-
-  Widget _textForm(
-      TextEditingController controller,
-      // onChanged,
-      // validator,
-      String label,
-      bool editable,
-      TextInputType keyboardType, {
-        List<TextInputFormatter>? formatter,
-        String? hint,
-        int maxLine = 1,
-      }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          label,
-          style: TextStyle(color: Colors.black,fontSize: 16),
-        ),
-        thickSpace,
-        TextFormField(
-          enabled: editable,
-          controller: controller,
-          maxLines: maxLine,
-          // onChanged: onChanged,
-          // validator: validator,
-          keyboardType: keyboardType,
-          inputFormatters: formatter,
-          style: const TextStyle(
-              fontWeight: FontWeight.w500, color: Colors.black87),
-          decoration: InputDecoration(
-            contentPadding: EdgeInsets.all(10.0),
-            hintText: hint,
-            hintStyle: TextStyle(color:Colors.black54 ),
-            //filled: true,
-            fillColor: primaryColor[100],
-            disabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10.0),
-                borderSide: BorderSide(color: Colors.grey)),
-            enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10.0),
-                borderSide: BorderSide(color: Colors.grey, width: 1)),
-          ),
-        ),
-      ],
-    );
-  }
-
+  final ImagePicker _picker = ImagePicker();
   _imagefromGallery(context) async {
     final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
     setState(() {
-      image1= image;
+      _image = image!;
+      print("wqswq=>${_image}");
+      imageStudent = File(_image!.path);
+      print("->>${imageStudent}");
+
     });
     Get.back();
   }
@@ -266,7 +292,10 @@ class _AddStudentsFormState extends State<AddStudentsForm> {
   _imagefromComera(context) async {
     final XFile? photo = await _picker.pickImage(source: ImageSource.camera);
     setState(() {
-      image1 = photo;
+      _image = photo!;
+      print("wqswq=>${_image}");
+      imageStudent = File(_image!.path);
+      print("->>${imageStudent}");
     });
     Get.back();
   }
@@ -328,4 +357,68 @@ class _AddStudentsFormState extends State<AddStudentsForm> {
           );
         });
   }
+  Future pickImage() async {
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+      if (image == null) return;
+      _image = XFile(image.path);
+
+
+      setState(() {});
+    } on PlatformException catch (e) {
+      print('Failed to pick image: $e');
+    }
+  }
+
 }
+Widget _textForm(
+    TextEditingController controller,
+    onChanged,
+    validator,
+    String label,
+    String prefixIconAssetPath,
+    TextInputType keyboardType, {
+      List<TextInputFormatter>? formatter,
+      String? hint,
+      int maxLine = 1,
+    }) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text(
+        label,
+        style: boldValue,
+      ),
+      thickSpace,
+      TextFormField(
+
+        controller: controller,
+        maxLines: maxLine,
+        onChanged: onChanged,
+        validator: validator,
+        keyboardType: keyboardType,
+        inputFormatters: formatter,
+        style: const TextStyle(
+            fontWeight: FontWeight.w500, color: Colors.black87),
+        decoration: InputDecoration(
+          hintText: hint,
+          hintStyle: TextStyle(color: primaryColor[200]),
+          //filled: true,
+          fillColor: primaryColor[100],
+
+          prefixIconConstraints: const BoxConstraints(
+            maxHeight: 30,
+            minHeight: 30,
+            maxWidth: 50,
+            minWidth: 50,
+          ),
+          disabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: primaryColor[100]!)),
+          enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: primaryColor, width: 2)),
+        ),
+      ),
+    ],
+  );
+}
+

@@ -11,6 +11,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:pgs_edupro/domain/core/network/network_failures.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/course/course_repository.dart';
 import 'package:pgs_edupro/presentation/ui/instructor/instructor_add_course/add_course1.dart';
+import 'package:pgs_edupro/presentation/ui/instructor/instructor_add_course/courses_dropdown.dart';
 
 import '../../infrastructure/remote_data/models/my_course/addcourses.dart';
 import '../../presentation/widgets/app_dialogs.dart';
@@ -33,10 +34,6 @@ class InstructorBloc extends Bloc<InstructorEvent, InstructorState> {
       ));
     });
 
-
-
-
-
     on<_SubmitPressed>((event, emit) async {
       final isTitleValid = state.title != '' ? true : false;
       final isAboutTitleValid = state.aboutTitle != '' ? true : false;
@@ -57,7 +54,7 @@ class InstructorBloc extends Bloc<InstructorEvent, InstructorState> {
           "about_title": state.aboutTitle.text,
           "amount": state.amount.text,
           "duration":state.duration.text,
-          "category": "tgt",
+          "category": categoryaName,
           "url": state.url.text,
           "description":"${state.description.text}<br><br><p>${state.whatYouLearn.text}</p><br><br><p>${state.areThere.text}</p><br><br><p>${state.whoIsThis.text}",
           "course_thumbnail":await MultipartFile.fromFile(imageC!.path, filename: fileName)
