@@ -9,7 +9,7 @@ import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/insistu
 import 'package:pgs_edupro/infrastructure/remote_data/models/my_course/my_courses_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/course/course_repository.dart';
 import 'package:pgs_edupro/presentation/ui/course/widgets/my_course.dart';
-import 'package:pgs_edupro/presentation/ui/institution/instructosrs_of_institution/widgets/view_instructor_details.dart';
+import 'package:pgs_edupro/presentation/ui/institution/instructors_of_institution/widgets/view_instructor_details.dart';
 import 'package:pgs_edupro/presentation/widgets/common_result_empty_widget.dart';
 import 'package:pgs_edupro/presentation/widgets/common_server_error_widget.dart';
 import 'package:flutter/material.dart';

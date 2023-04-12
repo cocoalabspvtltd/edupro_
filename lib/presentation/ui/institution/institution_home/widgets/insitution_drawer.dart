@@ -2,13 +2,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/shared_prefs.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
+import 'package:pgs_edupro/presentation/ui/institution/courses_of_insisitution/add_course_screen.dart';
 import 'package:pgs_edupro/presentation/ui/institution/institution_home/institution_home_screen.dart';
-import 'package:pgs_edupro/presentation/ui/institution/instructosrs_of_institution/add_instructors_screen.dart';
-import 'package:pgs_edupro/presentation/ui/institution/instructosrs_of_institution/instructors_list_screen.dart';
+import 'package:pgs_edupro/presentation/ui/institution/instructors_of_institution/add_instructors_screen.dart';
+import 'package:pgs_edupro/presentation/ui/institution/instructors_of_institution/instructors_list_screen.dart';
 import 'package:pgs_edupro/presentation/ui/institution/students_of_institution/add_students_screen.dart';
-import 'package:pgs_edupro/presentation/ui/institution/students_of_institution/students_list_screen.dart';
 import 'package:pgs_edupro/presentation/ui/institution/students_of_institution/widgets/student_list.dart';
-import 'package:pgs_edupro/presentation/ui/videos/live_videos_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -200,7 +199,7 @@ class InstitutionDrawerWidget extends StatelessWidget {
                         ListTile(
                           title: Text("Add Course"),
                           onTap: () {
-                            //action on press
+                            Get.to(() => AddCoursesScreen());
                           },
                         ),
 
