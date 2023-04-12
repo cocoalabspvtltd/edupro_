@@ -23,7 +23,7 @@ class AddcousresScreenForm extends StatefulWidget {
 class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
   String? fromDate;
   String? toDate;
-    XFile? _image;
+  XFile? _image;
 
   @override
   Widget build(BuildContext context) {
@@ -199,7 +199,7 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
                       IconButton(
                           onPressed: () {
                             _showpicker(context);
-                            },
+                          },
                           icon: Icon(
                             Icons.file_present,
                             color: Colors.grey,

@@ -6,7 +6,8 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
-import 'package:pgs_edupro/presentation/ui/instructor/instructor_add_course/test.dart';
+import 'package:pgs_edupro/presentation/ui/instructor/instructor_add_course/courses_dropdown.dart';
+import 'package:pgs_edupro/presentation/ui/instructor/instructor_add_course/department_dropdown.dart';
 
 class AddStudentsForm extends StatefulWidget {
   const AddStudentsForm({Key? key}) : super(key: key);
@@ -29,7 +30,8 @@ class _AddStudentsFormState extends State<AddStudentsForm> {
   @override
   void initState() {
     super.initState();
-    DesignationDropdown();
+    CoursesDropdown();
+    DepartmentDropdown();
   }
   Widget build(BuildContext context) {
     return  Form(
@@ -125,7 +127,21 @@ class _AddStudentsFormState extends State<AddStudentsForm> {
                 borderRadius:
                 BorderRadius.all(Radius.circular(7.0)),
               ),
-              child: DesignationDropdown()),
+              child: CoursesDropdown()),
+          const SizedBox(height: 10),
+          Text("Courses",style: TextStyle(color: Colors.black,fontSize: 16),),
+          const SizedBox(height: 10),
+          Container(
+              width: screenWidth,
+              height: 45,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.grey,
+                ),
+                borderRadius:
+                BorderRadius.all(Radius.circular(7.0)),
+              ),
+              child: DepartmentDropdown()),
           const SizedBox(height: 10),
           Text("Profile Photo",style: TextStyle(color: Colors.black,fontSize: 16),),
           const SizedBox(height: 10),

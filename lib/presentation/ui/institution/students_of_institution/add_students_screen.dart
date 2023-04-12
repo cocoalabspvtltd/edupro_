@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/presentation/ui/institution/students_of_institution/widgets/add_students_form.dart';
-import 'package:pgs_edupro/presentation/ui/instructor/instructor_add_course/test.dart';
+import 'package:pgs_edupro/presentation/ui/instructor/instructor_add_course/courses_dropdown.dart';
 
 import '../../../../infrastructure/local_data_source/user.dart';
 import 'package:http/http.dart' as http;
