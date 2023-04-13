@@ -119,7 +119,7 @@ class InsistutionCoursesScreen extends StatelessWidget {
                                                   backgroundColor: Colors.blueAccent,
                                                   child: IconButton(
                                                     onPressed: () {
-                                                      Get.to(() => ViewCourseDetailsCreen(
+                                                      Get.to(() => ViewCourseDetailsScreen(
                                                           coursedetails:res.course![index]
                                                       ));
                                                     },

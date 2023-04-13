@@ -69,7 +69,6 @@ class _InstructorDropdownState extends State<InstructorDropdown> {
         child: BlocBuilder<AllCategoriesBloc, AllCategoriesState>(
           builder: (context, state) {
             return
-
               SizedBox(
                   height: screenHeight,
                   child: SingleChildScrollView(
@@ -86,40 +85,33 @@ class _InstructorDropdownState extends State<InstructorDropdown> {
                         InsistutionResponse res = state.response;
                         return res.course != null ||
                             res.course!.isNotEmpty
-                            ?  Column(
-                          children: [
-
-                            DropdownButtonHideUnderline(
-                              child: DropdownButton(
-                                hint: Padding(
-                                  padding: const EdgeInsets.only(left: 0.0),
-                                  child: Text('Select',style: TextStyle(fontWeight: FontWeight.w500,color: Colors.black54),),
+                            ?  Padding(
+                          padding: const EdgeInsets.only(left: 10,right: 10),
+                              child: DropdownButtonHideUnderline(
+                                child: DropdownButton(
+                                  hint: Text('Select',style: TextStyle(fontWeight: FontWeight.w500,color: Colors.black54),),
+                                  items: res.instructors?.map((item) {
+                                    return DropdownMenuItem(
+                                      onTap: (){setState((){
+                                        String? id = item.name;
+                                        instructorName= id.toString();
+                                        print("designatioids->>>>>>${instructorName}");
+                                      });},
+                                      value: item.id.toString(),
+                                      child: Text(item.name.toString()),
+                                    );
+                                  }).toList(),
+                                  onChanged: (newVal) {
+                                    setState(() {
+                                      dropdownvalue = newVal;
+                                      instructorId = dropdownvalue;
+                                      print("categoryaName->>>>>>${dropdownvalue}");
+                                    });
+                                  },
+                                  value: dropdownvalue,
                                 ),
-                                items: res.instructors?.map((item) {
-                                  // int id = Cate["id"];
-                                  //  print("id->>>>>${id}");
-                                  return DropdownMenuItem(
-                                    onTap: (){setState((){
-                                      String? id = item.name;
-                                      instructorName= id.toString();
-                                      print("designatioids->>>>>>${instructorName}");
-                                    });},
-                                    value: item.id.toString(),
-                                    child: Text(item.name.toString()),
-                                  );
-                                }).toList(),
-                                onChanged: (newVal) {
-                                  setState(() {
-                                    dropdownvalue = newVal;
-                                    instructorId = dropdownvalue;
-                                    print("categoryaName->>>>>>${dropdownvalue}");
-                                  });
-                                },
-                                value: dropdownvalue,
                               ),
-                            ),
-                          ],
-                        )
+                            )
                             : SizedBox(
                             height: screenHeight -
                                 180, //!fromHome ? screenHeight : 300,
@@ -151,8 +143,7 @@ class _InstructorDropdownState extends State<InstructorDropdown> {
                               );
                             }),
                             nullData: ((value) => SizedBox(
-                                height:
-                                screenHeight, //!fromHome ? screenHeight : 200,
+                                height: screenHeight, //!fromHome ? screenHeight : 200,
                                 width: screenWidth,
                                 child: const CommonResultsEmptyWidget())),
                             serverTimeOut: (value) {
@@ -178,8 +169,6 @@ class _InstructorDropdownState extends State<InstructorDropdown> {
                       loadMoreInProgress: (LoadMoreInProgress value) =>
                           Container(),
                     ),
-
-
                   ));},
         ),
 
