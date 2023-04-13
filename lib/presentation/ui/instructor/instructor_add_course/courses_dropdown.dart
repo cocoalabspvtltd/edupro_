@@ -92,7 +92,6 @@ class _CoursesDropdownState extends State<CoursesDropdown> {
                             res.course!.isNotEmpty
                             ?  Column(
                           children: [
-
                               DropdownButtonHideUnderline(
                               child: DropdownButton(
                                 hint: Padding(
