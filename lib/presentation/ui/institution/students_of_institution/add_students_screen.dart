@@ -1,15 +1,9 @@
-import 'dart:io';
-import 'package:date_field/date_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:get/get.dart';
-import 'package:image_picker/image_picker.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pgs_edupro/application/insistutionStudent/insiistution_student_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/repositories/course/course_repository.dart';
 import 'package:pgs_edupro/presentation/ui/institution/students_of_institution/widgets/add_students_form.dart';
-import 'package:pgs_edupro/presentation/ui/instructor/instructor_add_course/courses_dropdown.dart';
-
-import '../../../../infrastructure/local_data_source/user.dart';
-import 'package:http/http.dart' as http;
 
 class AddStudentScreen extends StatefulWidget {
   final GlobalKey<FormState>? formKey;
@@ -26,35 +20,15 @@ class _AddStudentScreenState extends State<AddStudentScreen> {
         appBar: AppBar(
           backgroundColor: Colors.black,
           title: Text(
-            "Add students",
+            "Add Students",
             style: boldValuePrimaryColor,
           ),
         ),
-        body: SizedBox(
-          height: screenHeight,
-          width: screenWidth,
+        body:
+        BlocProvider(create: (_)=>InsiistutionStudentBloc(CourseRepository()),
           child: SingleChildScrollView(
-            child: Column(
-              children: [
-                const SizedBox(
-                  height: 25,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 15),
-                  child: Align(
-                    alignment: AlignmentDirectional.topStart,
-                    child: Text(
-                      "Student Details",
-                      style:
-                      TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
-                AddStudentsForm()
-              ],
-            ),
-          ),
-        ));
+              child: AddStudentsForm()),)
+    );
   }
 
 }
