@@ -23,4 +23,5 @@ abstract class ICourseRepository {
   Future<Either<NetworkFailure, InsistutionResponse>> getInsistutionCategories(String userId);
   Future<Either<NetworkFailure, ClassListResponse>> getClassList(String userId);
   Future<Either<NetworkFailure, DeletionResponse>> getDeletion();
+  Future<Either<NetworkFailure, DeletionResponse>> classDeletion();
 }

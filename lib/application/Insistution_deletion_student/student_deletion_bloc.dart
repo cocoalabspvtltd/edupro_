@@ -22,8 +22,8 @@ class StudentDeletionBloc extends Bloc<StudentDeletionEvent, StudentDeletionStat
       failureOrSuccess = await deletionStudentRepository.getDeletion();
       Fluttertoast.showToast(msg:"Deleted Successfully");
 
-
     });
+
 
 
   }
