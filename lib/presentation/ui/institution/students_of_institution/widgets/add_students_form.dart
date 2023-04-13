@@ -90,6 +90,17 @@ class _AddStudentsFormState extends State<AddStudentsForm> {
             padding:
             const EdgeInsets.only(left: 15, right: 15, bottom: 15),
             children: <Widget>[
+              const SizedBox(
+                height: 25,
+              ),
+              Align(
+                alignment: AlignmentDirectional.topStart,
+                child: Text(
+                  "Student Details",
+                  style:
+                  TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+              ),
               SizedBox(height: screenHeight * .02),
               _textForm(
                   state.name,
@@ -98,9 +109,10 @@ class _AddStudentsFormState extends State<AddStudentsForm> {
                       .add(InsiistutionStudentEvent.name(v)),
                   null,
                   "Name",
-                  'assets/icons/profile_icons/location.png',
+                  true,
                   TextInputType.streetAddress,
-                  maxLine: 2),
+                  maxLine: 1,
+              hint: "Name"),
               thickSpace,
               _textForm(
                   state.email,
@@ -109,9 +121,9 @@ class _AddStudentsFormState extends State<AddStudentsForm> {
                       .add(InsiistutionStudentEvent.emailChanged(v)),
                   null,
                   "Email",
-                  'assets/icons/profile_icons/location.png',
+                  true,
                   TextInputType.streetAddress,
-                  maxLine: 2),
+                  maxLine: 1, hint: "Email"),
               thickSpace,
               _textForm(
                   state.mobile,
@@ -120,9 +132,10 @@ class _AddStudentsFormState extends State<AddStudentsForm> {
                       .add(InsiistutionStudentEvent.mobileChanged(v)),
                   null,
                   "Mobile",
-                  'assets/icons/profile_icons/location.png',
+                  true,
                   TextInputType.phone,
-                  maxLine: 2),
+                  maxLine: 1,
+                  hint: "Mobile"),
               thickSpace,
               _textForm(
                   state.addtionalmobile,
@@ -130,10 +143,11 @@ class _AddStudentsFormState extends State<AddStudentsForm> {
                       .read<InsiistutionStudentBloc>()
                       .add(InsiistutionStudentEvent.additionalNumChanged(v)),
                   null,
-                  "Add Number",
-                  'assets/icons/profile_icons/location.png',
+                  "Additional mobile",
+                  true,
                   TextInputType.phone,
-                  maxLine: 2),
+                  maxLine: 1,
+                  hint: "Additional mobile"),
               thickSpace,
               _textForm(
                   state.address,
@@ -142,9 +156,9 @@ class _AddStudentsFormState extends State<AddStudentsForm> {
                       .add(InsiistutionStudentEvent.addressChanged(v)),
                   null,
                   "Address",
-                  'assets/icons/profile_icons/location.png',
+                 true,
                   TextInputType.streetAddress,
-                  maxLine: 2),
+                  maxLine: 1, hint: "Address"),
               thickSpace,
               Text(
                 "Date of Birth",
@@ -156,16 +170,9 @@ class _AddStudentsFormState extends State<AddStudentsForm> {
                     fontWeight: FontWeight.w600, fontSize: 15),
                 //dateFormat: DateFormat.yMd(),
                 decoration: InputDecoration(
+                  hintText: "Date of birth",
                   fillColor: primaryColor[100],
-                  prefixIcon: Image.asset(
-                      'assets/icons/profile_icons/calender_theme.png'),
-                  prefixIconConstraints: const BoxConstraints(
-                    maxHeight: 30,
-                    minHeight: 30,
-                    maxWidth: 50,
-                    minWidth: 50,
-                  ),
-                  hintStyle: TextStyle(color: primaryColor[200]),
+                  suffixIcon: Icon(Icons.calendar_month,color: Colors.grey,),
                   border: const OutlineInputBorder(),
                   // suffixIcon: const Icon(Icons.event_note),
                 ), mode: DateTimeFieldPickerMode.date,
@@ -194,7 +201,7 @@ class _AddStudentsFormState extends State<AddStudentsForm> {
                   ),
                   child: CoursesDropdown()),
               const SizedBox(height: 10),
-              Text("Courses",style: TextStyle(color: Colors.black,fontSize: 16),),
+              Text("Department",style: TextStyle(color: Colors.black,fontSize: 16),),
               const SizedBox(height: 10),
               Container(
                   width: screenWidth,
@@ -373,7 +380,7 @@ Widget _textForm(
     onChanged,
     validator,
     String label,
-    String prefixIconAssetPath,
+    bool editable,
     TextInputType keyboardType, {
       List<TextInputFormatter>? formatter,
       String? hint,
@@ -384,11 +391,11 @@ Widget _textForm(
     children: [
       Text(
         label,
-        style: boldValue,
+        style: TextStyle(color: Colors.black, fontSize: 16),
       ),
       thickSpace,
       TextFormField(
-
+        enabled: editable,
         controller: controller,
         maxLines: maxLine,
         onChanged: onChanged,
@@ -398,21 +405,17 @@ Widget _textForm(
         style: const TextStyle(
             fontWeight: FontWeight.w500, color: Colors.black87),
         decoration: InputDecoration(
+          contentPadding: EdgeInsets.all(10.0),
           hintText: hint,
-          hintStyle: TextStyle(color: primaryColor[200]),
+          hintStyle: TextStyle(color: Colors.black54),
           //filled: true,
           fillColor: primaryColor[100],
-
-          prefixIconConstraints: const BoxConstraints(
-            maxHeight: 30,
-            minHeight: 30,
-            maxWidth: 50,
-            minWidth: 50,
-          ),
           disabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: primaryColor[100]!)),
+              borderRadius: BorderRadius.circular(10.0),
+              borderSide: BorderSide(color: Colors.grey)),
           enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: primaryColor, width: 2)),
+              borderRadius: BorderRadius.circular(10.0),
+              borderSide: BorderSide(color: Colors.grey, width: 1)),
         ),
       ),
     ],

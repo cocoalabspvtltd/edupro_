@@ -2,6 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/shared_prefs.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
+import 'package:pgs_edupro/presentation/ui/institution/classes_of_institution/add_classes_screen.dart';
+import 'package:pgs_edupro/presentation/ui/institution/classes_of_institution/classes_list_screen.dart';
 import 'package:pgs_edupro/presentation/ui/institution/courses_of_insisitution/add_course_screen.dart';
 import 'package:pgs_edupro/presentation/ui/institution/institution_home/institution_home_screen.dart';
 import 'package:pgs_edupro/presentation/ui/institution/instructors_of_institution/add_instructors_screen.dart';
@@ -12,7 +14,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../courses_of_insisitution/courses_list.dart';
-import '../../students_of_institution/widgets/add_Student_first_screen.dart';
 
 class InstitutionDrawerWidget extends StatelessWidget {
   final BuildContext context;
@@ -161,12 +162,15 @@ class InstitutionDrawerWidget extends StatelessWidget {
                       children: [
                         ListTile(
                           title: Text("Class list"),
-                          onTap: () {},
+                          onTap: () {
+                            Get.to(() => InsistutionClassesListScreen());
+
+                          },
                         ),
                         ListTile(
                           title: Text("Add class"),
                           onTap: () {
-                            //action on press
+                            Get.to(() => AddClassesScreen());
                           },
                         ),
                         //more child menu
@@ -262,7 +266,7 @@ class InstitutionDrawerWidget extends StatelessWidget {
                           Get.to(() => InsistutionCategoryScreen());
                         }),
                         _drawerMenuItem1('Add Students', () {
-                          Get.to(() => StudentAddCourse());
+                          Get.to(() => AddStudentScreen());
                         }),
                         //more child menu
                       ],
