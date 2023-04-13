@@ -15,6 +15,8 @@ import 'package:pgs_edupro/presentation/ui/instructor/instructor_add_course/cour
 import 'package:pgs_edupro/presentation/ui/instructor/instructor_add_course/department_dropdown.dart';
 import 'package:pgs_edupro/presentation/ui/instructor/instructor_add_course/instructor_dropdown.dart';
 
+import '../../infrastructure/remote_data/models/insiistution_adding_responses/institution_class_response.dart';
+
 part 'institution_class_event.dart';
 part 'institution_class_state.dart';
 part 'institution_class_bloc.freezed.dart';

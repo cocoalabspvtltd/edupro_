@@ -197,6 +197,7 @@ class InsistutionInstructorListScreen extends StatelessWidget {
                             width: screenWidth,
                             child: const CommonResultsEmptyWidget());
                       },
+
                       loadFailure: (state) {
                         return state.networkFailure.map(
                             unexpected: ((value) {

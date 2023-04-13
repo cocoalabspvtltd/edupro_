@@ -25,5 +25,6 @@ class AllCategoriesBloc extends Bloc<AllCategoriesEvent, AllCategoriesState> {
       failureOrSuccess.fold((l) => emit(AllCategoriesState.loadFailure(l)),
               (r) => emit(AllCategoriesState.loadSuccess(r)));
     });
+
   }
 }
