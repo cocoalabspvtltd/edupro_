@@ -162,6 +162,7 @@ class _AddClassesFormState extends State<AddClassesForm> {
                     BorderRadius.all(Radius.circular(7.0)),
                   ),
                   child: DepartmentDropdown()),
+              const SizedBox(height: 10),
               Text("Instructor",style: TextStyle(color: Colors.black,fontSize: 16),),
               const SizedBox(height: 10),
               Container(

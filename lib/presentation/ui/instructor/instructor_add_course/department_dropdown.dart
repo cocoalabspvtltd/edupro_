@@ -89,40 +89,35 @@ class _DepartmentDropdownState extends State<DepartmentDropdown> {
                         InsistutionResponse res = state.response;
                         return res.category!= null ||
                             res.category!.isNotEmpty
-                            ?  Column(
-                          children: [
+                            ?  Padding(
+                          padding: const EdgeInsets.only(left: 10,right: 10),
+                              child: DropdownButtonHideUnderline(
+                                child: DropdownButton(
+                                  hint: Text('Select',style: TextStyle(fontWeight: FontWeight.w500,color: Colors.black54),),
+                                  items: res.category?.map((item) {
+                                    // int id = Cate["id"];
+                                    //  print("id->>>>>${id}");
+                                    return DropdownMenuItem(
+                                      onTap: (){setState((){
+                                        String? id = item.name;
 
-                            DropdownButtonHideUnderline(
-                              child: DropdownButton(
-                                hint: Padding(
-                                  padding: const EdgeInsets.only(left: 0.0),
-                                  child: Text('Select',style: TextStyle(fontWeight: FontWeight.w500,color: Colors.black54),),
+                                        departmentName= id.toString();
+                                        //print("designatioids->>>>>>${categoryId}");
+                                      });},
+                                      value: item.id.toString(),
+                                      child: Text(item.name.toString()),
+                                    );
+                                  }).toList(),
+                                  onChanged: (newVal) {
+                                    setState(() {
+                                      dropdownvalue = newVal;
+                                      departmentId= dropdownvalue;
+                                    });
+                                  },
+                                  value: dropdownvalue,
                                 ),
-                                items: res.category?.map((item) {
-                                  // int id = Cate["id"];
-                                  //  print("id->>>>>${id}");
-                                  return DropdownMenuItem(
-                                    onTap: (){setState((){
-                                      String? id = item.name;
-
-                                      departmentName= id.toString();
-                                      //print("designatioids->>>>>>${categoryId}");
-                                    });},
-                                    value: item.id.toString(),
-                                    child: Text(item.name.toString()),
-                                  );
-                                }).toList(),
-                                onChanged: (newVal) {
-                                  setState(() {
-                                    dropdownvalue = newVal;
-                                    departmentId= dropdownvalue;
-                                  });
-                                },
-                                value: dropdownvalue,
                               ),
-                            ),
-                          ],
-                        )
+                            )
                             : SizedBox(
                             height: screenHeight -
                                 180, //!fromHome ? screenHeight : 300,

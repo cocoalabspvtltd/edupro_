@@ -6,16 +6,16 @@ import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/insistutionResponse.dart';
 import 'package:pgs_edupro/presentation/widgets/youtube_player_widget.dart';
 
-class ViewCourseDetailsCreen extends StatefulWidget {
+class ViewCourseDetailsScreen extends StatefulWidget {
   final Course coursedetails;
-  const ViewCourseDetailsCreen({super.key, required this.coursedetails});
+  const ViewCourseDetailsScreen({super.key, required this.coursedetails});
 
   @override
-  State<ViewCourseDetailsCreen> createState() =>
-      _ViewCourseDetailsCreenState();
+  State<ViewCourseDetailsScreen> createState() =>
+      _ViewCourseDetailsScreenState();
 }
 
-class _ViewCourseDetailsCreenState extends State<ViewCourseDetailsCreen> {
+class _ViewCourseDetailsScreenState extends State<ViewCourseDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

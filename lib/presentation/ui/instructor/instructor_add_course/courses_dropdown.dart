@@ -90,14 +90,11 @@ class _CoursesDropdownState extends State<CoursesDropdown> {
                         InsistutionResponse res = state.response;
                         return res.course != null ||
                             res.course!.isNotEmpty
-                            ?  Column(
-                          children: [
-                              DropdownButtonHideUnderline(
+                            ?  Padding(
+                              padding: const EdgeInsets.only(left: 10,right: 10),
+                              child: DropdownButtonHideUnderline(
                               child: DropdownButton(
-                                hint: Padding(
-                                  padding: const EdgeInsets.only(left: 0.0),
-                                  child: Text('Select',style: TextStyle(fontWeight: FontWeight.w500,color: Colors.black54),),
-                                ),
+                                hint: Text('Select',style: TextStyle(fontWeight: FontWeight.w500,color: Colors.black54),),
                                 items: res.course?.map((item) {
                                   // int id = Cate["id"];
                                  //  print("id->>>>>${id}");
@@ -120,9 +117,8 @@ class _CoursesDropdownState extends State<CoursesDropdown> {
                                 },
                                 value: dropdownvalue,
                               ),
-                            ),
-                          ],
-                        )
+                              ),
+                            )
                             : SizedBox(
                             height: screenHeight -
                                 180, //!fromHome ? screenHeight : 300,

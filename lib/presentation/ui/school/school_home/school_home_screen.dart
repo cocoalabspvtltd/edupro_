@@ -14,21 +14,22 @@ import 'package:pgs_edupro/infrastructure/remote_data/repositories/course/course
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/profile/profile_repository.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/videos/video_repository.dart';
 import 'package:pgs_edupro/presentation/ui/institution/courses_of_insisitution/courses_list.dart';
-import 'package:pgs_edupro/presentation/ui/institution/institution_home/widgets/insitution_drawer.dart';
 import 'package:pgs_edupro/presentation/ui/institution/institution_home/widgets/insitution_home_body.dart';
-import 'package:pgs_edupro/presentation/ui/institution/institution_home/widgets/institution_menu_button.dart';
 import 'package:pgs_edupro/presentation/ui/profile/profile_screen.dart';
+import 'package:pgs_edupro/presentation/ui/school/school_home/widgets/school_menu_button.dart';
+
+import 'widgets/school_drawer.dart';
 
 
-class InstitutionHomeScreen extends StatefulWidget {
+class SchoolHomeScreen extends StatefulWidget {
   final int selectedIndex;
-  const InstitutionHomeScreen({super.key, this.selectedIndex = 0});
+  const SchoolHomeScreen({super.key, this.selectedIndex = 0});
 
   @override
-  State<InstitutionHomeScreen> createState() => _InstitutionHomeScreenState();
+  State<SchoolHomeScreen> createState() => _SchoolHomeScreenState();
 }
 
-class _InstitutionHomeScreenState extends State<InstitutionHomeScreen> {
+class _SchoolHomeScreenState extends State<SchoolHomeScreen> {
   DateTime? currentBackPressTime;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   late int _selectedIndex;
@@ -90,45 +91,45 @@ class _InstitutionHomeScreenState extends State<InstitutionHomeScreen> {
             title[_selectedIndex],
             style: appBarText,
           ),
-          leading: InstitutionMenuSwitch(_scaffoldKey),
+          leading: SchoolMenuSwitch(_scaffoldKey),
           leadingWidth: 38,
         ),
-        drawer: InstitutionDrawerWidget(
+        drawer: SchoolDrawerWidget(
           context: context,
           scaffoldKey: _scaffoldKey,
         ),
         body: WillPopScope(
-            onWillPop: () {
-              DateTime now = DateTime.now();
-              if (currentBackPressTime == null ||
-                  now.difference(currentBackPressTime!) >
-                      Duration(seconds: 2)) {
-                currentBackPressTime = now;
-                Text("Double press back to exit");
-                return Future.value(false);
-              }
-              return Future.value(true);
-            },
-            child:  PageView(
-                controller: _pageController,
-                onPageChanged: (index) {
-                  setState(() => _selectedIndex = index);
-                },
-                children:[
-                  InstitutionHomeBody(),
-                  InsistutionCoursesScreen(),
-                  ProfileScreen(),
-                ]
-            ),
-            // _selectedIndex == 3
-            //     ? Text("Profile")
-            //     :_selectedIndex == 2
-            //     ? Text("Library")
-            //     : _selectedIndex == 1
-            //     ? Text("Course")
-            //     : _selectedIndex == 0
-            //     ? InstitutionHomeBody()
-            //     : Center(child: Text("hai"))
+          onWillPop: () {
+            DateTime now = DateTime.now();
+            if (currentBackPressTime == null ||
+                now.difference(currentBackPressTime!) >
+                    Duration(seconds: 2)) {
+              currentBackPressTime = now;
+              Text("Double press back to exit");
+              return Future.value(false);
+            }
+            return Future.value(true);
+          },
+          child:  PageView(
+              controller: _pageController,
+              onPageChanged: (index) {
+                setState(() => _selectedIndex = index);
+              },
+              children:[
+                InstitutionHomeBody(),
+                InsistutionCoursesScreen(),
+                ProfileScreen(),
+              ]
+          ),
+          // _selectedIndex == 3
+          //     ? Text("Profile")
+          //     :_selectedIndex == 2
+          //     ? Text("Library")
+          //     : _selectedIndex == 1
+          //     ? Text("Course")
+          //     : _selectedIndex == 0
+          //     ? InstitutionHomeBody()
+          //     : Center(child: Text("hai"))
         ),
         bottomNavigationBar: BottomNavyBar(
             backgroundColor: Colors.black,
