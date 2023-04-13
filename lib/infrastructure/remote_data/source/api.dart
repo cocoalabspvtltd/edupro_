@@ -33,4 +33,5 @@ class Api {
   ////////////////////////////////////////INSISTUTION//////////////////////////
   static String insistutionCategoriesList = "api/course_list";
   static String insistutionStudentadd = "api/create_students";
+  static String insistutionClassList = 'api/institution/class_list';
 }

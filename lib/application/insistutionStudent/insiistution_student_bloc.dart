@@ -8,7 +8,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../domain/core/network/network_failures.dart';
-import '../../infrastructure/remote_data/insiistution_adding_responses/insistution_student_response.dart';
+
+import '../../infrastructure/remote_data/models/insiistution_adding_responses/insistution_student_response.dart';
 import '../../infrastructure/remote_data/repositories/course/course_repository.dart';
 import '../../presentation/ui/institution/students_of_institution/widgets/add_students_form.dart';
 import '../../presentation/ui/instructor/instructor_add_course/courses_dropdown.dart';
