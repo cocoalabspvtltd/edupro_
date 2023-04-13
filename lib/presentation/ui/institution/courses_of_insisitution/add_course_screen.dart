@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pgs_edupro/application/institution_course/institution_course_bloc.dart';
 
 import 'package:pgs_edupro/domain/core/constants.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/repositories/course/course_repository.dart';
 import 'package:pgs_edupro/presentation/ui/institution/courses_of_insisitution/widgets/add_course_form.dart';
 import 'package:pgs_edupro/presentation/ui/institution/students_of_institution/widgets/add_students_form.dart';
 
@@ -25,9 +28,12 @@ class _AddCoursesScreenState extends State<AddCoursesScreen> {
             style: boldValuePrimaryColor,
           ),
         ),
-        body: SingleChildScrollView(
-          child: AddCoursesForm()
-        ));
+        body:
+        BlocProvider(create: (_)=>InstitutionCourseBloc(CourseRepository()),
+          child: SingleChildScrollView(
+              child: AddCoursesForm()),
+        )
+    );
   }
 
 }

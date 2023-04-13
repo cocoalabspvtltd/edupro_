@@ -8,6 +8,8 @@ import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/count.d
 import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/insistutionResponse.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/my_course/my_courses_response.dart';
 
+import '../../infrastructure/remote_data/models/insistution/deletion_response.dart';
+
 abstract class ICourseRepository {
   Future<Either<NetworkFailure, CourseCategoriesResponse>>
       getCourseCategories();
@@ -20,4 +22,5 @@ abstract class ICourseRepository {
   Future<Either<NetworkFailure, CountResponse>> getCountCourses(String userId);
   Future<Either<NetworkFailure, InsistutionResponse>> getInsistutionCategories(String userId);
   Future<Either<NetworkFailure, ClassListResponse>> getClassList(String userId);
+  Future<Either<NetworkFailure, DeletionResponse>> getDeletion(String userId);
 }

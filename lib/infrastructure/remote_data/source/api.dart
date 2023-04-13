@@ -30,8 +30,10 @@ class Api {
   ///////////////////////////////////////////////////INSTRUCTOR//////////////////////////////////////
   static String addCourses = "api/instructor/add_course";
   static String addInstructors = "api/create_instructor";
+  static String addCoursesInstitution="api/institution/add_course";
   ////////////////////////////////////////INSISTUTION//////////////////////////
   static String insistutionCategoriesList = "api/course_list";
   static String insistutionStudentadd = "api/create_students";
   static String insistutionClassList = 'api/institution/class_list';
+  static String deletionStudent = 'api/delete_student';
 }
