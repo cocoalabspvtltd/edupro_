@@ -6,19 +6,19 @@ import 'package:pgs_edupro/domain/core/network/network_failures.dart';
 import 'package:pgs_edupro/domain/course/i_course_repository.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/deletion_response.dart';
 
-part 'instructor_deletion_event.dart';
-part 'instructor_deletion_state.dart';
-part 'instructor_deletion_bloc.freezed.dart';
+part 'course_deletion_event.dart';
+part 'course_deletion_state.dart';
+part 'course_deletion_bloc.freezed.dart';
 
-class InstructorDeletionBloc extends Bloc<InstructorDeletionEvent, InstructorDeletionState> {
-  final ICourseRepository deletionInstructorRepository;
+class CourseDeletionBloc extends Bloc<CourseDeletionEvent, CourseDeletionState> {
+  final ICourseRepository deletionCourseRepository;
 
-  InstructorDeletionBloc(this.deletionInstructorRepository) : super(InstructorDeletionState.initial()) {
+  CourseDeletionBloc(this.deletionCourseRepository) : super(CourseDeletionState.initial()) {
 
 
     on<_SaveAndUpdatePressed>((event, emit) async {
       Either<NetworkFailure, DeletionResponse>? failureOrSuccess;
-      failureOrSuccess = await deletionInstructorRepository.instructorDeletion();
+      failureOrSuccess = await deletionCourseRepository.courseDeletion();
       Fluttertoast.showToast(msg:"Deleted Successfully");
 
     });

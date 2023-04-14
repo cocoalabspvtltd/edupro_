@@ -17,6 +17,7 @@ import 'package:pgs_edupro/presentation/ui/institution/courses_of_insisitution/c
 import 'package:pgs_edupro/presentation/ui/institution/institution_home/widgets/insitution_drawer.dart';
 import 'package:pgs_edupro/presentation/ui/institution/institution_home/widgets/insitution_home_body.dart';
 import 'package:pgs_edupro/presentation/ui/institution/institution_home/widgets/institution_menu_button.dart';
+import 'package:pgs_edupro/presentation/ui/institution/institution_home/widgets/mycourse_institution.dart';
 import 'package:pgs_edupro/presentation/ui/profile/profile_screen.dart';
 
 
@@ -116,7 +117,7 @@ class _InstitutionHomeScreenState extends State<InstitutionHomeScreen> {
                 },
                 children:[
                   InstitutionHomeBody(),
-                  InsistutionCoursesScreen(),
+                  InstitutionMyCoursesScreen(),
                   ProfileScreen(),
                 ]
             ),

@@ -1,18 +1,17 @@
 
 import 'package:get/get.dart';
 import 'package:pgs_edupro/application/Insistution_student_course_instructor/all_categories_bloc.dart';
+import 'package:pgs_edupro/application/institution_deletion_course/course_deletion_bloc.dart';
 
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/insistutionResponse.dart';
-import 'package:pgs_edupro/infrastructure/remote_data/models/my_course/my_courses_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/course/course_repository.dart';
-import 'package:pgs_edupro/presentation/ui/course/widgets/my_course.dart';
 import 'package:pgs_edupro/presentation/ui/institution/courses_of_insisitution/widgets/view_course_details.dart';
 import 'package:pgs_edupro/presentation/widgets/common_result_empty_widget.dart';
 import 'package:pgs_edupro/presentation/widgets/common_server_error_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+String course_id ='';
 class InsistutionCoursesScreen extends StatelessWidget {
   final bool fromHome;
   const InsistutionCoursesScreen({super.key, this.fromHome = true});
@@ -27,10 +26,18 @@ class InsistutionCoursesScreen extends StatelessWidget {
           style: boldValuePrimaryColor,
         ),
       ),
-      body: BlocProvider(
+      body: MultiBlocProvider(
+  providers: [
+    BlocProvider(
         create: (_) => AllCategoriesBloc(CourseRepository())
           ..add(const AllCategoriesEvent.loadMyCourses()),
-        child: Scaffold(
+),
+    BlocProvider(
+      create: (_) => CourseDeletionBloc(CourseRepository())
+        ..add( CourseDeletionEvent.saveAndUpdatePressed()),
+    ),
+  ],
+  child: Scaffold(
           body: BlocBuilder<AllCategoriesBloc, AllCategoriesState>(
             builder: (context, state) {
               return RefreshIndicator(
@@ -133,7 +140,14 @@ class InsistutionCoursesScreen extends StatelessWidget {
                                                   backgroundColor: Colors.red,
                                                   child: IconButton(
                                                     onPressed: () {
-
+                                                      course_id= res.course![index].id!.toString();
+                                                      context
+                                                          .read<
+                                                          CourseDeletionBloc>()
+                                                          .add(
+                                                          CourseDeletionEvent
+                                                              .saveAndUpdatePressed(
+                                                          ));
                                                     },
                                                     icon: const Icon(Icons.delete,
                                                       color: Colors.white, size: 15,),
@@ -212,7 +226,7 @@ class InsistutionCoursesScreen extends StatelessWidget {
             },
           ),
         ),
-      ),
+),
     );
   }
 }

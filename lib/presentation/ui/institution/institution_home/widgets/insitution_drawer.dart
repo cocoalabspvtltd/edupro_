@@ -197,7 +197,7 @@ class InstitutionDrawerWidget extends StatelessWidget {
                           EdgeInsets.only(left: 60), //children padding
                       children: [
                         ListTile(
-                          title: Text("My Courses"),
+                          title: Text("Courses list"),
                           onTap: () { Get.to(() => InsistutionCoursesScreen());},
                         ),
 

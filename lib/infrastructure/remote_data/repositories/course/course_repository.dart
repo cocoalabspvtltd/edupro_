@@ -18,6 +18,8 @@ import 'package:pgs_edupro/infrastructure/remote_data/models/my_course/addcourse
 import 'package:pgs_edupro/infrastructure/remote_data/models/my_course/my_courses_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/source/api.dart';
 import 'package:pgs_edupro/presentation/ui/institution/classes_of_institution/classes_list_screen.dart';
+import 'package:pgs_edupro/presentation/ui/institution/courses_of_insisitution/courses_list.dart';
+import 'package:pgs_edupro/presentation/ui/institution/instructors_of_institution/instructors_list_screen.dart';
 import 'package:pgs_edupro/presentation/ui/institution/students_of_institution/student_list_screen.dart';
 import '../../models/insiistution_adding_responses/insistution_student_response.dart';
 import '../../models/insiistution_adding_responses/institution_class_response.dart';
@@ -465,30 +467,59 @@ print("response->${response.data}");
     }
   }
 
-  // @override
-  // Future<Either<NetworkFailure, DeletionResponse>> instructorDeletion(
-  //     ) async {
-  //
-  //   try {
-  //     Response response = await apiClient!
-  //         .getJsonInstance()
-  //         .post(Api.deletionClass, data: {"class_id":classid});
-  //     print("response->${response.data}");
-  //     return right(DeletionResponse.fromJson(response.data));
-  //   } on DioError catch (e) {
-  //     if (e.response != null) {
-  //       if (e.response!.statusCode == 401) {
-  //         return left(
-  //             NetworkFailure.unAuthorized(e.response!.data["message"] ?? ''));
-  //       }
-  //       return left(NetworkFailure.serverError(
-  //           "Status Code ${e.response!.statusCode}"));
-  //     } else if (e.toString().contains('Connecting timed out')) {
-  //       return left(const NetworkFailure.serverTimeOut());
-  //     }
-  //     return left(const NetworkFailure.unexpected());
-  //   } catch (e) {
-  //     return left(const NetworkFailure.unexpected());
-  //   }
-  // }
+  @override
+  Future<Either<NetworkFailure, DeletionResponse>> instructorDeletion(
+      ) async {
+
+    try {
+      Response response = await apiClient!
+          .getJsonInstance()
+          .post(Api.deletionInstructor, data: {"email":InstructorEmail});
+      print("response->${response.data}");
+      return right(DeletionResponse.fromJson(response.data));
+    } on DioError catch (e) {
+      if (e.response != null) {
+        if (e.response!.statusCode == 401) {
+          return left(
+              NetworkFailure.unAuthorized(e.response!.data["message"] ?? ''));
+        }
+        return left(NetworkFailure.serverError(
+            "Status Code ${e.response!.statusCode}"));
+      } else if (e.toString().contains('Connecting timed out')) {
+        return left(const NetworkFailure.serverTimeOut());
+      }
+      return left(const NetworkFailure.unexpected());
+    } catch (e) {
+      return left(const NetworkFailure.unexpected());
+    }
+  }
+
+  @override
+  Future<Either<NetworkFailure, DeletionResponse>> courseDeletion(
+      ) async {
+
+    try {
+      Response response = await apiClient!
+          .getJsonInstance()
+          .post(Api.deletionCourse, data: {"course_id":course_id});
+      print("response->${response.data}");
+      return right(DeletionResponse.fromJson(response.data));
+    } on DioError catch (e) {
+      if (e.response != null) {
+        if (e.response!.statusCode == 401) {
+          return left(
+              NetworkFailure.unAuthorized(e.response!.data["message"] ?? ''));
+        }
+        return left(NetworkFailure.serverError(
+            "Status Code ${e.response!.statusCode}"));
+      } else if (e.toString().contains('Connecting timed out')) {
+        return left(const NetworkFailure.serverTimeOut());
+      }
+      return left(const NetworkFailure.unexpected());
+    } catch (e) {
+      return left(const NetworkFailure.unexpected());
+    }
+  }
 }
+
+
