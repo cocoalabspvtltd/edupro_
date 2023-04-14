@@ -84,6 +84,7 @@ class _LogInFormState extends State<LogInForm> {
       builder: (context, state) {
         return BlocConsumer<LogInBloc, LogInState>(
           listener: (context, state) {
+            print("-/>>>>>>>>${state.userStatus}");
             state.authFailureOrSuccessOption.fold(
               () {},
               (either) {
@@ -117,6 +118,10 @@ class _LogInFormState extends State<LogInForm> {
                       return;
                     }
                     if(state.userStatus == "institution"){
+                      Get.offAll(() =>  const InstitutionHomeScreen());
+                      return;
+                    }
+                    if(state.userStatus == "school"){
                       Get.offAll(() =>  const InstitutionHomeScreen());
                       return;
                     }

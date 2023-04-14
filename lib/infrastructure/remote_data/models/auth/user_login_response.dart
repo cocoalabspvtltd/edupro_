@@ -6,6 +6,7 @@ class UserLogInResponse {
   UserDetails? user;
   Instructor? instructor;
   Institution? institution;
+  School? school;
   String? token;
 
   UserLogInResponse(
@@ -16,6 +17,7 @@ class UserLogInResponse {
         this.user,
         this.instructor,
         this.institution,
+        this.school,
         this.token});
 
   UserLogInResponse.fromJson(Map<String, dynamic> json) {
@@ -26,6 +28,9 @@ class UserLogInResponse {
     user = json['user'] != null ? new UserDetails.fromJson(json['user']) : null;
     instructor = json['instructor'] != null
         ? new Instructor.fromJson(json['instructor'])
+        : null;
+    institution = json['institution'] != null
+        ? new Institution.fromJson(json['institution'])
         : null;
     institution = json['institution'] != null
         ? new Institution.fromJson(json['institution'])
@@ -207,6 +212,54 @@ class Institution {
         this.updatedAt});
 
   Institution.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+    email = json['email'];
+    code = json['code'];
+    address = json['address'];
+    contactNumber = json['contact_number'];
+    image = json['image'];
+    createdAt = json['created_at'];
+    updatedAt = json['updated_at'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['name'] = this.name;
+    data['email'] = this.email;
+    data['code'] = this.code;
+    data['address'] = this.address;
+    data['contact_number'] = this.contactNumber;
+    data['image'] = this.image;
+    data['created_at'] = this.createdAt;
+    data['updated_at'] = this.updatedAt;
+    return data;
+  }
+}
+class School {
+  int? id;
+  String? name;
+  String? email;
+  String? code;
+  String? address;
+  String? contactNumber;
+  String? image;
+  String? createdAt;
+  String? updatedAt;
+
+  School(
+      {this.id,
+        this.name,
+        this.email,
+        this.code,
+        this.address,
+        this.contactNumber,
+        this.image,
+        this.createdAt,
+        this.updatedAt});
+
+  School.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     email = json['email'];

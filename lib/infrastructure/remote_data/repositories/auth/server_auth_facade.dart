@@ -286,9 +286,11 @@ class ServerAuthFacade implements IAuthFacade {
             response.data['message'] == 'Loggined Successfully') {
 
           final r = UserLogInResponse.fromJson(response.data);
-
+          print("school=>>>>>>>>>${response.data["school"]}");
           try {
+
             await SharedPrefs.logIn(r);
+
             if (response.data["type"]== "instructor") {
               log(("instructor->${r.token}"));
               UserDetailsLocal.set(
@@ -300,6 +302,7 @@ class ServerAuthFacade implements IAuthFacade {
               );
             }
             else if(response.data["type"]== "institution"){
+              log("{hg->}");
               UserDetailsLocal.set(
                 r.token!,
                 r.institution!.id.toString(),
@@ -308,7 +311,19 @@ class ServerAuthFacade implements IAuthFacade {
                 "","","","",
               );
             }
+            else if(response.data["type"]== "school"){
+              log("{hg->>${r.school}");
+              print("=>>>>>>>>>${r.school?.id.toString()}");
+              UserDetailsLocal.set(
+                r.token!,
+                r.school!.id.toString(),
+                r.school!.name!,
+                r.school!.email!,
+                "","","","",
+              );
+            }
             else{
+              log("{hg->>>}");
               log(("user->${r.token}"));
               UserDetailsLocal.set(
                   r.token!,
