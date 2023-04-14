@@ -3,20 +3,18 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:get/get.dart';
 
 import 'package:pgs_edupro/application/insisitution_class_list/class_list_bloc.dart';
+import 'package:pgs_edupro/application/institution_deletion_class/institution_deletion_class_bloc.dart';
 
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/class_list_response.dart';
-import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/insistutionResponse.dart';
-import 'package:pgs_edupro/infrastructure/remote_data/models/my_course/my_courses_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/course/course_repository.dart';
-import 'package:pgs_edupro/presentation/ui/course/widgets/my_course.dart';
 import 'package:pgs_edupro/presentation/ui/institution/classes_of_institution/widgets/view_class_details.dart';
-import 'package:pgs_edupro/presentation/ui/institution/instructors_of_institution/widgets/view_instructor_details.dart';
 import 'package:pgs_edupro/presentation/widgets/common_result_empty_widget.dart';
 import 'package:pgs_edupro/presentation/widgets/common_server_error_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+String classid ='';
 
 class InsistutionClassesListScreen extends StatelessWidget {
   final bool fromHome;
@@ -32,10 +30,18 @@ class InsistutionClassesListScreen extends StatelessWidget {
           style: boldValuePrimaryColor,
         ),
       ),
-      body: BlocProvider(
+      body: MultiBlocProvider(
+  providers: [
+    BlocProvider(
         create: (_) => ClassListBloc(CourseRepository())
           ..add( ClassListEvent.loadMyCourses()),
-        child: Scaffold(
+),
+    BlocProvider(
+      create: (_) => InstitutionDeletionClassBloc(CourseRepository())
+        ..add( InstitutionDeletionClassEvent.saveAndUpdatePressed()),
+    ),
+  ],
+  child: Scaffold(
           body: BlocBuilder<ClassListBloc, ClassListState>(
             builder: (context, state) {
               return RefreshIndicator(
@@ -179,7 +185,14 @@ class InsistutionClassesListScreen extends StatelessWidget {
                                                   backgroundColor: Colors.red,
                                                   child: IconButton(
                                                     onPressed: () {
-
+                                                      classid= res.classList![index].id!.toString();
+                                                      context
+                                                          .read<
+                                                          InstitutionDeletionClassBloc>()
+                                                          .add(
+                                                          InstitutionDeletionClassEvent
+                                                              .saveAndUpdatePressed(
+                                                          ));
                                                     },
                                                     icon: const Icon(Icons.delete,
                                                       color: Colors.white, size: 15,),
@@ -258,7 +271,7 @@ class InsistutionClassesListScreen extends StatelessWidget {
             },
           ),
         ),
-      ),
+),
     );
   }
 }

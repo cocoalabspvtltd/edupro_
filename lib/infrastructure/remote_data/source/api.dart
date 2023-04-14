@@ -37,4 +37,7 @@ class Api {
   static String insistutionStudentadd = "api/create_students";
   static String insistutionClassList = 'api/institution/class_list';
   static String deletionStudent = 'api/delete_student';
+  static String deletionClass = 'api/institution/delete_class';
+  static String deletionInstructor = 'api/delete_instructor';
+  static String deletionCourse = 'api/institution/delete_course';
 }
