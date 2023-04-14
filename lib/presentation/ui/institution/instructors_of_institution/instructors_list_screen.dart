@@ -2,19 +2,18 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:get/get.dart';
 import 'package:pgs_edupro/application/Insistution_student_course_instructor/all_categories_bloc.dart';
+import 'package:pgs_edupro/application/Institution_deletetion_instructor/instructor_deletion_bloc.dart';
 
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/insistutionResponse.dart';
-import 'package:pgs_edupro/infrastructure/remote_data/models/my_course/my_courses_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/course/course_repository.dart';
-import 'package:pgs_edupro/presentation/ui/course/widgets/my_course.dart';
 import 'package:pgs_edupro/presentation/ui/institution/instructors_of_institution/widgets/view_instructor_details.dart';
 import 'package:pgs_edupro/presentation/widgets/common_result_empty_widget.dart';
 import 'package:pgs_edupro/presentation/widgets/common_server_error_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+String InstructorEmail ='';
 class InsistutionInstructorListScreen extends StatelessWidget {
   final bool fromHome;
   const InsistutionInstructorListScreen({super.key, this.fromHome = true});
@@ -29,10 +28,18 @@ class InsistutionInstructorListScreen extends StatelessWidget {
           style: boldValuePrimaryColor,
         ),
       ),
-      body: BlocProvider(
+      body: MultiBlocProvider(
+  providers: [
+    BlocProvider(
         create: (_) => AllCategoriesBloc(CourseRepository())
           ..add(const AllCategoriesEvent.loadMyCourses()),
-        child: Scaffold(
+),
+    BlocProvider(
+      create: (_) => InstructorDeletionBloc(CourseRepository())
+        ..add( InstructorDeletionEvent.saveAndUpdatePressed()),
+    ),
+  ],
+  child: Scaffold(
           body: BlocBuilder<AllCategoriesBloc, AllCategoriesState>(
             builder: (context, state) {
               return RefreshIndicator(
@@ -176,7 +183,17 @@ class InsistutionInstructorListScreen extends StatelessWidget {
                                                   backgroundColor: Colors.red,
                                                   child: IconButton(
                                                     onPressed: () {
-
+                                                     InstructorEmail= res
+                                                          .instructors![index]
+                                                          .email!;
+                                                     context
+                                                         .read<
+                                                         InstructorDeletionBloc>()
+                                                         .add(
+                                                         InstructorDeletionEvent
+                                                             .saveAndUpdatePressed(
+                                                         ))
+                                                     ;
                                                     },
                                                     icon: const Icon(Icons.delete,
                                                       color: Colors.white, size: 15,),
@@ -256,7 +273,7 @@ class InsistutionInstructorListScreen extends StatelessWidget {
             },
           ),
         ),
-      ),
+),
     );
   }
 }

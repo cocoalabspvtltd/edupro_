@@ -10,12 +10,12 @@ import 'package:pgs_edupro/presentation/widgets/common_server_error_widget.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'view_student_details.dart';
+import 'widgets/view_student_details.dart';
 String StudenyEmail ='';
-class InsistutionCategoryScreen extends StatelessWidget {
+class InsistutionStudentlistScreen extends StatelessWidget {
   final bool fromHome;
 
-  const InsistutionCategoryScreen({super.key, this.fromHome = true});
+  const InsistutionStudentlistScreen({super.key, this.fromHome = true});
 
   @override
 
@@ -30,12 +30,10 @@ class InsistutionCategoryScreen extends StatelessWidget {
         ),
       ),
       body: MultiBlocProvider(
-        
         providers:[ 
           BlocProvider(
           create: (_) => AllCategoriesBloc(CourseRepository())
             ..add(const AllCategoriesEvent.loadMyCourses()),
-
 
         ),
           BlocProvider(

@@ -9,9 +9,9 @@ import 'package:pgs_edupro/presentation/ui/institution/institution_home/institut
 import 'package:pgs_edupro/presentation/ui/institution/instructors_of_institution/add_instructors_screen.dart';
 import 'package:pgs_edupro/presentation/ui/institution/instructors_of_institution/instructors_list_screen.dart';
 import 'package:pgs_edupro/presentation/ui/institution/students_of_institution/add_students_screen.dart';
-import 'package:pgs_edupro/presentation/ui/institution/students_of_institution/widgets/student_list.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pgs_edupro/presentation/ui/institution/students_of_institution/student_list_screen.dart';
 
 import '../../courses_of_insisitution/courses_list.dart';
 
@@ -197,7 +197,7 @@ class InstitutionDrawerWidget extends StatelessWidget {
                           EdgeInsets.only(left: 60), //children padding
                       children: [
                         ListTile(
-                          title: Text("My Courses"),
+                          title: Text("Courses list"),
                           onTap: () { Get.to(() => InsistutionCoursesScreen());},
                         ),
 
@@ -263,7 +263,7 @@ class InstitutionDrawerWidget extends StatelessWidget {
                           EdgeInsets.only(left: 60), //children padding
                       children: [
                         _drawerMenuItem1('Student List', () {
-                          Get.to(() => InsistutionCategoryScreen());
+                          Get.to(() => InsistutionStudentlistScreen());
                         }),
                         _drawerMenuItem1('Add Students', () {
                           Get.to(() => AddStudentScreen());
