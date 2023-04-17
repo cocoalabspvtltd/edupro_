@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/shared_prefs.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
+import 'package:pgs_edupro/presentation/ui/auth/log_in/widgets/login_form.dart';
 import 'package:pgs_edupro/presentation/ui/institution/classes_of_institution/add_classes_screen.dart';
 import 'package:pgs_edupro/presentation/ui/institution/classes_of_institution/classes_list_screen.dart';
 import 'package:pgs_edupro/presentation/ui/institution/courses_of_insisitution/add_course_screen.dart';
@@ -12,6 +13,7 @@ import 'package:pgs_edupro/presentation/ui/institution/students_of_institution/a
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pgs_edupro/presentation/ui/institution/students_of_institution/student_list_screen.dart';
+import 'package:pgs_edupro/presentation/ui/school/departments/add_department_screen.dart';
 import 'package:pgs_edupro/presentation/ui/school/departments/department_list_screen.dart';
 
 import '../../courses_of_insisitution/courses_list.dart';
@@ -211,41 +213,45 @@ class InstitutionDrawerWidget extends StatelessWidget {
                         //more child menu
                       ],
                     ),
-                    ExpansionTile(
-                      title: Text(
-                        "Departments",
-                        style: TextStyle(fontSize: 16),
-                      ),
-                      leading: Container(
-                        height: 38,
-                        width: 38.0,
-                        padding: const EdgeInsets.all(3),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(width: 2, color: primaryColor),
-                          color: primaryColor[50],
+                    Visibility(
+                      child: ExpansionTile(
+                        title: Text(
+                          "Departments",
+                          style: TextStyle(fontSize: 16),
                         ),
-                        child: Image.asset(
-                            'assets/icons/drawer_icons/my-course-sltd.png'),
-                      ),
-                      childrenPadding:
-                      EdgeInsets.only(left: 60), //children padding
-                      children: [
-                        ListTile(
-                          title: Text("Departments list"),
-                          onTap: () {
-                            Get.to(() => SchoolDepartmentlistScreen());
+                        leading: Container(
+                          height: 38,
+                          width: 38.0,
+                          padding: const EdgeInsets.all(3),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(width: 2, color: primaryColor),
+                            color: primaryColor[50],
+                          ),
+                          child: Image.asset(
+                              'assets/icons/drawer_icons/my-course-sltd.png'),
+                        ),
+                        childrenPadding:
+                        EdgeInsets.only(left: 60), //children padding
+                        children: [
+                          ListTile(
+                            title: Text("Departments list"),
+                            onTap: () {
+                              Get.to(() => SchoolDepartmentlistScreen());
+                              },
+                          ),
+                          ListTile(
+                            title: Text("Add Department"),
+                            onTap: () {
+                              Get.to(() => AddDepartmentsScreen());
                             },
-                        ),
-                        ListTile(
-                          title: Text("Add Department"),
-                          onTap: () {
-                            // Get.to(() => AddCoursesScreen());
-                          },
-                        ),
-
-                        //more child menu
-                      ],
+                          ),
+                          //more child menu
+                        ],
+                      ),
+                      visible: type == "school"
+                          ? true
+                          : false,
                     ),
                     ExpansionTile(
                       title: Text(

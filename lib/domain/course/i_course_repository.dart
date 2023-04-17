@@ -28,5 +28,6 @@ abstract class ICourseRepository {
   Future<Either<NetworkFailure, DeletionResponse>> instructorDeletion();
   Future<Either<NetworkFailure, DeletionResponse>> courseDeletion();
   Future<Either<NetworkFailure, DepartmentListResponse>> getDepartmentList();
+  Future<Either<NetworkFailure, DeletionResponse>> departmentDeletion();
 
 }

@@ -18,6 +18,7 @@ import '../../../../../domain/core/network/api_provider.dart';
 import 'package:http/http.dart' as http;
 
 import '../../../../../infrastructure/local_data_source/user.dart';
+String? type="";
 class LogInForm extends StatefulWidget {
   const LogInForm({super.key});
 
@@ -114,15 +115,21 @@ class _LogInFormState extends State<LogInForm> {
                       return;
                     }
                     if(state.userStatus == "instructor"){
+                      type =state.userStatus!;
                       Get.offAll(() =>  const InstructorHomeScreen());
                       return;
                     }
                     if(state.userStatus == "institution"){
-                      Get.offAll(() =>  const InstitutionHomeScreen());
+                      type =state.userStatus!;
+                      Get.offAll(() =>  const InstitutionHomeScreen(
+                      ));
                       return;
                     }
                     if(state.userStatus == "school"){
-                      Get.offAll(() =>  const InstitutionHomeScreen());
+                      type =state.userStatus!;
+                      Get.offAll(() =>  const InstitutionHomeScreen(
+
+                      ));
                       return;
                     }
                     if (state.password != state.confirmPassword) {

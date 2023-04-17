@@ -9,6 +9,7 @@ import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_categories_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_in_category_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_report_response.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/models/insiistution_adding_responses/school_department_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/class_list_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/count.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/insistutionResponse.dart';
@@ -21,6 +22,7 @@ import 'package:pgs_edupro/presentation/ui/institution/classes_of_institution/cl
 import 'package:pgs_edupro/presentation/ui/institution/courses_of_insisitution/courses_list.dart';
 import 'package:pgs_edupro/presentation/ui/institution/instructors_of_institution/instructors_list_screen.dart';
 import 'package:pgs_edupro/presentation/ui/institution/students_of_institution/student_list_screen.dart';
+import 'package:pgs_edupro/presentation/ui/school/departments/department_list_screen.dart';
 import '../../models/insiistution_adding_responses/insistution_student_response.dart';
 import '../../models/insiistution_adding_responses/institution_class_response.dart';
 import '../../models/insiistution_adding_responses/institution_course_response.dart';
@@ -386,6 +388,7 @@ print("response->${response.data}");
       return left(const NetworkFailure.unexpected());
     }
   }
+
   @override
   Future<Either<NetworkFailure, AddClassesResponse>> addClassesInstitution(
       FormData body) async {
@@ -546,6 +549,58 @@ print("response->${response.data}");
     }
   }
 
+  @override
+  Future<Either<NetworkFailure, DeletionResponse>> departmentDeletion(
+      ) async {
+
+    try {
+      Response response = await apiClient!
+          .getJsonInstance()
+          .post(Api.deletionDepartment, data: {"dept_id":depart_id});
+      print("response->${response.data}");
+      return right(DeletionResponse.fromJson(response.data));
+    } on DioError catch (e) {
+      if (e.response != null) {
+        if (e.response!.statusCode == 401) {
+          return left(
+              NetworkFailure.unAuthorized(e.response!.data["message"] ?? ''));
+        }
+        return left(NetworkFailure.serverError(
+            "Status Code ${e.response!.statusCode}"));
+      } else if (e.toString().contains('Connecting timed out')) {
+        return left(const NetworkFailure.serverTimeOut());
+      }
+      return left(const NetworkFailure.unexpected());
+    } catch (e) {
+      return left(const NetworkFailure.unexpected());
+    }
+  }
+
+  Future<Either<NetworkFailure, AddDepartmentResponse>> addDepartmentSchool(
+      FormData body) async {
+    log("body->${body}");
+    try {
+      Response response = await apiClient!
+          .getJsonInstance()
+          .post(Api.addDepartmentSchool, data: body);
+      print("response->${response.data}");
+      return right(response.data);
+    } on DioError catch (e) {
+      if (e.response != null) {
+        if (e.response!.statusCode == 401) {
+          return left(
+              NetworkFailure.unAuthorized(e.response!.data["message"] ?? ''));
+        }
+        return left(NetworkFailure.serverError(
+            "Status Code ${e.response!.statusCode}"));
+      } else if (e.toString().contains('Connecting timed out')) {
+        return left(const NetworkFailure.serverTimeOut());
+      }
+      return left(const NetworkFailure.unexpected());
+    } catch (e) {
+      return left(const NetworkFailure.unexpected());
+    }
+  }
 
 }
 

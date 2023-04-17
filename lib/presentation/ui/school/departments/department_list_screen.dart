@@ -1,8 +1,6 @@
-import 'package:pgs_edupro/application/Insistution_deletion_student/student_deletion_bloc.dart';
-import 'package:pgs_edupro/application/Insistution_student_course_instructor/all_categories_bloc.dart';
+import 'package:pgs_edupro/application/school_deletion_department/department_deletion_bloc.dart';
 import 'package:pgs_edupro/application/school_department_list/department_list_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
-import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/insistutionResponse.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/school/department_list_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/course/course_repository.dart';
 import 'package:pgs_edupro/presentation/widgets/common_result_empty_widget.dart';
@@ -10,7 +8,7 @@ import 'package:pgs_edupro/presentation/widgets/common_server_error_widget.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
+String depart_id ='';
 class SchoolDepartmentlistScreen extends StatelessWidget {
   final bool fromHome;
 
@@ -36,8 +34,8 @@ class SchoolDepartmentlistScreen extends StatelessWidget {
 
           ),
           BlocProvider(
-            create: (_) => StudentDeletionBloc(CourseRepository())
-              ..add( StudentDeletionEvent.saveAndUpdatePressed()),
+            create: (_) => DepartmentDeletionBloc(CourseRepository())
+              ..add( DepartmentDeletionEvent.saveAndUpdatePressed()),
 
 
           ),
@@ -130,17 +128,17 @@ class SchoolDepartmentlistScreen extends StatelessWidget {
                                                 backgroundColor: Colors.red,
                                                 child: IconButton(
                                                   onPressed:() {
-                                                    // StudenyEmail= res
-                                                    //     .studentList![index]
-                                                    //     .email!;
-                                                    // context
-                                                    //     .read<
-                                                    //     StudentDeletionBloc>()
-                                                    //     .add(
-                                                    //     StudentDeletionEvent
-                                                    //         .saveAndUpdatePressed(
-                                                    //     ))
-                                                    // ;
+                                                    depart_id= res
+                                                        .department![index]
+                                                        .id.toString();
+                                                    context
+                                                        .read<
+                                                        DepartmentDeletionBloc>()
+                                                        .add(
+                                                        DepartmentDeletionEvent
+                                                            .saveAndUpdatePressed(
+                                                        ))
+                                                    ;
                                                   }, style: ElevatedButton.styleFrom(
                                                   shape: RoundedRectangleBorder(
                                                     borderRadius: BorderRadius.circular(5),
