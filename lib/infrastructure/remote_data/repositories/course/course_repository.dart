@@ -386,6 +386,32 @@ print("response->${response.data}");
     }
   }
   @override
+  Future<Either<NetworkFailure, AddClassesResponse>> addClassesInstitution(
+      FormData body) async {
+    log("body->${body}");
+    try {
+      Response response = await apiClient!
+          .getJsonInstance()
+          .post(Api.addClassesInstitution, data: body);
+      print("response->${response.data}");
+      return right(response.data);
+    } on DioError catch (e) {
+      if (e.response != null) {
+        if (e.response!.statusCode == 401) {
+          return left(
+              NetworkFailure.unAuthorized(e.response!.data["message"] ?? ''));
+        }
+        return left(NetworkFailure.serverError(
+            "Status Code ${e.response!.statusCode}"));
+      } else if (e.toString().contains('Connecting timed out')) {
+        return left(const NetworkFailure.serverTimeOut());
+      }
+      return left(const NetworkFailure.unexpected());
+    } catch (e) {
+      return left(const NetworkFailure.unexpected());
+    }
+  }
+  @override
   Future<Either<NetworkFailure, DeletionResponse>> getDeletion(
       ) async {
 

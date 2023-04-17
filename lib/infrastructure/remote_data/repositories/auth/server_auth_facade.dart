@@ -302,8 +302,9 @@ class ServerAuthFacade implements IAuthFacade {
               );
             }
             else if(response.data["type"]== "institution"){
-              log("{hg->}");
-              UserDetailsLocal.set(
+              log("{hg->>${r.institution!.name}");
+              UserDetailsLocal.set
+                (
                 r.token!,
                 r.institution!.id.toString(),
                 r.institution!.name!,
@@ -311,10 +312,10 @@ class ServerAuthFacade implements IAuthFacade {
                 "","","","",
               );
             }
-            else if(response.data["type"]== "school"){
-              log("{hg->>${r.school}");
-              print("=>>>>>>>>>${r.school?.id.toString()}");
-              UserDetailsLocal.set(
+            else if(response.data["type"]=="school"){
+              log("{hgzz->>${r.school}");
+              UserDetailsLocal.set
+                (
                 r.token!,
                 r.school!.id.toString(),
                 r.school!.name!,
@@ -322,6 +323,7 @@ class ServerAuthFacade implements IAuthFacade {
                 "","","","",
               );
             }
+
             else{
               log("{hg->>>}");
               log(("user->${r.token}"));
