@@ -1,8 +1,6 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_web_browser/flutter_web_browser.dart';
 import 'package:pgs_edupro/application/ads/ads_bloc.dart';
 import 'package:pgs_edupro/application/course/courses_bloc.dart';
 import 'package:pgs_edupro/application/profile/profile_bloc.dart';
@@ -14,13 +12,10 @@ import 'package:pgs_edupro/infrastructure/remote_data/repositories/ads/ads_repos
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/course/course_repository.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/profile/profile_repository.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/videos/video_repository.dart';
-import 'package:pgs_edupro/presentation/ui/course/my_course_screen.dart';
 import 'package:pgs_edupro/presentation/ui/instructor/instructor_home/widgets/instructor_drawer.dart';
 import 'package:pgs_edupro/presentation/ui/instructor/instructor_home/widgets/instructor_home_body.dart';
 import 'package:pgs_edupro/presentation/ui/instructor/instructor_home/widgets/instructor_menu_button.dart';
-import 'package:pgs_edupro/presentation/ui/instructor/instructor_profile/instructor_profile_screen.dart';
 import 'package:pgs_edupro/presentation/ui/profile/profile_screen.dart';
-
 import '../instructor_add_course/my_courses.dart';
 
 class InstructorHomeScreen extends StatefulWidget {

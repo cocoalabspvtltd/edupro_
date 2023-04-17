@@ -16,6 +16,7 @@ import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/insistu
 
 import 'package:pgs_edupro/infrastructure/remote_data/models/my_course/addcourses.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/my_course/my_courses_response.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/models/school/department_list_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/source/api.dart';
 import 'package:pgs_edupro/presentation/ui/institution/classes_of_institution/classes_list_screen.dart';
 import 'package:pgs_edupro/presentation/ui/institution/courses_of_insisitution/courses_list.dart';
@@ -520,6 +521,34 @@ print("response->${response.data}");
       return left(const NetworkFailure.unexpected());
     }
   }
+
+  @override
+  Future<Either<NetworkFailure, DepartmentListResponse>> getDepartmentList() async {
+    try {
+      Response response = await apiClient!
+          .getJsonInstance()
+          .get(Api.getDepartmentschool);
+
+      return right(DepartmentListResponse.fromJson(response.data));
+    } on DioError catch (e) {
+      if (e.response != null) {
+        if (e.response!.statusCode == 401) {
+          return left(
+              NetworkFailure.unAuthorized(e.response!.data["message"] ?? ''));
+        }
+        return left(NetworkFailure.serverError(
+            "Status Code ${e.response!.statusCode}"));
+      } else if (e.toString().contains('Connecting timed out')) {
+        return left(const NetworkFailure.serverTimeOut());
+      }
+      return left(const NetworkFailure.unexpected());
+    } catch (e) {
+      log(e.toString());
+      return left(const NetworkFailure.unexpected());
+    }
+  }
+
+
 }
 
 
