@@ -9,7 +9,6 @@ import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_categories_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_in_category_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_report_response.dart';
-import 'package:pgs_edupro/infrastructure/remote_data/models/insiistution_adding_responses/institution_class_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/class_list_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/count.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/insistutionResponse.dart';
@@ -387,7 +386,6 @@ print("response->${response.data}");
       return left(const NetworkFailure.unexpected());
     }
   }
-
   @override
   Future<Either<NetworkFailure, AddClassesResponse>> addClassesInstitution(
       FormData body) async {

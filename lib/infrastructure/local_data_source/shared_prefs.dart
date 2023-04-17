@@ -57,8 +57,9 @@ class SharedPrefs {
     await setString(spDob, userDetails.dob ?? '');
     await setString(spUserStatus, userDetails.userStatus ?? '');
     await setString(spPaymentStatus, userDetails.paymentStatus ?? 'false');
-
+    print("tokem->${token}");
     UserDetailsLocal.set(
+
       token,
       '${userDetails.id ?? ''}',
       userDetails.name ?? '',
