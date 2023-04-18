@@ -15,7 +15,6 @@ class DepartmentDeletionBloc extends Bloc<DepartmentDeletionEvent, DepartmentDel
 
   DepartmentDeletionBloc(this.deletionDepartmentRepository) : super(DepartmentDeletionState.initial()) {
 
-
     on<_SaveAndUpdatePressed>((event, emit) async {
       Either<NetworkFailure, DeletionResponse>? failureOrSuccess;
       failureOrSuccess = await deletionDepartmentRepository.departmentDeletion();
