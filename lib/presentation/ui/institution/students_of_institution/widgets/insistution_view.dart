@@ -20,9 +20,9 @@ import '../../../instructor/instructor_add_course/department_dropdown.dart';
 
 File? imageStudent;
 class AddStudentsFormEdit extends StatefulWidget {
- final TextEditingController list ;
+ //final TextEditingController list ;
    AddStudentsFormEdit({
-    super.key, required this.list,
+    super.key,
   });
 
   @override
@@ -37,6 +37,7 @@ class _AddStudentsFormEditState extends State<AddStudentsFormEdit> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<InsiistutionStudentBloc, InsiistutionStudentState>(
+
       listener: (context, state) {
         state.loadFailureOrSuccessOption.fold(
               () {},
@@ -74,6 +75,7 @@ class _AddStudentsFormEditState extends State<AddStudentsFormEdit> {
         });
       },
       builder: (context, state) {
+        print("gf->${state.names}");
         return state.isLoading
             ? SizedBox(
           height: screenHeight - 180,
@@ -106,10 +108,10 @@ class _AddStudentsFormEditState extends State<AddStudentsFormEdit> {
               SizedBox(height: screenHeight * .02),
 
               _textForm(
-              widget.list,
+          state.name,
                       (v) => context
                       .read<InsiistutionStudentBloc>()
-                      .add(InsiistutionStudentEvent.name(v)),
+                      .add(InsiistutionStudentEvent.nameChanged(v)),
                   null,
                   "Name",
                   true,

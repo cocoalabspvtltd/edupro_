@@ -6,6 +6,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:pgs_edupro/domain/auth/value_objects.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/insistutionResponse.dart';
 
 import '../../domain/core/network/network_failures.dart';
 
@@ -22,10 +24,56 @@ part 'insiistution_student_bloc.freezed.dart';
 
 class InsiistutionStudentBloc extends Bloc<InsiistutionStudentEvent, InsiistutionStudentState> {
   final CourseRepository addCoursesInstructor;
-  InsiistutionStudentBloc(this.addCoursesInstructor) : super(InsiistutionStudentState.initial()) {
+  int index;
+  InsiistutionStudentBloc(this.addCoursesInstructor,this.index) : super(InsiistutionStudentState.initial()) {
     on<InsiistutionStudentEvent>((event, emit) async {});
+    on<_LoadMyProfile>((event, emit) async {
+    //  print("dcxs2=>${UserDetailsLocal.apiToken}");
+      emit(
+        state.copyWith(
+          isLoading: true,
+          submitFailedOrSuccessOption: none(),
+         // changePasswordFailedOrSuccessOption: none(),
+          loadFailureOrSuccessOption: none(),
+        ),
+      );
+      //print("dcxs3=>${UserDetailsLocal.apiToken}");
+      Either<NetworkFailure, InsistutionResponse> failureOrSuccess;
+      failureOrSuccess = await addCoursesInstructor.getInsistutionCategories(event.userId.toString());
+      failureOrSuccess.fold((l,) => null, ((r) async {
 
+        StudentList user = r.studentList![index];
+        print("dec->${user}");
+        emit(
+          state.copyWith(
 
+              names: Name(user.name ?? ''),
+              email: TextEditingController(text: user.email),
+              // phoneNumber: PhoneNumber(user.phoneNumber ?? ''),
+              // dob: DateFormatted(user.dob ?? ''),
+              // address: Address(user.address ?? ''),
+              name: TextEditingController(text: user.name),
+              // emailController: TextEditingController(text: user.email),
+              // phoneNumberController: TextEditingController(text: user.phoneNumber),
+              // dobDT: user.dob != null ? DateTime.parse(user.dob!) : null,
+              // addressController: TextEditingController(text: user.address)
+          ),
+        );
+
+      }));
+
+      emit(state.copyWith(
+          isLoading: false,
+         // loadFailureOrSuccessOption: optionOf(failureOrSuccess)
+        )
+          );
+    });
+    on<_NameChanged>((event, emit) {
+      emit(state.copyWith(
+        names: Name(event.nameStr),
+        submitFailedOrSuccessOption: none(),
+      ));
+    });
     on<_SubmitPressed>((event, emit) async {
       final isTitleValid = state.name != '' ? true : false;
       final isAboutTitleValid = state.email != '' ? true : false;

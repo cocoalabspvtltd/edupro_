@@ -4,7 +4,7 @@ part of 'insiistution_student_bloc.dart';
 class InsiistutionStudentEvent with _$InsiistutionStudentEvent {
 
   const factory InsiistutionStudentEvent.started() = _Started;
-
+  const factory InsiistutionStudentEvent.nameChanged(String nameStr) = _NameChanged;
   const factory InsiistutionStudentEvent.name(String nameStr) =
   _TitleChanged;
   const factory InsiistutionStudentEvent.emailChanged(String emailStr) =
@@ -17,6 +17,7 @@ class InsiistutionStudentEvent with _$InsiistutionStudentEvent {
   _DurationChanged;
   const factory InsiistutionStudentEvent.dobChanged(String urlStr) =
   _UrlChanged;
+  const factory InsiistutionStudentEvent.loadMyProfile(String userId) = _LoadMyProfile;
   const factory InsiistutionStudentEvent.profileFile(File displayPicture) =
   _courseFilePicture;
   const factory InsiistutionStudentEvent.submitPressed() =   _SubmitPressed;
