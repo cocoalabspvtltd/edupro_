@@ -7,6 +7,7 @@ import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/class_l
 import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/count.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/insistutionResponse.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/my_course/my_courses_response.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/models/school/department_list_response.dart';
 
 import '../../infrastructure/remote_data/models/insistution/deletion_response.dart';
 
@@ -26,5 +27,7 @@ abstract class ICourseRepository {
   Future<Either<NetworkFailure, DeletionResponse>> classDeletion();
   Future<Either<NetworkFailure, DeletionResponse>> instructorDeletion();
   Future<Either<NetworkFailure, DeletionResponse>> courseDeletion();
+  Future<Either<NetworkFailure, DepartmentListResponse>> getDepartmentList();
+  Future<Either<NetworkFailure, DeletionResponse>> departmentDeletion();
 
 }
