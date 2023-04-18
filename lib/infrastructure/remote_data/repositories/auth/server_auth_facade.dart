@@ -313,7 +313,9 @@ class ServerAuthFacade implements IAuthFacade {
               );
             }
             else if(response.data["type"]=="school"){
+
               log("{hgzz->>${r.school}");
+
               UserDetailsLocal.set
                 (
                 r.token!,
