@@ -109,19 +109,9 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     on<_SaveAndUpdatePressed>((event, emit) async {
       final isEmailValid = state.emailAddress.isValid();
       final isNameValid = state.name.isValid();
-      // final isPhoneNumberValid = state.phoneNumber.isValid();
-      // final isAddressValid = state.address != '' ? true : false;
 
       Either<NetworkFailure, MyProfileResponse>? failureOrSuccess;
-      // if (!isPhoneNumberValid) {
-      //   toastMessage("Enter 10 Digit Valid Phone Number");
-      // }
-      // if (isDobValid != true) {
-      //   toastMessage("Select Date of Birth");
-      // }
-      // if (!isAddressValid) {
-      //   toastMessage("Enter Valid Address");
-      // }
+
 
       if (isNameValid && isEmailValid) {
         emit(
