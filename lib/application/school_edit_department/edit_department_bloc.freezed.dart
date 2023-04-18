@@ -19,21 +19,18 @@ mixin _$EditDepartmentEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String nameStr) nameChanged,
-    required TResult Function(int userId) loaddepartment,
     required TResult Function() saveAndUpdatePressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(int userId)? loaddepartment,
     TResult? Function()? saveAndUpdatePressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String nameStr)? nameChanged,
-    TResult Function(int userId)? loaddepartment,
     TResult Function()? saveAndUpdatePressed,
     required TResult orElse(),
   }) =>
@@ -41,21 +38,18 @@ mixin _$EditDepartmentEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_NameChanged value) nameChanged,
-    required TResult Function(_Loaddepartment value) loaddepartment,
     required TResult Function(_SaveAndUpdatePressed value) saveAndUpdatePressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_NameChanged value)? nameChanged,
-    TResult? Function(_Loaddepartment value)? loaddepartment,
     TResult? Function(_SaveAndUpdatePressed value)? saveAndUpdatePressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_NameChanged value)? nameChanged,
-    TResult Function(_Loaddepartment value)? loaddepartment,
     TResult Function(_SaveAndUpdatePressed value)? saveAndUpdatePressed,
     required TResult orElse(),
   }) =>
@@ -145,7 +139,6 @@ class _$_NameChanged implements _NameChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String nameStr) nameChanged,
-    required TResult Function(int userId) loaddepartment,
     required TResult Function() saveAndUpdatePressed,
   }) {
     return nameChanged(nameStr);
@@ -155,7 +148,6 @@ class _$_NameChanged implements _NameChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(int userId)? loaddepartment,
     TResult? Function()? saveAndUpdatePressed,
   }) {
     return nameChanged?.call(nameStr);
@@ -165,7 +157,6 @@ class _$_NameChanged implements _NameChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String nameStr)? nameChanged,
-    TResult Function(int userId)? loaddepartment,
     TResult Function()? saveAndUpdatePressed,
     required TResult orElse(),
   }) {
@@ -179,7 +170,6 @@ class _$_NameChanged implements _NameChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_NameChanged value) nameChanged,
-    required TResult Function(_Loaddepartment value) loaddepartment,
     required TResult Function(_SaveAndUpdatePressed value) saveAndUpdatePressed,
   }) {
     return nameChanged(this);
@@ -189,7 +179,6 @@ class _$_NameChanged implements _NameChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_NameChanged value)? nameChanged,
-    TResult? Function(_Loaddepartment value)? loaddepartment,
     TResult? Function(_SaveAndUpdatePressed value)? saveAndUpdatePressed,
   }) {
     return nameChanged?.call(this);
@@ -199,7 +188,6 @@ class _$_NameChanged implements _NameChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_NameChanged value)? nameChanged,
-    TResult Function(_Loaddepartment value)? loaddepartment,
     TResult Function(_SaveAndUpdatePressed value)? saveAndUpdatePressed,
     required TResult orElse(),
   }) {
@@ -216,145 +204,6 @@ abstract class _NameChanged implements EditDepartmentEvent {
   String get nameStr;
   @JsonKey(ignore: true)
   _$$_NameChangedCopyWith<_$_NameChanged> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_LoaddepartmentCopyWith<$Res> {
-  factory _$$_LoaddepartmentCopyWith(
-          _$_Loaddepartment value, $Res Function(_$_Loaddepartment) then) =
-      __$$_LoaddepartmentCopyWithImpl<$Res>;
-  @useResult
-  $Res call({int userId});
-}
-
-/// @nodoc
-class __$$_LoaddepartmentCopyWithImpl<$Res>
-    extends _$EditDepartmentEventCopyWithImpl<$Res, _$_Loaddepartment>
-    implements _$$_LoaddepartmentCopyWith<$Res> {
-  __$$_LoaddepartmentCopyWithImpl(
-      _$_Loaddepartment _value, $Res Function(_$_Loaddepartment) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? userId = null,
-  }) {
-    return _then(_$_Loaddepartment(
-      null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_Loaddepartment implements _Loaddepartment {
-  const _$_Loaddepartment(this.userId);
-
-  @override
-  final int userId;
-
-  @override
-  String toString() {
-    return 'EditDepartmentEvent.loaddepartment(userId: $userId)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_Loaddepartment &&
-            (identical(other.userId, userId) || other.userId == userId));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, userId);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_LoaddepartmentCopyWith<_$_Loaddepartment> get copyWith =>
-      __$$_LoaddepartmentCopyWithImpl<_$_Loaddepartment>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String nameStr) nameChanged,
-    required TResult Function(int userId) loaddepartment,
-    required TResult Function() saveAndUpdatePressed,
-  }) {
-    return loaddepartment(userId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(int userId)? loaddepartment,
-    TResult? Function()? saveAndUpdatePressed,
-  }) {
-    return loaddepartment?.call(userId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String nameStr)? nameChanged,
-    TResult Function(int userId)? loaddepartment,
-    TResult Function()? saveAndUpdatePressed,
-    required TResult orElse(),
-  }) {
-    if (loaddepartment != null) {
-      return loaddepartment(userId);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_NameChanged value) nameChanged,
-    required TResult Function(_Loaddepartment value) loaddepartment,
-    required TResult Function(_SaveAndUpdatePressed value) saveAndUpdatePressed,
-  }) {
-    return loaddepartment(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_NameChanged value)? nameChanged,
-    TResult? Function(_Loaddepartment value)? loaddepartment,
-    TResult? Function(_SaveAndUpdatePressed value)? saveAndUpdatePressed,
-  }) {
-    return loaddepartment?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NameChanged value)? nameChanged,
-    TResult Function(_Loaddepartment value)? loaddepartment,
-    TResult Function(_SaveAndUpdatePressed value)? saveAndUpdatePressed,
-    required TResult orElse(),
-  }) {
-    if (loaddepartment != null) {
-      return loaddepartment(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Loaddepartment implements EditDepartmentEvent {
-  const factory _Loaddepartment(final int userId) = _$_Loaddepartment;
-
-  int get userId;
-  @JsonKey(ignore: true)
-  _$$_LoaddepartmentCopyWith<_$_Loaddepartment> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -397,7 +246,6 @@ class _$_SaveAndUpdatePressed implements _SaveAndUpdatePressed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String nameStr) nameChanged,
-    required TResult Function(int userId) loaddepartment,
     required TResult Function() saveAndUpdatePressed,
   }) {
     return saveAndUpdatePressed();
@@ -407,7 +255,6 @@ class _$_SaveAndUpdatePressed implements _SaveAndUpdatePressed {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(int userId)? loaddepartment,
     TResult? Function()? saveAndUpdatePressed,
   }) {
     return saveAndUpdatePressed?.call();
@@ -417,7 +264,6 @@ class _$_SaveAndUpdatePressed implements _SaveAndUpdatePressed {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String nameStr)? nameChanged,
-    TResult Function(int userId)? loaddepartment,
     TResult Function()? saveAndUpdatePressed,
     required TResult orElse(),
   }) {
@@ -431,7 +277,6 @@ class _$_SaveAndUpdatePressed implements _SaveAndUpdatePressed {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_NameChanged value) nameChanged,
-    required TResult Function(_Loaddepartment value) loaddepartment,
     required TResult Function(_SaveAndUpdatePressed value) saveAndUpdatePressed,
   }) {
     return saveAndUpdatePressed(this);
@@ -441,7 +286,6 @@ class _$_SaveAndUpdatePressed implements _SaveAndUpdatePressed {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_NameChanged value)? nameChanged,
-    TResult? Function(_Loaddepartment value)? loaddepartment,
     TResult? Function(_SaveAndUpdatePressed value)? saveAndUpdatePressed,
   }) {
     return saveAndUpdatePressed?.call(this);
@@ -451,7 +295,6 @@ class _$_SaveAndUpdatePressed implements _SaveAndUpdatePressed {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_NameChanged value)? nameChanged,
-    TResult Function(_Loaddepartment value)? loaddepartment,
     TResult Function(_SaveAndUpdatePressed value)? saveAndUpdatePressed,
     required TResult orElse(),
   }) {

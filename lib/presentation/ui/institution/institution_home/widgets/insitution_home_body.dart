@@ -19,7 +19,6 @@ class InstitutionHomeBody extends StatelessWidget {
   InstitutionHomeBody({super.key});
 
   List<String> titile = ["Code", "Courses", 'Instructors', "Students"];
-  List<String> count = ["Code", "40", '30', "50"];
   List images=["assets/images/home/institute.jpg","assets/images/home/course.png",
     "assets/images/home/instructor.png","assets/images/home/students.png"];
 

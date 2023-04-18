@@ -26,6 +26,7 @@ class Api {
   static String getLiveVideos = 'api/live-videos';
   static String getPaymentData = 'api/payment_order';
   static String postOaymentId = 'api/payment';
+  static String getHotelList = 'api/hotel-list';
 
   ///////////////////////////////////////////////////INSTRUCTOR//////////////////////////////////////
   static String addCourses = "api/instructor/add_course";

@@ -55,9 +55,9 @@ class CourtScreen extends StatelessWidget {
                           Row(
                             children: [
                               Visibility(
-                                child:      Container(
+                                child: Container(
                                   height: 100,
-                                  width: screenWidth * 0.44,
+                                  width: screenWidth * 0.45,
                                   child: Card(
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
@@ -84,29 +84,35 @@ class CourtScreen extends StatelessWidget {
                                     ? true
                                     : false,
                               ),
-                              Container(
-                                height: 100,
-                                width: screenWidth * 0.45,
-                                child: Card(
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: <Widget>[
-                                      ListTile(
-                                        leading: CircleAvatar(
-                                          backgroundImage: AssetImage(
-                                              "assets/images/home/course.png"), // No matter how big it is, it won't overflow
+                              Visibility(
+                                child: Container(
+                                  height: 100,
+                                  width: screenWidth * 0.45,
+                                  child: Card(
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: <Widget>[
+                                        ListTile(
+                                          leading: CircleAvatar(
+                                            backgroundImage: AssetImage(
+                                                "assets/images/home/institute.jpg"), // No matter how big it is, it won't overflow
+                                          ),
+                                          title: Text('Code'),
+                                          subtitle: Text(
+                                            '${UserDetailsLocal.userMobile}',
+                                            style: TextStyle(
+                                                color: Colors.lightBlue,
+                                                fontSize: 19),
+                                          ),
                                         ),
-                                        title: Text('Code'),
-                                        subtitle: Text(
-                                          '${UserDetailsLocal.userMobile}',
-                                          style: TextStyle(
-                                              color: Colors.lightBlue,
-                                              fontSize: 19),
-                                        ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ),
+                                visible:
+                                  type == "institution"
+                                  ? true
+                                  : false,
                               ),
                               SizedBox(
                                 width: 15,
