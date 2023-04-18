@@ -1,10 +1,13 @@
 import 'package:get/get.dart';
 import 'package:pgs_edupro/application/Insistution_deletion_student/student_deletion_bloc.dart';
 import 'package:pgs_edupro/application/Insistution_student_course_instructor/all_categories_bloc.dart';
+import 'package:pgs_edupro/application/insistutionStudent/insiistution_student_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/domain/course/i_course_repository.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/insistutionResponse.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/course/course_repository.dart';
+import 'package:pgs_edupro/presentation/ui/institution/students_of_institution/widgets/insistution_view.dart';
+import 'package:pgs_edupro/presentation/ui/institution/students_of_institution/widgets/view_student.dart';
 import 'package:pgs_edupro/presentation/widgets/common_result_empty_widget.dart';
 import 'package:pgs_edupro/presentation/widgets/common_server_error_widget.dart';
 import 'package:flutter/material.dart';
@@ -42,6 +45,7 @@ class InsistutionStudentlistScreen extends StatelessWidget {
 
 
           ),
+
     ], child:  Scaffold(
         body: BlocBuilder<AllCategoriesBloc, AllCategoriesState>(
           builder: (context, state) {
@@ -120,6 +124,11 @@ class InsistutionStudentlistScreen extends StatelessWidget {
                                                 backgroundColor:Colors.pink[300],
                                                 child: IconButton(
                                                   onPressed: () {
+
+                                                    Get.to(() => EditStudentScreen(
+                                                      depatmentdetails: res.studentList![index],
+                                                        //studentdetails:res.studentList![index]
+                                                    ));
                                                   },
                                                   icon: const Icon(Icons.edit,
                                                     color: Colors.white, size: 15,),

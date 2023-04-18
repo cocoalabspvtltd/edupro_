@@ -18,7 +18,7 @@ import '../../../auth/log_in/widgets/login_form.dart';
 class CourtScreen extends StatelessWidget {
   final bool fromHome;
 
-  CourtScreen({super.key, this.fromHome = true});
+  const CourtScreen({super.key, this.fromHome = true});
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +55,10 @@ class CourtScreen extends StatelessWidget {
                           Row(
                             children: [
                               Visibility(
+                                visible:
+                                type == "school"
+                                    ? true
+                                    : false,
                                 child:      Container(
                                   height: 100,
                                   width: screenWidth * 0.44,
@@ -69,7 +73,7 @@ class CourtScreen extends StatelessWidget {
                                           ),
                                           title: Text('Department'),
                                           subtitle: Text(
-                                            '${int.parse(res.count![0].studentsCount.toString())}',
+                                            '${res.count![0].department.toString()}',
                                             style: TextStyle(
                                                 color: Colors.lightBlue,
                                                 fontSize: 19),
@@ -79,10 +83,6 @@ class CourtScreen extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                visible:
-                                type == "school"
-                                    ? true
-                                    : false,
                               ),
                               Container(
                                 height: 100,
@@ -92,14 +92,14 @@ class CourtScreen extends StatelessWidget {
                                     mainAxisSize: MainAxisSize.min,
                                     children: <Widget>[
                                       ListTile(
-                                        leading: CircleAvatar(
+                                        leading: const CircleAvatar(
                                           backgroundImage: AssetImage(
                                               "assets/images/home/course.png"), // No matter how big it is, it won't overflow
                                         ),
                                         title: Text('Code'),
                                         subtitle: Text(
                                           '${UserDetailsLocal.userMobile}',
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               color: Colors.lightBlue,
                                               fontSize: 19),
                                         ),
@@ -108,7 +108,7 @@ class CourtScreen extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 15,
                               ),
                               Container(
@@ -119,14 +119,14 @@ class CourtScreen extends StatelessWidget {
                                     mainAxisSize: MainAxisSize.min,
                                     children: <Widget>[
                                       ListTile(
-                                        leading: CircleAvatar(
+                                        leading: const CircleAvatar(
                                           backgroundImage: AssetImage(
                                               "assets/images/home/course.png"), // No matter how big it is, it won't overflow
                                         ),
-                                        title: Text('Courses'),
+                                        title: const Text('Courses'),
                                         subtitle: Text(
                                           '${int.parse(res.count![0].courseCount.toString())}',
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               color: Colors.lightBlue,
                                               fontSize: 19),
                                         ),
@@ -149,14 +149,14 @@ class CourtScreen extends StatelessWidget {
                                       mainAxisSize: MainAxisSize.min,
                                       children: <Widget>[
                                         ListTile(
-                                          leading: CircleAvatar(
+                                          leading: const CircleAvatar(
                                             backgroundImage: AssetImage(
                                                 "assets/images/home/instructor.png"), // No matter how big it is, it won't overflow
                                           ),
-                                          title: Text('Instructor'),
+                                          title: const Text('Instructor'),
                                           subtitle: Text(
-                                            '${res.count![0].instructorCount.toString()}',
-                                            style: TextStyle(
+                                            res.count![0].instructorCount.toString(),
+                                            style: const TextStyle(
                                                 color: Colors.lightBlue,
                                                 fontSize: 19),
                                           ),
@@ -166,7 +166,7 @@ class CourtScreen extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 15,
                               ),
                               Container(
@@ -177,14 +177,14 @@ class CourtScreen extends StatelessWidget {
                                     mainAxisSize: MainAxisSize.min,
                                     children: <Widget>[
                                       ListTile(
-                                        leading: CircleAvatar(
+                                        leading: const CircleAvatar(
                                           backgroundImage: AssetImage(
                                               "assets/images/home/students.png"), // No matter how big it is, it won't overflow
                                         ),
                                         title: Text('Students'),
                                         subtitle: Text(
-                                          '${res.count![0].studentsCount .toString()}',
-                                          style: TextStyle(
+                                          res.count![0].studentsCount .toString(),
+                                          style: const TextStyle(
                                               color: Colors.lightBlue,
                                               fontSize: 19),
                                         ),
