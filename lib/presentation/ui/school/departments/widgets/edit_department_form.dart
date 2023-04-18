@@ -30,8 +30,8 @@ class _AddDepartmentsFormState extends State<AddDepartmentsForm> {
 
   }
   Widget build(BuildContext context) {
-    print("kjhlkkl${widget.depatmentname}");
-    print("kjhlkkl${widget.departmentId}");
+    print("name${widget.depatmentname}");
+    print("id${widget.departmentId}");
     return BlocConsumer<EditDepartmentBloc, EditDepartmentState>(
       listener: (context, state) {
         state.loadFailureOrSuccessOption.fold(
