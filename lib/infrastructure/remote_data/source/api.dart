@@ -43,4 +43,5 @@ class Api {
   static String getDepartmentschool = 'api/institution/department_list';
   static String deletionDepartment = 'api/institution/remove_department';
   static String addDepartmentSchool = 'api/institution/add_department';
+  static String editDepartemnt="api/institution/update_department";
 }
