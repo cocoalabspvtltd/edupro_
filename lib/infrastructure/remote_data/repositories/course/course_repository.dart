@@ -258,7 +258,7 @@ print("response->${response.data}");
     try {
       Response response = await apiClient!
           .getJsonInstance()
-          .post(Api.insistutionCategoriesList, queryParameters: {'user_id': UserDetailsLocal.userId});
+          .get(Api.insistutionCategoriesList, queryParameters: {'user_id': UserDetailsLocal.userId});
 
       return right(InsistutionResponse.fromJson(response.data));
     } on DioError catch (e) {

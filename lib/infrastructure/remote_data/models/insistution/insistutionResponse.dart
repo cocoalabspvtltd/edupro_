@@ -5,6 +5,7 @@ class InsistutionResponse {
   List<Instructors>? instructors;
   List<StudentList>? studentList;
   List<Category>? category;
+  List<Count>? count;
 
   InsistutionResponse(
       {this.success,
@@ -12,7 +13,8 @@ class InsistutionResponse {
         this.course,
         this.instructors,
         this.studentList,
-        this.category});
+        this.category,
+        this.count});
 
   InsistutionResponse.fromJson(Map<String, dynamic> json) {
     success = json['success'];
@@ -41,6 +43,12 @@ class InsistutionResponse {
         category!.add(new Category.fromJson(v));
       });
     }
+    if (json['count'] != null) {
+      count = <Count>[];
+      json['count'].forEach((v) {
+        count!.add(new Count.fromJson(v));
+      });
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -58,6 +66,9 @@ class InsistutionResponse {
     }
     if (this.category != null) {
       data['category'] = this.category!.map((v) => v.toJson()).toList();
+    }
+    if (this.count != null) {
+      data['count'] = this.count!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -200,6 +211,7 @@ class StudentList {
   String? phoneNumber;
   String? dob;
   String? profilePhoto;
+  int? status;
   String? createdAt;
   String? updatedAt;
 
@@ -214,6 +226,7 @@ class StudentList {
         this.phoneNumber,
         this.dob,
         this.profilePhoto,
+        this.status,
         this.createdAt,
         this.updatedAt});
 
@@ -228,6 +241,7 @@ class StudentList {
     phoneNumber = json['phone_number'];
     dob = json['dob'];
     profilePhoto = json['profile_photo'];
+    status = json['status'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
   }
@@ -244,6 +258,7 @@ class StudentList {
     data['phone_number'] = this.phoneNumber;
     data['dob'] = this.dob;
     data['profile_photo'] = this.profilePhoto;
+    data['status'] = this.status;
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;
     return data;
@@ -283,6 +298,30 @@ class Category {
     data['created_by'] = this.createdBy;
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;
+    return data;
+  }
+}
+
+class Count {
+  int? courseCount;
+  int? studentsCount;
+  int? instructorCount;
+int?department;
+  Count({this.courseCount, this.studentsCount, this.instructorCount});
+
+  Count.fromJson(Map<String, dynamic> json) {
+    courseCount = json['course_count'];
+    studentsCount = json['students_count'];
+    instructorCount = json['instructor_count'];
+    department =json['department'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['course_count'] = this.courseCount;
+    data['students_count'] = this.studentsCount;
+    data['instructor_count'] = this.instructorCount;
+    data['department']= this.department;
     return data;
   }
 }

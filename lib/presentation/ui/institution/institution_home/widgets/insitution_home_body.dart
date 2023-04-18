@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 
+import 'package:pgs_edupro/application/Insistution_student_course_instructor/all_categories_bloc.dart';
 import 'package:pgs_edupro/application/ads/ads_bloc.dart';
 import 'package:pgs_edupro/application/course/courses_bloc.dart';
 import 'package:pgs_edupro/application/insistution_count/insistution_bloc.dart';
@@ -47,6 +48,9 @@ class InstitutionHomeBody extends StatelessWidget {
         context
             .read<InsistutionBloc>()
             .add(const InsistutionEvent.loadMyCourses());
+        context
+            .read<AllCategoriesBloc>()
+            .add(const AllCategoriesEvent.loadMyCourses());
         context
             .read<CoursesBloc>()
             .add(const CoursesEvent.loadCourseCategories());

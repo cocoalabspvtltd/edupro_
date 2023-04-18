@@ -309,7 +309,7 @@ class ServerAuthFacade implements IAuthFacade {
                 r.institution!.id.toString(),
                 r.institution!.name!,
                 r.institution!.email!,
-                "","","","",
+                r.institution!.code!,"","","",
               );
             }
             else if(response.data["type"]=="school"){
@@ -322,7 +322,7 @@ class ServerAuthFacade implements IAuthFacade {
                 r.school!.id.toString(),
                 r.school!.name!,
                 r.school!.email!,
-                "","","","",
+                r.school!.code!,"","","",
               );
             }
 
