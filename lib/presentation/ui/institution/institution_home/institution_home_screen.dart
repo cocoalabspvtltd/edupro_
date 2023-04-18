@@ -112,6 +112,7 @@ class _InstitutionHomeScreenState extends State<InstitutionHomeScreen> {
               }
               return Future.value(true);
             },
+
             child:  PageView(
                 controller: _pageController,
                 onPageChanged: (index) {
