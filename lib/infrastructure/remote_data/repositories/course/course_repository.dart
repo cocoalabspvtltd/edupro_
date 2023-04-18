@@ -1,6 +1,9 @@
 import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:pgs_edupro/domain/course/i_course_repository.dart';
 import 'package:pgs_edupro/domain/core/network/api_provider.dart';
 import 'package:pgs_edupro/domain/core/network/network_failures.dart';
@@ -588,6 +591,36 @@ print("response->${response.data}");
     } on DioError catch (e) {
       if (e.response != null) {
         if (e.response!.statusCode == 401) {
+          return left(
+              NetworkFailure.unAuthorized(e.response!.data["message"] ?? ''));
+        }
+        return left(NetworkFailure.serverError(
+            "Status Code ${e.response!.statusCode}"));
+      } else if (e.toString().contains('Connecting timed out')) {
+        return left(const NetworkFailure.serverTimeOut());
+      }
+      return left(const NetworkFailure.unexpected());
+    } catch (e) {
+      return left(const NetworkFailure.unexpected());
+    }
+  }
+
+  @override
+  Future<Either<NetworkFailure,AddDepartmentResponse>> editDepartment(
+      Map body) async {
+    log("body->${body}");
+    try {
+      Response response = await apiClient!
+          .getJsonInstance()
+          .post(Api.editDepartemnt, data: body);
+      if(response.statusCode==200){
+        Fluttertoast.showToast(msg: "${response!.data["message"]}");
+        Get.back();
+      }
+      return right(AddDepartmentResponse.fromJson(response.data));
+    } on DioError catch (e) {
+      if (e.response!.statusCode == 401) {
+        if (e.response != null) {
           return left(
               NetworkFailure.unAuthorized(e.response!.data["message"] ?? ''));
         }

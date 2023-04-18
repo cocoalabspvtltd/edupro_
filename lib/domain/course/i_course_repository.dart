@@ -3,6 +3,7 @@ import 'package:pgs_edupro/domain/core/network/network_failures.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_categories_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_in_category_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_report_response.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/models/insiistution_adding_responses/school_department_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/class_list_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/count.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/insistutionResponse.dart';
@@ -29,5 +30,6 @@ abstract class ICourseRepository {
   Future<Either<NetworkFailure, DeletionResponse>> courseDeletion();
   Future<Either<NetworkFailure, DepartmentListResponse>> getDepartmentList();
   Future<Either<NetworkFailure, DeletionResponse>> departmentDeletion();
+  Future<Either<NetworkFailure, AddDepartmentResponse>> editDepartment(Map body);
 
 }

@@ -1,8 +1,11 @@
+import 'package:get/get.dart';
 import 'package:pgs_edupro/application/school_deletion_department/department_deletion_bloc.dart';
 import 'package:pgs_edupro/application/school_department_list/department_list_bloc.dart';
+import 'package:pgs_edupro/application/school_edit_department/edit_department_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/school/department_list_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/course/course_repository.dart';
+import 'package:pgs_edupro/presentation/ui/school/departments/edit_department_screen.dart';
 import 'package:pgs_edupro/presentation/widgets/common_result_empty_widget.dart';
 import 'package:pgs_edupro/presentation/widgets/common_server_error_widget.dart';
 import 'package:flutter/material.dart';
@@ -36,8 +39,6 @@ class SchoolDepartmentlistScreen extends StatelessWidget {
           BlocProvider(
             create: (_) => DepartmentDeletionBloc(CourseRepository())
               ..add( DepartmentDeletionEvent.saveAndUpdatePressed()),
-
-
           ),
         ], child:  Scaffold(
         body: BlocBuilder<DepartmentListBloc, DepartmentListState>(
@@ -117,6 +118,12 @@ class SchoolDepartmentlistScreen extends StatelessWidget {
                                                 backgroundColor:Colors.pink[300],
                                                 child: IconButton(
                                                   onPressed: () {
+                                                    depart_id= res
+                                                        .department![index]
+                                                        .id.toString();
+                                                    Get.to(() => EditDepartmentScreen(
+                                                        depatmentdetails:res.department![index]
+                                                    ));
                                                   },
                                                   icon: const Icon(Icons.edit,
                                                     color: Colors.white, size: 15,),
@@ -135,16 +142,12 @@ class SchoolDepartmentlistScreen extends StatelessWidget {
                                                         .read<
                                                         DepartmentDeletionBloc>()
                                                         .add(
-                                                        DepartmentDeletionEvent
-                                                            .saveAndUpdatePressed(
-                                                        ))
-                                                    ;
+                                                        DepartmentDeletionEvent.saveAndUpdatePressed());
                                                   }, style: ElevatedButton.styleFrom(
                                                   shape: RoundedRectangleBorder(
                                                     borderRadius: BorderRadius.circular(5),
                                                   ),
                                                 ),
-
                                                   icon: const Icon(Icons.delete,
                                                     color: Colors.white, size: 15,),
                                                 ),
