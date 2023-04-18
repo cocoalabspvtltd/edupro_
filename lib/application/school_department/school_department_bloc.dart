@@ -34,7 +34,6 @@ class SchoolDepartmentBloc extends Bloc<SchoolDepartmentEvent, SchoolDepartmentS
           "name": state.name.text,
         });
 
-
         //AppDialogs.loading();
         failureOrSuccess = await addDepartmentssInstitution.addDepartmentSchool(body);
         Fluttertoast.showToast(msg: "Department added Successfully");

@@ -133,7 +133,6 @@ class _LogInFormState extends State<LogInForm> {
                       return;
                     }
                     if (state.password != state.confirmPassword) {
-                  
                       if (r.user?.paymentStatus == 'true') {
                         Get.offAll(() => const MembershipCheckScreen());
                         return;

@@ -21,6 +21,7 @@ class DepartmentListBloc extends Bloc<DepartmentListEvent, DepartmentListState> 
 
       failureOrSuccess.fold((l) => emit(DepartmentListState.loadFailure(l)),
               (r) => emit(DepartmentListState.loadSuccess(r)));
+
     });
   }
 }
