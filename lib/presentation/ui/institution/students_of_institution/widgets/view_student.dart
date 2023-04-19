@@ -16,7 +16,7 @@ import 'insistution_view.dart';
 class EditStudentScreen extends StatefulWidget {
   final depatmentdetails;
   final depatmentdetailsid;
-  const EditStudentScreen(
+  const  EditStudentScreen(
       {super.key, required this.depatmentdetails, this.depatmentdetailsid});
 
   @override
@@ -40,7 +40,7 @@ class _EditStudentScreenState extends State<EditStudentScreen> {
         appBar: AppBar(
           backgroundColor: Colors.black,
           title: Text(
-            "Edit Department",
+            "Edit Student",
             style: boldValuePrimaryColor,
           ),
         ),
@@ -51,7 +51,7 @@ class _EditStudentScreenState extends State<EditStudentScreen> {
             CourseRepository(),
             widget.depatmentdetailsid,
           )..add(InsiistutionStudentEvent.loadMyProfile(
-              widget.depatmentdetailsid.id.toString())),
+              widget.depatmentdetails.id.toString())),
           child: Scaffold(
               body: RefreshIndicator(
             onRefresh: () async {
@@ -61,8 +61,8 @@ class _EditStudentScreenState extends State<EditStudentScreen> {
             },
             child: SingleChildScrollView(
                 physics: AlwaysScrollableScrollPhysics(),
-                child: AddStudentsFormEdit()),
+                child: AddStudentsFormEdit(depatmentdetails: widget.depatmentdetails,),
           )),
-        ));
+        )));
   }
 }

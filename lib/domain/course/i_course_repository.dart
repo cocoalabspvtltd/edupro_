@@ -31,5 +31,6 @@ abstract class ICourseRepository {
   Future<Either<NetworkFailure, DepartmentListResponse>> getDepartmentList();
   Future<Either<NetworkFailure, DeletionResponse>> departmentDeletion();
   Future<Either<NetworkFailure, AddDepartmentResponse>> editDepartment(Map body);
+//  Future<Either<NetworkFailure, InsistutionResponse>> editStudent( body);
 
 }

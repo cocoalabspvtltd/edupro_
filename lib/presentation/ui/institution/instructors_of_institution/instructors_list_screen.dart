@@ -8,6 +8,7 @@ import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/insistutionResponse.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/course/course_repository.dart';
+import 'package:pgs_edupro/presentation/ui/institution/instructors_of_institution/widgets/EditInstructorScreen.dart';
 import 'package:pgs_edupro/presentation/ui/institution/instructors_of_institution/widgets/view_instructor_details.dart';
 import 'package:pgs_edupro/presentation/widgets/common_result_empty_widget.dart';
 import 'package:pgs_edupro/presentation/widgets/common_server_error_widget.dart';
@@ -157,7 +158,13 @@ class InsistutionInstructorListScreen extends StatelessWidget {
                                                   radius: 16,
                                                   backgroundColor:Colors.pink[300],
                                                   child: IconButton(
-                                                    onPressed: () {
+                                                    onPressed: () {Get.to(() => EditInstructorScreen(
+                                                      depatmentdetails: res.studentList![index],
+                                                      depatmentdetailsid: res.studentList!.indexOf(res.studentList![index]),
+
+
+                                                      //studentdetails:res.studentList![index]
+                                                    ));
                                                     },
                                                     icon: const Icon(Icons.edit,
                                                       color: Colors.white, size: 15,),

@@ -16,6 +16,7 @@ class InstitutionInstructorEvent with _$InstitutionInstructorEvent {
   _QualificationChanged;
   const factory InstitutionInstructorEvent.descriptionChanged(String descrptionStr) =
   _DescriptionChanged;
+  const factory InstitutionInstructorEvent.loadMyProfile(String userId) = _LoadMyProfile;
   const factory InstitutionInstructorEvent.emailChanged(String emailStr) =
   _EmailChanged;
   const factory InstitutionInstructorEvent.passwordChanged(String passwordStr) =
@@ -23,6 +24,6 @@ class InstitutionInstructorEvent with _$InstitutionInstructorEvent {
   const factory InstitutionInstructorEvent.displayPicture(File Image) =
   _ImageChanged;
   const factory InstitutionInstructorEvent.submitPressed() = _SubmitPressed;
-
+  const factory InstitutionInstructorEvent.editsubmitPressed() =   _EditSubmitPressed;
 }
 

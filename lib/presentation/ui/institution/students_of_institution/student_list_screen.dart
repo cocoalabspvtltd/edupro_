@@ -126,8 +126,8 @@ class InsistutionStudentlistScreen extends StatelessWidget {
                                                   onPressed: () {
 
                                                     Get.to(() => EditStudentScreen(
-                                                      depatmentdetails: res.studentList,
-                                                        depatmentdetailsid: res.studentList!.iterator,
+                                                      depatmentdetails: res.studentList![index],
+                                                        depatmentdetailsid: res.studentList!.indexOf(res.studentList![index]),
 
 
                                                         //studentdetails:res.studentList![index]

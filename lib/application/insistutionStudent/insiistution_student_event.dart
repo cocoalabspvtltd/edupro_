@@ -21,5 +21,5 @@ class InsiistutionStudentEvent with _$InsiistutionStudentEvent {
   const factory InsiistutionStudentEvent.profileFile(File displayPicture) =
   _courseFilePicture;
   const factory InsiistutionStudentEvent.submitPressed() =   _SubmitPressed;
-
+  const factory InsiistutionStudentEvent.editsubmitPressed() =   _EditSubmitPressed;
 }

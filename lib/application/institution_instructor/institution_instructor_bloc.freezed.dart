@@ -25,10 +25,12 @@ mixin _$InstitutionInstructorEvent {
     required TResult Function(String categoryValue) categoryChanged,
     required TResult Function(String qualiStr) qualificationChanged,
     required TResult Function(String descrptionStr) descriptionChanged,
+    required TResult Function(String userId) loadMyProfile,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(File Image) displayPicture,
     required TResult Function() submitPressed,
+    required TResult Function() editsubmitPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,10 +42,12 @@ mixin _$InstitutionInstructorEvent {
     TResult? Function(String categoryValue)? categoryChanged,
     TResult? Function(String qualiStr)? qualificationChanged,
     TResult? Function(String descrptionStr)? descriptionChanged,
+    TResult? Function(String userId)? loadMyProfile,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(File Image)? displayPicture,
     TResult? Function()? submitPressed,
+    TResult? Function()? editsubmitPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,10 +59,12 @@ mixin _$InstitutionInstructorEvent {
     TResult Function(String categoryValue)? categoryChanged,
     TResult Function(String qualiStr)? qualificationChanged,
     TResult Function(String descrptionStr)? descriptionChanged,
+    TResult Function(String userId)? loadMyProfile,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(File Image)? displayPicture,
     TResult Function()? submitPressed,
+    TResult Function()? editsubmitPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -72,10 +78,12 @@ mixin _$InstitutionInstructorEvent {
     required TResult Function(_CategoryChanged value) categoryChanged,
     required TResult Function(_QualificationChanged value) qualificationChanged,
     required TResult Function(_DescriptionChanged value) descriptionChanged,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ImageChanged value) displayPicture,
     required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -87,10 +95,12 @@ mixin _$InstitutionInstructorEvent {
     TResult? Function(_CategoryChanged value)? categoryChanged,
     TResult? Function(_QualificationChanged value)? qualificationChanged,
     TResult? Function(_DescriptionChanged value)? descriptionChanged,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
     TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -102,10 +112,12 @@ mixin _$InstitutionInstructorEvent {
     TResult Function(_CategoryChanged value)? categoryChanged,
     TResult Function(_QualificationChanged value)? qualificationChanged,
     TResult Function(_DescriptionChanged value)? descriptionChanged,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ImageChanged value)? displayPicture,
     TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -175,10 +187,12 @@ class _$_Started implements _Started {
     required TResult Function(String categoryValue) categoryChanged,
     required TResult Function(String qualiStr) qualificationChanged,
     required TResult Function(String descrptionStr) descriptionChanged,
+    required TResult Function(String userId) loadMyProfile,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(File Image) displayPicture,
     required TResult Function() submitPressed,
+    required TResult Function() editsubmitPressed,
   }) {
     return started();
   }
@@ -193,10 +207,12 @@ class _$_Started implements _Started {
     TResult? Function(String categoryValue)? categoryChanged,
     TResult? Function(String qualiStr)? qualificationChanged,
     TResult? Function(String descrptionStr)? descriptionChanged,
+    TResult? Function(String userId)? loadMyProfile,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(File Image)? displayPicture,
     TResult? Function()? submitPressed,
+    TResult? Function()? editsubmitPressed,
   }) {
     return started?.call();
   }
@@ -211,10 +227,12 @@ class _$_Started implements _Started {
     TResult Function(String categoryValue)? categoryChanged,
     TResult Function(String qualiStr)? qualificationChanged,
     TResult Function(String descrptionStr)? descriptionChanged,
+    TResult Function(String userId)? loadMyProfile,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(File Image)? displayPicture,
     TResult Function()? submitPressed,
+    TResult Function()? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -234,10 +252,12 @@ class _$_Started implements _Started {
     required TResult Function(_CategoryChanged value) categoryChanged,
     required TResult Function(_QualificationChanged value) qualificationChanged,
     required TResult Function(_DescriptionChanged value) descriptionChanged,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ImageChanged value) displayPicture,
     required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
   }) {
     return started(this);
   }
@@ -252,10 +272,12 @@ class _$_Started implements _Started {
     TResult? Function(_CategoryChanged value)? categoryChanged,
     TResult? Function(_QualificationChanged value)? qualificationChanged,
     TResult? Function(_DescriptionChanged value)? descriptionChanged,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
     TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
   }) {
     return started?.call(this);
   }
@@ -270,10 +292,12 @@ class _$_Started implements _Started {
     TResult Function(_CategoryChanged value)? categoryChanged,
     TResult Function(_QualificationChanged value)? qualificationChanged,
     TResult Function(_DescriptionChanged value)? descriptionChanged,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ImageChanged value)? displayPicture,
     TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -358,10 +382,12 @@ class _$_NameChanged implements _NameChanged {
     required TResult Function(String categoryValue) categoryChanged,
     required TResult Function(String qualiStr) qualificationChanged,
     required TResult Function(String descrptionStr) descriptionChanged,
+    required TResult Function(String userId) loadMyProfile,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(File Image) displayPicture,
     required TResult Function() submitPressed,
+    required TResult Function() editsubmitPressed,
   }) {
     return nameChanged(nameStr);
   }
@@ -376,10 +402,12 @@ class _$_NameChanged implements _NameChanged {
     TResult? Function(String categoryValue)? categoryChanged,
     TResult? Function(String qualiStr)? qualificationChanged,
     TResult? Function(String descrptionStr)? descriptionChanged,
+    TResult? Function(String userId)? loadMyProfile,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(File Image)? displayPicture,
     TResult? Function()? submitPressed,
+    TResult? Function()? editsubmitPressed,
   }) {
     return nameChanged?.call(nameStr);
   }
@@ -394,10 +422,12 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(String categoryValue)? categoryChanged,
     TResult Function(String qualiStr)? qualificationChanged,
     TResult Function(String descrptionStr)? descriptionChanged,
+    TResult Function(String userId)? loadMyProfile,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(File Image)? displayPicture,
     TResult Function()? submitPressed,
+    TResult Function()? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -417,10 +447,12 @@ class _$_NameChanged implements _NameChanged {
     required TResult Function(_CategoryChanged value) categoryChanged,
     required TResult Function(_QualificationChanged value) qualificationChanged,
     required TResult Function(_DescriptionChanged value) descriptionChanged,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ImageChanged value) displayPicture,
     required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
   }) {
     return nameChanged(this);
   }
@@ -435,10 +467,12 @@ class _$_NameChanged implements _NameChanged {
     TResult? Function(_CategoryChanged value)? categoryChanged,
     TResult? Function(_QualificationChanged value)? qualificationChanged,
     TResult? Function(_DescriptionChanged value)? descriptionChanged,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
     TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
   }) {
     return nameChanged?.call(this);
   }
@@ -453,10 +487,12 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(_CategoryChanged value)? categoryChanged,
     TResult Function(_QualificationChanged value)? qualificationChanged,
     TResult Function(_DescriptionChanged value)? descriptionChanged,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ImageChanged value)? displayPicture,
     TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -547,10 +583,12 @@ class _$_MobileChanged implements _MobileChanged {
     required TResult Function(String categoryValue) categoryChanged,
     required TResult Function(String qualiStr) qualificationChanged,
     required TResult Function(String descrptionStr) descriptionChanged,
+    required TResult Function(String userId) loadMyProfile,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(File Image) displayPicture,
     required TResult Function() submitPressed,
+    required TResult Function() editsubmitPressed,
   }) {
     return mobileChanged(mobileStr);
   }
@@ -565,10 +603,12 @@ class _$_MobileChanged implements _MobileChanged {
     TResult? Function(String categoryValue)? categoryChanged,
     TResult? Function(String qualiStr)? qualificationChanged,
     TResult? Function(String descrptionStr)? descriptionChanged,
+    TResult? Function(String userId)? loadMyProfile,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(File Image)? displayPicture,
     TResult? Function()? submitPressed,
+    TResult? Function()? editsubmitPressed,
   }) {
     return mobileChanged?.call(mobileStr);
   }
@@ -583,10 +623,12 @@ class _$_MobileChanged implements _MobileChanged {
     TResult Function(String categoryValue)? categoryChanged,
     TResult Function(String qualiStr)? qualificationChanged,
     TResult Function(String descrptionStr)? descriptionChanged,
+    TResult Function(String userId)? loadMyProfile,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(File Image)? displayPicture,
     TResult Function()? submitPressed,
+    TResult Function()? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (mobileChanged != null) {
@@ -606,10 +648,12 @@ class _$_MobileChanged implements _MobileChanged {
     required TResult Function(_CategoryChanged value) categoryChanged,
     required TResult Function(_QualificationChanged value) qualificationChanged,
     required TResult Function(_DescriptionChanged value) descriptionChanged,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ImageChanged value) displayPicture,
     required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
   }) {
     return mobileChanged(this);
   }
@@ -624,10 +668,12 @@ class _$_MobileChanged implements _MobileChanged {
     TResult? Function(_CategoryChanged value)? categoryChanged,
     TResult? Function(_QualificationChanged value)? qualificationChanged,
     TResult? Function(_DescriptionChanged value)? descriptionChanged,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
     TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
   }) {
     return mobileChanged?.call(this);
   }
@@ -642,10 +688,12 @@ class _$_MobileChanged implements _MobileChanged {
     TResult Function(_CategoryChanged value)? categoryChanged,
     TResult Function(_QualificationChanged value)? qualificationChanged,
     TResult Function(_DescriptionChanged value)? descriptionChanged,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ImageChanged value)? displayPicture,
     TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (mobileChanged != null) {
@@ -739,10 +787,12 @@ class _$_AdditionalMobileChanged implements _AdditionalMobileChanged {
     required TResult Function(String categoryValue) categoryChanged,
     required TResult Function(String qualiStr) qualificationChanged,
     required TResult Function(String descrptionStr) descriptionChanged,
+    required TResult Function(String userId) loadMyProfile,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(File Image) displayPicture,
     required TResult Function() submitPressed,
+    required TResult Function() editsubmitPressed,
   }) {
     return additionalmobileChanged(addmobileStr);
   }
@@ -757,10 +807,12 @@ class _$_AdditionalMobileChanged implements _AdditionalMobileChanged {
     TResult? Function(String categoryValue)? categoryChanged,
     TResult? Function(String qualiStr)? qualificationChanged,
     TResult? Function(String descrptionStr)? descriptionChanged,
+    TResult? Function(String userId)? loadMyProfile,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(File Image)? displayPicture,
     TResult? Function()? submitPressed,
+    TResult? Function()? editsubmitPressed,
   }) {
     return additionalmobileChanged?.call(addmobileStr);
   }
@@ -775,10 +827,12 @@ class _$_AdditionalMobileChanged implements _AdditionalMobileChanged {
     TResult Function(String categoryValue)? categoryChanged,
     TResult Function(String qualiStr)? qualificationChanged,
     TResult Function(String descrptionStr)? descriptionChanged,
+    TResult Function(String userId)? loadMyProfile,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(File Image)? displayPicture,
     TResult Function()? submitPressed,
+    TResult Function()? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (additionalmobileChanged != null) {
@@ -798,10 +852,12 @@ class _$_AdditionalMobileChanged implements _AdditionalMobileChanged {
     required TResult Function(_CategoryChanged value) categoryChanged,
     required TResult Function(_QualificationChanged value) qualificationChanged,
     required TResult Function(_DescriptionChanged value) descriptionChanged,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ImageChanged value) displayPicture,
     required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
   }) {
     return additionalmobileChanged(this);
   }
@@ -816,10 +872,12 @@ class _$_AdditionalMobileChanged implements _AdditionalMobileChanged {
     TResult? Function(_CategoryChanged value)? categoryChanged,
     TResult? Function(_QualificationChanged value)? qualificationChanged,
     TResult? Function(_DescriptionChanged value)? descriptionChanged,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
     TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
   }) {
     return additionalmobileChanged?.call(this);
   }
@@ -834,10 +892,12 @@ class _$_AdditionalMobileChanged implements _AdditionalMobileChanged {
     TResult Function(_CategoryChanged value)? categoryChanged,
     TResult Function(_QualificationChanged value)? qualificationChanged,
     TResult Function(_DescriptionChanged value)? descriptionChanged,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ImageChanged value)? displayPicture,
     TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (additionalmobileChanged != null) {
@@ -929,10 +989,12 @@ class _$_CategoryChanged implements _CategoryChanged {
     required TResult Function(String categoryValue) categoryChanged,
     required TResult Function(String qualiStr) qualificationChanged,
     required TResult Function(String descrptionStr) descriptionChanged,
+    required TResult Function(String userId) loadMyProfile,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(File Image) displayPicture,
     required TResult Function() submitPressed,
+    required TResult Function() editsubmitPressed,
   }) {
     return categoryChanged(categoryValue);
   }
@@ -947,10 +1009,12 @@ class _$_CategoryChanged implements _CategoryChanged {
     TResult? Function(String categoryValue)? categoryChanged,
     TResult? Function(String qualiStr)? qualificationChanged,
     TResult? Function(String descrptionStr)? descriptionChanged,
+    TResult? Function(String userId)? loadMyProfile,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(File Image)? displayPicture,
     TResult? Function()? submitPressed,
+    TResult? Function()? editsubmitPressed,
   }) {
     return categoryChanged?.call(categoryValue);
   }
@@ -965,10 +1029,12 @@ class _$_CategoryChanged implements _CategoryChanged {
     TResult Function(String categoryValue)? categoryChanged,
     TResult Function(String qualiStr)? qualificationChanged,
     TResult Function(String descrptionStr)? descriptionChanged,
+    TResult Function(String userId)? loadMyProfile,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(File Image)? displayPicture,
     TResult Function()? submitPressed,
+    TResult Function()? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (categoryChanged != null) {
@@ -988,10 +1054,12 @@ class _$_CategoryChanged implements _CategoryChanged {
     required TResult Function(_CategoryChanged value) categoryChanged,
     required TResult Function(_QualificationChanged value) qualificationChanged,
     required TResult Function(_DescriptionChanged value) descriptionChanged,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ImageChanged value) displayPicture,
     required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
   }) {
     return categoryChanged(this);
   }
@@ -1006,10 +1074,12 @@ class _$_CategoryChanged implements _CategoryChanged {
     TResult? Function(_CategoryChanged value)? categoryChanged,
     TResult? Function(_QualificationChanged value)? qualificationChanged,
     TResult? Function(_DescriptionChanged value)? descriptionChanged,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
     TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
   }) {
     return categoryChanged?.call(this);
   }
@@ -1024,10 +1094,12 @@ class _$_CategoryChanged implements _CategoryChanged {
     TResult Function(_CategoryChanged value)? categoryChanged,
     TResult Function(_QualificationChanged value)? qualificationChanged,
     TResult Function(_DescriptionChanged value)? descriptionChanged,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ImageChanged value)? displayPicture,
     TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (categoryChanged != null) {
@@ -1121,10 +1193,12 @@ class _$_QualificationChanged implements _QualificationChanged {
     required TResult Function(String categoryValue) categoryChanged,
     required TResult Function(String qualiStr) qualificationChanged,
     required TResult Function(String descrptionStr) descriptionChanged,
+    required TResult Function(String userId) loadMyProfile,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(File Image) displayPicture,
     required TResult Function() submitPressed,
+    required TResult Function() editsubmitPressed,
   }) {
     return qualificationChanged(qualiStr);
   }
@@ -1139,10 +1213,12 @@ class _$_QualificationChanged implements _QualificationChanged {
     TResult? Function(String categoryValue)? categoryChanged,
     TResult? Function(String qualiStr)? qualificationChanged,
     TResult? Function(String descrptionStr)? descriptionChanged,
+    TResult? Function(String userId)? loadMyProfile,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(File Image)? displayPicture,
     TResult? Function()? submitPressed,
+    TResult? Function()? editsubmitPressed,
   }) {
     return qualificationChanged?.call(qualiStr);
   }
@@ -1157,10 +1233,12 @@ class _$_QualificationChanged implements _QualificationChanged {
     TResult Function(String categoryValue)? categoryChanged,
     TResult Function(String qualiStr)? qualificationChanged,
     TResult Function(String descrptionStr)? descriptionChanged,
+    TResult Function(String userId)? loadMyProfile,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(File Image)? displayPicture,
     TResult Function()? submitPressed,
+    TResult Function()? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (qualificationChanged != null) {
@@ -1180,10 +1258,12 @@ class _$_QualificationChanged implements _QualificationChanged {
     required TResult Function(_CategoryChanged value) categoryChanged,
     required TResult Function(_QualificationChanged value) qualificationChanged,
     required TResult Function(_DescriptionChanged value) descriptionChanged,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ImageChanged value) displayPicture,
     required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
   }) {
     return qualificationChanged(this);
   }
@@ -1198,10 +1278,12 @@ class _$_QualificationChanged implements _QualificationChanged {
     TResult? Function(_CategoryChanged value)? categoryChanged,
     TResult? Function(_QualificationChanged value)? qualificationChanged,
     TResult? Function(_DescriptionChanged value)? descriptionChanged,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
     TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
   }) {
     return qualificationChanged?.call(this);
   }
@@ -1216,10 +1298,12 @@ class _$_QualificationChanged implements _QualificationChanged {
     TResult Function(_CategoryChanged value)? categoryChanged,
     TResult Function(_QualificationChanged value)? qualificationChanged,
     TResult Function(_DescriptionChanged value)? descriptionChanged,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ImageChanged value)? displayPicture,
     TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (qualificationChanged != null) {
@@ -1312,10 +1396,12 @@ class _$_DescriptionChanged implements _DescriptionChanged {
     required TResult Function(String categoryValue) categoryChanged,
     required TResult Function(String qualiStr) qualificationChanged,
     required TResult Function(String descrptionStr) descriptionChanged,
+    required TResult Function(String userId) loadMyProfile,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(File Image) displayPicture,
     required TResult Function() submitPressed,
+    required TResult Function() editsubmitPressed,
   }) {
     return descriptionChanged(descrptionStr);
   }
@@ -1330,10 +1416,12 @@ class _$_DescriptionChanged implements _DescriptionChanged {
     TResult? Function(String categoryValue)? categoryChanged,
     TResult? Function(String qualiStr)? qualificationChanged,
     TResult? Function(String descrptionStr)? descriptionChanged,
+    TResult? Function(String userId)? loadMyProfile,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(File Image)? displayPicture,
     TResult? Function()? submitPressed,
+    TResult? Function()? editsubmitPressed,
   }) {
     return descriptionChanged?.call(descrptionStr);
   }
@@ -1348,10 +1436,12 @@ class _$_DescriptionChanged implements _DescriptionChanged {
     TResult Function(String categoryValue)? categoryChanged,
     TResult Function(String qualiStr)? qualificationChanged,
     TResult Function(String descrptionStr)? descriptionChanged,
+    TResult Function(String userId)? loadMyProfile,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(File Image)? displayPicture,
     TResult Function()? submitPressed,
+    TResult Function()? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (descriptionChanged != null) {
@@ -1371,10 +1461,12 @@ class _$_DescriptionChanged implements _DescriptionChanged {
     required TResult Function(_CategoryChanged value) categoryChanged,
     required TResult Function(_QualificationChanged value) qualificationChanged,
     required TResult Function(_DescriptionChanged value) descriptionChanged,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ImageChanged value) displayPicture,
     required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
   }) {
     return descriptionChanged(this);
   }
@@ -1389,10 +1481,12 @@ class _$_DescriptionChanged implements _DescriptionChanged {
     TResult? Function(_CategoryChanged value)? categoryChanged,
     TResult? Function(_QualificationChanged value)? qualificationChanged,
     TResult? Function(_DescriptionChanged value)? descriptionChanged,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
     TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
   }) {
     return descriptionChanged?.call(this);
   }
@@ -1407,10 +1501,12 @@ class _$_DescriptionChanged implements _DescriptionChanged {
     TResult Function(_CategoryChanged value)? categoryChanged,
     TResult Function(_QualificationChanged value)? qualificationChanged,
     TResult Function(_DescriptionChanged value)? descriptionChanged,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ImageChanged value)? displayPicture,
     TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (descriptionChanged != null) {
@@ -1427,6 +1523,206 @@ abstract class _DescriptionChanged implements InstitutionInstructorEvent {
   String get descrptionStr;
   @JsonKey(ignore: true)
   _$$_DescriptionChangedCopyWith<_$_DescriptionChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_LoadMyProfileCopyWith<$Res> {
+  factory _$$_LoadMyProfileCopyWith(
+          _$_LoadMyProfile value, $Res Function(_$_LoadMyProfile) then) =
+      __$$_LoadMyProfileCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String userId});
+}
+
+/// @nodoc
+class __$$_LoadMyProfileCopyWithImpl<$Res>
+    extends _$InstitutionInstructorEventCopyWithImpl<$Res, _$_LoadMyProfile>
+    implements _$$_LoadMyProfileCopyWith<$Res> {
+  __$$_LoadMyProfileCopyWithImpl(
+      _$_LoadMyProfile _value, $Res Function(_$_LoadMyProfile) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userId = null,
+  }) {
+    return _then(_$_LoadMyProfile(
+      null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_LoadMyProfile implements _LoadMyProfile {
+  const _$_LoadMyProfile(this.userId);
+
+  @override
+  final String userId;
+
+  @override
+  String toString() {
+    return 'InstitutionInstructorEvent.loadMyProfile(userId: $userId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_LoadMyProfile &&
+            (identical(other.userId, userId) || other.userId == userId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, userId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_LoadMyProfileCopyWith<_$_LoadMyProfile> get copyWith =>
+      __$$_LoadMyProfileCopyWithImpl<_$_LoadMyProfile>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String nameStr) nameChanged,
+    required TResult Function(String mobileStr) mobileChanged,
+    required TResult Function(String addmobileStr) additionalmobileChanged,
+    required TResult Function(String categoryValue) categoryChanged,
+    required TResult Function(String qualiStr) qualificationChanged,
+    required TResult Function(String descrptionStr) descriptionChanged,
+    required TResult Function(String userId) loadMyProfile,
+    required TResult Function(String emailStr) emailChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(File Image) displayPicture,
+    required TResult Function() submitPressed,
+    required TResult Function() editsubmitPressed,
+  }) {
+    return loadMyProfile(userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String nameStr)? nameChanged,
+    TResult? Function(String mobileStr)? mobileChanged,
+    TResult? Function(String addmobileStr)? additionalmobileChanged,
+    TResult? Function(String categoryValue)? categoryChanged,
+    TResult? Function(String qualiStr)? qualificationChanged,
+    TResult? Function(String descrptionStr)? descriptionChanged,
+    TResult? Function(String userId)? loadMyProfile,
+    TResult? Function(String emailStr)? emailChanged,
+    TResult? Function(String passwordStr)? passwordChanged,
+    TResult? Function(File Image)? displayPicture,
+    TResult? Function()? submitPressed,
+    TResult? Function()? editsubmitPressed,
+  }) {
+    return loadMyProfile?.call(userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(String mobileStr)? mobileChanged,
+    TResult Function(String addmobileStr)? additionalmobileChanged,
+    TResult Function(String categoryValue)? categoryChanged,
+    TResult Function(String qualiStr)? qualificationChanged,
+    TResult Function(String descrptionStr)? descriptionChanged,
+    TResult Function(String userId)? loadMyProfile,
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(File Image)? displayPicture,
+    TResult Function()? submitPressed,
+    TResult Function()? editsubmitPressed,
+    required TResult orElse(),
+  }) {
+    if (loadMyProfile != null) {
+      return loadMyProfile(userId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_MobileChanged value) mobileChanged,
+    required TResult Function(_AdditionalMobileChanged value)
+        additionalmobileChanged,
+    required TResult Function(_CategoryChanged value) categoryChanged,
+    required TResult Function(_QualificationChanged value) qualificationChanged,
+    required TResult Function(_DescriptionChanged value) descriptionChanged,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
+    required TResult Function(_EmailChanged value) emailChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_ImageChanged value) displayPicture,
+    required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
+  }) {
+    return loadMyProfile(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_MobileChanged value)? mobileChanged,
+    TResult? Function(_AdditionalMobileChanged value)? additionalmobileChanged,
+    TResult? Function(_CategoryChanged value)? categoryChanged,
+    TResult? Function(_QualificationChanged value)? qualificationChanged,
+    TResult? Function(_DescriptionChanged value)? descriptionChanged,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
+    TResult? Function(_EmailChanged value)? emailChanged,
+    TResult? Function(_PasswordChanged value)? passwordChanged,
+    TResult? Function(_ImageChanged value)? displayPicture,
+    TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
+  }) {
+    return loadMyProfile?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_MobileChanged value)? mobileChanged,
+    TResult Function(_AdditionalMobileChanged value)? additionalmobileChanged,
+    TResult Function(_CategoryChanged value)? categoryChanged,
+    TResult Function(_QualificationChanged value)? qualificationChanged,
+    TResult Function(_DescriptionChanged value)? descriptionChanged,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
+    TResult Function(_EmailChanged value)? emailChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_ImageChanged value)? displayPicture,
+    TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
+    required TResult orElse(),
+  }) {
+    if (loadMyProfile != null) {
+      return loadMyProfile(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadMyProfile implements InstitutionInstructorEvent {
+  const factory _LoadMyProfile(final String userId) = _$_LoadMyProfile;
+
+  String get userId;
+  @JsonKey(ignore: true)
+  _$$_LoadMyProfileCopyWith<_$_LoadMyProfile> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1502,10 +1798,12 @@ class _$_EmailChanged implements _EmailChanged {
     required TResult Function(String categoryValue) categoryChanged,
     required TResult Function(String qualiStr) qualificationChanged,
     required TResult Function(String descrptionStr) descriptionChanged,
+    required TResult Function(String userId) loadMyProfile,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(File Image) displayPicture,
     required TResult Function() submitPressed,
+    required TResult Function() editsubmitPressed,
   }) {
     return emailChanged(emailStr);
   }
@@ -1520,10 +1818,12 @@ class _$_EmailChanged implements _EmailChanged {
     TResult? Function(String categoryValue)? categoryChanged,
     TResult? Function(String qualiStr)? qualificationChanged,
     TResult? Function(String descrptionStr)? descriptionChanged,
+    TResult? Function(String userId)? loadMyProfile,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(File Image)? displayPicture,
     TResult? Function()? submitPressed,
+    TResult? Function()? editsubmitPressed,
   }) {
     return emailChanged?.call(emailStr);
   }
@@ -1538,10 +1838,12 @@ class _$_EmailChanged implements _EmailChanged {
     TResult Function(String categoryValue)? categoryChanged,
     TResult Function(String qualiStr)? qualificationChanged,
     TResult Function(String descrptionStr)? descriptionChanged,
+    TResult Function(String userId)? loadMyProfile,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(File Image)? displayPicture,
     TResult Function()? submitPressed,
+    TResult Function()? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (emailChanged != null) {
@@ -1561,10 +1863,12 @@ class _$_EmailChanged implements _EmailChanged {
     required TResult Function(_CategoryChanged value) categoryChanged,
     required TResult Function(_QualificationChanged value) qualificationChanged,
     required TResult Function(_DescriptionChanged value) descriptionChanged,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ImageChanged value) displayPicture,
     required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
   }) {
     return emailChanged(this);
   }
@@ -1579,10 +1883,12 @@ class _$_EmailChanged implements _EmailChanged {
     TResult? Function(_CategoryChanged value)? categoryChanged,
     TResult? Function(_QualificationChanged value)? qualificationChanged,
     TResult? Function(_DescriptionChanged value)? descriptionChanged,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
     TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
   }) {
     return emailChanged?.call(this);
   }
@@ -1597,10 +1903,12 @@ class _$_EmailChanged implements _EmailChanged {
     TResult Function(_CategoryChanged value)? categoryChanged,
     TResult Function(_QualificationChanged value)? qualificationChanged,
     TResult Function(_DescriptionChanged value)? descriptionChanged,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ImageChanged value)? displayPicture,
     TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (emailChanged != null) {
@@ -1691,10 +1999,12 @@ class _$_PasswordChanged implements _PasswordChanged {
     required TResult Function(String categoryValue) categoryChanged,
     required TResult Function(String qualiStr) qualificationChanged,
     required TResult Function(String descrptionStr) descriptionChanged,
+    required TResult Function(String userId) loadMyProfile,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(File Image) displayPicture,
     required TResult Function() submitPressed,
+    required TResult Function() editsubmitPressed,
   }) {
     return passwordChanged(passwordStr);
   }
@@ -1709,10 +2019,12 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult? Function(String categoryValue)? categoryChanged,
     TResult? Function(String qualiStr)? qualificationChanged,
     TResult? Function(String descrptionStr)? descriptionChanged,
+    TResult? Function(String userId)? loadMyProfile,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(File Image)? displayPicture,
     TResult? Function()? submitPressed,
+    TResult? Function()? editsubmitPressed,
   }) {
     return passwordChanged?.call(passwordStr);
   }
@@ -1727,10 +2039,12 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function(String categoryValue)? categoryChanged,
     TResult Function(String qualiStr)? qualificationChanged,
     TResult Function(String descrptionStr)? descriptionChanged,
+    TResult Function(String userId)? loadMyProfile,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(File Image)? displayPicture,
     TResult Function()? submitPressed,
+    TResult Function()? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -1750,10 +2064,12 @@ class _$_PasswordChanged implements _PasswordChanged {
     required TResult Function(_CategoryChanged value) categoryChanged,
     required TResult Function(_QualificationChanged value) qualificationChanged,
     required TResult Function(_DescriptionChanged value) descriptionChanged,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ImageChanged value) displayPicture,
     required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
   }) {
     return passwordChanged(this);
   }
@@ -1768,10 +2084,12 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult? Function(_CategoryChanged value)? categoryChanged,
     TResult? Function(_QualificationChanged value)? qualificationChanged,
     TResult? Function(_DescriptionChanged value)? descriptionChanged,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
     TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
   }) {
     return passwordChanged?.call(this);
   }
@@ -1786,10 +2104,12 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function(_CategoryChanged value)? categoryChanged,
     TResult Function(_QualificationChanged value)? qualificationChanged,
     TResult Function(_DescriptionChanged value)? descriptionChanged,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ImageChanged value)? displayPicture,
     TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -1879,10 +2199,12 @@ class _$_ImageChanged implements _ImageChanged {
     required TResult Function(String categoryValue) categoryChanged,
     required TResult Function(String qualiStr) qualificationChanged,
     required TResult Function(String descrptionStr) descriptionChanged,
+    required TResult Function(String userId) loadMyProfile,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(File Image) displayPicture,
     required TResult Function() submitPressed,
+    required TResult Function() editsubmitPressed,
   }) {
     return displayPicture(Image);
   }
@@ -1897,10 +2219,12 @@ class _$_ImageChanged implements _ImageChanged {
     TResult? Function(String categoryValue)? categoryChanged,
     TResult? Function(String qualiStr)? qualificationChanged,
     TResult? Function(String descrptionStr)? descriptionChanged,
+    TResult? Function(String userId)? loadMyProfile,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(File Image)? displayPicture,
     TResult? Function()? submitPressed,
+    TResult? Function()? editsubmitPressed,
   }) {
     return displayPicture?.call(Image);
   }
@@ -1915,10 +2239,12 @@ class _$_ImageChanged implements _ImageChanged {
     TResult Function(String categoryValue)? categoryChanged,
     TResult Function(String qualiStr)? qualificationChanged,
     TResult Function(String descrptionStr)? descriptionChanged,
+    TResult Function(String userId)? loadMyProfile,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(File Image)? displayPicture,
     TResult Function()? submitPressed,
+    TResult Function()? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (displayPicture != null) {
@@ -1938,10 +2264,12 @@ class _$_ImageChanged implements _ImageChanged {
     required TResult Function(_CategoryChanged value) categoryChanged,
     required TResult Function(_QualificationChanged value) qualificationChanged,
     required TResult Function(_DescriptionChanged value) descriptionChanged,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ImageChanged value) displayPicture,
     required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
   }) {
     return displayPicture(this);
   }
@@ -1956,10 +2284,12 @@ class _$_ImageChanged implements _ImageChanged {
     TResult? Function(_CategoryChanged value)? categoryChanged,
     TResult? Function(_QualificationChanged value)? qualificationChanged,
     TResult? Function(_DescriptionChanged value)? descriptionChanged,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
     TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
   }) {
     return displayPicture?.call(this);
   }
@@ -1974,10 +2304,12 @@ class _$_ImageChanged implements _ImageChanged {
     TResult Function(_CategoryChanged value)? categoryChanged,
     TResult Function(_QualificationChanged value)? qualificationChanged,
     TResult Function(_DescriptionChanged value)? descriptionChanged,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ImageChanged value)? displayPicture,
     TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (displayPicture != null) {
@@ -2041,10 +2373,12 @@ class _$_SubmitPressed implements _SubmitPressed {
     required TResult Function(String categoryValue) categoryChanged,
     required TResult Function(String qualiStr) qualificationChanged,
     required TResult Function(String descrptionStr) descriptionChanged,
+    required TResult Function(String userId) loadMyProfile,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(File Image) displayPicture,
     required TResult Function() submitPressed,
+    required TResult Function() editsubmitPressed,
   }) {
     return submitPressed();
   }
@@ -2059,10 +2393,12 @@ class _$_SubmitPressed implements _SubmitPressed {
     TResult? Function(String categoryValue)? categoryChanged,
     TResult? Function(String qualiStr)? qualificationChanged,
     TResult? Function(String descrptionStr)? descriptionChanged,
+    TResult? Function(String userId)? loadMyProfile,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function(File Image)? displayPicture,
     TResult? Function()? submitPressed,
+    TResult? Function()? editsubmitPressed,
   }) {
     return submitPressed?.call();
   }
@@ -2077,10 +2413,12 @@ class _$_SubmitPressed implements _SubmitPressed {
     TResult Function(String categoryValue)? categoryChanged,
     TResult Function(String qualiStr)? qualificationChanged,
     TResult Function(String descrptionStr)? descriptionChanged,
+    TResult Function(String userId)? loadMyProfile,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(File Image)? displayPicture,
     TResult Function()? submitPressed,
+    TResult Function()? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (submitPressed != null) {
@@ -2100,10 +2438,12 @@ class _$_SubmitPressed implements _SubmitPressed {
     required TResult Function(_CategoryChanged value) categoryChanged,
     required TResult Function(_QualificationChanged value) qualificationChanged,
     required TResult Function(_DescriptionChanged value) descriptionChanged,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ImageChanged value) displayPicture,
     required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
   }) {
     return submitPressed(this);
   }
@@ -2118,10 +2458,12 @@ class _$_SubmitPressed implements _SubmitPressed {
     TResult? Function(_CategoryChanged value)? categoryChanged,
     TResult? Function(_QualificationChanged value)? qualificationChanged,
     TResult? Function(_DescriptionChanged value)? descriptionChanged,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
     TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
   }) {
     return submitPressed?.call(this);
   }
@@ -2136,10 +2478,12 @@ class _$_SubmitPressed implements _SubmitPressed {
     TResult Function(_CategoryChanged value)? categoryChanged,
     TResult Function(_QualificationChanged value)? qualificationChanged,
     TResult Function(_DescriptionChanged value)? descriptionChanged,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ImageChanged value)? displayPicture,
     TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (submitPressed != null) {
@@ -2151,6 +2495,175 @@ class _$_SubmitPressed implements _SubmitPressed {
 
 abstract class _SubmitPressed implements InstitutionInstructorEvent {
   const factory _SubmitPressed() = _$_SubmitPressed;
+}
+
+/// @nodoc
+abstract class _$$_EditSubmitPressedCopyWith<$Res> {
+  factory _$$_EditSubmitPressedCopyWith(_$_EditSubmitPressed value,
+          $Res Function(_$_EditSubmitPressed) then) =
+      __$$_EditSubmitPressedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_EditSubmitPressedCopyWithImpl<$Res>
+    extends _$InstitutionInstructorEventCopyWithImpl<$Res, _$_EditSubmitPressed>
+    implements _$$_EditSubmitPressedCopyWith<$Res> {
+  __$$_EditSubmitPressedCopyWithImpl(
+      _$_EditSubmitPressed _value, $Res Function(_$_EditSubmitPressed) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_EditSubmitPressed implements _EditSubmitPressed {
+  const _$_EditSubmitPressed();
+
+  @override
+  String toString() {
+    return 'InstitutionInstructorEvent.editsubmitPressed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_EditSubmitPressed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String nameStr) nameChanged,
+    required TResult Function(String mobileStr) mobileChanged,
+    required TResult Function(String addmobileStr) additionalmobileChanged,
+    required TResult Function(String categoryValue) categoryChanged,
+    required TResult Function(String qualiStr) qualificationChanged,
+    required TResult Function(String descrptionStr) descriptionChanged,
+    required TResult Function(String userId) loadMyProfile,
+    required TResult Function(String emailStr) emailChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(File Image) displayPicture,
+    required TResult Function() submitPressed,
+    required TResult Function() editsubmitPressed,
+  }) {
+    return editsubmitPressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String nameStr)? nameChanged,
+    TResult? Function(String mobileStr)? mobileChanged,
+    TResult? Function(String addmobileStr)? additionalmobileChanged,
+    TResult? Function(String categoryValue)? categoryChanged,
+    TResult? Function(String qualiStr)? qualificationChanged,
+    TResult? Function(String descrptionStr)? descriptionChanged,
+    TResult? Function(String userId)? loadMyProfile,
+    TResult? Function(String emailStr)? emailChanged,
+    TResult? Function(String passwordStr)? passwordChanged,
+    TResult? Function(File Image)? displayPicture,
+    TResult? Function()? submitPressed,
+    TResult? Function()? editsubmitPressed,
+  }) {
+    return editsubmitPressed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(String mobileStr)? mobileChanged,
+    TResult Function(String addmobileStr)? additionalmobileChanged,
+    TResult Function(String categoryValue)? categoryChanged,
+    TResult Function(String qualiStr)? qualificationChanged,
+    TResult Function(String descrptionStr)? descriptionChanged,
+    TResult Function(String userId)? loadMyProfile,
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(File Image)? displayPicture,
+    TResult Function()? submitPressed,
+    TResult Function()? editsubmitPressed,
+    required TResult orElse(),
+  }) {
+    if (editsubmitPressed != null) {
+      return editsubmitPressed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_MobileChanged value) mobileChanged,
+    required TResult Function(_AdditionalMobileChanged value)
+        additionalmobileChanged,
+    required TResult Function(_CategoryChanged value) categoryChanged,
+    required TResult Function(_QualificationChanged value) qualificationChanged,
+    required TResult Function(_DescriptionChanged value) descriptionChanged,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
+    required TResult Function(_EmailChanged value) emailChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_ImageChanged value) displayPicture,
+    required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
+  }) {
+    return editsubmitPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_MobileChanged value)? mobileChanged,
+    TResult? Function(_AdditionalMobileChanged value)? additionalmobileChanged,
+    TResult? Function(_CategoryChanged value)? categoryChanged,
+    TResult? Function(_QualificationChanged value)? qualificationChanged,
+    TResult? Function(_DescriptionChanged value)? descriptionChanged,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
+    TResult? Function(_EmailChanged value)? emailChanged,
+    TResult? Function(_PasswordChanged value)? passwordChanged,
+    TResult? Function(_ImageChanged value)? displayPicture,
+    TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
+  }) {
+    return editsubmitPressed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_MobileChanged value)? mobileChanged,
+    TResult Function(_AdditionalMobileChanged value)? additionalmobileChanged,
+    TResult Function(_CategoryChanged value)? categoryChanged,
+    TResult Function(_QualificationChanged value)? qualificationChanged,
+    TResult Function(_DescriptionChanged value)? descriptionChanged,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
+    TResult Function(_EmailChanged value)? emailChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_ImageChanged value)? displayPicture,
+    TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
+    required TResult orElse(),
+  }) {
+    if (editsubmitPressed != null) {
+      return editsubmitPressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _EditSubmitPressed implements InstitutionInstructorEvent {
+  const factory _EditSubmitPressed() = _$_EditSubmitPressed;
 }
 
 /// @nodoc

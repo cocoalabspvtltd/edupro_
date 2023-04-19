@@ -26,7 +26,7 @@ class _AddInstructorScreenState extends State<AddInstructorScreen> {
             style: boldValuePrimaryColor,
           ),
         ),
-        body: BlocProvider(create: (_)=>InstitutionInstructorBloc(CourseRepository()),
+        body: BlocProvider(create: (_)=>InstitutionInstructorBloc(CourseRepository(),0),
           child: SingleChildScrollView(
               child:  AddInstructorsForm()
           ),

@@ -29,6 +29,7 @@ mixin _$InsiistutionStudentEvent {
     required TResult Function(String userId) loadMyProfile,
     required TResult Function(File displayPicture) profileFile,
     required TResult Function() submitPressed,
+    required TResult Function() editsubmitPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +45,7 @@ mixin _$InsiistutionStudentEvent {
     TResult? Function(String userId)? loadMyProfile,
     TResult? Function(File displayPicture)? profileFile,
     TResult? Function()? submitPressed,
+    TResult? Function()? editsubmitPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,6 +61,7 @@ mixin _$InsiistutionStudentEvent {
     TResult Function(String userId)? loadMyProfile,
     TResult Function(File displayPicture)? profileFile,
     TResult Function()? submitPressed,
+    TResult Function()? editsubmitPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -75,6 +78,7 @@ mixin _$InsiistutionStudentEvent {
     required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_courseFilePicture value) profileFile,
     required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -90,6 +94,7 @@ mixin _$InsiistutionStudentEvent {
     TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_courseFilePicture value)? profileFile,
     TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -105,6 +110,7 @@ mixin _$InsiistutionStudentEvent {
     TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_courseFilePicture value)? profileFile,
     TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -177,6 +183,7 @@ class _$_Started implements _Started {
     required TResult Function(String userId) loadMyProfile,
     required TResult Function(File displayPicture) profileFile,
     required TResult Function() submitPressed,
+    required TResult Function() editsubmitPressed,
   }) {
     return started();
   }
@@ -195,6 +202,7 @@ class _$_Started implements _Started {
     TResult? Function(String userId)? loadMyProfile,
     TResult? Function(File displayPicture)? profileFile,
     TResult? Function()? submitPressed,
+    TResult? Function()? editsubmitPressed,
   }) {
     return started?.call();
   }
@@ -213,6 +221,7 @@ class _$_Started implements _Started {
     TResult Function(String userId)? loadMyProfile,
     TResult Function(File displayPicture)? profileFile,
     TResult Function()? submitPressed,
+    TResult Function()? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -235,6 +244,7 @@ class _$_Started implements _Started {
     required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_courseFilePicture value) profileFile,
     required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
   }) {
     return started(this);
   }
@@ -253,6 +263,7 @@ class _$_Started implements _Started {
     TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_courseFilePicture value)? profileFile,
     TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
   }) {
     return started?.call(this);
   }
@@ -271,6 +282,7 @@ class _$_Started implements _Started {
     TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_courseFilePicture value)? profileFile,
     TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -359,6 +371,7 @@ class _$_NameChanged implements _NameChanged {
     required TResult Function(String userId) loadMyProfile,
     required TResult Function(File displayPicture) profileFile,
     required TResult Function() submitPressed,
+    required TResult Function() editsubmitPressed,
   }) {
     return nameChanged(nameStr);
   }
@@ -377,6 +390,7 @@ class _$_NameChanged implements _NameChanged {
     TResult? Function(String userId)? loadMyProfile,
     TResult? Function(File displayPicture)? profileFile,
     TResult? Function()? submitPressed,
+    TResult? Function()? editsubmitPressed,
   }) {
     return nameChanged?.call(nameStr);
   }
@@ -395,6 +409,7 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(String userId)? loadMyProfile,
     TResult Function(File displayPicture)? profileFile,
     TResult Function()? submitPressed,
+    TResult Function()? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -417,6 +432,7 @@ class _$_NameChanged implements _NameChanged {
     required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_courseFilePicture value) profileFile,
     required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
   }) {
     return nameChanged(this);
   }
@@ -435,6 +451,7 @@ class _$_NameChanged implements _NameChanged {
     TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_courseFilePicture value)? profileFile,
     TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
   }) {
     return nameChanged?.call(this);
   }
@@ -453,6 +470,7 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_courseFilePicture value)? profileFile,
     TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -546,6 +564,7 @@ class _$_TitleChanged implements _TitleChanged {
     required TResult Function(String userId) loadMyProfile,
     required TResult Function(File displayPicture) profileFile,
     required TResult Function() submitPressed,
+    required TResult Function() editsubmitPressed,
   }) {
     return name(nameStr);
   }
@@ -564,6 +583,7 @@ class _$_TitleChanged implements _TitleChanged {
     TResult? Function(String userId)? loadMyProfile,
     TResult? Function(File displayPicture)? profileFile,
     TResult? Function()? submitPressed,
+    TResult? Function()? editsubmitPressed,
   }) {
     return name?.call(nameStr);
   }
@@ -582,6 +602,7 @@ class _$_TitleChanged implements _TitleChanged {
     TResult Function(String userId)? loadMyProfile,
     TResult Function(File displayPicture)? profileFile,
     TResult Function()? submitPressed,
+    TResult Function()? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (name != null) {
@@ -604,6 +625,7 @@ class _$_TitleChanged implements _TitleChanged {
     required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_courseFilePicture value) profileFile,
     required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
   }) {
     return name(this);
   }
@@ -622,6 +644,7 @@ class _$_TitleChanged implements _TitleChanged {
     TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_courseFilePicture value)? profileFile,
     TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
   }) {
     return name?.call(this);
   }
@@ -640,6 +663,7 @@ class _$_TitleChanged implements _TitleChanged {
     TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_courseFilePicture value)? profileFile,
     TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (name != null) {
@@ -735,6 +759,7 @@ class _$_AboutTitleChanged implements _AboutTitleChanged {
     required TResult Function(String userId) loadMyProfile,
     required TResult Function(File displayPicture) profileFile,
     required TResult Function() submitPressed,
+    required TResult Function() editsubmitPressed,
   }) {
     return emailChanged(emailStr);
   }
@@ -753,6 +778,7 @@ class _$_AboutTitleChanged implements _AboutTitleChanged {
     TResult? Function(String userId)? loadMyProfile,
     TResult? Function(File displayPicture)? profileFile,
     TResult? Function()? submitPressed,
+    TResult? Function()? editsubmitPressed,
   }) {
     return emailChanged?.call(emailStr);
   }
@@ -771,6 +797,7 @@ class _$_AboutTitleChanged implements _AboutTitleChanged {
     TResult Function(String userId)? loadMyProfile,
     TResult Function(File displayPicture)? profileFile,
     TResult Function()? submitPressed,
+    TResult Function()? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (emailChanged != null) {
@@ -793,6 +820,7 @@ class _$_AboutTitleChanged implements _AboutTitleChanged {
     required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_courseFilePicture value) profileFile,
     required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
   }) {
     return emailChanged(this);
   }
@@ -811,6 +839,7 @@ class _$_AboutTitleChanged implements _AboutTitleChanged {
     TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_courseFilePicture value)? profileFile,
     TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
   }) {
     return emailChanged?.call(this);
   }
@@ -829,6 +858,7 @@ class _$_AboutTitleChanged implements _AboutTitleChanged {
     TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_courseFilePicture value)? profileFile,
     TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (emailChanged != null) {
@@ -923,6 +953,7 @@ class _$_CategoryChanged implements _CategoryChanged {
     required TResult Function(String userId) loadMyProfile,
     required TResult Function(File displayPicture) profileFile,
     required TResult Function() submitPressed,
+    required TResult Function() editsubmitPressed,
   }) {
     return mobileChanged(Value);
   }
@@ -941,6 +972,7 @@ class _$_CategoryChanged implements _CategoryChanged {
     TResult? Function(String userId)? loadMyProfile,
     TResult? Function(File displayPicture)? profileFile,
     TResult? Function()? submitPressed,
+    TResult? Function()? editsubmitPressed,
   }) {
     return mobileChanged?.call(Value);
   }
@@ -959,6 +991,7 @@ class _$_CategoryChanged implements _CategoryChanged {
     TResult Function(String userId)? loadMyProfile,
     TResult Function(File displayPicture)? profileFile,
     TResult Function()? submitPressed,
+    TResult Function()? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (mobileChanged != null) {
@@ -981,6 +1014,7 @@ class _$_CategoryChanged implements _CategoryChanged {
     required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_courseFilePicture value) profileFile,
     required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
   }) {
     return mobileChanged(this);
   }
@@ -999,6 +1033,7 @@ class _$_CategoryChanged implements _CategoryChanged {
     TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_courseFilePicture value)? profileFile,
     TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
   }) {
     return mobileChanged?.call(this);
   }
@@ -1017,6 +1052,7 @@ class _$_CategoryChanged implements _CategoryChanged {
     TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_courseFilePicture value)? profileFile,
     TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (mobileChanged != null) {
@@ -1111,6 +1147,7 @@ class _$_AmountChanged implements _AmountChanged {
     required TResult Function(String userId) loadMyProfile,
     required TResult Function(File displayPicture) profileFile,
     required TResult Function() submitPressed,
+    required TResult Function() editsubmitPressed,
   }) {
     return additionalNumChanged(amountStr);
   }
@@ -1129,6 +1166,7 @@ class _$_AmountChanged implements _AmountChanged {
     TResult? Function(String userId)? loadMyProfile,
     TResult? Function(File displayPicture)? profileFile,
     TResult? Function()? submitPressed,
+    TResult? Function()? editsubmitPressed,
   }) {
     return additionalNumChanged?.call(amountStr);
   }
@@ -1147,6 +1185,7 @@ class _$_AmountChanged implements _AmountChanged {
     TResult Function(String userId)? loadMyProfile,
     TResult Function(File displayPicture)? profileFile,
     TResult Function()? submitPressed,
+    TResult Function()? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (additionalNumChanged != null) {
@@ -1169,6 +1208,7 @@ class _$_AmountChanged implements _AmountChanged {
     required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_courseFilePicture value) profileFile,
     required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
   }) {
     return additionalNumChanged(this);
   }
@@ -1187,6 +1227,7 @@ class _$_AmountChanged implements _AmountChanged {
     TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_courseFilePicture value)? profileFile,
     TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
   }) {
     return additionalNumChanged?.call(this);
   }
@@ -1205,6 +1246,7 @@ class _$_AmountChanged implements _AmountChanged {
     TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_courseFilePicture value)? profileFile,
     TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (additionalNumChanged != null) {
@@ -1299,6 +1341,7 @@ class _$_DurationChanged implements _DurationChanged {
     required TResult Function(String userId) loadMyProfile,
     required TResult Function(File displayPicture) profileFile,
     required TResult Function() submitPressed,
+    required TResult Function() editsubmitPressed,
   }) {
     return addressChanged(durationStr);
   }
@@ -1317,6 +1360,7 @@ class _$_DurationChanged implements _DurationChanged {
     TResult? Function(String userId)? loadMyProfile,
     TResult? Function(File displayPicture)? profileFile,
     TResult? Function()? submitPressed,
+    TResult? Function()? editsubmitPressed,
   }) {
     return addressChanged?.call(durationStr);
   }
@@ -1335,6 +1379,7 @@ class _$_DurationChanged implements _DurationChanged {
     TResult Function(String userId)? loadMyProfile,
     TResult Function(File displayPicture)? profileFile,
     TResult Function()? submitPressed,
+    TResult Function()? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (addressChanged != null) {
@@ -1357,6 +1402,7 @@ class _$_DurationChanged implements _DurationChanged {
     required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_courseFilePicture value) profileFile,
     required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
   }) {
     return addressChanged(this);
   }
@@ -1375,6 +1421,7 @@ class _$_DurationChanged implements _DurationChanged {
     TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_courseFilePicture value)? profileFile,
     TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
   }) {
     return addressChanged?.call(this);
   }
@@ -1393,6 +1440,7 @@ class _$_DurationChanged implements _DurationChanged {
     TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_courseFilePicture value)? profileFile,
     TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (addressChanged != null) {
@@ -1486,6 +1534,7 @@ class _$_UrlChanged implements _UrlChanged {
     required TResult Function(String userId) loadMyProfile,
     required TResult Function(File displayPicture) profileFile,
     required TResult Function() submitPressed,
+    required TResult Function() editsubmitPressed,
   }) {
     return dobChanged(urlStr);
   }
@@ -1504,6 +1553,7 @@ class _$_UrlChanged implements _UrlChanged {
     TResult? Function(String userId)? loadMyProfile,
     TResult? Function(File displayPicture)? profileFile,
     TResult? Function()? submitPressed,
+    TResult? Function()? editsubmitPressed,
   }) {
     return dobChanged?.call(urlStr);
   }
@@ -1522,6 +1572,7 @@ class _$_UrlChanged implements _UrlChanged {
     TResult Function(String userId)? loadMyProfile,
     TResult Function(File displayPicture)? profileFile,
     TResult Function()? submitPressed,
+    TResult Function()? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (dobChanged != null) {
@@ -1544,6 +1595,7 @@ class _$_UrlChanged implements _UrlChanged {
     required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_courseFilePicture value) profileFile,
     required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
   }) {
     return dobChanged(this);
   }
@@ -1562,6 +1614,7 @@ class _$_UrlChanged implements _UrlChanged {
     TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_courseFilePicture value)? profileFile,
     TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
   }) {
     return dobChanged?.call(this);
   }
@@ -1580,6 +1633,7 @@ class _$_UrlChanged implements _UrlChanged {
     TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_courseFilePicture value)? profileFile,
     TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (dobChanged != null) {
@@ -1673,6 +1727,7 @@ class _$_LoadMyProfile implements _LoadMyProfile {
     required TResult Function(String userId) loadMyProfile,
     required TResult Function(File displayPicture) profileFile,
     required TResult Function() submitPressed,
+    required TResult Function() editsubmitPressed,
   }) {
     return loadMyProfile(userId);
   }
@@ -1691,6 +1746,7 @@ class _$_LoadMyProfile implements _LoadMyProfile {
     TResult? Function(String userId)? loadMyProfile,
     TResult? Function(File displayPicture)? profileFile,
     TResult? Function()? submitPressed,
+    TResult? Function()? editsubmitPressed,
   }) {
     return loadMyProfile?.call(userId);
   }
@@ -1709,6 +1765,7 @@ class _$_LoadMyProfile implements _LoadMyProfile {
     TResult Function(String userId)? loadMyProfile,
     TResult Function(File displayPicture)? profileFile,
     TResult Function()? submitPressed,
+    TResult Function()? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (loadMyProfile != null) {
@@ -1731,6 +1788,7 @@ class _$_LoadMyProfile implements _LoadMyProfile {
     required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_courseFilePicture value) profileFile,
     required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
   }) {
     return loadMyProfile(this);
   }
@@ -1749,6 +1807,7 @@ class _$_LoadMyProfile implements _LoadMyProfile {
     TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_courseFilePicture value)? profileFile,
     TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
   }) {
     return loadMyProfile?.call(this);
   }
@@ -1767,6 +1826,7 @@ class _$_LoadMyProfile implements _LoadMyProfile {
     TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_courseFilePicture value)? profileFile,
     TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (loadMyProfile != null) {
@@ -1862,6 +1922,7 @@ class _$_courseFilePicture implements _courseFilePicture {
     required TResult Function(String userId) loadMyProfile,
     required TResult Function(File displayPicture) profileFile,
     required TResult Function() submitPressed,
+    required TResult Function() editsubmitPressed,
   }) {
     return profileFile(displayPicture);
   }
@@ -1880,6 +1941,7 @@ class _$_courseFilePicture implements _courseFilePicture {
     TResult? Function(String userId)? loadMyProfile,
     TResult? Function(File displayPicture)? profileFile,
     TResult? Function()? submitPressed,
+    TResult? Function()? editsubmitPressed,
   }) {
     return profileFile?.call(displayPicture);
   }
@@ -1898,6 +1960,7 @@ class _$_courseFilePicture implements _courseFilePicture {
     TResult Function(String userId)? loadMyProfile,
     TResult Function(File displayPicture)? profileFile,
     TResult Function()? submitPressed,
+    TResult Function()? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (profileFile != null) {
@@ -1920,6 +1983,7 @@ class _$_courseFilePicture implements _courseFilePicture {
     required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_courseFilePicture value) profileFile,
     required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
   }) {
     return profileFile(this);
   }
@@ -1938,6 +2002,7 @@ class _$_courseFilePicture implements _courseFilePicture {
     TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_courseFilePicture value)? profileFile,
     TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
   }) {
     return profileFile?.call(this);
   }
@@ -1956,6 +2021,7 @@ class _$_courseFilePicture implements _courseFilePicture {
     TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_courseFilePicture value)? profileFile,
     TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (profileFile != null) {
@@ -2024,6 +2090,7 @@ class _$_SubmitPressed implements _SubmitPressed {
     required TResult Function(String userId) loadMyProfile,
     required TResult Function(File displayPicture) profileFile,
     required TResult Function() submitPressed,
+    required TResult Function() editsubmitPressed,
   }) {
     return submitPressed();
   }
@@ -2042,6 +2109,7 @@ class _$_SubmitPressed implements _SubmitPressed {
     TResult? Function(String userId)? loadMyProfile,
     TResult? Function(File displayPicture)? profileFile,
     TResult? Function()? submitPressed,
+    TResult? Function()? editsubmitPressed,
   }) {
     return submitPressed?.call();
   }
@@ -2060,6 +2128,7 @@ class _$_SubmitPressed implements _SubmitPressed {
     TResult Function(String userId)? loadMyProfile,
     TResult Function(File displayPicture)? profileFile,
     TResult Function()? submitPressed,
+    TResult Function()? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (submitPressed != null) {
@@ -2082,6 +2151,7 @@ class _$_SubmitPressed implements _SubmitPressed {
     required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_courseFilePicture value) profileFile,
     required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
   }) {
     return submitPressed(this);
   }
@@ -2100,6 +2170,7 @@ class _$_SubmitPressed implements _SubmitPressed {
     TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_courseFilePicture value)? profileFile,
     TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
   }) {
     return submitPressed?.call(this);
   }
@@ -2118,6 +2189,7 @@ class _$_SubmitPressed implements _SubmitPressed {
     TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_courseFilePicture value)? profileFile,
     TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     required TResult orElse(),
   }) {
     if (submitPressed != null) {
@@ -2129,6 +2201,168 @@ class _$_SubmitPressed implements _SubmitPressed {
 
 abstract class _SubmitPressed implements InsiistutionStudentEvent {
   const factory _SubmitPressed() = _$_SubmitPressed;
+}
+
+/// @nodoc
+abstract class _$$_EditSubmitPressedCopyWith<$Res> {
+  factory _$$_EditSubmitPressedCopyWith(_$_EditSubmitPressed value,
+          $Res Function(_$_EditSubmitPressed) then) =
+      __$$_EditSubmitPressedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_EditSubmitPressedCopyWithImpl<$Res>
+    extends _$InsiistutionStudentEventCopyWithImpl<$Res, _$_EditSubmitPressed>
+    implements _$$_EditSubmitPressedCopyWith<$Res> {
+  __$$_EditSubmitPressedCopyWithImpl(
+      _$_EditSubmitPressed _value, $Res Function(_$_EditSubmitPressed) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_EditSubmitPressed implements _EditSubmitPressed {
+  const _$_EditSubmitPressed();
+
+  @override
+  String toString() {
+    return 'InsiistutionStudentEvent.editsubmitPressed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_EditSubmitPressed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String nameStr) nameChanged,
+    required TResult Function(String nameStr) name,
+    required TResult Function(String emailStr) emailChanged,
+    required TResult Function(String Value) mobileChanged,
+    required TResult Function(String amountStr) additionalNumChanged,
+    required TResult Function(String durationStr) addressChanged,
+    required TResult Function(String urlStr) dobChanged,
+    required TResult Function(String userId) loadMyProfile,
+    required TResult Function(File displayPicture) profileFile,
+    required TResult Function() submitPressed,
+    required TResult Function() editsubmitPressed,
+  }) {
+    return editsubmitPressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String nameStr)? nameChanged,
+    TResult? Function(String nameStr)? name,
+    TResult? Function(String emailStr)? emailChanged,
+    TResult? Function(String Value)? mobileChanged,
+    TResult? Function(String amountStr)? additionalNumChanged,
+    TResult? Function(String durationStr)? addressChanged,
+    TResult? Function(String urlStr)? dobChanged,
+    TResult? Function(String userId)? loadMyProfile,
+    TResult? Function(File displayPicture)? profileFile,
+    TResult? Function()? submitPressed,
+    TResult? Function()? editsubmitPressed,
+  }) {
+    return editsubmitPressed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(String nameStr)? name,
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String Value)? mobileChanged,
+    TResult Function(String amountStr)? additionalNumChanged,
+    TResult Function(String durationStr)? addressChanged,
+    TResult Function(String urlStr)? dobChanged,
+    TResult Function(String userId)? loadMyProfile,
+    TResult Function(File displayPicture)? profileFile,
+    TResult Function()? submitPressed,
+    TResult Function()? editsubmitPressed,
+    required TResult orElse(),
+  }) {
+    if (editsubmitPressed != null) {
+      return editsubmitPressed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_TitleChanged value) name,
+    required TResult Function(_AboutTitleChanged value) emailChanged,
+    required TResult Function(_CategoryChanged value) mobileChanged,
+    required TResult Function(_AmountChanged value) additionalNumChanged,
+    required TResult Function(_DurationChanged value) addressChanged,
+    required TResult Function(_UrlChanged value) dobChanged,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
+    required TResult Function(_courseFilePicture value) profileFile,
+    required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
+  }) {
+    return editsubmitPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_TitleChanged value)? name,
+    TResult? Function(_AboutTitleChanged value)? emailChanged,
+    TResult? Function(_CategoryChanged value)? mobileChanged,
+    TResult? Function(_AmountChanged value)? additionalNumChanged,
+    TResult? Function(_DurationChanged value)? addressChanged,
+    TResult? Function(_UrlChanged value)? dobChanged,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
+    TResult? Function(_courseFilePicture value)? profileFile,
+    TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
+  }) {
+    return editsubmitPressed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_TitleChanged value)? name,
+    TResult Function(_AboutTitleChanged value)? emailChanged,
+    TResult Function(_CategoryChanged value)? mobileChanged,
+    TResult Function(_AmountChanged value)? additionalNumChanged,
+    TResult Function(_DurationChanged value)? addressChanged,
+    TResult Function(_UrlChanged value)? dobChanged,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
+    TResult Function(_courseFilePicture value)? profileFile,
+    TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
+    required TResult orElse(),
+  }) {
+    if (editsubmitPressed != null) {
+      return editsubmitPressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _EditSubmitPressed implements InsiistutionStudentEvent {
+  const factory _EditSubmitPressed() = _$_EditSubmitPressed;
 }
 
 /// @nodoc

@@ -147,7 +147,7 @@ class Course {
   }
 }
 
-class Instructors {
+class  Instructors {
   int? id;
   String? name;
   String? email;

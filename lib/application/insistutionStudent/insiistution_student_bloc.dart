@@ -7,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:pgs_edupro/domain/auth/value_objects.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_categories_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/insistutionResponse.dart';
 
 import '../../domain/core/network/network_failures.dart';
@@ -49,6 +50,14 @@ class InsiistutionStudentBloc extends Bloc<InsiistutionStudentEvent, Insiistutio
 
               names: Name(user.name ?? ''),
               email: TextEditingController(text: user.email),
+              mobile:  TextEditingController(text: user.phoneNumber),
+              addtionalmobile: TextEditingController(text: user.phoneNumber) ,
+              address:  TextEditingController(text: user.address),
+              dob:  TextEditingController(text: user.dob),
+              course:  categoryaName,
+              department: departmentName,
+         displayPicture: imageStudent,
+
               // phoneNumber: PhoneNumber(user.phoneNumber ?? ''),
               // dob: DateFormatted(user.dob ?? ''),
               // address: Address(user.address ?? ''),
@@ -113,6 +122,52 @@ class InsiistutionStudentBloc extends Bloc<InsiistutionStudentEvent, Insiistutio
       // emit(state.copyWith(
       //   isLoading: false,
       //   loadFailureOrSuccessOption: optionOf(failureOrSuccess),
+      // ));
+      //
+      // emit(state.copyWith(
+      //     isSubmitting: false,
+      //     showErrorMessages: true,
+      //     submitFailedOrSuccessOption: optionOf(failureOrSuccess)));
+    });
+    on<_EditSubmitPressed>((event, emit) async {
+      final isTitleValid = state.name != '' ? true : false;
+      final isAboutTitleValid = state.email != '' ? true : false;
+      Either<NetworkFailure, InsistutionResponse>? failureOrSuccess;
+
+      if (isTitleValid && isAboutTitleValid) {
+        emit(
+          state.copyWith(
+            showErrorMessages: false,
+            isSubmitting: true,
+            submitFailedOrSuccessOption: none(),
+          ),
+        );
+        // String? fileName = imageStudent ?.path.split('/').last;
+        // print("->${fileName}");
+        FormData body = FormData.fromMap({
+          "name":state.name.text,
+          "email":state.email.text,
+          "department":departmentName,
+          "course":categoryaName,
+          "address":state.address.text,
+          "phone_number":state.mobile.text+","+state.addtionalmobile.text,
+          "dob":"1999/09/12",
+          "profile_photo":"hgjhj"
+        });
+        // Map body = {
+        //
+        //
+        // };
+
+        //AppDialogs.loading();
+        failureOrSuccess = await addCoursesInstructor.editStudent(body);
+        Fluttertoast.showToast(msg:"Course added Successfully");
+        // getx.Get.back();
+      }
+
+      // emit(state.copyWith(
+      //   isLoading: false,
+      //   loadFailureOrSuccessOption: optionOf(failureOrSuccess ),
       // ));
       //
       // emit(state.copyWith(

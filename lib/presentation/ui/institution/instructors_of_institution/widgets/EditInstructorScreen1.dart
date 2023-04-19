@@ -1,45 +1,38 @@
 import 'dart:io';
 import 'package:another_flushbar/flushbar_helper.dart';
-import 'package:date_field/date_field.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:intl/intl.dart';
-import 'package:pgs_edupro/application/insistutionStudent/insiistution_student_bloc.dart';
-
-
-import 'package:pgs_edupro/application/instructor/instructor_bloc.dart';
+import 'package:pgs_edupro/application/institution_instructor/institution_instructor_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/presentation/ui/instructor/instructor_add_course/courses_dropdown.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../../domain/course/i_course_repository.dart';
-import '../../../instructor/instructor_add_course/department_dropdown.dart';
-
-File? imageStudent;
-File? imageStudent1;
-class AddStudentsFormEdit extends StatefulWidget {
+File? imageInstructorC;
+class EditInstructorsForm extends StatefulWidget {
   final depatmentdetails;
-   AddStudentsFormEdit({
-    super.key, this.depatmentdetails,
-  });
+  const EditInstructorsForm({Key? key, this.depatmentdetails}) : super(key: key);
 
   @override
-  State<AddStudentsFormEdit> createState() => _AddStudentsFormEditState();
+  State<EditInstructorsForm> createState() => _EditInstructorsFormState();
 }
 
-class _AddStudentsFormEditState extends State<AddStudentsFormEdit> {
-  String? fromDate;
-  String? toDate;
+class _EditInstructorsFormState extends State<EditInstructorsForm> {
+  final formKey = GlobalKey<FormState>();
+  bool obscureText = true;
+  String? fileName='';
   XFile? _image;
+  final ImagePicker _picker = ImagePicker();
+
 
   @override
+  void initState() {
+    super.initState();
+    CoursesDropdown();
+  }
   Widget build(BuildContext context) {
-    print("df->${widget.depatmentdetails}");
-    return BlocConsumer<InsiistutionStudentBloc, InsiistutionStudentState>(
-
+    return BlocConsumer<InstitutionInstructorBloc, InstitutionInstructorState>(
       listener: (context, state) {
         state.loadFailureOrSuccessOption.fold(
               () {},
@@ -73,28 +66,21 @@ class _AddStudentsFormEditState extends State<AddStudentsFormEdit> {
             ).show(context);
           },
 
-                  (r) => Fluttertoast.showToast(msg: "Course added successfully"));
+                  (r) => Fluttertoast.showToast(msg: "Instructor added successfully"));
         });
       },
       builder: (context, state) {
-        print("gf->${state.names}");
         return state.isLoading
             ? SizedBox(
           height: screenHeight - 180,
           child: const Center(child: CircularProgressIndicator()),
         )
-            : Form(
-          // key: _formKey,
-          autovalidateMode: state.showErrorMessages
-              ? AutovalidateMode.always
-              : AutovalidateMode.disabled,
-          child:
-
-          ListView(
+            :    Form(
+          key: formKey,
+          child: ListView(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            padding:
-            const EdgeInsets.only(left: 15, right: 15, bottom: 15),
+            padding: const EdgeInsets.only(left: 15,right: 15),
             children: <Widget>[
               const SizedBox(
                 height: 25,
@@ -102,97 +88,71 @@ class _AddStudentsFormEditState extends State<AddStudentsFormEdit> {
               Align(
                 alignment: AlignmentDirectional.topStart,
                 child: Text(
-                  "Student Details",
+                  "Instructor Details",
                   style:
                   TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
               SizedBox(height: screenHeight * .02),
-
               _textForm(
-          state.name,
+                  state.name,
                       (v) => context
-                      .read<InsiistutionStudentBloc>()
-                      .add(InsiistutionStudentEvent.nameChanged(v)),
+                      .read<InstitutionInstructorBloc>()
+                      .add(InstitutionInstructorEvent.nameChanged(v)),
                   null,
                   "Name",
                   true,
-                  TextInputType.streetAddress,
+                  TextInputType.name,
                   maxLine: 1,
                   hint: "Name"),
-              thickSpace,
-              _textForm(
-                  state.email,
-                      (v) => context
-                      .read<InsiistutionStudentBloc>()
-                      .add(InsiistutionStudentEvent.emailChanged(v)),
-                  null,
-                  "Email",
-                  true,
-                  TextInputType.streetAddress,
-                  maxLine: 1, hint: "Email"),
-              thickSpace,
+              const SizedBox(height: 10),
               _textForm(
                   state.mobile,
                       (v) => context
-                      .read<InsiistutionStudentBloc>()
-                      .add(InsiistutionStudentEvent.mobileChanged(v)),
+                      .read<InstitutionInstructorBloc>()
+                      .add(InstitutionInstructorEvent.mobileChanged(v)),
                   null,
                   "Mobile",
                   true,
                   TextInputType.phone,
                   maxLine: 1,
                   hint: "Mobile"),
-              thickSpace,
+              const SizedBox(height: 10),
               _textForm(
                   state.addtionalmobile,
                       (v) => context
-                      .read<InsiistutionStudentBloc>()
-                      .add(InsiistutionStudentEvent.additionalNumChanged(v)),
+                      .read<InstitutionInstructorBloc>()
+                      .add(InstitutionInstructorEvent.additionalmobileChanged(v)),
                   null,
-                  "Additional mobile",
+                  "Additional Mobile",
                   true,
                   TextInputType.phone,
                   maxLine: 1,
-                  hint: "Additional mobile"),
-              thickSpace,
+                  hint: "Additional Mobile"),
+              const SizedBox(height: 10),
               _textForm(
-                  state.address,
+                  state.qualification,
                       (v) => context
-                      .read<InsiistutionStudentBloc>()
-                      .add(InsiistutionStudentEvent.addressChanged(v)),
+                      .read<InstitutionInstructorBloc>()
+                      .add(InstitutionInstructorEvent.qualificationChanged(v)),
                   null,
-                  "Address",
+                  "Qualification",
                   true,
-                  TextInputType.streetAddress,
-                  maxLine: 1, hint: "Address"),
-              thickSpace,
-              Text(
-                "Date of Birth",
-                style: boldValue,
-              ),
-              thickSpace,
-              DateTimeFormField(
-                dateTextStyle: const TextStyle(
-                    fontWeight: FontWeight.w600, fontSize: 15),
-                //dateFormat: DateFormat.yMd(),
-                decoration: InputDecoration(
-                  hintText:widget.depatmentdetails.dob==null?"Date of birth":widget.depatmentdetails.dob,
-                  fillColor: primaryColor[100],
-                  suffixIcon: Icon(Icons.calendar_month,color: Colors.grey,),
-                  border: const OutlineInputBorder(),
-                  // suffixIcon: const Icon(Icons.event_note),
-                ), mode: DateTimeFieldPickerMode.date,
-                //firstDate: DateTime.now().add(const Duration(days: 10)),
-                lastDate: DateTime.now().add(const Duration(days: 40)),
-                // initialDate:
-                //     DateTime.now().add(const Duration(days: 20)),
-                autovalidateMode: AutovalidateMode.always,
-                onDateSelected: (DateTime value) => context
-                    .read<InsiistutionStudentBloc>()
-                    .add(InsiistutionStudentEvent.dobChanged(
-                    DateFormat("MM/dd/yyyy").format(value))),
-              ),
+                  TextInputType.text,
+                  maxLine: 1,
+                  hint: "Qualification"),
+              const SizedBox(height: 10),
+              _textForm(
+                  state.description,
+                      (v) => context
+                      .read<InstitutionInstructorBloc>()
+                      .add(InstitutionInstructorEvent.descriptionChanged(v)),
+                  null,
+                  "Description",
+                  true,
+                  TextInputType.text,
+                  maxLine: 1,
+                  hint: "Description"),
               const SizedBox(height: 10),
               Text("Courses",style: TextStyle(color: Colors.black,fontSize: 16),),
               const SizedBox(height: 10),
@@ -207,20 +167,6 @@ class _AddStudentsFormEditState extends State<AddStudentsFormEdit> {
                     BorderRadius.all(Radius.circular(7.0)),
                   ),
                   child: CoursesDropdown()),
-              const SizedBox(height: 10),
-              Text("Department",style: TextStyle(color: Colors.black,fontSize: 16),),
-              const SizedBox(height: 10),
-              Container(
-                  width: screenWidth,
-                  height: 45,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.grey,
-                    ),
-                    borderRadius:
-                    BorderRadius.all(Radius.circular(7.0)),
-                  ),
-                  child: DepartmentDropdown()),
               const SizedBox(height: 10),
               Text("Profile Photo",style: TextStyle(color: Colors.black,fontSize: 16),),
               const SizedBox(height: 10),
@@ -242,15 +188,11 @@ class _AddStudentsFormEditState extends State<AddStudentsFormEdit> {
                       SizedBox(
                         width: 10,
                       ),
-                  widget.depatmentdetails.profilePhoto==null?    Text(
+                      Text(
                         "Choose file",
                         style: TextStyle(
                             color: Colors.black54, fontSize: 18),
-                      ):Text(
-                    "${widget.depatmentdetails.profilePhoto}",
-                    style: TextStyle(
-                        color: Colors.black54, fontSize: 18),
-                  ),
+                      ),
                       Spacer(),
                       IconButton(
                           onPressed: () {
@@ -265,7 +207,39 @@ class _AddStudentsFormEditState extends State<AddStudentsFormEdit> {
                 ),
               ),
               thickSpace,
-              thickSpace,
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      Text("Login details",style:boldHeading ,),
+                      _textForm(
+                          state.email,
+                              (v) => context
+                              .read<InstitutionInstructorBloc>()
+                              .add(InstitutionInstructorEvent.emailChanged(v)),
+                          null,
+                          "Email",
+                          true,
+                          TextInputType.text,
+                          maxLine: 1,
+                          hint: "Email"),
+                      thickSpace,
+                      _textForm(
+                          state.password,
+                              (v) => context
+                              .read<InstitutionInstructorBloc>()
+                              .add(InstitutionInstructorEvent.passwordChanged(v)),
+                          null,
+                          "Password",
+                          true,
+                          TextInputType.text,
+                          maxLine: 1,
+                          hint: "Password"),
+                    ],
+                  ),
+                ),
+              ),
               thickSpace,
               Padding(
                 padding: const EdgeInsets.only(left: 10, right: 10),
@@ -273,38 +247,95 @@ class _AddStudentsFormEditState extends State<AddStudentsFormEdit> {
                   height: 50,
                   child: ElevatedButton(
                     onPressed:() {
-                      //imageStudent= File(widget.depatmentdetails.profilePhoto) ;
 
                       context
-                        .read<InsiistutionStudentBloc>()
-                        .add( InsiistutionStudentEvent.editsubmitPressed()
-                    );
-      },
+                          .read<InstitutionInstructorBloc>()
+                          .add( InstitutionInstructorEvent.editsubmitPressed()
+                      );
+                      },
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5),
                       ),
                     ),
-
                     child: const Text('Submit'),
                   ),
                 ),
               ),
+              thickSpace,
+              thickSpace,
             ],
           ),
         );
       },
     );
+
   }
-  final ImagePicker _picker = ImagePicker();
+  Future pickImage() async {
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+      if (image == null) return;
+      _image = XFile(image.path);
+
+
+      setState(() {});
+    } on PlatformException catch (e) {
+      print('Failed to pick image: $e');
+    }
+  }
+
+  Widget _textForm(
+      TextEditingController controller,
+      onChanged,
+      validator,
+      String label,
+      bool editable,
+      TextInputType keyboardType, {
+        List<TextInputFormatter>? formatter,
+        String? hint,
+        int maxLine = 1,
+      }) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label,
+          style: TextStyle(color: Colors.black,fontSize: 16),
+        ),
+        thickSpace,
+        TextFormField(
+          enabled: editable,
+          controller: controller,
+          maxLines: maxLine,
+          onChanged: onChanged,
+          validator: validator,
+          keyboardType: keyboardType,
+          inputFormatters: formatter,
+          style: const TextStyle(
+              fontWeight: FontWeight.w500, color: Colors.black87),
+          decoration: InputDecoration(
+            contentPadding: EdgeInsets.all(10.0),
+            hintText: hint,
+            hintStyle: TextStyle(color:Colors.black54 ),
+            //filled: true,
+            fillColor: primaryColor[100],
+            disabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10.0),
+                borderSide: BorderSide(color: Colors.grey)),
+            enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10.0),
+                borderSide: BorderSide(color: Colors.grey, width: 1)),
+          ),
+        ),
+      ],
+    );
+  }
+
   _imagefromGallery(context) async {
     final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
     setState(() {
-      _image = image!;
-      print("wqswq=>${_image}");
-      imageStudent = File(_image!.path);
-      print("->>${imageStudent}");
-
+      _image= image;
+      imageInstructorC = File(_image!.path);
     });
     Get.back();
   }
@@ -312,10 +343,8 @@ class _AddStudentsFormEditState extends State<AddStudentsFormEdit> {
   _imagefromComera(context) async {
     final XFile? photo = await _picker.pickImage(source: ImageSource.camera);
     setState(() {
-      _image = photo!;
-      print("wqswq=>${_image}");
-      imageStudent = File(_image!.path);
-      print("->>${imageStudent}");
+      _image = photo;
+      imageInstructorC = File(_image!.path);
     });
     Get.back();
   }
@@ -377,64 +406,4 @@ class _AddStudentsFormEditState extends State<AddStudentsFormEdit> {
           );
         });
   }
-  Future pickImage() async {
-    try {
-      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
-      if (image == null) return;
-      _image = XFile(image.path);
-
-
-      setState(() {});
-    } on PlatformException catch (e) {
-      print('Failed to pick image: $e');
-    }
-  }
-
 }
-Widget _textForm(
-    TextEditingController controller,
-    onChanged,
-    validator,
-    String label,
-    bool editable,
-    TextInputType keyboardType, {
-      List<TextInputFormatter>? formatter,
-      String? hint,
-      int maxLine = 1,
-    }) {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Text(
-        label,
-        style: TextStyle(color: Colors.black, fontSize: 16),
-      ),
-      thickSpace,
-      TextFormField(
-        enabled: editable,
-        controller: controller,
-        maxLines: maxLine,
-        onChanged: onChanged,
-        validator: validator,
-        keyboardType: keyboardType,
-        inputFormatters: formatter,
-        style: const TextStyle(
-            fontWeight: FontWeight.w500, color: Colors.black87),
-        decoration: InputDecoration(
-          contentPadding: EdgeInsets.all(10.0),
-          hintText: hint,
-          hintStyle: TextStyle(color: Colors.black54),
-          //filled: true,
-          fillColor: primaryColor[100],
-          disabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10.0),
-              borderSide: BorderSide(color: Colors.grey)),
-          enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10.0),
-              borderSide: BorderSide(color: Colors.grey, width: 1)),
-        ),
-      ),
-    ],
-  );
-}
-
