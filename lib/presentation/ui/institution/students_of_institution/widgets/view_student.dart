@@ -44,8 +44,6 @@ class _EditStudentScreenState extends State<EditStudentScreen> {
             style: boldValuePrimaryColor,
           ),
         ),
-
-
         body: BlocProvider(
           create: (context) => InsiistutionStudentBloc(
             CourseRepository(),
