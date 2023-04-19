@@ -19,32 +19,38 @@ mixin _$HotelListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() LoadHotels,
+    required TResult Function() LoadVouchers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? LoadHotels,
+    TResult? Function()? LoadVouchers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? LoadHotels,
+    TResult Function()? LoadVouchers,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadHotels value) LoadHotels,
+    required TResult Function(_LoadVouchers value) LoadVouchers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadHotels value)? LoadHotels,
+    TResult? Function(_LoadVouchers value)? LoadVouchers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadHotels value)? LoadHotels,
+    TResult Function(_LoadVouchers value)? LoadVouchers,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +113,7 @@ class _$_LoadHotels implements _LoadHotels {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() LoadHotels,
+    required TResult Function() LoadVouchers,
   }) {
     return LoadHotels();
   }
@@ -115,6 +122,7 @@ class _$_LoadHotels implements _LoadHotels {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? LoadHotels,
+    TResult? Function()? LoadVouchers,
   }) {
     return LoadHotels?.call();
   }
@@ -123,6 +131,7 @@ class _$_LoadHotels implements _LoadHotels {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? LoadHotels,
+    TResult Function()? LoadVouchers,
     required TResult orElse(),
   }) {
     if (LoadHotels != null) {
@@ -135,6 +144,7 @@ class _$_LoadHotels implements _LoadHotels {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadHotels value) LoadHotels,
+    required TResult Function(_LoadVouchers value) LoadVouchers,
   }) {
     return LoadHotels(this);
   }
@@ -143,6 +153,7 @@ class _$_LoadHotels implements _LoadHotels {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadHotels value)? LoadHotels,
+    TResult? Function(_LoadVouchers value)? LoadVouchers,
   }) {
     return LoadHotels?.call(this);
   }
@@ -151,6 +162,7 @@ class _$_LoadHotels implements _LoadHotels {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadHotels value)? LoadHotels,
+    TResult Function(_LoadVouchers value)? LoadVouchers,
     required TResult orElse(),
   }) {
     if (LoadHotels != null) {
@@ -162,6 +174,108 @@ class _$_LoadHotels implements _LoadHotels {
 
 abstract class _LoadHotels implements HotelListEvent {
   const factory _LoadHotels() = _$_LoadHotels;
+}
+
+/// @nodoc
+abstract class _$$_LoadVouchersCopyWith<$Res> {
+  factory _$$_LoadVouchersCopyWith(
+          _$_LoadVouchers value, $Res Function(_$_LoadVouchers) then) =
+      __$$_LoadVouchersCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_LoadVouchersCopyWithImpl<$Res>
+    extends _$HotelListEventCopyWithImpl<$Res, _$_LoadVouchers>
+    implements _$$_LoadVouchersCopyWith<$Res> {
+  __$$_LoadVouchersCopyWithImpl(
+      _$_LoadVouchers _value, $Res Function(_$_LoadVouchers) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_LoadVouchers implements _LoadVouchers {
+  const _$_LoadVouchers();
+
+  @override
+  String toString() {
+    return 'HotelListEvent.LoadVouchers()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_LoadVouchers);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() LoadHotels,
+    required TResult Function() LoadVouchers,
+  }) {
+    return LoadVouchers();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? LoadHotels,
+    TResult? Function()? LoadVouchers,
+  }) {
+    return LoadVouchers?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? LoadHotels,
+    TResult Function()? LoadVouchers,
+    required TResult orElse(),
+  }) {
+    if (LoadVouchers != null) {
+      return LoadVouchers();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadHotels value) LoadHotels,
+    required TResult Function(_LoadVouchers value) LoadVouchers,
+  }) {
+    return LoadVouchers(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadHotels value)? LoadHotels,
+    TResult? Function(_LoadVouchers value)? LoadVouchers,
+  }) {
+    return LoadVouchers?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadHotels value)? LoadHotels,
+    TResult Function(_LoadVouchers value)? LoadVouchers,
+    required TResult orElse(),
+  }) {
+    if (LoadVouchers != null) {
+      return LoadVouchers(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadVouchers implements HotelListEvent {
+  const factory _LoadVouchers() = _$_LoadVouchers;
 }
 
 /// @nodoc

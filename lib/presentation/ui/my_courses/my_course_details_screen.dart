@@ -157,7 +157,6 @@ class _MyCourseDetailsScreenState extends State<MyCourseDetailsScreen> {
                           },
                           (res) {
                             MyCourseVideosResponse response = res;
-
                             return OrientationBuilder(
                                 builder: (context, orientation) {
                               return Column(
