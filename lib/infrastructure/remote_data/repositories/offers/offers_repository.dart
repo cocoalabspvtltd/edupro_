@@ -5,7 +5,9 @@ import 'package:pgs_edupro/domain/core/network/api_provider.dart';
 import 'package:pgs_edupro/domain/core/network/network_failures.dart';
 import 'package:pgs_edupro/domain/offers/i_offers_repository.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/offers/hotel_list_response.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/models/offers/vouchers_list_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/source/api.dart';
+import 'package:pgs_edupro/presentation/ui/offers/hotel_deatils_screen.dart';
 
 
 class OffersRepository implements IOffersRepository {
@@ -41,7 +43,31 @@ class OffersRepository implements IOffersRepository {
       return left(const NetworkFailure.unexpected());
     }
   }
+  @override
+  Future<Either<NetworkFailure, HotelListResponse>> getVoucherList() async {
+    try {
+      Response response = await apiClient!
+          .getJsonInstance()
+          .post(Api.getVoucherList, data: {'room_rate': roomrate,'offer_amount': offeramount});
 
+      return right(HotelListResponse.fromJson(response.data));
+    } on DioError catch (e) {
+      if (e.response != null) {
+        if (e.response!.statusCode == 401) {
+          return left(
+              NetworkFailure.unAuthorized(e.response!.data["message"] ?? ''));
+        }
+        return left(NetworkFailure.serverError(
+            "Status Code ${e.response!.statusCode}"));
+      } else if (e.toString().contains('Connecting timed out')) {
+        return left(const NetworkFailure.serverTimeOut());
+      }
+      return left(const NetworkFailure.unexpected());
+    } catch (e) {
+      log(e.toString());
+      return left(const NetworkFailure.unexpected());
+    }
+  }
 }
 
 
