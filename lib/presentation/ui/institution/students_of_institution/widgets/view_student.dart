@@ -1,4 +1,3 @@
-
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -14,11 +13,11 @@ import 'package:pgs_edupro/presentation/ui/school/departments/widgets/edit_depar
 
 import 'insistution_view.dart';
 
-
 class EditStudentScreen extends StatefulWidget {
   final depatmentdetails;
   final depatmentdetailsid;
-  const EditStudentScreen({super.key, required this.depatmentdetails, this.depatmentdetailsid});
+  const EditStudentScreen(
+      {super.key, required this.depatmentdetails, this.depatmentdetailsid});
 
   @override
   State<EditStudentScreen> createState() => _EditStudentScreenState();
@@ -31,10 +30,12 @@ class _EditStudentScreenState extends State<EditStudentScreen> {
   @override
   void initState() {
     super.initState();
-print("f=>${widget.depatmentdetailsid}");
+    print("f=>${widget.depatmentdetailsid}");
   }
-  Widget build(BuildContext context,) {
 
+  Widget build(
+    BuildContext context,
+  ) {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.black,
@@ -43,22 +44,25 @@ print("f=>${widget.depatmentdetailsid}");
             style: boldValuePrimaryColor,
           ),
         ),
-        body:BlocProvider(
-        create: (context) => InsiistutionStudentBloc(CourseRepository(),widget.depatmentdetailsid,)..add(InsiistutionStudentEvent.loadMyProfile(widget.depatmentdetailsid.id.toString())),
-    child: Scaffold(
-    body: RefreshIndicator(
-    onRefresh: () async {
-    context.read<InsiistutionStudentBloc>().add(
-        InsiistutionStudentEvent.loadMyProfile((widget.depatmentdetails.id.toString())));
-    },
-    child:  SingleChildScrollView(
-    physics: AlwaysScrollableScrollPhysics(), child: AddStudentsFormEdit()),
-    )),
-    )
 
 
-    );
-
+        body: BlocProvider(
+          create: (context) => InsiistutionStudentBloc(
+            CourseRepository(),
+            widget.depatmentdetailsid,
+          )..add(InsiistutionStudentEvent.loadMyProfile(
+              widget.depatmentdetailsid.id.toString())),
+          child: Scaffold(
+              body: RefreshIndicator(
+            onRefresh: () async {
+              context.read<InsiistutionStudentBloc>().add(
+                  InsiistutionStudentEvent.loadMyProfile(
+                      (widget.depatmentdetails.id.toString())));
+            },
+            child: SingleChildScrollView(
+                physics: AlwaysScrollableScrollPhysics(),
+                child: AddStudentsFormEdit()),
+          )),
+        ));
   }
-
 }
