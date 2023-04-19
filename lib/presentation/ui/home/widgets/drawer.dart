@@ -5,6 +5,7 @@ import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/presentation/ui/course/course_report_screen.dart';
 import 'package:pgs_edupro/presentation/ui/home/home_screen.dart';
 import 'package:pgs_edupro/presentation/ui/membership/membership_screen.dart';
+import 'package:pgs_edupro/presentation/ui/offers/hotel_list_screen.dart';
 import 'package:pgs_edupro/presentation/ui/videos/live_videos_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -159,6 +160,36 @@ class DrawerWidget extends StatelessWidget {
                       ));
                     }),
                     SizedBox(height: 10,),
+                    ExpansionTile(
+                      title: Text(
+                        "Hospitallity Offers",
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      leading: Container(
+                        height: 38,
+                        width: 38.0,
+                        padding: const EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(width: 2, color: primaryColor),
+                          color: primaryColor[50],
+                        ),
+                        child: Image.asset(
+                            'assets/icons/drawer_icons/my-course-sltd.png'),
+                      ),
+                      childrenPadding:
+                      EdgeInsets.only(left: 60), //children padding
+                      children: [
+                        _drawerMenuItem1('My Offers', () {
+                          Get.to(() => HotellistScreen());
+                        }),
+                        _drawerMenuItem1('Purchased List', () {
+                          // Get.to(() => AddInstructorScreen());
+                        }),
+                        //more child menu
+                      ],
+                    ),
+                    SizedBox(height: 10,),
                     _drawerMenuItem(
                         Image.asset(
                             'assets/icons/drawer_icons/membership-sltd.png'),
@@ -299,6 +330,44 @@ class DrawerWidget extends StatelessWidget {
             scaffoldKey.currentState!.openEndDrawer();
             onTap();
           }),
+    );
+  }
+
+  Widget _drawerMenuItem1(String title, Function onTap) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 5),
+      child: Material(
+        color: secondaryColor[100],
+        child: InkWell(
+            child: Container(
+                color: Colors.white,
+                padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 3),
+                child: Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.white!, width: .2),
+                      borderRadius: BorderRadius.circular(0)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Expanded(
+                              child: Text(
+                                title,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                ),
+                              ))
+                        ]),
+                  ),
+                )),
+            onTap: () {
+              scaffoldKey.currentState!.openEndDrawer();
+              onTap();
+            }),
+      ),
     );
   }
 }

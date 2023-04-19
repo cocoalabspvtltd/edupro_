@@ -19,12 +19,14 @@ mixin _$InsiistutionStudentEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(String nameStr) nameChanged,
     required TResult Function(String nameStr) name,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String Value) mobileChanged,
     required TResult Function(String amountStr) additionalNumChanged,
     required TResult Function(String durationStr) addressChanged,
     required TResult Function(String urlStr) dobChanged,
+    required TResult Function(String userId) loadMyProfile,
     required TResult Function(File displayPicture) profileFile,
     required TResult Function() submitPressed,
   }) =>
@@ -32,12 +34,14 @@ mixin _$InsiistutionStudentEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String nameStr)? name,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String Value)? mobileChanged,
     TResult? Function(String amountStr)? additionalNumChanged,
     TResult? Function(String durationStr)? addressChanged,
     TResult? Function(String urlStr)? dobChanged,
+    TResult? Function(String userId)? loadMyProfile,
     TResult? Function(File displayPicture)? profileFile,
     TResult? Function()? submitPressed,
   }) =>
@@ -45,12 +49,14 @@ mixin _$InsiistutionStudentEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String nameStr)? name,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String Value)? mobileChanged,
     TResult Function(String amountStr)? additionalNumChanged,
     TResult Function(String durationStr)? addressChanged,
     TResult Function(String urlStr)? dobChanged,
+    TResult Function(String userId)? loadMyProfile,
     TResult Function(File displayPicture)? profileFile,
     TResult Function()? submitPressed,
     required TResult orElse(),
@@ -59,12 +65,14 @@ mixin _$InsiistutionStudentEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_TitleChanged value) name,
     required TResult Function(_AboutTitleChanged value) emailChanged,
     required TResult Function(_CategoryChanged value) mobileChanged,
     required TResult Function(_AmountChanged value) additionalNumChanged,
     required TResult Function(_DurationChanged value) addressChanged,
     required TResult Function(_UrlChanged value) dobChanged,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_courseFilePicture value) profileFile,
     required TResult Function(_SubmitPressed value) submitPressed,
   }) =>
@@ -72,12 +80,14 @@ mixin _$InsiistutionStudentEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_TitleChanged value)? name,
     TResult? Function(_AboutTitleChanged value)? emailChanged,
     TResult? Function(_CategoryChanged value)? mobileChanged,
     TResult? Function(_AmountChanged value)? additionalNumChanged,
     TResult? Function(_DurationChanged value)? addressChanged,
     TResult? Function(_UrlChanged value)? dobChanged,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_courseFilePicture value)? profileFile,
     TResult? Function(_SubmitPressed value)? submitPressed,
   }) =>
@@ -85,12 +95,14 @@ mixin _$InsiistutionStudentEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_TitleChanged value)? name,
     TResult Function(_AboutTitleChanged value)? emailChanged,
     TResult Function(_CategoryChanged value)? mobileChanged,
     TResult Function(_AmountChanged value)? additionalNumChanged,
     TResult Function(_DurationChanged value)? addressChanged,
     TResult Function(_UrlChanged value)? dobChanged,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_courseFilePicture value)? profileFile,
     TResult Function(_SubmitPressed value)? submitPressed,
     required TResult orElse(),
@@ -155,12 +167,14 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(String nameStr) nameChanged,
     required TResult Function(String nameStr) name,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String Value) mobileChanged,
     required TResult Function(String amountStr) additionalNumChanged,
     required TResult Function(String durationStr) addressChanged,
     required TResult Function(String urlStr) dobChanged,
+    required TResult Function(String userId) loadMyProfile,
     required TResult Function(File displayPicture) profileFile,
     required TResult Function() submitPressed,
   }) {
@@ -171,12 +185,14 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String nameStr)? name,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String Value)? mobileChanged,
     TResult? Function(String amountStr)? additionalNumChanged,
     TResult? Function(String durationStr)? addressChanged,
     TResult? Function(String urlStr)? dobChanged,
+    TResult? Function(String userId)? loadMyProfile,
     TResult? Function(File displayPicture)? profileFile,
     TResult? Function()? submitPressed,
   }) {
@@ -187,12 +203,14 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String nameStr)? name,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String Value)? mobileChanged,
     TResult Function(String amountStr)? additionalNumChanged,
     TResult Function(String durationStr)? addressChanged,
     TResult Function(String urlStr)? dobChanged,
+    TResult Function(String userId)? loadMyProfile,
     TResult Function(File displayPicture)? profileFile,
     TResult Function()? submitPressed,
     required TResult orElse(),
@@ -207,12 +225,14 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_TitleChanged value) name,
     required TResult Function(_AboutTitleChanged value) emailChanged,
     required TResult Function(_CategoryChanged value) mobileChanged,
     required TResult Function(_AmountChanged value) additionalNumChanged,
     required TResult Function(_DurationChanged value) addressChanged,
     required TResult Function(_UrlChanged value) dobChanged,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_courseFilePicture value) profileFile,
     required TResult Function(_SubmitPressed value) submitPressed,
   }) {
@@ -223,12 +243,14 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_TitleChanged value)? name,
     TResult? Function(_AboutTitleChanged value)? emailChanged,
     TResult? Function(_CategoryChanged value)? mobileChanged,
     TResult? Function(_AmountChanged value)? additionalNumChanged,
     TResult? Function(_DurationChanged value)? addressChanged,
     TResult? Function(_UrlChanged value)? dobChanged,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_courseFilePicture value)? profileFile,
     TResult? Function(_SubmitPressed value)? submitPressed,
   }) {
@@ -239,12 +261,14 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_TitleChanged value)? name,
     TResult Function(_AboutTitleChanged value)? emailChanged,
     TResult Function(_CategoryChanged value)? mobileChanged,
     TResult Function(_AmountChanged value)? additionalNumChanged,
     TResult Function(_DurationChanged value)? addressChanged,
     TResult Function(_UrlChanged value)? dobChanged,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_courseFilePicture value)? profileFile,
     TResult Function(_SubmitPressed value)? submitPressed,
     required TResult orElse(),
@@ -258,6 +282,193 @@ class _$_Started implements _Started {
 
 abstract class _Started implements InsiistutionStudentEvent {
   const factory _Started() = _$_Started;
+}
+
+/// @nodoc
+abstract class _$$_NameChangedCopyWith<$Res> {
+  factory _$$_NameChangedCopyWith(
+          _$_NameChanged value, $Res Function(_$_NameChanged) then) =
+      __$$_NameChangedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String nameStr});
+}
+
+/// @nodoc
+class __$$_NameChangedCopyWithImpl<$Res>
+    extends _$InsiistutionStudentEventCopyWithImpl<$Res, _$_NameChanged>
+    implements _$$_NameChangedCopyWith<$Res> {
+  __$$_NameChangedCopyWithImpl(
+      _$_NameChanged _value, $Res Function(_$_NameChanged) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? nameStr = null,
+  }) {
+    return _then(_$_NameChanged(
+      null == nameStr
+          ? _value.nameStr
+          : nameStr // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_NameChanged implements _NameChanged {
+  const _$_NameChanged(this.nameStr);
+
+  @override
+  final String nameStr;
+
+  @override
+  String toString() {
+    return 'InsiistutionStudentEvent.nameChanged(nameStr: $nameStr)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_NameChanged &&
+            (identical(other.nameStr, nameStr) || other.nameStr == nameStr));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, nameStr);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_NameChangedCopyWith<_$_NameChanged> get copyWith =>
+      __$$_NameChangedCopyWithImpl<_$_NameChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String nameStr) nameChanged,
+    required TResult Function(String nameStr) name,
+    required TResult Function(String emailStr) emailChanged,
+    required TResult Function(String Value) mobileChanged,
+    required TResult Function(String amountStr) additionalNumChanged,
+    required TResult Function(String durationStr) addressChanged,
+    required TResult Function(String urlStr) dobChanged,
+    required TResult Function(String userId) loadMyProfile,
+    required TResult Function(File displayPicture) profileFile,
+    required TResult Function() submitPressed,
+  }) {
+    return nameChanged(nameStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String nameStr)? nameChanged,
+    TResult? Function(String nameStr)? name,
+    TResult? Function(String emailStr)? emailChanged,
+    TResult? Function(String Value)? mobileChanged,
+    TResult? Function(String amountStr)? additionalNumChanged,
+    TResult? Function(String durationStr)? addressChanged,
+    TResult? Function(String urlStr)? dobChanged,
+    TResult? Function(String userId)? loadMyProfile,
+    TResult? Function(File displayPicture)? profileFile,
+    TResult? Function()? submitPressed,
+  }) {
+    return nameChanged?.call(nameStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(String nameStr)? name,
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String Value)? mobileChanged,
+    TResult Function(String amountStr)? additionalNumChanged,
+    TResult Function(String durationStr)? addressChanged,
+    TResult Function(String urlStr)? dobChanged,
+    TResult Function(String userId)? loadMyProfile,
+    TResult Function(File displayPicture)? profileFile,
+    TResult Function()? submitPressed,
+    required TResult orElse(),
+  }) {
+    if (nameChanged != null) {
+      return nameChanged(nameStr);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_TitleChanged value) name,
+    required TResult Function(_AboutTitleChanged value) emailChanged,
+    required TResult Function(_CategoryChanged value) mobileChanged,
+    required TResult Function(_AmountChanged value) additionalNumChanged,
+    required TResult Function(_DurationChanged value) addressChanged,
+    required TResult Function(_UrlChanged value) dobChanged,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
+    required TResult Function(_courseFilePicture value) profileFile,
+    required TResult Function(_SubmitPressed value) submitPressed,
+  }) {
+    return nameChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_TitleChanged value)? name,
+    TResult? Function(_AboutTitleChanged value)? emailChanged,
+    TResult? Function(_CategoryChanged value)? mobileChanged,
+    TResult? Function(_AmountChanged value)? additionalNumChanged,
+    TResult? Function(_DurationChanged value)? addressChanged,
+    TResult? Function(_UrlChanged value)? dobChanged,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
+    TResult? Function(_courseFilePicture value)? profileFile,
+    TResult? Function(_SubmitPressed value)? submitPressed,
+  }) {
+    return nameChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_TitleChanged value)? name,
+    TResult Function(_AboutTitleChanged value)? emailChanged,
+    TResult Function(_CategoryChanged value)? mobileChanged,
+    TResult Function(_AmountChanged value)? additionalNumChanged,
+    TResult Function(_DurationChanged value)? addressChanged,
+    TResult Function(_UrlChanged value)? dobChanged,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
+    TResult Function(_courseFilePicture value)? profileFile,
+    TResult Function(_SubmitPressed value)? submitPressed,
+    required TResult orElse(),
+  }) {
+    if (nameChanged != null) {
+      return nameChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NameChanged implements InsiistutionStudentEvent {
+  const factory _NameChanged(final String nameStr) = _$_NameChanged;
+
+  String get nameStr;
+  @JsonKey(ignore: true)
+  _$$_NameChangedCopyWith<_$_NameChanged> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -325,12 +536,14 @@ class _$_TitleChanged implements _TitleChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(String nameStr) nameChanged,
     required TResult Function(String nameStr) name,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String Value) mobileChanged,
     required TResult Function(String amountStr) additionalNumChanged,
     required TResult Function(String durationStr) addressChanged,
     required TResult Function(String urlStr) dobChanged,
+    required TResult Function(String userId) loadMyProfile,
     required TResult Function(File displayPicture) profileFile,
     required TResult Function() submitPressed,
   }) {
@@ -341,12 +554,14 @@ class _$_TitleChanged implements _TitleChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String nameStr)? name,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String Value)? mobileChanged,
     TResult? Function(String amountStr)? additionalNumChanged,
     TResult? Function(String durationStr)? addressChanged,
     TResult? Function(String urlStr)? dobChanged,
+    TResult? Function(String userId)? loadMyProfile,
     TResult? Function(File displayPicture)? profileFile,
     TResult? Function()? submitPressed,
   }) {
@@ -357,12 +572,14 @@ class _$_TitleChanged implements _TitleChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String nameStr)? name,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String Value)? mobileChanged,
     TResult Function(String amountStr)? additionalNumChanged,
     TResult Function(String durationStr)? addressChanged,
     TResult Function(String urlStr)? dobChanged,
+    TResult Function(String userId)? loadMyProfile,
     TResult Function(File displayPicture)? profileFile,
     TResult Function()? submitPressed,
     required TResult orElse(),
@@ -377,12 +594,14 @@ class _$_TitleChanged implements _TitleChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_TitleChanged value) name,
     required TResult Function(_AboutTitleChanged value) emailChanged,
     required TResult Function(_CategoryChanged value) mobileChanged,
     required TResult Function(_AmountChanged value) additionalNumChanged,
     required TResult Function(_DurationChanged value) addressChanged,
     required TResult Function(_UrlChanged value) dobChanged,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_courseFilePicture value) profileFile,
     required TResult Function(_SubmitPressed value) submitPressed,
   }) {
@@ -393,12 +612,14 @@ class _$_TitleChanged implements _TitleChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_TitleChanged value)? name,
     TResult? Function(_AboutTitleChanged value)? emailChanged,
     TResult? Function(_CategoryChanged value)? mobileChanged,
     TResult? Function(_AmountChanged value)? additionalNumChanged,
     TResult? Function(_DurationChanged value)? addressChanged,
     TResult? Function(_UrlChanged value)? dobChanged,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_courseFilePicture value)? profileFile,
     TResult? Function(_SubmitPressed value)? submitPressed,
   }) {
@@ -409,12 +630,14 @@ class _$_TitleChanged implements _TitleChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_TitleChanged value)? name,
     TResult Function(_AboutTitleChanged value)? emailChanged,
     TResult Function(_CategoryChanged value)? mobileChanged,
     TResult Function(_AmountChanged value)? additionalNumChanged,
     TResult Function(_DurationChanged value)? addressChanged,
     TResult Function(_UrlChanged value)? dobChanged,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_courseFilePicture value)? profileFile,
     TResult Function(_SubmitPressed value)? submitPressed,
     required TResult orElse(),
@@ -502,12 +725,14 @@ class _$_AboutTitleChanged implements _AboutTitleChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(String nameStr) nameChanged,
     required TResult Function(String nameStr) name,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String Value) mobileChanged,
     required TResult Function(String amountStr) additionalNumChanged,
     required TResult Function(String durationStr) addressChanged,
     required TResult Function(String urlStr) dobChanged,
+    required TResult Function(String userId) loadMyProfile,
     required TResult Function(File displayPicture) profileFile,
     required TResult Function() submitPressed,
   }) {
@@ -518,12 +743,14 @@ class _$_AboutTitleChanged implements _AboutTitleChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String nameStr)? name,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String Value)? mobileChanged,
     TResult? Function(String amountStr)? additionalNumChanged,
     TResult? Function(String durationStr)? addressChanged,
     TResult? Function(String urlStr)? dobChanged,
+    TResult? Function(String userId)? loadMyProfile,
     TResult? Function(File displayPicture)? profileFile,
     TResult? Function()? submitPressed,
   }) {
@@ -534,12 +761,14 @@ class _$_AboutTitleChanged implements _AboutTitleChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String nameStr)? name,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String Value)? mobileChanged,
     TResult Function(String amountStr)? additionalNumChanged,
     TResult Function(String durationStr)? addressChanged,
     TResult Function(String urlStr)? dobChanged,
+    TResult Function(String userId)? loadMyProfile,
     TResult Function(File displayPicture)? profileFile,
     TResult Function()? submitPressed,
     required TResult orElse(),
@@ -554,12 +783,14 @@ class _$_AboutTitleChanged implements _AboutTitleChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_TitleChanged value) name,
     required TResult Function(_AboutTitleChanged value) emailChanged,
     required TResult Function(_CategoryChanged value) mobileChanged,
     required TResult Function(_AmountChanged value) additionalNumChanged,
     required TResult Function(_DurationChanged value) addressChanged,
     required TResult Function(_UrlChanged value) dobChanged,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_courseFilePicture value) profileFile,
     required TResult Function(_SubmitPressed value) submitPressed,
   }) {
@@ -570,12 +801,14 @@ class _$_AboutTitleChanged implements _AboutTitleChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_TitleChanged value)? name,
     TResult? Function(_AboutTitleChanged value)? emailChanged,
     TResult? Function(_CategoryChanged value)? mobileChanged,
     TResult? Function(_AmountChanged value)? additionalNumChanged,
     TResult? Function(_DurationChanged value)? addressChanged,
     TResult? Function(_UrlChanged value)? dobChanged,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_courseFilePicture value)? profileFile,
     TResult? Function(_SubmitPressed value)? submitPressed,
   }) {
@@ -586,12 +819,14 @@ class _$_AboutTitleChanged implements _AboutTitleChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_TitleChanged value)? name,
     TResult Function(_AboutTitleChanged value)? emailChanged,
     TResult Function(_CategoryChanged value)? mobileChanged,
     TResult Function(_AmountChanged value)? additionalNumChanged,
     TResult Function(_DurationChanged value)? addressChanged,
     TResult Function(_UrlChanged value)? dobChanged,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_courseFilePicture value)? profileFile,
     TResult Function(_SubmitPressed value)? submitPressed,
     required TResult orElse(),
@@ -678,12 +913,14 @@ class _$_CategoryChanged implements _CategoryChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(String nameStr) nameChanged,
     required TResult Function(String nameStr) name,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String Value) mobileChanged,
     required TResult Function(String amountStr) additionalNumChanged,
     required TResult Function(String durationStr) addressChanged,
     required TResult Function(String urlStr) dobChanged,
+    required TResult Function(String userId) loadMyProfile,
     required TResult Function(File displayPicture) profileFile,
     required TResult Function() submitPressed,
   }) {
@@ -694,12 +931,14 @@ class _$_CategoryChanged implements _CategoryChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String nameStr)? name,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String Value)? mobileChanged,
     TResult? Function(String amountStr)? additionalNumChanged,
     TResult? Function(String durationStr)? addressChanged,
     TResult? Function(String urlStr)? dobChanged,
+    TResult? Function(String userId)? loadMyProfile,
     TResult? Function(File displayPicture)? profileFile,
     TResult? Function()? submitPressed,
   }) {
@@ -710,12 +949,14 @@ class _$_CategoryChanged implements _CategoryChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String nameStr)? name,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String Value)? mobileChanged,
     TResult Function(String amountStr)? additionalNumChanged,
     TResult Function(String durationStr)? addressChanged,
     TResult Function(String urlStr)? dobChanged,
+    TResult Function(String userId)? loadMyProfile,
     TResult Function(File displayPicture)? profileFile,
     TResult Function()? submitPressed,
     required TResult orElse(),
@@ -730,12 +971,14 @@ class _$_CategoryChanged implements _CategoryChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_TitleChanged value) name,
     required TResult Function(_AboutTitleChanged value) emailChanged,
     required TResult Function(_CategoryChanged value) mobileChanged,
     required TResult Function(_AmountChanged value) additionalNumChanged,
     required TResult Function(_DurationChanged value) addressChanged,
     required TResult Function(_UrlChanged value) dobChanged,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_courseFilePicture value) profileFile,
     required TResult Function(_SubmitPressed value) submitPressed,
   }) {
@@ -746,12 +989,14 @@ class _$_CategoryChanged implements _CategoryChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_TitleChanged value)? name,
     TResult? Function(_AboutTitleChanged value)? emailChanged,
     TResult? Function(_CategoryChanged value)? mobileChanged,
     TResult? Function(_AmountChanged value)? additionalNumChanged,
     TResult? Function(_DurationChanged value)? addressChanged,
     TResult? Function(_UrlChanged value)? dobChanged,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_courseFilePicture value)? profileFile,
     TResult? Function(_SubmitPressed value)? submitPressed,
   }) {
@@ -762,12 +1007,14 @@ class _$_CategoryChanged implements _CategoryChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_TitleChanged value)? name,
     TResult Function(_AboutTitleChanged value)? emailChanged,
     TResult Function(_CategoryChanged value)? mobileChanged,
     TResult Function(_AmountChanged value)? additionalNumChanged,
     TResult Function(_DurationChanged value)? addressChanged,
     TResult Function(_UrlChanged value)? dobChanged,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_courseFilePicture value)? profileFile,
     TResult Function(_SubmitPressed value)? submitPressed,
     required TResult orElse(),
@@ -854,12 +1101,14 @@ class _$_AmountChanged implements _AmountChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(String nameStr) nameChanged,
     required TResult Function(String nameStr) name,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String Value) mobileChanged,
     required TResult Function(String amountStr) additionalNumChanged,
     required TResult Function(String durationStr) addressChanged,
     required TResult Function(String urlStr) dobChanged,
+    required TResult Function(String userId) loadMyProfile,
     required TResult Function(File displayPicture) profileFile,
     required TResult Function() submitPressed,
   }) {
@@ -870,12 +1119,14 @@ class _$_AmountChanged implements _AmountChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String nameStr)? name,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String Value)? mobileChanged,
     TResult? Function(String amountStr)? additionalNumChanged,
     TResult? Function(String durationStr)? addressChanged,
     TResult? Function(String urlStr)? dobChanged,
+    TResult? Function(String userId)? loadMyProfile,
     TResult? Function(File displayPicture)? profileFile,
     TResult? Function()? submitPressed,
   }) {
@@ -886,12 +1137,14 @@ class _$_AmountChanged implements _AmountChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String nameStr)? name,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String Value)? mobileChanged,
     TResult Function(String amountStr)? additionalNumChanged,
     TResult Function(String durationStr)? addressChanged,
     TResult Function(String urlStr)? dobChanged,
+    TResult Function(String userId)? loadMyProfile,
     TResult Function(File displayPicture)? profileFile,
     TResult Function()? submitPressed,
     required TResult orElse(),
@@ -906,12 +1159,14 @@ class _$_AmountChanged implements _AmountChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_TitleChanged value) name,
     required TResult Function(_AboutTitleChanged value) emailChanged,
     required TResult Function(_CategoryChanged value) mobileChanged,
     required TResult Function(_AmountChanged value) additionalNumChanged,
     required TResult Function(_DurationChanged value) addressChanged,
     required TResult Function(_UrlChanged value) dobChanged,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_courseFilePicture value) profileFile,
     required TResult Function(_SubmitPressed value) submitPressed,
   }) {
@@ -922,12 +1177,14 @@ class _$_AmountChanged implements _AmountChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_TitleChanged value)? name,
     TResult? Function(_AboutTitleChanged value)? emailChanged,
     TResult? Function(_CategoryChanged value)? mobileChanged,
     TResult? Function(_AmountChanged value)? additionalNumChanged,
     TResult? Function(_DurationChanged value)? addressChanged,
     TResult? Function(_UrlChanged value)? dobChanged,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_courseFilePicture value)? profileFile,
     TResult? Function(_SubmitPressed value)? submitPressed,
   }) {
@@ -938,12 +1195,14 @@ class _$_AmountChanged implements _AmountChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_TitleChanged value)? name,
     TResult Function(_AboutTitleChanged value)? emailChanged,
     TResult Function(_CategoryChanged value)? mobileChanged,
     TResult Function(_AmountChanged value)? additionalNumChanged,
     TResult Function(_DurationChanged value)? addressChanged,
     TResult Function(_UrlChanged value)? dobChanged,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_courseFilePicture value)? profileFile,
     TResult Function(_SubmitPressed value)? submitPressed,
     required TResult orElse(),
@@ -1030,12 +1289,14 @@ class _$_DurationChanged implements _DurationChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(String nameStr) nameChanged,
     required TResult Function(String nameStr) name,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String Value) mobileChanged,
     required TResult Function(String amountStr) additionalNumChanged,
     required TResult Function(String durationStr) addressChanged,
     required TResult Function(String urlStr) dobChanged,
+    required TResult Function(String userId) loadMyProfile,
     required TResult Function(File displayPicture) profileFile,
     required TResult Function() submitPressed,
   }) {
@@ -1046,12 +1307,14 @@ class _$_DurationChanged implements _DurationChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String nameStr)? name,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String Value)? mobileChanged,
     TResult? Function(String amountStr)? additionalNumChanged,
     TResult? Function(String durationStr)? addressChanged,
     TResult? Function(String urlStr)? dobChanged,
+    TResult? Function(String userId)? loadMyProfile,
     TResult? Function(File displayPicture)? profileFile,
     TResult? Function()? submitPressed,
   }) {
@@ -1062,12 +1325,14 @@ class _$_DurationChanged implements _DurationChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String nameStr)? name,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String Value)? mobileChanged,
     TResult Function(String amountStr)? additionalNumChanged,
     TResult Function(String durationStr)? addressChanged,
     TResult Function(String urlStr)? dobChanged,
+    TResult Function(String userId)? loadMyProfile,
     TResult Function(File displayPicture)? profileFile,
     TResult Function()? submitPressed,
     required TResult orElse(),
@@ -1082,12 +1347,14 @@ class _$_DurationChanged implements _DurationChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_TitleChanged value) name,
     required TResult Function(_AboutTitleChanged value) emailChanged,
     required TResult Function(_CategoryChanged value) mobileChanged,
     required TResult Function(_AmountChanged value) additionalNumChanged,
     required TResult Function(_DurationChanged value) addressChanged,
     required TResult Function(_UrlChanged value) dobChanged,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_courseFilePicture value) profileFile,
     required TResult Function(_SubmitPressed value) submitPressed,
   }) {
@@ -1098,12 +1365,14 @@ class _$_DurationChanged implements _DurationChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_TitleChanged value)? name,
     TResult? Function(_AboutTitleChanged value)? emailChanged,
     TResult? Function(_CategoryChanged value)? mobileChanged,
     TResult? Function(_AmountChanged value)? additionalNumChanged,
     TResult? Function(_DurationChanged value)? addressChanged,
     TResult? Function(_UrlChanged value)? dobChanged,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_courseFilePicture value)? profileFile,
     TResult? Function(_SubmitPressed value)? submitPressed,
   }) {
@@ -1114,12 +1383,14 @@ class _$_DurationChanged implements _DurationChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_TitleChanged value)? name,
     TResult Function(_AboutTitleChanged value)? emailChanged,
     TResult Function(_CategoryChanged value)? mobileChanged,
     TResult Function(_AmountChanged value)? additionalNumChanged,
     TResult Function(_DurationChanged value)? addressChanged,
     TResult Function(_UrlChanged value)? dobChanged,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_courseFilePicture value)? profileFile,
     TResult Function(_SubmitPressed value)? submitPressed,
     required TResult orElse(),
@@ -1205,12 +1476,14 @@ class _$_UrlChanged implements _UrlChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(String nameStr) nameChanged,
     required TResult Function(String nameStr) name,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String Value) mobileChanged,
     required TResult Function(String amountStr) additionalNumChanged,
     required TResult Function(String durationStr) addressChanged,
     required TResult Function(String urlStr) dobChanged,
+    required TResult Function(String userId) loadMyProfile,
     required TResult Function(File displayPicture) profileFile,
     required TResult Function() submitPressed,
   }) {
@@ -1221,12 +1494,14 @@ class _$_UrlChanged implements _UrlChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String nameStr)? name,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String Value)? mobileChanged,
     TResult? Function(String amountStr)? additionalNumChanged,
     TResult? Function(String durationStr)? addressChanged,
     TResult? Function(String urlStr)? dobChanged,
+    TResult? Function(String userId)? loadMyProfile,
     TResult? Function(File displayPicture)? profileFile,
     TResult? Function()? submitPressed,
   }) {
@@ -1237,12 +1512,14 @@ class _$_UrlChanged implements _UrlChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String nameStr)? name,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String Value)? mobileChanged,
     TResult Function(String amountStr)? additionalNumChanged,
     TResult Function(String durationStr)? addressChanged,
     TResult Function(String urlStr)? dobChanged,
+    TResult Function(String userId)? loadMyProfile,
     TResult Function(File displayPicture)? profileFile,
     TResult Function()? submitPressed,
     required TResult orElse(),
@@ -1257,12 +1534,14 @@ class _$_UrlChanged implements _UrlChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_TitleChanged value) name,
     required TResult Function(_AboutTitleChanged value) emailChanged,
     required TResult Function(_CategoryChanged value) mobileChanged,
     required TResult Function(_AmountChanged value) additionalNumChanged,
     required TResult Function(_DurationChanged value) addressChanged,
     required TResult Function(_UrlChanged value) dobChanged,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_courseFilePicture value) profileFile,
     required TResult Function(_SubmitPressed value) submitPressed,
   }) {
@@ -1273,12 +1552,14 @@ class _$_UrlChanged implements _UrlChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_TitleChanged value)? name,
     TResult? Function(_AboutTitleChanged value)? emailChanged,
     TResult? Function(_CategoryChanged value)? mobileChanged,
     TResult? Function(_AmountChanged value)? additionalNumChanged,
     TResult? Function(_DurationChanged value)? addressChanged,
     TResult? Function(_UrlChanged value)? dobChanged,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_courseFilePicture value)? profileFile,
     TResult? Function(_SubmitPressed value)? submitPressed,
   }) {
@@ -1289,12 +1570,14 @@ class _$_UrlChanged implements _UrlChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_TitleChanged value)? name,
     TResult Function(_AboutTitleChanged value)? emailChanged,
     TResult Function(_CategoryChanged value)? mobileChanged,
     TResult Function(_AmountChanged value)? additionalNumChanged,
     TResult Function(_DurationChanged value)? addressChanged,
     TResult Function(_UrlChanged value)? dobChanged,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_courseFilePicture value)? profileFile,
     TResult Function(_SubmitPressed value)? submitPressed,
     required TResult orElse(),
@@ -1312,6 +1595,193 @@ abstract class _UrlChanged implements InsiistutionStudentEvent {
   String get urlStr;
   @JsonKey(ignore: true)
   _$$_UrlChangedCopyWith<_$_UrlChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_LoadMyProfileCopyWith<$Res> {
+  factory _$$_LoadMyProfileCopyWith(
+          _$_LoadMyProfile value, $Res Function(_$_LoadMyProfile) then) =
+      __$$_LoadMyProfileCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String userId});
+}
+
+/// @nodoc
+class __$$_LoadMyProfileCopyWithImpl<$Res>
+    extends _$InsiistutionStudentEventCopyWithImpl<$Res, _$_LoadMyProfile>
+    implements _$$_LoadMyProfileCopyWith<$Res> {
+  __$$_LoadMyProfileCopyWithImpl(
+      _$_LoadMyProfile _value, $Res Function(_$_LoadMyProfile) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userId = null,
+  }) {
+    return _then(_$_LoadMyProfile(
+      null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_LoadMyProfile implements _LoadMyProfile {
+  const _$_LoadMyProfile(this.userId);
+
+  @override
+  final String userId;
+
+  @override
+  String toString() {
+    return 'InsiistutionStudentEvent.loadMyProfile(userId: $userId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_LoadMyProfile &&
+            (identical(other.userId, userId) || other.userId == userId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, userId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_LoadMyProfileCopyWith<_$_LoadMyProfile> get copyWith =>
+      __$$_LoadMyProfileCopyWithImpl<_$_LoadMyProfile>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String nameStr) nameChanged,
+    required TResult Function(String nameStr) name,
+    required TResult Function(String emailStr) emailChanged,
+    required TResult Function(String Value) mobileChanged,
+    required TResult Function(String amountStr) additionalNumChanged,
+    required TResult Function(String durationStr) addressChanged,
+    required TResult Function(String urlStr) dobChanged,
+    required TResult Function(String userId) loadMyProfile,
+    required TResult Function(File displayPicture) profileFile,
+    required TResult Function() submitPressed,
+  }) {
+    return loadMyProfile(userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String nameStr)? nameChanged,
+    TResult? Function(String nameStr)? name,
+    TResult? Function(String emailStr)? emailChanged,
+    TResult? Function(String Value)? mobileChanged,
+    TResult? Function(String amountStr)? additionalNumChanged,
+    TResult? Function(String durationStr)? addressChanged,
+    TResult? Function(String urlStr)? dobChanged,
+    TResult? Function(String userId)? loadMyProfile,
+    TResult? Function(File displayPicture)? profileFile,
+    TResult? Function()? submitPressed,
+  }) {
+    return loadMyProfile?.call(userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(String nameStr)? name,
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String Value)? mobileChanged,
+    TResult Function(String amountStr)? additionalNumChanged,
+    TResult Function(String durationStr)? addressChanged,
+    TResult Function(String urlStr)? dobChanged,
+    TResult Function(String userId)? loadMyProfile,
+    TResult Function(File displayPicture)? profileFile,
+    TResult Function()? submitPressed,
+    required TResult orElse(),
+  }) {
+    if (loadMyProfile != null) {
+      return loadMyProfile(userId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_TitleChanged value) name,
+    required TResult Function(_AboutTitleChanged value) emailChanged,
+    required TResult Function(_CategoryChanged value) mobileChanged,
+    required TResult Function(_AmountChanged value) additionalNumChanged,
+    required TResult Function(_DurationChanged value) addressChanged,
+    required TResult Function(_UrlChanged value) dobChanged,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
+    required TResult Function(_courseFilePicture value) profileFile,
+    required TResult Function(_SubmitPressed value) submitPressed,
+  }) {
+    return loadMyProfile(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_TitleChanged value)? name,
+    TResult? Function(_AboutTitleChanged value)? emailChanged,
+    TResult? Function(_CategoryChanged value)? mobileChanged,
+    TResult? Function(_AmountChanged value)? additionalNumChanged,
+    TResult? Function(_DurationChanged value)? addressChanged,
+    TResult? Function(_UrlChanged value)? dobChanged,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
+    TResult? Function(_courseFilePicture value)? profileFile,
+    TResult? Function(_SubmitPressed value)? submitPressed,
+  }) {
+    return loadMyProfile?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_TitleChanged value)? name,
+    TResult Function(_AboutTitleChanged value)? emailChanged,
+    TResult Function(_CategoryChanged value)? mobileChanged,
+    TResult Function(_AmountChanged value)? additionalNumChanged,
+    TResult Function(_DurationChanged value)? addressChanged,
+    TResult Function(_UrlChanged value)? dobChanged,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
+    TResult Function(_courseFilePicture value)? profileFile,
+    TResult Function(_SubmitPressed value)? submitPressed,
+    required TResult orElse(),
+  }) {
+    if (loadMyProfile != null) {
+      return loadMyProfile(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadMyProfile implements InsiistutionStudentEvent {
+  const factory _LoadMyProfile(final String userId) = _$_LoadMyProfile;
+
+  String get userId;
+  @JsonKey(ignore: true)
+  _$$_LoadMyProfileCopyWith<_$_LoadMyProfile> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1382,12 +1852,14 @@ class _$_courseFilePicture implements _courseFilePicture {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(String nameStr) nameChanged,
     required TResult Function(String nameStr) name,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String Value) mobileChanged,
     required TResult Function(String amountStr) additionalNumChanged,
     required TResult Function(String durationStr) addressChanged,
     required TResult Function(String urlStr) dobChanged,
+    required TResult Function(String userId) loadMyProfile,
     required TResult Function(File displayPicture) profileFile,
     required TResult Function() submitPressed,
   }) {
@@ -1398,12 +1870,14 @@ class _$_courseFilePicture implements _courseFilePicture {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String nameStr)? name,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String Value)? mobileChanged,
     TResult? Function(String amountStr)? additionalNumChanged,
     TResult? Function(String durationStr)? addressChanged,
     TResult? Function(String urlStr)? dobChanged,
+    TResult? Function(String userId)? loadMyProfile,
     TResult? Function(File displayPicture)? profileFile,
     TResult? Function()? submitPressed,
   }) {
@@ -1414,12 +1888,14 @@ class _$_courseFilePicture implements _courseFilePicture {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String nameStr)? name,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String Value)? mobileChanged,
     TResult Function(String amountStr)? additionalNumChanged,
     TResult Function(String durationStr)? addressChanged,
     TResult Function(String urlStr)? dobChanged,
+    TResult Function(String userId)? loadMyProfile,
     TResult Function(File displayPicture)? profileFile,
     TResult Function()? submitPressed,
     required TResult orElse(),
@@ -1434,12 +1910,14 @@ class _$_courseFilePicture implements _courseFilePicture {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_TitleChanged value) name,
     required TResult Function(_AboutTitleChanged value) emailChanged,
     required TResult Function(_CategoryChanged value) mobileChanged,
     required TResult Function(_AmountChanged value) additionalNumChanged,
     required TResult Function(_DurationChanged value) addressChanged,
     required TResult Function(_UrlChanged value) dobChanged,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_courseFilePicture value) profileFile,
     required TResult Function(_SubmitPressed value) submitPressed,
   }) {
@@ -1450,12 +1928,14 @@ class _$_courseFilePicture implements _courseFilePicture {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_TitleChanged value)? name,
     TResult? Function(_AboutTitleChanged value)? emailChanged,
     TResult? Function(_CategoryChanged value)? mobileChanged,
     TResult? Function(_AmountChanged value)? additionalNumChanged,
     TResult? Function(_DurationChanged value)? addressChanged,
     TResult? Function(_UrlChanged value)? dobChanged,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_courseFilePicture value)? profileFile,
     TResult? Function(_SubmitPressed value)? submitPressed,
   }) {
@@ -1466,12 +1946,14 @@ class _$_courseFilePicture implements _courseFilePicture {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_TitleChanged value)? name,
     TResult Function(_AboutTitleChanged value)? emailChanged,
     TResult Function(_CategoryChanged value)? mobileChanged,
     TResult Function(_AmountChanged value)? additionalNumChanged,
     TResult Function(_DurationChanged value)? addressChanged,
     TResult Function(_UrlChanged value)? dobChanged,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_courseFilePicture value)? profileFile,
     TResult Function(_SubmitPressed value)? submitPressed,
     required TResult orElse(),
@@ -1532,12 +2014,14 @@ class _$_SubmitPressed implements _SubmitPressed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(String nameStr) nameChanged,
     required TResult Function(String nameStr) name,
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String Value) mobileChanged,
     required TResult Function(String amountStr) additionalNumChanged,
     required TResult Function(String durationStr) addressChanged,
     required TResult Function(String urlStr) dobChanged,
+    required TResult Function(String userId) loadMyProfile,
     required TResult Function(File displayPicture) profileFile,
     required TResult Function() submitPressed,
   }) {
@@ -1548,12 +2032,14 @@ class _$_SubmitPressed implements _SubmitPressed {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String nameStr)? name,
     TResult? Function(String emailStr)? emailChanged,
     TResult? Function(String Value)? mobileChanged,
     TResult? Function(String amountStr)? additionalNumChanged,
     TResult? Function(String durationStr)? addressChanged,
     TResult? Function(String urlStr)? dobChanged,
+    TResult? Function(String userId)? loadMyProfile,
     TResult? Function(File displayPicture)? profileFile,
     TResult? Function()? submitPressed,
   }) {
@@ -1564,12 +2050,14 @@ class _$_SubmitPressed implements _SubmitPressed {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(String nameStr)? nameChanged,
     TResult Function(String nameStr)? name,
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String Value)? mobileChanged,
     TResult Function(String amountStr)? additionalNumChanged,
     TResult Function(String durationStr)? addressChanged,
     TResult Function(String urlStr)? dobChanged,
+    TResult Function(String userId)? loadMyProfile,
     TResult Function(File displayPicture)? profileFile,
     TResult Function()? submitPressed,
     required TResult orElse(),
@@ -1584,12 +2072,14 @@ class _$_SubmitPressed implements _SubmitPressed {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_TitleChanged value) name,
     required TResult Function(_AboutTitleChanged value) emailChanged,
     required TResult Function(_CategoryChanged value) mobileChanged,
     required TResult Function(_AmountChanged value) additionalNumChanged,
     required TResult Function(_DurationChanged value) addressChanged,
     required TResult Function(_UrlChanged value) dobChanged,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
     required TResult Function(_courseFilePicture value) profileFile,
     required TResult Function(_SubmitPressed value) submitPressed,
   }) {
@@ -1600,12 +2090,14 @@ class _$_SubmitPressed implements _SubmitPressed {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_TitleChanged value)? name,
     TResult? Function(_AboutTitleChanged value)? emailChanged,
     TResult? Function(_CategoryChanged value)? mobileChanged,
     TResult? Function(_AmountChanged value)? additionalNumChanged,
     TResult? Function(_DurationChanged value)? addressChanged,
     TResult? Function(_UrlChanged value)? dobChanged,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
     TResult? Function(_courseFilePicture value)? profileFile,
     TResult? Function(_SubmitPressed value)? submitPressed,
   }) {
@@ -1616,12 +2108,14 @@ class _$_SubmitPressed implements _SubmitPressed {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_TitleChanged value)? name,
     TResult Function(_AboutTitleChanged value)? emailChanged,
     TResult Function(_CategoryChanged value)? mobileChanged,
     TResult Function(_AmountChanged value)? additionalNumChanged,
     TResult Function(_DurationChanged value)? addressChanged,
     TResult Function(_UrlChanged value)? dobChanged,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
     TResult Function(_courseFilePicture value)? profileFile,
     TResult Function(_SubmitPressed value)? submitPressed,
     required TResult orElse(),
@@ -1639,6 +2133,7 @@ abstract class _SubmitPressed implements InsiistutionStudentEvent {
 
 /// @nodoc
 mixin _$InsiistutionStudentState {
+  Name get names => throw _privateConstructorUsedError;
   TextEditingController get name => throw _privateConstructorUsedError;
   TextEditingController get email => throw _privateConstructorUsedError;
   TextEditingController get mobile => throw _privateConstructorUsedError;
@@ -1669,7 +2164,8 @@ abstract class $InsiistutionStudentStateCopyWith<$Res> {
       _$InsiistutionStudentStateCopyWithImpl<$Res, InsiistutionStudentState>;
   @useResult
   $Res call(
-      {TextEditingController name,
+      {Name names,
+      TextEditingController name,
       TextEditingController email,
       TextEditingController mobile,
       TextEditingController addtionalmobile,
@@ -1699,6 +2195,7 @@ class _$InsiistutionStudentStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? names = null,
     Object? name = null,
     Object? email = null,
     Object? mobile = null,
@@ -1715,6 +2212,10 @@ class _$InsiistutionStudentStateCopyWithImpl<$Res,
     Object? submitFailedOrSuccessOption = null,
   }) {
     return _then(_value.copyWith(
+      names: null == names
+          ? _value.names
+          : names // ignore: cast_nullable_to_non_nullable
+              as Name,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -1785,7 +2286,8 @@ abstract class _$$_InsiistutionStudentStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {TextEditingController name,
+      {Name names,
+      TextEditingController name,
       TextEditingController email,
       TextEditingController mobile,
       TextEditingController addtionalmobile,
@@ -1813,6 +2315,7 @@ class __$$_InsiistutionStudentStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? names = null,
     Object? name = null,
     Object? email = null,
     Object? mobile = null,
@@ -1829,6 +2332,10 @@ class __$$_InsiistutionStudentStateCopyWithImpl<$Res>
     Object? submitFailedOrSuccessOption = null,
   }) {
     return _then(_$_InsiistutionStudentState(
+      names: null == names
+          ? _value.names
+          : names // ignore: cast_nullable_to_non_nullable
+              as Name,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -1893,7 +2400,8 @@ class __$$_InsiistutionStudentStateCopyWithImpl<$Res>
 
 class _$_InsiistutionStudentState implements _InsiistutionStudentState {
   const _$_InsiistutionStudentState(
-      {required this.name,
+      {required this.names,
+      required this.name,
       required this.email,
       required this.mobile,
       required this.addtionalmobile,
@@ -1908,6 +2416,8 @@ class _$_InsiistutionStudentState implements _InsiistutionStudentState {
       required this.loadFailureOrSuccessOption,
       required this.submitFailedOrSuccessOption});
 
+  @override
+  final Name names;
   @override
   final TextEditingController name;
   @override
@@ -1939,7 +2449,7 @@ class _$_InsiistutionStudentState implements _InsiistutionStudentState {
 
   @override
   String toString() {
-    return 'InsiistutionStudentState(name: $name, email: $email, mobile: $mobile, addtionalmobile: $addtionalmobile, course: $course, department: $department, address: $address, displayPicture: $displayPicture, dob: $dob, showErrorMessages: $showErrorMessages, isLoading: $isLoading, isSubmitting: $isSubmitting, loadFailureOrSuccessOption: $loadFailureOrSuccessOption, submitFailedOrSuccessOption: $submitFailedOrSuccessOption)';
+    return 'InsiistutionStudentState(names: $names, name: $name, email: $email, mobile: $mobile, addtionalmobile: $addtionalmobile, course: $course, department: $department, address: $address, displayPicture: $displayPicture, dob: $dob, showErrorMessages: $showErrorMessages, isLoading: $isLoading, isSubmitting: $isSubmitting, loadFailureOrSuccessOption: $loadFailureOrSuccessOption, submitFailedOrSuccessOption: $submitFailedOrSuccessOption)';
   }
 
   @override
@@ -1947,6 +2457,7 @@ class _$_InsiistutionStudentState implements _InsiistutionStudentState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_InsiistutionStudentState &&
+            (identical(other.names, names) || other.names == names) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.mobile, mobile) || other.mobile == mobile) &&
@@ -1978,6 +2489,7 @@ class _$_InsiistutionStudentState implements _InsiistutionStudentState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      names,
       name,
       email,
       mobile,
@@ -2003,7 +2515,8 @@ class _$_InsiistutionStudentState implements _InsiistutionStudentState {
 
 abstract class _InsiistutionStudentState implements InsiistutionStudentState {
   const factory _InsiistutionStudentState(
-      {required final TextEditingController name,
+      {required final Name names,
+      required final TextEditingController name,
       required final TextEditingController email,
       required final TextEditingController mobile,
       required final TextEditingController addtionalmobile,
@@ -2020,6 +2533,8 @@ abstract class _InsiistutionStudentState implements InsiistutionStudentState {
       required final Option<Either<NetworkFailure, Unit>>
           submitFailedOrSuccessOption}) = _$_InsiistutionStudentState;
 
+  @override
+  Name get names;
   @override
   TextEditingController get name;
   @override

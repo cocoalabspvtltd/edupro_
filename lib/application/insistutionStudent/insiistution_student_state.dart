@@ -4,7 +4,7 @@ part of 'insiistution_student_bloc.dart';
 class InsiistutionStudentState with _$InsiistutionStudentState {
 
   const factory InsiistutionStudentState({
-
+    required Name names,
     required TextEditingController name,
     required TextEditingController email,
     required TextEditingController mobile,
@@ -24,7 +24,7 @@ class InsiistutionStudentState with _$InsiistutionStudentState {
 
   }) = _InsiistutionStudentState;
   factory InsiistutionStudentState.initial() => InsiistutionStudentState(
-
+names: Name(''),
     name: TextEditingController(),
     mobile: TextEditingController(),
     email: TextEditingController(),

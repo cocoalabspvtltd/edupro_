@@ -18,7 +18,7 @@ import '../../../auth/log_in/widgets/login_form.dart';
 class CourtScreen extends StatelessWidget {
   final bool fromHome;
 
-  const CourtScreen({super.key, this.fromHome = true});
+  CourtScreen({super.key, this.fromHome = true});
 
   @override
   Widget build(BuildContext context) {
@@ -55,13 +55,9 @@ class CourtScreen extends StatelessWidget {
                           Row(
                             children: [
                               Visibility(
-                                visible:
-                                type == "school"
-                                    ? true
-                                    : false,
-                                child:      Container(
+                                child: Container(
                                   height: 100,
-                                  width: screenWidth * 0.44,
+                                  width: screenWidth * 0.45,
                                   child: Card(
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
@@ -73,7 +69,7 @@ class CourtScreen extends StatelessWidget {
                                           ),
                                           title: Text('Department'),
                                           subtitle: Text(
-                                            '${res.count![0].department.toString()}',
+                                            '${int.parse(res.count![0].studentsCount.toString())}',
                                             style: TextStyle(
                                                 color: Colors.lightBlue,
                                                 fontSize: 19),
@@ -83,32 +79,42 @@ class CourtScreen extends StatelessWidget {
                                     ),
                                   ),
                                 ),
+                                visible:
+                                type == "school"
+                                    ? true
+                                    : false,
                               ),
-                              Container(
-                                height: 100,
-                                width: screenWidth * 0.45,
-                                child: Card(
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: <Widget>[
-                                      ListTile(
-                                        leading: const CircleAvatar(
-                                          backgroundImage: AssetImage(
-                                              "assets/images/home/course.png"), // No matter how big it is, it won't overflow
+                              Visibility(
+                                child: Container(
+                                  height: 100,
+                                  width: screenWidth * 0.45,
+                                  child: Card(
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: <Widget>[
+                                        ListTile(
+                                          leading: CircleAvatar(
+                                            backgroundImage: AssetImage(
+                                                "assets/images/home/institute.jpg"), // No matter how big it is, it won't overflow
+                                          ),
+                                          title: Text('Code'),
+                                          subtitle: Text(
+                                            '${UserDetailsLocal.userMobile}',
+                                            style: TextStyle(
+                                                color: Colors.lightBlue,
+                                                fontSize: 19),
+                                          ),
                                         ),
-                                        title: Text('Code'),
-                                        subtitle: Text(
-                                          '${UserDetailsLocal.userMobile}',
-                                          style: const TextStyle(
-                                              color: Colors.lightBlue,
-                                              fontSize: 19),
-                                        ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ),
+                                visible:
+                                  type == "institution"
+                                  ? true
+                                  : false,
                               ),
-                              const SizedBox(
+                              SizedBox(
                                 width: 15,
                               ),
                               Container(
@@ -119,14 +125,14 @@ class CourtScreen extends StatelessWidget {
                                     mainAxisSize: MainAxisSize.min,
                                     children: <Widget>[
                                       ListTile(
-                                        leading: const CircleAvatar(
+                                        leading: CircleAvatar(
                                           backgroundImage: AssetImage(
                                               "assets/images/home/course.png"), // No matter how big it is, it won't overflow
                                         ),
-                                        title: const Text('Courses'),
+                                        title: Text('Courses'),
                                         subtitle: Text(
                                           '${int.parse(res.count![0].courseCount.toString())}',
-                                          style: const TextStyle(
+                                          style: TextStyle(
                                               color: Colors.lightBlue,
                                               fontSize: 19),
                                         ),
@@ -149,14 +155,14 @@ class CourtScreen extends StatelessWidget {
                                       mainAxisSize: MainAxisSize.min,
                                       children: <Widget>[
                                         ListTile(
-                                          leading: const CircleAvatar(
+                                          leading: CircleAvatar(
                                             backgroundImage: AssetImage(
                                                 "assets/images/home/instructor.png"), // No matter how big it is, it won't overflow
                                           ),
-                                          title: const Text('Instructor'),
+                                          title: Text('Instructor'),
                                           subtitle: Text(
-                                            res.count![0].instructorCount.toString(),
-                                            style: const TextStyle(
+                                            '${res.count![0].instructorCount.toString()}',
+                                            style: TextStyle(
                                                 color: Colors.lightBlue,
                                                 fontSize: 19),
                                           ),
@@ -166,7 +172,7 @@ class CourtScreen extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              const SizedBox(
+                              SizedBox(
                                 width: 15,
                               ),
                               Container(
@@ -177,14 +183,14 @@ class CourtScreen extends StatelessWidget {
                                     mainAxisSize: MainAxisSize.min,
                                     children: <Widget>[
                                       ListTile(
-                                        leading: const CircleAvatar(
+                                        leading: CircleAvatar(
                                           backgroundImage: AssetImage(
                                               "assets/images/home/students.png"), // No matter how big it is, it won't overflow
                                         ),
                                         title: Text('Students'),
                                         subtitle: Text(
-                                          res.count![0].studentsCount .toString(),
-                                          style: const TextStyle(
+                                          '${res.count![0].studentsCount .toString()}',
+                                          style: TextStyle(
                                               color: Colors.lightBlue,
                                               fontSize: 19),
                                         ),

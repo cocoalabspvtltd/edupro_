@@ -25,7 +25,7 @@ class _AddStudentScreenState extends State<AddStudentScreen> {
           ),
         ),
         body:
-        BlocProvider(create: (_)=>InsiistutionStudentBloc(CourseRepository()),
+        BlocProvider(create: (_)=>InsiistutionStudentBloc(CourseRepository(),0),
           child: SingleChildScrollView(
               child: AddStudentsForm()),)
     );

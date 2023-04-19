@@ -6,7 +6,7 @@ class InsistutionResponse {
   List<StudentList>? studentList;
   List<Category>? category;
   List<Count>? count;
-
+  StudentList1?stude;
   InsistutionResponse(
       {this.success,
         this.statusCode,
@@ -14,7 +14,7 @@ class InsistutionResponse {
         this.instructors,
         this.studentList,
         this.category,
-        this.count});
+        this.count,this.stude});
 
   InsistutionResponse.fromJson(Map<String, dynamic> json) {
     success = json['success'];
@@ -264,7 +264,70 @@ class StudentList {
     return data;
   }
 }
+class StudentList1 {
+  int? id;
+  String? name;
+  String? email;
+  String? institution;
+  String? department;
+  String? course;
+  String? address;
+  String? phoneNumber;
+  String? dob;
+  String? profilePhoto;
+  int? status;
+  String? createdAt;
+  String? updatedAt;
 
+  StudentList1(
+      {this.id,
+        this.name,
+        this.email,
+        this.institution,
+        this.department,
+        this.course,
+        this.address,
+        this.phoneNumber,
+        this.dob,
+        this.profilePhoto,
+        this.status,
+        this.createdAt,
+        this.updatedAt});
+
+  StudentList1.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+    email = json['email'];
+    institution = json['institution'];
+    department = json['department'];
+    course = json['course'];
+    address = json['address'];
+    phoneNumber = json['phone_number'];
+    dob = json['dob'];
+    profilePhoto = json['profile_photo'];
+    status = json['status'];
+    createdAt = json['created_at'];
+    updatedAt = json['updated_at'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['name'] = this.name;
+    data['email'] = this.email;
+    data['institution'] = this.institution;
+    data['department'] = this.department;
+    data['course'] = this.course;
+    data['address'] = this.address;
+    data['phone_number'] = this.phoneNumber;
+    data['dob'] = this.dob;
+    data['profile_photo'] = this.profilePhoto;
+    data['status'] = this.status;
+    data['created_at'] = this.createdAt;
+    data['updated_at'] = this.updatedAt;
+    return data;
+  }
+}
 class Category {
   int? id;
   String? name;
