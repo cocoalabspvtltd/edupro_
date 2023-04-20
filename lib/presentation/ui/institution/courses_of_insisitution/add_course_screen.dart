@@ -29,7 +29,7 @@ class _AddCoursesScreenState extends State<AddCoursesScreen> {
           ),
         ),
         body:
-        BlocProvider(create: (_)=>InstitutionCourseBloc(CourseRepository()),
+        BlocProvider(create: (_)=>InstitutionCourseBloc(CourseRepository(),0),
           child: SingleChildScrollView(
               child: AddCoursesForm()),
         )

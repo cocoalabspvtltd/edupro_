@@ -31,6 +31,8 @@ mixin _$InstitutionCourseEvent {
     required TResult Function(String WhatYouStr) whatYChanged,
     required TResult Function(String AreThereAnyStr) areThereAnyChanged,
     required TResult Function(File Image) displayPicture,
+    required TResult Function(String userId) loadMyProfile,
+    required TResult Function() editsubmitPressed,
     required TResult Function() submitPressed,
     required TResult Function(String whoThiStr) whoThisChanged,
   }) =>
@@ -50,6 +52,8 @@ mixin _$InstitutionCourseEvent {
     TResult? Function(String WhatYouStr)? whatYChanged,
     TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult? Function(File Image)? displayPicture,
+    TResult? Function(String userId)? loadMyProfile,
+    TResult? Function()? editsubmitPressed,
     TResult? Function()? submitPressed,
     TResult? Function(String whoThiStr)? whoThisChanged,
   }) =>
@@ -69,6 +73,8 @@ mixin _$InstitutionCourseEvent {
     TResult Function(String WhatYouStr)? whatYChanged,
     TResult Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult Function(File Image)? displayPicture,
+    TResult Function(String userId)? loadMyProfile,
+    TResult Function()? editsubmitPressed,
     TResult Function()? submitPressed,
     TResult Function(String whoThiStr)? whoThisChanged,
     required TResult orElse(),
@@ -89,6 +95,8 @@ mixin _$InstitutionCourseEvent {
     required TResult Function(_WhatYChanged value) whatYChanged,
     required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
     required TResult Function(_ImageChanged value) displayPicture,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
     required TResult Function(_SubmitPressed value) submitPressed,
     required TResult Function(_whoThiChanged value) whoThisChanged,
   }) =>
@@ -108,6 +116,8 @@ mixin _$InstitutionCourseEvent {
     TResult? Function(_WhatYChanged value)? whatYChanged,
     TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult? Function(_SubmitPressed value)? submitPressed,
     TResult? Function(_whoThiChanged value)? whoThisChanged,
   }) =>
@@ -127,6 +137,8 @@ mixin _$InstitutionCourseEvent {
     TResult Function(_WhatYChanged value)? whatYChanged,
     TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult Function(_ImageChanged value)? displayPicture,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult Function(_SubmitPressed value)? submitPressed,
     TResult Function(_whoThiChanged value)? whoThisChanged,
     required TResult orElse(),
@@ -203,6 +215,8 @@ class _$_Started implements _Started {
     required TResult Function(String WhatYouStr) whatYChanged,
     required TResult Function(String AreThereAnyStr) areThereAnyChanged,
     required TResult Function(File Image) displayPicture,
+    required TResult Function(String userId) loadMyProfile,
+    required TResult Function() editsubmitPressed,
     required TResult Function() submitPressed,
     required TResult Function(String whoThiStr) whoThisChanged,
   }) {
@@ -225,6 +239,8 @@ class _$_Started implements _Started {
     TResult? Function(String WhatYouStr)? whatYChanged,
     TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult? Function(File Image)? displayPicture,
+    TResult? Function(String userId)? loadMyProfile,
+    TResult? Function()? editsubmitPressed,
     TResult? Function()? submitPressed,
     TResult? Function(String whoThiStr)? whoThisChanged,
   }) {
@@ -247,6 +263,8 @@ class _$_Started implements _Started {
     TResult Function(String WhatYouStr)? whatYChanged,
     TResult Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult Function(File Image)? displayPicture,
+    TResult Function(String userId)? loadMyProfile,
+    TResult Function()? editsubmitPressed,
     TResult Function()? submitPressed,
     TResult Function(String whoThiStr)? whoThisChanged,
     required TResult orElse(),
@@ -273,6 +291,8 @@ class _$_Started implements _Started {
     required TResult Function(_WhatYChanged value) whatYChanged,
     required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
     required TResult Function(_ImageChanged value) displayPicture,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
     required TResult Function(_SubmitPressed value) submitPressed,
     required TResult Function(_whoThiChanged value) whoThisChanged,
   }) {
@@ -295,6 +315,8 @@ class _$_Started implements _Started {
     TResult? Function(_WhatYChanged value)? whatYChanged,
     TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult? Function(_SubmitPressed value)? submitPressed,
     TResult? Function(_whoThiChanged value)? whoThisChanged,
   }) {
@@ -317,6 +339,8 @@ class _$_Started implements _Started {
     TResult Function(_WhatYChanged value)? whatYChanged,
     TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult Function(_ImageChanged value)? displayPicture,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult Function(_SubmitPressed value)? submitPressed,
     TResult Function(_whoThiChanged value)? whoThisChanged,
     required TResult orElse(),
@@ -410,6 +434,8 @@ class _$_TitleChanged implements _TitleChanged {
     required TResult Function(String WhatYouStr) whatYChanged,
     required TResult Function(String AreThereAnyStr) areThereAnyChanged,
     required TResult Function(File Image) displayPicture,
+    required TResult Function(String userId) loadMyProfile,
+    required TResult Function() editsubmitPressed,
     required TResult Function() submitPressed,
     required TResult Function(String whoThiStr) whoThisChanged,
   }) {
@@ -432,6 +458,8 @@ class _$_TitleChanged implements _TitleChanged {
     TResult? Function(String WhatYouStr)? whatYChanged,
     TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult? Function(File Image)? displayPicture,
+    TResult? Function(String userId)? loadMyProfile,
+    TResult? Function()? editsubmitPressed,
     TResult? Function()? submitPressed,
     TResult? Function(String whoThiStr)? whoThisChanged,
   }) {
@@ -454,6 +482,8 @@ class _$_TitleChanged implements _TitleChanged {
     TResult Function(String WhatYouStr)? whatYChanged,
     TResult Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult Function(File Image)? displayPicture,
+    TResult Function(String userId)? loadMyProfile,
+    TResult Function()? editsubmitPressed,
     TResult Function()? submitPressed,
     TResult Function(String whoThiStr)? whoThisChanged,
     required TResult orElse(),
@@ -480,6 +510,8 @@ class _$_TitleChanged implements _TitleChanged {
     required TResult Function(_WhatYChanged value) whatYChanged,
     required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
     required TResult Function(_ImageChanged value) displayPicture,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
     required TResult Function(_SubmitPressed value) submitPressed,
     required TResult Function(_whoThiChanged value) whoThisChanged,
   }) {
@@ -502,6 +534,8 @@ class _$_TitleChanged implements _TitleChanged {
     TResult? Function(_WhatYChanged value)? whatYChanged,
     TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult? Function(_SubmitPressed value)? submitPressed,
     TResult? Function(_whoThiChanged value)? whoThisChanged,
   }) {
@@ -524,6 +558,8 @@ class _$_TitleChanged implements _TitleChanged {
     TResult Function(_WhatYChanged value)? whatYChanged,
     TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult Function(_ImageChanged value)? displayPicture,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult Function(_SubmitPressed value)? submitPressed,
     TResult Function(_whoThiChanged value)? whoThisChanged,
     required TResult orElse(),
@@ -623,6 +659,8 @@ class _$_AboutTitleChanged implements _AboutTitleChanged {
     required TResult Function(String WhatYouStr) whatYChanged,
     required TResult Function(String AreThereAnyStr) areThereAnyChanged,
     required TResult Function(File Image) displayPicture,
+    required TResult Function(String userId) loadMyProfile,
+    required TResult Function() editsubmitPressed,
     required TResult Function() submitPressed,
     required TResult Function(String whoThiStr) whoThisChanged,
   }) {
@@ -645,6 +683,8 @@ class _$_AboutTitleChanged implements _AboutTitleChanged {
     TResult? Function(String WhatYouStr)? whatYChanged,
     TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult? Function(File Image)? displayPicture,
+    TResult? Function(String userId)? loadMyProfile,
+    TResult? Function()? editsubmitPressed,
     TResult? Function()? submitPressed,
     TResult? Function(String whoThiStr)? whoThisChanged,
   }) {
@@ -667,6 +707,8 @@ class _$_AboutTitleChanged implements _AboutTitleChanged {
     TResult Function(String WhatYouStr)? whatYChanged,
     TResult Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult Function(File Image)? displayPicture,
+    TResult Function(String userId)? loadMyProfile,
+    TResult Function()? editsubmitPressed,
     TResult Function()? submitPressed,
     TResult Function(String whoThiStr)? whoThisChanged,
     required TResult orElse(),
@@ -693,6 +735,8 @@ class _$_AboutTitleChanged implements _AboutTitleChanged {
     required TResult Function(_WhatYChanged value) whatYChanged,
     required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
     required TResult Function(_ImageChanged value) displayPicture,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
     required TResult Function(_SubmitPressed value) submitPressed,
     required TResult Function(_whoThiChanged value) whoThisChanged,
   }) {
@@ -715,6 +759,8 @@ class _$_AboutTitleChanged implements _AboutTitleChanged {
     TResult? Function(_WhatYChanged value)? whatYChanged,
     TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult? Function(_SubmitPressed value)? submitPressed,
     TResult? Function(_whoThiChanged value)? whoThisChanged,
   }) {
@@ -737,6 +783,8 @@ class _$_AboutTitleChanged implements _AboutTitleChanged {
     TResult Function(_WhatYChanged value)? whatYChanged,
     TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult Function(_ImageChanged value)? displayPicture,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult Function(_SubmitPressed value)? submitPressed,
     TResult Function(_whoThiChanged value)? whoThisChanged,
     required TResult orElse(),
@@ -836,6 +884,8 @@ class _$_CategoryChanged implements _CategoryChanged {
     required TResult Function(String WhatYouStr) whatYChanged,
     required TResult Function(String AreThereAnyStr) areThereAnyChanged,
     required TResult Function(File Image) displayPicture,
+    required TResult Function(String userId) loadMyProfile,
+    required TResult Function() editsubmitPressed,
     required TResult Function() submitPressed,
     required TResult Function(String whoThiStr) whoThisChanged,
   }) {
@@ -858,6 +908,8 @@ class _$_CategoryChanged implements _CategoryChanged {
     TResult? Function(String WhatYouStr)? whatYChanged,
     TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult? Function(File Image)? displayPicture,
+    TResult? Function(String userId)? loadMyProfile,
+    TResult? Function()? editsubmitPressed,
     TResult? Function()? submitPressed,
     TResult? Function(String whoThiStr)? whoThisChanged,
   }) {
@@ -880,6 +932,8 @@ class _$_CategoryChanged implements _CategoryChanged {
     TResult Function(String WhatYouStr)? whatYChanged,
     TResult Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult Function(File Image)? displayPicture,
+    TResult Function(String userId)? loadMyProfile,
+    TResult Function()? editsubmitPressed,
     TResult Function()? submitPressed,
     TResult Function(String whoThiStr)? whoThisChanged,
     required TResult orElse(),
@@ -906,6 +960,8 @@ class _$_CategoryChanged implements _CategoryChanged {
     required TResult Function(_WhatYChanged value) whatYChanged,
     required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
     required TResult Function(_ImageChanged value) displayPicture,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
     required TResult Function(_SubmitPressed value) submitPressed,
     required TResult Function(_whoThiChanged value) whoThisChanged,
   }) {
@@ -928,6 +984,8 @@ class _$_CategoryChanged implements _CategoryChanged {
     TResult? Function(_WhatYChanged value)? whatYChanged,
     TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult? Function(_SubmitPressed value)? submitPressed,
     TResult? Function(_whoThiChanged value)? whoThisChanged,
   }) {
@@ -950,6 +1008,8 @@ class _$_CategoryChanged implements _CategoryChanged {
     TResult Function(_WhatYChanged value)? whatYChanged,
     TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult Function(_ImageChanged value)? displayPicture,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult Function(_SubmitPressed value)? submitPressed,
     TResult Function(_whoThiChanged value)? whoThisChanged,
     required TResult orElse(),
@@ -1050,6 +1110,8 @@ class _$_InstructorChanged implements _InstructorChanged {
     required TResult Function(String WhatYouStr) whatYChanged,
     required TResult Function(String AreThereAnyStr) areThereAnyChanged,
     required TResult Function(File Image) displayPicture,
+    required TResult Function(String userId) loadMyProfile,
+    required TResult Function() editsubmitPressed,
     required TResult Function() submitPressed,
     required TResult Function(String whoThiStr) whoThisChanged,
   }) {
@@ -1072,6 +1134,8 @@ class _$_InstructorChanged implements _InstructorChanged {
     TResult? Function(String WhatYouStr)? whatYChanged,
     TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult? Function(File Image)? displayPicture,
+    TResult? Function(String userId)? loadMyProfile,
+    TResult? Function()? editsubmitPressed,
     TResult? Function()? submitPressed,
     TResult? Function(String whoThiStr)? whoThisChanged,
   }) {
@@ -1094,6 +1158,8 @@ class _$_InstructorChanged implements _InstructorChanged {
     TResult Function(String WhatYouStr)? whatYChanged,
     TResult Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult Function(File Image)? displayPicture,
+    TResult Function(String userId)? loadMyProfile,
+    TResult Function()? editsubmitPressed,
     TResult Function()? submitPressed,
     TResult Function(String whoThiStr)? whoThisChanged,
     required TResult orElse(),
@@ -1120,6 +1186,8 @@ class _$_InstructorChanged implements _InstructorChanged {
     required TResult Function(_WhatYChanged value) whatYChanged,
     required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
     required TResult Function(_ImageChanged value) displayPicture,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
     required TResult Function(_SubmitPressed value) submitPressed,
     required TResult Function(_whoThiChanged value) whoThisChanged,
   }) {
@@ -1142,6 +1210,8 @@ class _$_InstructorChanged implements _InstructorChanged {
     TResult? Function(_WhatYChanged value)? whatYChanged,
     TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult? Function(_SubmitPressed value)? submitPressed,
     TResult? Function(_whoThiChanged value)? whoThisChanged,
   }) {
@@ -1164,6 +1234,8 @@ class _$_InstructorChanged implements _InstructorChanged {
     TResult Function(_WhatYChanged value)? whatYChanged,
     TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult Function(_ImageChanged value)? displayPicture,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult Function(_SubmitPressed value)? submitPressed,
     TResult Function(_whoThiChanged value)? whoThisChanged,
     required TResult orElse(),
@@ -1263,6 +1335,8 @@ class _$_AmountChanged implements _AmountChanged {
     required TResult Function(String WhatYouStr) whatYChanged,
     required TResult Function(String AreThereAnyStr) areThereAnyChanged,
     required TResult Function(File Image) displayPicture,
+    required TResult Function(String userId) loadMyProfile,
+    required TResult Function() editsubmitPressed,
     required TResult Function() submitPressed,
     required TResult Function(String whoThiStr) whoThisChanged,
   }) {
@@ -1285,6 +1359,8 @@ class _$_AmountChanged implements _AmountChanged {
     TResult? Function(String WhatYouStr)? whatYChanged,
     TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult? Function(File Image)? displayPicture,
+    TResult? Function(String userId)? loadMyProfile,
+    TResult? Function()? editsubmitPressed,
     TResult? Function()? submitPressed,
     TResult? Function(String whoThiStr)? whoThisChanged,
   }) {
@@ -1307,6 +1383,8 @@ class _$_AmountChanged implements _AmountChanged {
     TResult Function(String WhatYouStr)? whatYChanged,
     TResult Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult Function(File Image)? displayPicture,
+    TResult Function(String userId)? loadMyProfile,
+    TResult Function()? editsubmitPressed,
     TResult Function()? submitPressed,
     TResult Function(String whoThiStr)? whoThisChanged,
     required TResult orElse(),
@@ -1333,6 +1411,8 @@ class _$_AmountChanged implements _AmountChanged {
     required TResult Function(_WhatYChanged value) whatYChanged,
     required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
     required TResult Function(_ImageChanged value) displayPicture,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
     required TResult Function(_SubmitPressed value) submitPressed,
     required TResult Function(_whoThiChanged value) whoThisChanged,
   }) {
@@ -1355,6 +1435,8 @@ class _$_AmountChanged implements _AmountChanged {
     TResult? Function(_WhatYChanged value)? whatYChanged,
     TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult? Function(_SubmitPressed value)? submitPressed,
     TResult? Function(_whoThiChanged value)? whoThisChanged,
   }) {
@@ -1377,6 +1459,8 @@ class _$_AmountChanged implements _AmountChanged {
     TResult Function(_WhatYChanged value)? whatYChanged,
     TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult Function(_ImageChanged value)? displayPicture,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult Function(_SubmitPressed value)? submitPressed,
     TResult Function(_whoThiChanged value)? whoThisChanged,
     required TResult orElse(),
@@ -1476,6 +1560,8 @@ class _$_courseFilePicture implements _courseFilePicture {
     required TResult Function(String WhatYouStr) whatYChanged,
     required TResult Function(String AreThereAnyStr) areThereAnyChanged,
     required TResult Function(File Image) displayPicture,
+    required TResult Function(String userId) loadMyProfile,
+    required TResult Function() editsubmitPressed,
     required TResult Function() submitPressed,
     required TResult Function(String whoThiStr) whoThisChanged,
   }) {
@@ -1498,6 +1584,8 @@ class _$_courseFilePicture implements _courseFilePicture {
     TResult? Function(String WhatYouStr)? whatYChanged,
     TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult? Function(File Image)? displayPicture,
+    TResult? Function(String userId)? loadMyProfile,
+    TResult? Function()? editsubmitPressed,
     TResult? Function()? submitPressed,
     TResult? Function(String whoThiStr)? whoThisChanged,
   }) {
@@ -1520,6 +1608,8 @@ class _$_courseFilePicture implements _courseFilePicture {
     TResult Function(String WhatYouStr)? whatYChanged,
     TResult Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult Function(File Image)? displayPicture,
+    TResult Function(String userId)? loadMyProfile,
+    TResult Function()? editsubmitPressed,
     TResult Function()? submitPressed,
     TResult Function(String whoThiStr)? whoThisChanged,
     required TResult orElse(),
@@ -1546,6 +1636,8 @@ class _$_courseFilePicture implements _courseFilePicture {
     required TResult Function(_WhatYChanged value) whatYChanged,
     required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
     required TResult Function(_ImageChanged value) displayPicture,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
     required TResult Function(_SubmitPressed value) submitPressed,
     required TResult Function(_whoThiChanged value) whoThisChanged,
   }) {
@@ -1568,6 +1660,8 @@ class _$_courseFilePicture implements _courseFilePicture {
     TResult? Function(_WhatYChanged value)? whatYChanged,
     TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult? Function(_SubmitPressed value)? submitPressed,
     TResult? Function(_whoThiChanged value)? whoThisChanged,
   }) {
@@ -1590,6 +1684,8 @@ class _$_courseFilePicture implements _courseFilePicture {
     TResult Function(_WhatYChanged value)? whatYChanged,
     TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult Function(_ImageChanged value)? displayPicture,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult Function(_SubmitPressed value)? submitPressed,
     TResult Function(_whoThiChanged value)? whoThisChanged,
     required TResult orElse(),
@@ -1689,6 +1785,8 @@ class _$_DurationChanged implements _DurationChanged {
     required TResult Function(String WhatYouStr) whatYChanged,
     required TResult Function(String AreThereAnyStr) areThereAnyChanged,
     required TResult Function(File Image) displayPicture,
+    required TResult Function(String userId) loadMyProfile,
+    required TResult Function() editsubmitPressed,
     required TResult Function() submitPressed,
     required TResult Function(String whoThiStr) whoThisChanged,
   }) {
@@ -1711,6 +1809,8 @@ class _$_DurationChanged implements _DurationChanged {
     TResult? Function(String WhatYouStr)? whatYChanged,
     TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult? Function(File Image)? displayPicture,
+    TResult? Function(String userId)? loadMyProfile,
+    TResult? Function()? editsubmitPressed,
     TResult? Function()? submitPressed,
     TResult? Function(String whoThiStr)? whoThisChanged,
   }) {
@@ -1733,6 +1833,8 @@ class _$_DurationChanged implements _DurationChanged {
     TResult Function(String WhatYouStr)? whatYChanged,
     TResult Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult Function(File Image)? displayPicture,
+    TResult Function(String userId)? loadMyProfile,
+    TResult Function()? editsubmitPressed,
     TResult Function()? submitPressed,
     TResult Function(String whoThiStr)? whoThisChanged,
     required TResult orElse(),
@@ -1759,6 +1861,8 @@ class _$_DurationChanged implements _DurationChanged {
     required TResult Function(_WhatYChanged value) whatYChanged,
     required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
     required TResult Function(_ImageChanged value) displayPicture,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
     required TResult Function(_SubmitPressed value) submitPressed,
     required TResult Function(_whoThiChanged value) whoThisChanged,
   }) {
@@ -1781,6 +1885,8 @@ class _$_DurationChanged implements _DurationChanged {
     TResult? Function(_WhatYChanged value)? whatYChanged,
     TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult? Function(_SubmitPressed value)? submitPressed,
     TResult? Function(_whoThiChanged value)? whoThisChanged,
   }) {
@@ -1803,6 +1909,8 @@ class _$_DurationChanged implements _DurationChanged {
     TResult Function(_WhatYChanged value)? whatYChanged,
     TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult Function(_ImageChanged value)? displayPicture,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult Function(_SubmitPressed value)? submitPressed,
     TResult Function(_whoThiChanged value)? whoThisChanged,
     required TResult orElse(),
@@ -1900,6 +2008,8 @@ class _$_UrlChanged implements _UrlChanged {
     required TResult Function(String WhatYouStr) whatYChanged,
     required TResult Function(String AreThereAnyStr) areThereAnyChanged,
     required TResult Function(File Image) displayPicture,
+    required TResult Function(String userId) loadMyProfile,
+    required TResult Function() editsubmitPressed,
     required TResult Function() submitPressed,
     required TResult Function(String whoThiStr) whoThisChanged,
   }) {
@@ -1922,6 +2032,8 @@ class _$_UrlChanged implements _UrlChanged {
     TResult? Function(String WhatYouStr)? whatYChanged,
     TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult? Function(File Image)? displayPicture,
+    TResult? Function(String userId)? loadMyProfile,
+    TResult? Function()? editsubmitPressed,
     TResult? Function()? submitPressed,
     TResult? Function(String whoThiStr)? whoThisChanged,
   }) {
@@ -1944,6 +2056,8 @@ class _$_UrlChanged implements _UrlChanged {
     TResult Function(String WhatYouStr)? whatYChanged,
     TResult Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult Function(File Image)? displayPicture,
+    TResult Function(String userId)? loadMyProfile,
+    TResult Function()? editsubmitPressed,
     TResult Function()? submitPressed,
     TResult Function(String whoThiStr)? whoThisChanged,
     required TResult orElse(),
@@ -1970,6 +2084,8 @@ class _$_UrlChanged implements _UrlChanged {
     required TResult Function(_WhatYChanged value) whatYChanged,
     required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
     required TResult Function(_ImageChanged value) displayPicture,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
     required TResult Function(_SubmitPressed value) submitPressed,
     required TResult Function(_whoThiChanged value) whoThisChanged,
   }) {
@@ -1992,6 +2108,8 @@ class _$_UrlChanged implements _UrlChanged {
     TResult? Function(_WhatYChanged value)? whatYChanged,
     TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult? Function(_SubmitPressed value)? submitPressed,
     TResult? Function(_whoThiChanged value)? whoThisChanged,
   }) {
@@ -2014,6 +2132,8 @@ class _$_UrlChanged implements _UrlChanged {
     TResult Function(_WhatYChanged value)? whatYChanged,
     TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult Function(_ImageChanged value)? displayPicture,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult Function(_SubmitPressed value)? submitPressed,
     TResult Function(_whoThiChanged value)? whoThisChanged,
     required TResult orElse(),
@@ -2113,6 +2233,8 @@ class _$_DescriptionChanged implements _DescriptionChanged {
     required TResult Function(String WhatYouStr) whatYChanged,
     required TResult Function(String AreThereAnyStr) areThereAnyChanged,
     required TResult Function(File Image) displayPicture,
+    required TResult Function(String userId) loadMyProfile,
+    required TResult Function() editsubmitPressed,
     required TResult Function() submitPressed,
     required TResult Function(String whoThiStr) whoThisChanged,
   }) {
@@ -2135,6 +2257,8 @@ class _$_DescriptionChanged implements _DescriptionChanged {
     TResult? Function(String WhatYouStr)? whatYChanged,
     TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult? Function(File Image)? displayPicture,
+    TResult? Function(String userId)? loadMyProfile,
+    TResult? Function()? editsubmitPressed,
     TResult? Function()? submitPressed,
     TResult? Function(String whoThiStr)? whoThisChanged,
   }) {
@@ -2157,6 +2281,8 @@ class _$_DescriptionChanged implements _DescriptionChanged {
     TResult Function(String WhatYouStr)? whatYChanged,
     TResult Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult Function(File Image)? displayPicture,
+    TResult Function(String userId)? loadMyProfile,
+    TResult Function()? editsubmitPressed,
     TResult Function()? submitPressed,
     TResult Function(String whoThiStr)? whoThisChanged,
     required TResult orElse(),
@@ -2183,6 +2309,8 @@ class _$_DescriptionChanged implements _DescriptionChanged {
     required TResult Function(_WhatYChanged value) whatYChanged,
     required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
     required TResult Function(_ImageChanged value) displayPicture,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
     required TResult Function(_SubmitPressed value) submitPressed,
     required TResult Function(_whoThiChanged value) whoThisChanged,
   }) {
@@ -2205,6 +2333,8 @@ class _$_DescriptionChanged implements _DescriptionChanged {
     TResult? Function(_WhatYChanged value)? whatYChanged,
     TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult? Function(_SubmitPressed value)? submitPressed,
     TResult? Function(_whoThiChanged value)? whoThisChanged,
   }) {
@@ -2227,6 +2357,8 @@ class _$_DescriptionChanged implements _DescriptionChanged {
     TResult Function(_WhatYChanged value)? whatYChanged,
     TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult Function(_ImageChanged value)? displayPicture,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult Function(_SubmitPressed value)? submitPressed,
     TResult Function(_whoThiChanged value)? whoThisChanged,
     required TResult orElse(),
@@ -2326,6 +2458,8 @@ class _$_WhatYChanged implements _WhatYChanged {
     required TResult Function(String WhatYouStr) whatYChanged,
     required TResult Function(String AreThereAnyStr) areThereAnyChanged,
     required TResult Function(File Image) displayPicture,
+    required TResult Function(String userId) loadMyProfile,
+    required TResult Function() editsubmitPressed,
     required TResult Function() submitPressed,
     required TResult Function(String whoThiStr) whoThisChanged,
   }) {
@@ -2348,6 +2482,8 @@ class _$_WhatYChanged implements _WhatYChanged {
     TResult? Function(String WhatYouStr)? whatYChanged,
     TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult? Function(File Image)? displayPicture,
+    TResult? Function(String userId)? loadMyProfile,
+    TResult? Function()? editsubmitPressed,
     TResult? Function()? submitPressed,
     TResult? Function(String whoThiStr)? whoThisChanged,
   }) {
@@ -2370,6 +2506,8 @@ class _$_WhatYChanged implements _WhatYChanged {
     TResult Function(String WhatYouStr)? whatYChanged,
     TResult Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult Function(File Image)? displayPicture,
+    TResult Function(String userId)? loadMyProfile,
+    TResult Function()? editsubmitPressed,
     TResult Function()? submitPressed,
     TResult Function(String whoThiStr)? whoThisChanged,
     required TResult orElse(),
@@ -2396,6 +2534,8 @@ class _$_WhatYChanged implements _WhatYChanged {
     required TResult Function(_WhatYChanged value) whatYChanged,
     required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
     required TResult Function(_ImageChanged value) displayPicture,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
     required TResult Function(_SubmitPressed value) submitPressed,
     required TResult Function(_whoThiChanged value) whoThisChanged,
   }) {
@@ -2418,6 +2558,8 @@ class _$_WhatYChanged implements _WhatYChanged {
     TResult? Function(_WhatYChanged value)? whatYChanged,
     TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult? Function(_SubmitPressed value)? submitPressed,
     TResult? Function(_whoThiChanged value)? whoThisChanged,
   }) {
@@ -2440,6 +2582,8 @@ class _$_WhatYChanged implements _WhatYChanged {
     TResult Function(_WhatYChanged value)? whatYChanged,
     TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult Function(_ImageChanged value)? displayPicture,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult Function(_SubmitPressed value)? submitPressed,
     TResult Function(_whoThiChanged value)? whoThisChanged,
     required TResult orElse(),
@@ -2539,6 +2683,8 @@ class _$_AreThereAnyChanged implements _AreThereAnyChanged {
     required TResult Function(String WhatYouStr) whatYChanged,
     required TResult Function(String AreThereAnyStr) areThereAnyChanged,
     required TResult Function(File Image) displayPicture,
+    required TResult Function(String userId) loadMyProfile,
+    required TResult Function() editsubmitPressed,
     required TResult Function() submitPressed,
     required TResult Function(String whoThiStr) whoThisChanged,
   }) {
@@ -2561,6 +2707,8 @@ class _$_AreThereAnyChanged implements _AreThereAnyChanged {
     TResult? Function(String WhatYouStr)? whatYChanged,
     TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult? Function(File Image)? displayPicture,
+    TResult? Function(String userId)? loadMyProfile,
+    TResult? Function()? editsubmitPressed,
     TResult? Function()? submitPressed,
     TResult? Function(String whoThiStr)? whoThisChanged,
   }) {
@@ -2583,6 +2731,8 @@ class _$_AreThereAnyChanged implements _AreThereAnyChanged {
     TResult Function(String WhatYouStr)? whatYChanged,
     TResult Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult Function(File Image)? displayPicture,
+    TResult Function(String userId)? loadMyProfile,
+    TResult Function()? editsubmitPressed,
     TResult Function()? submitPressed,
     TResult Function(String whoThiStr)? whoThisChanged,
     required TResult orElse(),
@@ -2609,6 +2759,8 @@ class _$_AreThereAnyChanged implements _AreThereAnyChanged {
     required TResult Function(_WhatYChanged value) whatYChanged,
     required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
     required TResult Function(_ImageChanged value) displayPicture,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
     required TResult Function(_SubmitPressed value) submitPressed,
     required TResult Function(_whoThiChanged value) whoThisChanged,
   }) {
@@ -2631,6 +2783,8 @@ class _$_AreThereAnyChanged implements _AreThereAnyChanged {
     TResult? Function(_WhatYChanged value)? whatYChanged,
     TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult? Function(_SubmitPressed value)? submitPressed,
     TResult? Function(_whoThiChanged value)? whoThisChanged,
   }) {
@@ -2653,6 +2807,8 @@ class _$_AreThereAnyChanged implements _AreThereAnyChanged {
     TResult Function(_WhatYChanged value)? whatYChanged,
     TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult Function(_ImageChanged value)? displayPicture,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult Function(_SubmitPressed value)? submitPressed,
     TResult Function(_whoThiChanged value)? whoThisChanged,
     required TResult orElse(),
@@ -2751,6 +2907,8 @@ class _$_ImageChanged implements _ImageChanged {
     required TResult Function(String WhatYouStr) whatYChanged,
     required TResult Function(String AreThereAnyStr) areThereAnyChanged,
     required TResult Function(File Image) displayPicture,
+    required TResult Function(String userId) loadMyProfile,
+    required TResult Function() editsubmitPressed,
     required TResult Function() submitPressed,
     required TResult Function(String whoThiStr) whoThisChanged,
   }) {
@@ -2773,6 +2931,8 @@ class _$_ImageChanged implements _ImageChanged {
     TResult? Function(String WhatYouStr)? whatYChanged,
     TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult? Function(File Image)? displayPicture,
+    TResult? Function(String userId)? loadMyProfile,
+    TResult? Function()? editsubmitPressed,
     TResult? Function()? submitPressed,
     TResult? Function(String whoThiStr)? whoThisChanged,
   }) {
@@ -2795,6 +2955,8 @@ class _$_ImageChanged implements _ImageChanged {
     TResult Function(String WhatYouStr)? whatYChanged,
     TResult Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult Function(File Image)? displayPicture,
+    TResult Function(String userId)? loadMyProfile,
+    TResult Function()? editsubmitPressed,
     TResult Function()? submitPressed,
     TResult Function(String whoThiStr)? whoThisChanged,
     required TResult orElse(),
@@ -2821,6 +2983,8 @@ class _$_ImageChanged implements _ImageChanged {
     required TResult Function(_WhatYChanged value) whatYChanged,
     required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
     required TResult Function(_ImageChanged value) displayPicture,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
     required TResult Function(_SubmitPressed value) submitPressed,
     required TResult Function(_whoThiChanged value) whoThisChanged,
   }) {
@@ -2843,6 +3007,8 @@ class _$_ImageChanged implements _ImageChanged {
     TResult? Function(_WhatYChanged value)? whatYChanged,
     TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult? Function(_SubmitPressed value)? submitPressed,
     TResult? Function(_whoThiChanged value)? whoThisChanged,
   }) {
@@ -2865,6 +3031,8 @@ class _$_ImageChanged implements _ImageChanged {
     TResult Function(_WhatYChanged value)? whatYChanged,
     TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult Function(_ImageChanged value)? displayPicture,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult Function(_SubmitPressed value)? submitPressed,
     TResult Function(_whoThiChanged value)? whoThisChanged,
     required TResult orElse(),
@@ -2883,6 +3051,421 @@ abstract class _ImageChanged implements InstitutionCourseEvent {
   @JsonKey(ignore: true)
   _$$_ImageChangedCopyWith<_$_ImageChanged> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_LoadMyProfileCopyWith<$Res> {
+  factory _$$_LoadMyProfileCopyWith(
+          _$_LoadMyProfile value, $Res Function(_$_LoadMyProfile) then) =
+      __$$_LoadMyProfileCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String userId});
+}
+
+/// @nodoc
+class __$$_LoadMyProfileCopyWithImpl<$Res>
+    extends _$InstitutionCourseEventCopyWithImpl<$Res, _$_LoadMyProfile>
+    implements _$$_LoadMyProfileCopyWith<$Res> {
+  __$$_LoadMyProfileCopyWithImpl(
+      _$_LoadMyProfile _value, $Res Function(_$_LoadMyProfile) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userId = null,
+  }) {
+    return _then(_$_LoadMyProfile(
+      null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_LoadMyProfile implements _LoadMyProfile {
+  const _$_LoadMyProfile(this.userId);
+
+  @override
+  final String userId;
+
+  @override
+  String toString() {
+    return 'InstitutionCourseEvent.loadMyProfile(userId: $userId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_LoadMyProfile &&
+            (identical(other.userId, userId) || other.userId == userId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, userId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_LoadMyProfileCopyWith<_$_LoadMyProfile> get copyWith =>
+      __$$_LoadMyProfileCopyWithImpl<_$_LoadMyProfile>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String titleStr) titleChanged,
+    required TResult Function(String aboutTitleStr) aboutTitleChanged,
+    required TResult Function(String categoryValue) categoryChanged,
+    required TResult Function(String categoryValue) instructorChanged,
+    required TResult Function(String amountStr) amountChanged,
+    required TResult Function(File displayPicture) courseFile,
+    required TResult Function(String durationStr) durationChanged,
+    required TResult Function(String urlStr) urlChanged,
+    required TResult Function(String descrptionStr) descriptionChanged,
+    required TResult Function(String WhatYouStr) whatYChanged,
+    required TResult Function(String AreThereAnyStr) areThereAnyChanged,
+    required TResult Function(File Image) displayPicture,
+    required TResult Function(String userId) loadMyProfile,
+    required TResult Function() editsubmitPressed,
+    required TResult Function() submitPressed,
+    required TResult Function(String whoThiStr) whoThisChanged,
+  }) {
+    return loadMyProfile(userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String titleStr)? titleChanged,
+    TResult? Function(String aboutTitleStr)? aboutTitleChanged,
+    TResult? Function(String categoryValue)? categoryChanged,
+    TResult? Function(String categoryValue)? instructorChanged,
+    TResult? Function(String amountStr)? amountChanged,
+    TResult? Function(File displayPicture)? courseFile,
+    TResult? Function(String durationStr)? durationChanged,
+    TResult? Function(String urlStr)? urlChanged,
+    TResult? Function(String descrptionStr)? descriptionChanged,
+    TResult? Function(String WhatYouStr)? whatYChanged,
+    TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
+    TResult? Function(File Image)? displayPicture,
+    TResult? Function(String userId)? loadMyProfile,
+    TResult? Function()? editsubmitPressed,
+    TResult? Function()? submitPressed,
+    TResult? Function(String whoThiStr)? whoThisChanged,
+  }) {
+    return loadMyProfile?.call(userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String titleStr)? titleChanged,
+    TResult Function(String aboutTitleStr)? aboutTitleChanged,
+    TResult Function(String categoryValue)? categoryChanged,
+    TResult Function(String categoryValue)? instructorChanged,
+    TResult Function(String amountStr)? amountChanged,
+    TResult Function(File displayPicture)? courseFile,
+    TResult Function(String durationStr)? durationChanged,
+    TResult Function(String urlStr)? urlChanged,
+    TResult Function(String descrptionStr)? descriptionChanged,
+    TResult Function(String WhatYouStr)? whatYChanged,
+    TResult Function(String AreThereAnyStr)? areThereAnyChanged,
+    TResult Function(File Image)? displayPicture,
+    TResult Function(String userId)? loadMyProfile,
+    TResult Function()? editsubmitPressed,
+    TResult Function()? submitPressed,
+    TResult Function(String whoThiStr)? whoThisChanged,
+    required TResult orElse(),
+  }) {
+    if (loadMyProfile != null) {
+      return loadMyProfile(userId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_TitleChanged value) titleChanged,
+    required TResult Function(_AboutTitleChanged value) aboutTitleChanged,
+    required TResult Function(_CategoryChanged value) categoryChanged,
+    required TResult Function(_InstructorChanged value) instructorChanged,
+    required TResult Function(_AmountChanged value) amountChanged,
+    required TResult Function(_courseFilePicture value) courseFile,
+    required TResult Function(_DurationChanged value) durationChanged,
+    required TResult Function(_UrlChanged value) urlChanged,
+    required TResult Function(_DescriptionChanged value) descriptionChanged,
+    required TResult Function(_WhatYChanged value) whatYChanged,
+    required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
+    required TResult Function(_ImageChanged value) displayPicture,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
+    required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_whoThiChanged value) whoThisChanged,
+  }) {
+    return loadMyProfile(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_TitleChanged value)? titleChanged,
+    TResult? Function(_AboutTitleChanged value)? aboutTitleChanged,
+    TResult? Function(_CategoryChanged value)? categoryChanged,
+    TResult? Function(_InstructorChanged value)? instructorChanged,
+    TResult? Function(_AmountChanged value)? amountChanged,
+    TResult? Function(_courseFilePicture value)? courseFile,
+    TResult? Function(_DurationChanged value)? durationChanged,
+    TResult? Function(_UrlChanged value)? urlChanged,
+    TResult? Function(_DescriptionChanged value)? descriptionChanged,
+    TResult? Function(_WhatYChanged value)? whatYChanged,
+    TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
+    TResult? Function(_ImageChanged value)? displayPicture,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
+    TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_whoThiChanged value)? whoThisChanged,
+  }) {
+    return loadMyProfile?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_TitleChanged value)? titleChanged,
+    TResult Function(_AboutTitleChanged value)? aboutTitleChanged,
+    TResult Function(_CategoryChanged value)? categoryChanged,
+    TResult Function(_InstructorChanged value)? instructorChanged,
+    TResult Function(_AmountChanged value)? amountChanged,
+    TResult Function(_courseFilePicture value)? courseFile,
+    TResult Function(_DurationChanged value)? durationChanged,
+    TResult Function(_UrlChanged value)? urlChanged,
+    TResult Function(_DescriptionChanged value)? descriptionChanged,
+    TResult Function(_WhatYChanged value)? whatYChanged,
+    TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
+    TResult Function(_ImageChanged value)? displayPicture,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
+    TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_whoThiChanged value)? whoThisChanged,
+    required TResult orElse(),
+  }) {
+    if (loadMyProfile != null) {
+      return loadMyProfile(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadMyProfile implements InstitutionCourseEvent {
+  const factory _LoadMyProfile(final String userId) = _$_LoadMyProfile;
+
+  String get userId;
+  @JsonKey(ignore: true)
+  _$$_LoadMyProfileCopyWith<_$_LoadMyProfile> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_EditSubmitPressedCopyWith<$Res> {
+  factory _$$_EditSubmitPressedCopyWith(_$_EditSubmitPressed value,
+          $Res Function(_$_EditSubmitPressed) then) =
+      __$$_EditSubmitPressedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_EditSubmitPressedCopyWithImpl<$Res>
+    extends _$InstitutionCourseEventCopyWithImpl<$Res, _$_EditSubmitPressed>
+    implements _$$_EditSubmitPressedCopyWith<$Res> {
+  __$$_EditSubmitPressedCopyWithImpl(
+      _$_EditSubmitPressed _value, $Res Function(_$_EditSubmitPressed) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_EditSubmitPressed implements _EditSubmitPressed {
+  const _$_EditSubmitPressed();
+
+  @override
+  String toString() {
+    return 'InstitutionCourseEvent.editsubmitPressed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_EditSubmitPressed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String titleStr) titleChanged,
+    required TResult Function(String aboutTitleStr) aboutTitleChanged,
+    required TResult Function(String categoryValue) categoryChanged,
+    required TResult Function(String categoryValue) instructorChanged,
+    required TResult Function(String amountStr) amountChanged,
+    required TResult Function(File displayPicture) courseFile,
+    required TResult Function(String durationStr) durationChanged,
+    required TResult Function(String urlStr) urlChanged,
+    required TResult Function(String descrptionStr) descriptionChanged,
+    required TResult Function(String WhatYouStr) whatYChanged,
+    required TResult Function(String AreThereAnyStr) areThereAnyChanged,
+    required TResult Function(File Image) displayPicture,
+    required TResult Function(String userId) loadMyProfile,
+    required TResult Function() editsubmitPressed,
+    required TResult Function() submitPressed,
+    required TResult Function(String whoThiStr) whoThisChanged,
+  }) {
+    return editsubmitPressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String titleStr)? titleChanged,
+    TResult? Function(String aboutTitleStr)? aboutTitleChanged,
+    TResult? Function(String categoryValue)? categoryChanged,
+    TResult? Function(String categoryValue)? instructorChanged,
+    TResult? Function(String amountStr)? amountChanged,
+    TResult? Function(File displayPicture)? courseFile,
+    TResult? Function(String durationStr)? durationChanged,
+    TResult? Function(String urlStr)? urlChanged,
+    TResult? Function(String descrptionStr)? descriptionChanged,
+    TResult? Function(String WhatYouStr)? whatYChanged,
+    TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
+    TResult? Function(File Image)? displayPicture,
+    TResult? Function(String userId)? loadMyProfile,
+    TResult? Function()? editsubmitPressed,
+    TResult? Function()? submitPressed,
+    TResult? Function(String whoThiStr)? whoThisChanged,
+  }) {
+    return editsubmitPressed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String titleStr)? titleChanged,
+    TResult Function(String aboutTitleStr)? aboutTitleChanged,
+    TResult Function(String categoryValue)? categoryChanged,
+    TResult Function(String categoryValue)? instructorChanged,
+    TResult Function(String amountStr)? amountChanged,
+    TResult Function(File displayPicture)? courseFile,
+    TResult Function(String durationStr)? durationChanged,
+    TResult Function(String urlStr)? urlChanged,
+    TResult Function(String descrptionStr)? descriptionChanged,
+    TResult Function(String WhatYouStr)? whatYChanged,
+    TResult Function(String AreThereAnyStr)? areThereAnyChanged,
+    TResult Function(File Image)? displayPicture,
+    TResult Function(String userId)? loadMyProfile,
+    TResult Function()? editsubmitPressed,
+    TResult Function()? submitPressed,
+    TResult Function(String whoThiStr)? whoThisChanged,
+    required TResult orElse(),
+  }) {
+    if (editsubmitPressed != null) {
+      return editsubmitPressed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_TitleChanged value) titleChanged,
+    required TResult Function(_AboutTitleChanged value) aboutTitleChanged,
+    required TResult Function(_CategoryChanged value) categoryChanged,
+    required TResult Function(_InstructorChanged value) instructorChanged,
+    required TResult Function(_AmountChanged value) amountChanged,
+    required TResult Function(_courseFilePicture value) courseFile,
+    required TResult Function(_DurationChanged value) durationChanged,
+    required TResult Function(_UrlChanged value) urlChanged,
+    required TResult Function(_DescriptionChanged value) descriptionChanged,
+    required TResult Function(_WhatYChanged value) whatYChanged,
+    required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
+    required TResult Function(_ImageChanged value) displayPicture,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
+    required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_whoThiChanged value) whoThisChanged,
+  }) {
+    return editsubmitPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_TitleChanged value)? titleChanged,
+    TResult? Function(_AboutTitleChanged value)? aboutTitleChanged,
+    TResult? Function(_CategoryChanged value)? categoryChanged,
+    TResult? Function(_InstructorChanged value)? instructorChanged,
+    TResult? Function(_AmountChanged value)? amountChanged,
+    TResult? Function(_courseFilePicture value)? courseFile,
+    TResult? Function(_DurationChanged value)? durationChanged,
+    TResult? Function(_UrlChanged value)? urlChanged,
+    TResult? Function(_DescriptionChanged value)? descriptionChanged,
+    TResult? Function(_WhatYChanged value)? whatYChanged,
+    TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
+    TResult? Function(_ImageChanged value)? displayPicture,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
+    TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_whoThiChanged value)? whoThisChanged,
+  }) {
+    return editsubmitPressed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_TitleChanged value)? titleChanged,
+    TResult Function(_AboutTitleChanged value)? aboutTitleChanged,
+    TResult Function(_CategoryChanged value)? categoryChanged,
+    TResult Function(_InstructorChanged value)? instructorChanged,
+    TResult Function(_AmountChanged value)? amountChanged,
+    TResult Function(_courseFilePicture value)? courseFile,
+    TResult Function(_DurationChanged value)? durationChanged,
+    TResult Function(_UrlChanged value)? urlChanged,
+    TResult Function(_DescriptionChanged value)? descriptionChanged,
+    TResult Function(_WhatYChanged value)? whatYChanged,
+    TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
+    TResult Function(_ImageChanged value)? displayPicture,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
+    TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_whoThiChanged value)? whoThisChanged,
+    required TResult orElse(),
+  }) {
+    if (editsubmitPressed != null) {
+      return editsubmitPressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _EditSubmitPressed implements InstitutionCourseEvent {
+  const factory _EditSubmitPressed() = _$_EditSubmitPressed;
 }
 
 /// @nodoc
@@ -2936,6 +3519,8 @@ class _$_SubmitPressed implements _SubmitPressed {
     required TResult Function(String WhatYouStr) whatYChanged,
     required TResult Function(String AreThereAnyStr) areThereAnyChanged,
     required TResult Function(File Image) displayPicture,
+    required TResult Function(String userId) loadMyProfile,
+    required TResult Function() editsubmitPressed,
     required TResult Function() submitPressed,
     required TResult Function(String whoThiStr) whoThisChanged,
   }) {
@@ -2958,6 +3543,8 @@ class _$_SubmitPressed implements _SubmitPressed {
     TResult? Function(String WhatYouStr)? whatYChanged,
     TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult? Function(File Image)? displayPicture,
+    TResult? Function(String userId)? loadMyProfile,
+    TResult? Function()? editsubmitPressed,
     TResult? Function()? submitPressed,
     TResult? Function(String whoThiStr)? whoThisChanged,
   }) {
@@ -2980,6 +3567,8 @@ class _$_SubmitPressed implements _SubmitPressed {
     TResult Function(String WhatYouStr)? whatYChanged,
     TResult Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult Function(File Image)? displayPicture,
+    TResult Function(String userId)? loadMyProfile,
+    TResult Function()? editsubmitPressed,
     TResult Function()? submitPressed,
     TResult Function(String whoThiStr)? whoThisChanged,
     required TResult orElse(),
@@ -3006,6 +3595,8 @@ class _$_SubmitPressed implements _SubmitPressed {
     required TResult Function(_WhatYChanged value) whatYChanged,
     required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
     required TResult Function(_ImageChanged value) displayPicture,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
     required TResult Function(_SubmitPressed value) submitPressed,
     required TResult Function(_whoThiChanged value) whoThisChanged,
   }) {
@@ -3028,6 +3619,8 @@ class _$_SubmitPressed implements _SubmitPressed {
     TResult? Function(_WhatYChanged value)? whatYChanged,
     TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult? Function(_SubmitPressed value)? submitPressed,
     TResult? Function(_whoThiChanged value)? whoThisChanged,
   }) {
@@ -3050,6 +3643,8 @@ class _$_SubmitPressed implements _SubmitPressed {
     TResult Function(_WhatYChanged value)? whatYChanged,
     TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult Function(_ImageChanged value)? displayPicture,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult Function(_SubmitPressed value)? submitPressed,
     TResult Function(_whoThiChanged value)? whoThisChanged,
     required TResult orElse(),
@@ -3143,6 +3738,8 @@ class _$_whoThiChanged implements _whoThiChanged {
     required TResult Function(String WhatYouStr) whatYChanged,
     required TResult Function(String AreThereAnyStr) areThereAnyChanged,
     required TResult Function(File Image) displayPicture,
+    required TResult Function(String userId) loadMyProfile,
+    required TResult Function() editsubmitPressed,
     required TResult Function() submitPressed,
     required TResult Function(String whoThiStr) whoThisChanged,
   }) {
@@ -3165,6 +3762,8 @@ class _$_whoThiChanged implements _whoThiChanged {
     TResult? Function(String WhatYouStr)? whatYChanged,
     TResult? Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult? Function(File Image)? displayPicture,
+    TResult? Function(String userId)? loadMyProfile,
+    TResult? Function()? editsubmitPressed,
     TResult? Function()? submitPressed,
     TResult? Function(String whoThiStr)? whoThisChanged,
   }) {
@@ -3187,6 +3786,8 @@ class _$_whoThiChanged implements _whoThiChanged {
     TResult Function(String WhatYouStr)? whatYChanged,
     TResult Function(String AreThereAnyStr)? areThereAnyChanged,
     TResult Function(File Image)? displayPicture,
+    TResult Function(String userId)? loadMyProfile,
+    TResult Function()? editsubmitPressed,
     TResult Function()? submitPressed,
     TResult Function(String whoThiStr)? whoThisChanged,
     required TResult orElse(),
@@ -3213,6 +3814,8 @@ class _$_whoThiChanged implements _whoThiChanged {
     required TResult Function(_WhatYChanged value) whatYChanged,
     required TResult Function(_AreThereAnyChanged value) areThereAnyChanged,
     required TResult Function(_ImageChanged value) displayPicture,
+    required TResult Function(_LoadMyProfile value) loadMyProfile,
+    required TResult Function(_EditSubmitPressed value) editsubmitPressed,
     required TResult Function(_SubmitPressed value) submitPressed,
     required TResult Function(_whoThiChanged value) whoThisChanged,
   }) {
@@ -3235,6 +3838,8 @@ class _$_whoThiChanged implements _whoThiChanged {
     TResult? Function(_WhatYChanged value)? whatYChanged,
     TResult? Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult? Function(_ImageChanged value)? displayPicture,
+    TResult? Function(_LoadMyProfile value)? loadMyProfile,
+    TResult? Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult? Function(_SubmitPressed value)? submitPressed,
     TResult? Function(_whoThiChanged value)? whoThisChanged,
   }) {
@@ -3257,6 +3862,8 @@ class _$_whoThiChanged implements _whoThiChanged {
     TResult Function(_WhatYChanged value)? whatYChanged,
     TResult Function(_AreThereAnyChanged value)? areThereAnyChanged,
     TResult Function(_ImageChanged value)? displayPicture,
+    TResult Function(_LoadMyProfile value)? loadMyProfile,
+    TResult Function(_EditSubmitPressed value)? editsubmitPressed,
     TResult Function(_SubmitPressed value)? submitPressed,
     TResult Function(_whoThiChanged value)? whoThisChanged,
     required TResult orElse(),

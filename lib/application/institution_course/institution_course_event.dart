@@ -27,6 +27,8 @@ class InstitutionCourseEvent with _$InstitutionCourseEvent {
   _AreThereAnyChanged;
   const factory InstitutionCourseEvent.displayPicture(File Image) =
   _ImageChanged;
+  const factory InstitutionCourseEvent.loadMyProfile(String userId) = _LoadMyProfile;
+  const factory InstitutionCourseEvent.editsubmitPressed() =   _EditSubmitPressed;
   const factory InstitutionCourseEvent.submitPressed() =  _SubmitPressed;
   const factory InstitutionCourseEvent.whoThisChanged(String whoThiStr) =
   _whoThiChanged;
