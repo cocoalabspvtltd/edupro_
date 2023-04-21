@@ -79,15 +79,15 @@ class _ViewCourseDetailsScreenState extends State<ViewCourseDetailsScreen> {
                               ),
                               thickSpace,
                               Row(children: [
-                                Icon(Icons.collections_bookmark_sharp,color: primaryColor,),
-                                SizedBox(width: 10,),
-                                Text("${widget.coursedetails.title}",style: details,)
-                              ],),
-                              thickSpace,
-                              Row(children: [
                                 Icon(Icons.person_outline,color: primaryColor,),
                                 SizedBox(width: 10,),
                                 Text("${widget.coursedetails.instructor}",style: details,)
+                              ],),
+                              thickSpace,
+                              Row(children: [
+                                Icon(Icons.collections_bookmark_sharp,color: primaryColor,),
+                                SizedBox(width: 10,),
+                                Text("${widget.coursedetails.title}",style: details,)
                               ],),
                               thickSpace,
                               Row(children: [

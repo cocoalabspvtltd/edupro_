@@ -192,7 +192,7 @@ class DrawerWidget extends StatelessWidget {
                     SizedBox(height: 10,),
                     _drawerMenuItem(
                         Image.asset(
-                            'assets/icons/drawer_icons/membership-sltd.png'),
+                            'assets/icons/drawer_icons/profile-sltd.png'),
                         'Membership', () {
                       Get.to(() => const MembershipScreen());
                     }),
