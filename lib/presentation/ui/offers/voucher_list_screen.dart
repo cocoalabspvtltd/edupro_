@@ -12,20 +12,21 @@ import 'package:pgs_edupro/presentation/widgets/common_result_empty_widget.dart'
 import 'package:pgs_edupro/presentation/widgets/common_server_error_widget.dart';
 import 'package:flutter/material.dart';
 
-
-class VoucherlistScreen extends StatelessWidget {
+class VoucherlistScreen extends StatefulWidget {
   final bool fromHome;
   final HotelList hoteldetails;
-
-  const VoucherlistScreen({super.key, this.fromHome = true,required this.hoteldetails});
-
+  final discount;
+  const VoucherlistScreen({super.key, this.fromHome = true,required this.hoteldetails,required this.discount});
   @override
+  State<VoucherlistScreen> createState() => _VoucherlistScreenState();
+}
 
+class _VoucherlistScreenState extends State<VoucherlistScreen> {
+  List offers = ["500", "1000","1500","2000"];
+  int selectedIndex = -1;
+  @override
   Widget build(BuildContext context) {
-    List offers = ["500", "1000","1500","2000"];
-    int selectedIndex = -1;
-    return
-      BlocProvider(
+    return   BlocProvider(
       create: (_) => HotelListBloc(OffersRepository())
         ..add(const HotelListEvent.LoadVouchers()),
       child: Scaffold(
@@ -61,144 +62,148 @@ class VoucherlistScreen extends StatelessWidget {
                       return res.vouchers != null ||
                           res.vouchers!.isNotEmpty
                           ?  Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: Container(
-                              height: screenHeight,
-                              child: Column(
-                        children: [
+                        padding: const EdgeInsets.all(10.0),
+                        child: Container(
+                          height: screenHeight,
+                          child: Column(
+                            children: [
                               const SizedBox(
                                 height: 20,
                               ),
-                          SizedBox(
-                              width: screenWidth,
-                              height: screenHeight * 0.08,
-                              child: Card(
-                                color: Colors.lightBlue[100],
-                                child: Center(child: Text("Choose Discount coupons Upto Rs:${hoteldetails.balanceAmount}",
-                                style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),)),
-                              ),
-                          ),
-                          CarouselSlider.builder(
-                                itemCount: res.vouchers!.length,
-                                options: CarouselOptions(
-                                  autoPlay: false,
-                                  aspectRatio: 1 / (3 / 2.5),
-                                  enableInfiniteScroll: false,
-                                  enlargeCenterPage: true,
+                              SizedBox(
+                                width: screenWidth,
+                                height: screenHeight * 0.08,
+                                child: Card(
+                                  color: Colors.lightBlue[100],
+                                  child: Center(child: Text("Choose Discount coupons Upto Rs:${widget.discount}",
+                                    style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),)),
                                 ),
-                                itemBuilder: (context, index, realIdx) {
-                                  return Column(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      SizedBox(height: 20,),
-                                      Container(
-                                        height: screenWidth - 110,
-                                        width: screenWidth -10,
-                                        padding: EdgeInsets.all(1),
-                                        decoration: BoxDecoration(
-                                          color: Colors.black87,
-                                          borderRadius: BorderRadius.circular(12),
-                                        ),
-                                        child: ClipRRect(
-                                          borderRadius: BorderRadius.circular(12),
-                                          child: CachedNetworkImage(
-                                            fit: BoxFit.cover,
-                                            imageUrl: UserDetailsLocal.storageBaseUrl +
-                                            '${res.vouchers![index].voucherImage}',
-                                            placeholder: (context, url) => Center(
-                                              child: CircularProgressIndicator(),
-                                            ),
-                                            errorWidget: (context, url, error) => ClipRRect(
-                                              borderRadius: BorderRadius.circular(12),
-                                              child: Image(
-                                                image: AssetImage('assets/images/dp.png'),
-                                                // height: 60,
-                                                // width: 60,
+                              ),
+                              CarouselSlider.builder(
+                                  itemCount: res.vouchers!.length,
+                                  options: CarouselOptions(
+                                    autoPlay: false,
+                                    aspectRatio: 1 / (3 / 2.5),
+                                    enableInfiniteScroll: false,
+                                    enlargeCenterPage: true,
+                                  ),
+                                  itemBuilder: (context, index, realIdx) {
+                                    return Column(
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      children: [
+                                        SizedBox(height: 20,),
+                                        Container(
+                                          height: screenWidth - 110,
+                                          width: screenWidth -10,
+                                          padding: EdgeInsets.all(1),
+                                          decoration: BoxDecoration(
+                                            color: Colors.black87,
+                                            borderRadius: BorderRadius.circular(12),
+                                          ),
+                                          child: ClipRRect(
+                                            borderRadius: BorderRadius.circular(12),
+                                            child: CachedNetworkImage(
+                                              fit: BoxFit.cover,
+                                              imageUrl: UserDetailsLocal.storageBaseUrl +
+                                                  '${res.vouchers![index].voucherImage}',
+                                              placeholder: (context, url) => Center(
+                                                child: CircularProgressIndicator(),
+                                              ),
+                                              errorWidget: (context, url, error) => ClipRRect(
+                                                borderRadius: BorderRadius.circular(12),
+                                                child: Image(
+                                                  image: AssetImage('assets/images/dp.png'),
+                                                  // height: 60,
+                                                  // width: 60,
+                                                ),
                                               ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                      const SizedBox(
-                                        height: 25,
-                                      ),
-                                      Expanded(
-                                        child: ListView.separated(
-                                            separatorBuilder:
-                                                (BuildContext context, int index) {
-                                              return SizedBox(
-                                                width: 3,
-                                              );
-                                            },
-                                            physics: ClampingScrollPhysics(),
-                                            scrollDirection: Axis.horizontal,
-                                            itemCount: offers.length,
-                                            shrinkWrap: true,
-                                            itemBuilder: (context, index) {
-                                              return SizedBox(
-                                                width: 120,
-                                                child: Card(
-                                                    clipBehavior: Clip.antiAlias,
-                                                    elevation: 0,
-                                                    color: Colors.white,
-                                                    shape: RoundedRectangleBorder(
-                                                        side: BorderSide(
-                                                            color: primaryColor,
-                                                            width: 0.6),
-                                                        borderRadius: BorderRadius.circular(5)),
-                                                    child: ListTile(
-                                                      selected:
-                                                      selectedIndex == index ? true : false,
-                                                      selectedTileColor:
-                                                      Colors.green,
-                                                      selectedColor: Colors.white,
-                                                      title: Padding(
-                                                        padding: const EdgeInsets.only(
-                                                            bottom: 20, left: 16),
-                                                        child: Text(
-                                                          offers[index],
-                                                          style: TextStyle(
-                                                            color: selectedIndex == index
-                                                                ? Colors.white
-                                                                : Colors.black,
+                                        const SizedBox(
+                                          height: 25,
+                                        ),
+                                        SizedBox(
+                                          height: 50,
+                                          child: ListView.separated(
+                                              separatorBuilder:
+                                                  (BuildContext context, int index) {
+                                                return SizedBox(
+                                                  width: 3,
+                                                );
+                                              },
+                                              physics: ClampingScrollPhysics(),
+                                              scrollDirection: Axis.horizontal,
+                                              itemCount: offers.length,
+                                              shrinkWrap: true,
+                                              itemBuilder: (context, index) {
+                                                return SizedBox(
+                                                  height: 10,
+                                                  width: 100,
+                                                  child: Card(
+                                                      clipBehavior: Clip.antiAlias,
+                                                      elevation: 0,
+                                                      color: Colors.white,
+                                                      shape: RoundedRectangleBorder(
+                                                          side: BorderSide(
+                                                              color:primaryColor,
+                                                              width: 0.6),
+                                                          borderRadius: BorderRadius.circular(5)),
+                                                      child: ListTile(
+                                                        selected:
+                                                        selectedIndex == index ? true : false,
+                                                        selectedTileColor:primaryColor,
+                                                        selectedColor: Colors.white,
+                                                        title: Padding(
+                                                          padding: const EdgeInsets.only(
+                                                              bottom: 15, left: 15),
+                                                          child: Text(
+                                                            offers[index],
+                                                            style: TextStyle(
+                                                                color: selectedIndex == index
+                                                                    ? Colors.white
+                                                                    : Colors.black,fontSize: 15
+                                                            ),
                                                           ),
                                                         ),
-                                                      ),
-                                                    )),
-                                              );
-                                            }),
-                                      ),
-                                      const SizedBox(
-                                        height: 25,
-                                      ),
-                                    ],
-                                  );
-                                }),
-                              const SizedBox(
-                                height: 25,
-                              ),
-                          SizedBox(
-                            height: 50,
-                            width: screenWidth * 0.5,
-                            child: ElevatedButton(
-                              onPressed: (){
-                                // context
-                                //     .read<HotelListBloc>()
-                                //     .add(HotelListEvent.LoadVouchers());
-                              },
-                              style: ElevatedButton.styleFrom(
-                                primary: Colors.black,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5),
+                                                        onTap: ()  {
+                                                          setState(() {
+                                                            selectedIndex = index;
+                                                          });
+                                                        },
+                                                      )),
+                                                );
+                                              }),
+                                        ),
+                                        const SizedBox(
+                                          height: 25,
+                                        ),
+                                        const SizedBox(
+                                          height: 25,
+                                        ),
+                                      ],
+                                    );
+                                  }),
+                              SizedBox(
+                                height: 50,
+                                width: screenWidth * 0.5,
+                                child: ElevatedButton(
+                                  onPressed: (){
+
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                    primary: primaryColor,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
+                                  ),
+                                  child: const Text('Buy Now'),
                                 ),
                               ),
-                              child: const Text('Buy Now'),
-                            ),
+                            ],
                           ),
-                        ],
-                      ),
-                            ),
-                          )
+                        ),
+                      )
                           : SizedBox(
                           height: screenHeight -
                               180, //!fromHome ? screenHeight : 300,
@@ -264,6 +269,6 @@ class VoucherlistScreen extends StatelessWidget {
         ),
       ),
     );
-
   }
 }
+

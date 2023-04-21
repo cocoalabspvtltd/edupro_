@@ -1,20 +1,22 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:pgs_edupro/application/Hotel/hotel_list_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/offers/hotel_list_response.dart';
-import 'package:pgs_edupro/infrastructure/remote_data/models/offers/vouchers_list_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/offers/offers_repository.dart';
 import 'package:pgs_edupro/presentation/ui/offers/voucher_list_screen.dart';
 import 'package:pgs_edupro/presentation/widgets/common_result_empty_widget.dart';
 import 'package:pgs_edupro/presentation/widgets/common_server_error_widget.dart';
 String roomrate ='';
 String offeramount='';
+var discount="";
 
 class HotelDetailsScreen extends StatefulWidget {
   final HotelList hoteldetails;
@@ -26,6 +28,12 @@ class HotelDetailsScreen extends StatefulWidget {
 
 class _HotelDetailsScreenState extends State<HotelDetailsScreen>
     with TickerProviderStateMixin {
+
+  void _calculation() {
+    int? balance= widget.hoteldetails.balanceAmount ;
+    discount =  (int.parse(quantity.text) *  balance!).toString();
+    print(discount);
+  }
   static const List<Tab> _tabs = [
     Tab(
       icon: Text("Card Details"),
@@ -34,8 +42,20 @@ class _HotelDetailsScreenState extends State<HotelDetailsScreen>
       icon: Text("Inclusive Offers"),
     ),
   ];
+  void _submit() {
+    if (_errorText == null) {
+      quantity.value.text;
+    }
+  }
 
   TabController? _tabController;
+  String? get _errorText {
+    final text = quantity.value.text;
+    if (text.isEmpty) {
+      return '* Required';
+    }
+    return null;
+  }
 
   @override
   void initState() {
@@ -46,9 +66,12 @@ class _HotelDetailsScreenState extends State<HotelDetailsScreen>
   @override
   void dispose() {
     _tabController?.dispose();
+    quantity.dispose();
     super.dispose();
   }
  TextEditingController quantity =TextEditingController();
+
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -227,16 +250,15 @@ class _HotelDetailsScreenState extends State<HotelDetailsScreen>
                                           ],
                                         ),
                                         SizedBox(height: 20,),
-                                        _textForm(
-                                            quantity,
-                                            // (v) => context
-                                            // .read<VoucherListBloc>()
-                                            // .add(VoucherListEvent.quantityChanged(v)),
-                                            "Quantity",
-                                            true,
-                                            TextInputType.number,
-                                            maxLine: 1,
-                                            hint: "Quantity"),
+                                        Text("Quantity"),
+                                        SizedBox(height: 10,),
+                                        TextField(
+                                          controller: quantity,
+                                            keyboardType: TextInputType.number,
+                                          decoration: InputDecoration(
+                                            labelText: _errorText,
+                                          ),
+                                        ),
                                         thickSpace,
                                         thickSpace,
                                         SizedBox(
@@ -246,11 +268,12 @@ class _HotelDetailsScreenState extends State<HotelDetailsScreen>
                                             onPressed: (){
                                               roomrate= widget.hoteldetails.roomRate.toString();
                                               offeramount=widget.hoteldetails.offerAmount.toString();
-                                              // context
-                                              //     .read<HotelListBloc>()
-                                              //     .add(HotelListEvent.LoadVouchers());
+                                              _calculation();
+                                              quantity.value.text.isNotEmpty
+                                                  ? _submit
+                                                  : null;
                                               Get.to(() => VoucherlistScreen(
-                                                  hoteldetails:widget.hoteldetails
+                                                  hoteldetails:widget.hoteldetails,discount: discount
                                               ));
                                             },
                                             style: ElevatedButton.styleFrom(
@@ -342,79 +365,6 @@ class _HotelDetailsScreenState extends State<HotelDetailsScreen>
     );
   }
 
-  Widget _cardWidget() {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(height: 10,),
-          Text(
-            "${widget.hoteldetails.name!.toUpperCase()}",
-            style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-                color: Colors.black),
-          ),
-          SizedBox(height: 20,),
-          Text(
-            "Validity: 365 Days from the date of activation", style: TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.w600,
-              color: Colors.black),),
-          SizedBox(height: 20,),
-
-          Row(
-            children: [
-              Text("RS : ${widget.hoteldetails.roomRate}",
-                style: TextStyle(fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                  decoration: TextDecoration.lineThrough,),),
-              SizedBox(width: 10,),
-              Text("RS : ${widget.hoteldetails.offerAmount}", style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),),
-            ],
-          ),
-          SizedBox(height: 20,),
-          _textForm(
-              quantity,
-                  // (v) => context
-                  // .read<VoucherListBloc>()
-                  // .add(VoucherListEvent.quantityChanged(v)),
-              "Quantity",
-              true,
-              TextInputType.number,
-              maxLine: 1,
-              hint: "Quantity"),
-          thickSpace,
-          thickSpace,
-          SizedBox(
-            height: 50,
-            width: screenWidth,
-            child: ElevatedButton(
-              onPressed: (){
-                roomrate= widget.hoteldetails.roomRate.toString();
-                offeramount=widget.hoteldetails.offerAmount.toString();
-                context
-                    .read<HotelListBloc>()
-                    .add(HotelListEvent.LoadVouchers());
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Colors.black,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5),
-                ),
-              ),
-              child: const Text('Continue'),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
 
   Widget _offerWidget() {
     return Padding(
@@ -423,57 +373,73 @@ class _HotelDetailsScreenState extends State<HotelDetailsScreen>
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 10,),
-          Row(
-            children: [
-              Icon(Icons.local_offer_outlined),
-              SizedBox(width: 10,),
-              Text("${widget.hoteldetails.offerTitle}", style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black),),
-            ],
+          Theme(
+            data: Theme.of(context).copyWith(accentColor: primaryColor),
+            child: ExpansionTileCard(
+              contentPadding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+              elevation: 8,
+              borderRadius: BorderRadius.circular(15),
+              baseColor: Colors.grey[300],
+              leading: Icon(Icons.local_offer_outlined,color: Colors.black,),
+              title: Text("${widget.hoteldetails.offerTitle}", style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+            color: Colors.black),),
+              children: <Widget>[
+                Divider(
+                  thickness: 1.5,
+                  height: 1.0,
+                ),
+                SizedBox(height: 10,),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0,
+                      vertical: 8.0,
+                    ),
+                    child: Html(
+                      data: widget.hoteldetails.termsConditions,
+                      tagsList: Html.tags..addAll(["bird", "flutter"]),
+                      style: {
+                        'h5': Style(maxLines: 2, textOverflow: TextOverflow.ellipsis),
+                      },
+                      customRender: {
+                        "bird": (RenderContext context, Widget child) {
+                          return TextSpan(text: "🐦");
+                        },
+                        "flutter": (RenderContext context, Widget child) {
+                          return FlutterLogo(
+                            style: (context.tree.element!.attributes['horizontal'] != null)
+                                ? FlutterLogoStyle.horizontal
+                                : FlutterLogoStyle.markOnly,
+                            textColor: context.style.color!,
+                            size: context.style.fontSize!.size! * 5,
+                          );
+                        },
+                      },
+                      onLinkTap: (url, _, __, ___) {
+                        print("Opening $url...");
+                      },
+                      onImageTap: (src, _, __, ___) {
+                        print(src);
+                      },
+                      onImageError: (exception, stackTrace) {
+                      },
+                      onCssParseError: (css, messages) {
+                        messages.forEach((element) {
+                          print(element);
+                        });
+                      },
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20,)
+              ],
+            ),
           ),
         ],
       ),
-    );
-  }
-
-  Widget _textForm(TextEditingController controller,
-      // onChanged,
-      String label,
-      bool editable,
-      TextInputType keyboardType, {
-        List<TextInputFormatter>? formatter,
-        String? hint,
-        int maxLine = 1,
-      }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          label,
-          style: TextStyle(color: Colors.black, fontSize: 16),
-        ),
-        thickSpace,
-        TextFormField(
-          enabled: editable,
-          controller: controller,
-          maxLines: maxLine,
-          // onChanged: onChanged,
-          keyboardType: keyboardType,
-          inputFormatters: formatter,
-          style: const TextStyle(
-              fontWeight: FontWeight.w500, color: Colors.black87),
-          decoration: InputDecoration(
-            contentPadding: EdgeInsets.all(10.0),
-            hintText: hint,
-            hintStyle: TextStyle(color: Colors.black54),
-            //filled: true,
-            border: InputBorder.none,
-            fillColor: primaryColor[100],
-          ),
-        ),
-      ],
     );
   }
 }
