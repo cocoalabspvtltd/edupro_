@@ -28,32 +28,7 @@ class _ViewClassDetailsScreenState extends State<ViewClassDetailsScreen> {
               const SizedBox(
                 height: 25,
               ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Card(
-                  shadowColor: primaryColor[300],
-                  elevation: 4,
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Column(
-                      crossAxisAlignment:
-                      CrossAxisAlignment.start,
-                      children: [
-                        thickSpace,
-                        Text(
-                          "${widget.classesdetails.videoTitle} ",
-                          style: TextStyle(
-                              fontSize: 18,fontWeight: FontWeight.bold),
-                        ),
-                        thickSpace,
-                        Text('Nice to have back,What an exciting day ! \nget ready and Continue your lessons today',),
-                        thickSpace,
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              thickSpace,
+
               Text("Class Details",style: boldHeading,),
               Padding(
                 padding: const EdgeInsets.all(10.0),
@@ -148,6 +123,34 @@ class _ViewClassDetailsScreenState extends State<ViewClassDetailsScreen> {
                   ),
                 ),
               ),
+              thickSpace,
+              thickSpace,
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Card(
+                  shadowColor: primaryColor[300],
+                  elevation: 4,
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Column(
+                      crossAxisAlignment:
+                      CrossAxisAlignment.start,
+                      children: [
+                        thickSpace,
+                        Text(
+                          "${widget.classesdetails.videoTitle} ",
+                          style: TextStyle(
+                              fontSize: 18,fontWeight: FontWeight.bold),
+                        ),
+                        thickSpace,
+                        Text('Nice to have back,What an exciting day ! \nget ready and Continue your lessons today',),
+                        thickSpace,
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              thickSpace,
             ],
           ),
         ),

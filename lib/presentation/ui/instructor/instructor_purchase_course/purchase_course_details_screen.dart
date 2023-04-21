@@ -12,7 +12,6 @@ class PurchaseDetailsScreen extends StatefulWidget {
 
 class _PurchaseDetailsScreenState extends State<PurchaseDetailsScreen> {
   static const _containerHeight = 50.0;
-
   var _fromTop = _containerHeight;
   @override
   Widget build(BuildContext context) {
