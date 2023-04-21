@@ -36,38 +36,6 @@ class _ViewStudentDetailsCreenState extends State<ViewStudentDetailsCreen> {
             const SizedBox(
               height: 25,
             ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Card(
-                shadowColor: primaryColor[300],
-                elevation: 4,
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Column(
-                    crossAxisAlignment:
-                    CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "About Me",
-                        style: TextStyle(
-                            fontSize: 19,fontWeight: FontWeight.w500),
-                      ),
-                      thickSpace,
-                      thickSpace,
-                      Text(
-                        "Hello I am ${widget.studentdetails.name} ",
-                        style: TextStyle(
-                            fontSize: 18,fontWeight: FontWeight.bold),
-                      ),
-                      thickSpace,
-                      Text('Nice to have back,What an exciting day ! \nGet ready and Continue your lessons today',),
-                      thickSpace,
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            thickSpace,
             Text("Personal Details",style: boldHeading,),
             Padding(
               padding: const EdgeInsets.all(10.0),
@@ -157,6 +125,37 @@ class _ViewStudentDetailsCreenState extends State<ViewStudentDetailsCreen> {
                         ),
                       ),
                     ),
+                    thickSpace,
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            Card(
+              shadowColor: primaryColor[300],
+              elevation: 4,
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Column(
+                  crossAxisAlignment:
+                  CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "About Me",
+                      style: TextStyle(
+                          fontSize: 19,fontWeight: FontWeight.w500),
+                    ),
+                    thickSpace,
+                    thickSpace,
+                    Text(
+                      "Hello I am ${widget.studentdetails.name} ",
+                      style: TextStyle(
+                          fontSize: 18,fontWeight: FontWeight.bold),
+                    ),
+                    thickSpace,
+                    Text('Nice to have back,What an exciting day ! \nGet ready and Continue your lessons today',),
                     thickSpace,
                   ],
                 ),

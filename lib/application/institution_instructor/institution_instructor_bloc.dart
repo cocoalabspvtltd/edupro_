@@ -110,7 +110,7 @@ class InstitutionInstructorBloc extends Bloc<InstitutionInstructorEvent, Institu
 
         //AppDialogs.loading();
         failureOrSuccess = await addInstituitionInstructor.editInstructor(body);
-        Fluttertoast.showToast(msg:"Course added Successfully");
+        Fluttertoast.showToast(msg:"Instructor updated Successfully");
         // getx.Get.back();
       }
 
