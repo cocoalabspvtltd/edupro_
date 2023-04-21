@@ -188,8 +188,12 @@ class _EditInstructorsFormState extends State<EditInstructorsForm> {
                       SizedBox(
                         width: 10,
                       ),
-                      Text(
+                      widget.depatmentdetails.profilePhoto==null?    Text(
                         "Choose file",
+                        style: TextStyle(
+                            color: Colors.black54, fontSize: 18),
+                      ):Text(
+                        "${widget.depatmentdetails.profilePhoto}",
                         style: TextStyle(
                             color: Colors.black54, fontSize: 18),
                       ),
