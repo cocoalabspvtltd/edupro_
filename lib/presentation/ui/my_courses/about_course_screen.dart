@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/my_course/my_courses_response.dart';
@@ -28,9 +29,39 @@ class AboutCourseScreen extends StatelessWidget {
               ),
               thickSpace,
               thickSpace,
-              Text(
-                aboutCourse.aboutDescription ?? '',
-                style: boldValue,
+              Html(
+                data:  aboutCourse.aboutDescription,
+                tagsList: Html.tags..addAll(["bird", "flutter"]),
+                style: {
+                  'h5': Style(maxLines: 2, textOverflow: TextOverflow.ellipsis),
+                },
+                customRender: {
+                  "bird": (RenderContext context, Widget child) {
+                    return TextSpan(text: "🐦");
+                  },
+                  "flutter": (RenderContext context, Widget child) {
+                    return FlutterLogo(
+                      style: (context.tree.element!.attributes['horizontal'] != null)
+                          ? FlutterLogoStyle.horizontal
+                          : FlutterLogoStyle.markOnly,
+                      textColor: context.style.color!,
+                      size: context.style.fontSize!.size! * 5,
+                    );
+                  },
+                },
+                onLinkTap: (url, _, __, ___) {
+                  print("Opening $url...");
+                },
+                onImageTap: (src, _, __, ___) {
+                  print(src);
+                },
+                onImageError: (exception, stackTrace) {
+                },
+                onCssParseError: (css, messages) {
+                  messages.forEach((element) {
+                    print(element);
+                  });
+                },
               ),
               thickSpace,
               thickSpace,

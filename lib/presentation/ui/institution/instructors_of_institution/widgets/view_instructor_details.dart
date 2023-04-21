@@ -22,134 +22,119 @@ class _ViewInstructorDetailsCreenState extends State<ViewInstructorDetailsCreen>
         title: Text('Instructor details',style: boldValuePrimaryColor,),
       ),
       body: SafeArea(
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 25,
-            ),
-            Text("Personal Details",style: boldHeading,),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Card(
-                shadowColor: primaryColor[300],
-                elevation: 4,
-                child: Column(
-                  crossAxisAlignment:
-                  CrossAxisAlignment.start,
-                  children: [
-                    thickSpace,
-                    SizedBox(
-                      width: screenWidth,
-                      child: Padding(
-                        padding:
-                        const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment:
-                          CrossAxisAlignment.start,
-                          children: [
-                            Align(
-                              alignment: Alignment.topCenter,
-                              child: Container(
-                                width: 140,
-                                height: 140,
-                                padding: EdgeInsets.all(1),
-                                decoration: BoxDecoration(
-                                  color: Colors.black87,
-                                  borderRadius: BorderRadius.circular(60),
-                                ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(60),
-                                  child: CachedNetworkImage(
-                                    fit: BoxFit.fill,
-                                    imageUrl:UserDetailsLocal.storageBaseUrl+'${widget.instructordetails.displayPicture}',
-                                    placeholder: (context, url) => Center(
-                                      child: CircularProgressIndicator(),
-                                    ),
-                                    errorWidget: (context, url, error) => CircleAvatar(
-                                      radius: 46.0,
-                                      backgroundImage:
-                                      AssetImage('assets/icons/profile_icons/person.png'),
-                                      backgroundColor: Colors.grey,
-                                    ),
-                                  ),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(
+                height: 20,
+              ),
+              Column(
+                crossAxisAlignment:
+                CrossAxisAlignment.start,
+                children: [
+                  thickSpace,
+                  Row(
+                    children: [
+                      Container(
+                          width: screenWidth * .3,
+                          height: screenWidth * 0.6,
+                          padding: const EdgeInsets.all(1),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8),
+                            child: CachedNetworkImage(
+                              fit: BoxFit.fill,
+                              imageUrl: UserDetailsLocal.storageBaseUrl +
+                                  '${widget.instructordetails.displayPicture}',
+                              placeholder: (context, url) => Container(
+                                margin: const EdgeInsets.all(1),
+                                child: const Center(
+                                  child: CircularProgressIndicator(),
                                 ),
                               ),
+                              imageBuilder: (context, imageProvider) =>
+                                  Container(
+                                    margin: const EdgeInsets.all(0),
+                                    decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            image: imageProvider,
+                                            fit: BoxFit.cover)),
+                                  ),
+                              errorWidget: (context, url, error) =>
+                                  Container(
+                                    width: screenWidth * .14,
+                                    height: screenWidth * .14,
+                                    padding: const EdgeInsets.all(5),
+                                    child: const Image(
+                                      image: AssetImage(
+                                          'assets/icons/drawer_icons/display-picture-sltd.png'),
+                                      height: double.infinity,
+                                      width: double.infinity,
+                                    ),
+                                  ),
                             ),
-                            thickSpace,
-                            Row(children: [
-                              Icon(Icons.email_outlined,color: primaryColor,),
-                              SizedBox(width: 10,),
-                              Text("${widget.instructordetails.email}",style: details,)
-                            ],),
-                            thickSpace,
-                            Row(children: [
-                              Icon(Icons.call,color: primaryColor,),
-                              SizedBox(width: 10,),
-                              Text("${widget.instructordetails.phoneNumber}",style: details,)
-                            ],),
-                            thickSpace,
-                            Row(children: [
-                              Icon(Icons.location_on_outlined,color: primaryColor,),
-                              SizedBox(width: 10,),
-                              Text("${widget.instructordetails.address}",style: details,)
-                            ],),
-                            thickSpace,
-                            Row(children: [
-                              Icon(Icons.school_outlined,color: primaryColor,),
-                              SizedBox(width: 10,),
-                              Text("${widget.instructordetails.qualification}",style: details,)
-                            ],),
-                            thickSpace,
-                            Row(children: [
-                              Icon(Icons.collections_bookmark_sharp,color: primaryColor,),
-                              SizedBox(width: 10,),
-                              Text("${widget.instructordetails.courses}",style: details,)
-                            ],),
-                            thickSpace,
-                          ],
-                        ),
-                      ),
-                    ),
-                    thickSpace,
-                  ],
-                ),
-              ),
-            ),
-            thickSpace,
-            thickSpace,
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Card(
-                shadowColor: primaryColor[300],
-                elevation: 4,
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Column(
-                    crossAxisAlignment:
-                    CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "About Me",
-                        style: TextStyle(
-                            fontSize: 19,fontWeight: FontWeight.w500),
-                      ),
-                      thickSpace,
-                      thickSpace,
-                      Text(
-                        "Hello I am ${widget.instructordetails.name} ",
-                        style: TextStyle(
-                            fontSize: 18,fontWeight: FontWeight.bold),
-                      ),
-                      thickSpace,
-                      Text("${widget.instructordetails.description}"),
-                      thickSpace,
+                          )),
+                      SizedBox(width:10,),
+                      Container(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("${widget.instructordetails.name!.toUpperCase()}"),
+                              thickSpace,
+                              Text("${widget.instructordetails.qualification}"),
+                              thickSpace,
+                              Row(
+                                children: [
+                                  Icon(Icons.email_outlined,color: primaryColor,),
+                                  SizedBox(width: 10,),
+                                  Text("${widget.instructordetails.email}"),
+                                ],
+                              ),
+                              thickSpace,
+                              Row(
+                                children: [
+                                  Icon(Icons.call,color: primaryColor,),
+                                  SizedBox(width: 10,),
+                                  Text("${widget.instructordetails.phoneNumber}"),
+                                ],
+                              ),
+                              thickSpace,
+                              Row(
+                                children: [
+                                  Icon(Icons.business_outlined,color: primaryColor,),
+                                  SizedBox(width: 10,),
+                                  Text("${widget.instructordetails.instituteName}"),
+                                ],
+                              ),
+                              thickSpace,
+                              Row(
+                                children: [
+                                  Icon(Icons.collections_bookmark_sharp,color: primaryColor,),
+                                  SizedBox(width: 10,),
+                                  Text("${widget.instructordetails.courses}"),
+                                ],
+                              ),
+                ]
+                              ),
+                          ),
+                      Spacer(),
                     ],
                   ),
-                ),
+                  thickSpace,
+                ],
               ),
-            ),
-            thickSpace,
-          ],
+              const SizedBox(
+                height: 20,
+              ),
+              thickSpace,
+              thickSpace,
+            ],
+          ),
         ),
       ),
     );
