@@ -1,3 +1,4 @@
+import 'package:pgs_edupro/application/Hotel/hotel_list_bloc.dart';
 import 'package:pgs_edupro/application/ads/ads_bloc.dart';
 import 'package:pgs_edupro/application/course/courses_bloc.dart';
 import 'package:pgs_edupro/application/video/top_videos/top_videos_bloc.dart';
@@ -5,6 +6,7 @@ import 'package:pgs_edupro/application/video/trending_videos/trending_videos_blo
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/presentation/ui/course/course_catogories_screen.dart';
 import 'package:pgs_edupro/presentation/ui/home/ads_screen.dart';
+import 'package:pgs_edupro/presentation/ui/offers/home_hotel_list.dart';
 import 'package:pgs_edupro/presentation/ui/videos/top_videos_screen.dart';
 import 'package:pgs_edupro/presentation/ui/videos/trending_videos_screen.dart';
 import 'package:flutter/material.dart';
@@ -40,6 +42,9 @@ class HomeBody extends StatelessWidget {
             .read<CoursesBloc>()
             .add(const CoursesEvent.loadCourseCategories());
         context.read<AdsBloc>().add(const AdsEvent.getAds());
+        context
+            .read<HotelListBloc>()
+            .add(const HotelListEvent.LoadHotels());
       },
       child: SingleChildScrollView(
         physics: const AlwaysScrollableScrollPhysics(),
@@ -49,6 +54,7 @@ class HomeBody extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              thickSpace,
               AdsScreen(
                 key: key,
               ),
@@ -225,13 +231,17 @@ class HomeBody extends StatelessWidget {
                 key: key,
               ),
               thickSpace,
-              TrendingVideosScreen(
-                key: key,
-              ),
               thickSpace,
-              TopVideosScreen(
+              HomeHotellistScreen(
                 key: key,
-              ),
+              )
+              // TrendingVideosScreen(
+              //   key: key,
+              // ),
+              // thickSpace,
+              // TopVideosScreen(
+              //   key: key,
+              // ),
             ],
           ),
         ),

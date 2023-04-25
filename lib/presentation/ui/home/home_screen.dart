@@ -1,4 +1,5 @@
  import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:pgs_edupro/application/Hotel/hotel_list_bloc.dart';
 import 'package:pgs_edupro/application/ads/ads_bloc.dart';
 import 'package:pgs_edupro/application/course/courses_bloc.dart';
 import 'package:pgs_edupro/application/payment/payment_bloc.dart';
@@ -10,6 +11,7 @@ import 'package:pgs_edupro/infrastructure/local_data_source/shared_prefs.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/ads/ads_repository.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/course/course_repository.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/repositories/offers/offers_repository.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/payment/payment_repository.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/profile/profile_repository.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/videos/video_repository.dart';
@@ -77,6 +79,10 @@ class _HomeScreenState extends State<HomeScreen> {
         BlocProvider(
           create: (_) => CoursesBloc(CourseRepository())
             ..add(const CoursesEvent.loadCourseCategories()),
+        ),
+        BlocProvider(
+          create: (_) => HotelListBloc(OffersRepository())
+            ..add(const HotelListEvent.LoadHotels()),
         ),
         // BlocProvider(
         //     create: (_) => ProfileBloc(ProfileRepository())

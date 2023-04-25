@@ -34,7 +34,6 @@ class CourseCategoriesGridView extends StatelessWidget {
               },
               child: Card(
                 elevation: 1,
-
                 color: Colors.grey[100],
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(2)),
