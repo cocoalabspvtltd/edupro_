@@ -10,6 +10,7 @@ import 'package:pgs_edupro/presentation/ui/auth/register/registration_screen.dar
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
+import 'package:pgs_edupro/presentation/ui/home/home_screen.dart';
 import 'package:pgs_edupro/presentation/ui/institution/institution_home/institution_home_screen.dart';
 import 'package:pgs_edupro/presentation/ui/instructor/instructor_home/instructor_home_screen.dart';
 import 'package:pgs_edupro/presentation/ui/membership_check_screen.dart';
@@ -65,6 +66,10 @@ class _LogInFormState extends State<LogInForm> {
   }
 
   @override
+  double getSmallDiameter(BuildContext context) =>
+      MediaQuery.of(context).size.width * 2 / 3;
+  double getBiglDiameter(BuildContext context) =>
+      MediaQuery.of(context).size.width * 7 / 8;
   Widget build(BuildContext context) {
     return BlocConsumer<PaymentBloc, PaymentState>(
       listener: (context, state) {
@@ -137,7 +142,7 @@ class _LogInFormState extends State<LogInForm> {
                         Get.offAll(() => const MembershipCheckScreen());
                         return;
                       } else if  (r.user?.paymentStatus == 'false') {
-                        Get.offAll(() => const MembershipCheckScreen());
+                        Get.offAll(() => const HomeScreen());
                         return;
                         // String paymentType = 'REGISTRATION';
                         // context.read<PaymentBloc>().add(
@@ -163,132 +168,335 @@ class _LogInFormState extends State<LogInForm> {
               autovalidateMode: state.showErrorMessages
                   ? AutovalidateMode.always
                   : AutovalidateMode.disabled,
-              child: ListView(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                padding: const EdgeInsets.all(15),
+              child:Stack(
                 children: <Widget>[
-                  SizedBox(height: screenHeight * .08),
-                  TextFormField(
-                    textInputAction: TextInputAction.next,
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: const InputDecoration(
-                      prefixIcon: Icon(Icons.email),
-                      labelText: 'Email',
+                  Positioned(
+                    right: -getSmallDiameter(context) / 3,
+                    top: -getSmallDiameter(context) / 3,
+                    child: Container(
+                      width: getSmallDiameter(context),
+                      height: getSmallDiameter(context),
+                      decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          gradient:LinearGradient(
+                              colors: [
+                                Color(0xFFB226B2),
+                                Colors.orange
+                              ],
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter)),
                     ),
-                    autocorrect: false,
-                    onChanged: (value) => context
-                        .read<LogInBloc>()
-                        .add(LogInEvent.emailChanged(value)),
-                    validator: (_) =>
-                        context.read<LogInBloc>().state.emailAddress.value.fold(
-                              (f) => f.maybeMap(
-                                invalidEmail: (_) => 'Invalid email',
-                                orElse: () => null,
-                              ),
-                              (_) => null,
-                            ),
                   ),
-                  const SizedBox(height: 25),
-                  TextFormField(
-                    keyboardType: TextInputType.visiblePassword,
-                    textInputAction: TextInputAction.done,
-                    decoration: InputDecoration(
-                      prefixIcon: const Icon(Icons.lock),
-                      labelText: 'Password',
-                      contentPadding: const EdgeInsets.only(right: 8, left: 8),
-                      suffix: GestureDetector(
-                        onTap: () {
-                          obscureText = !obscureText;
-                          setState(() {});
-                        },
-                        child: obscureText
-                            ? const Icon(
-                                Icons.visibility,
-                                color: Colors.black,
-                              )
-                            : const Icon(
-                                Icons.visibility_off,
-                                color: Colors.black,
+                  Positioned(
+                    left: -getBiglDiameter(context) / 4,
+                    top: -getBiglDiameter(context) / 4,
+                    child: Container(
+                      width: getBiglDiameter(context),
+                      height: getBiglDiameter(context),
+                      decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          gradient:  const LinearGradient(
+            colors: [
+            Color(0xFFB226B2),
+            Colors.orange
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter)),
+                      child:
+                      Row(
+                        children: [
+                          Center(
+                            child: Padding(
+                              padding: EdgeInsets.only(left: 90.0,top: 50),
+                              child:  Image.asset(
+                                'assets/splash/PGEduLOGO.png',
+                                height: 100,
+                                fit: BoxFit.fitHeight,
                               ),
-                      ),
-                    ),
-                    obscureText: obscureText,
-                    autocorrect: false,
-                    onChanged: (value) => context
-                        .read<LogInBloc>()
-                        .add(LogInEvent.passwordChanged(value)),
-                    validator: (_) =>
-                        context.read<LogInBloc>().state.password.value.fold(
-                              (f) => f.maybeMap(
-                                shortPassword: (_) => 'Short password',
-                                orElse: () => null,
-                              ),
-                              (_) => null,
                             ),
-                  ),
-                  SizedBox(height: screenHeight * .1),
-                  SizedBox(
-                    height: 50,
-                    width: screenWidth,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 10, right: 10),
-                      child: ElevatedButton(
-                        onPressed: () => context.read<LogInBloc>().add(
-                            const LogInEvent
-                                .signInWithEmailAndPasswordPressed()),
 
-                        style: ElevatedButton.styleFrom(
-                          elevation: 4,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5),
                           ),
-                        ),
-                        child: const Text('SIGN IN'),
+            const Center(
+              child: Padding(
+                padding: EdgeInsets.only(top: 50),
+                child: Text(
+                  "Pg's\nEducating Values",
+                  style: TextStyle(
+                      fontFamily: "Pacifico",
+                      fontSize: 20,
+                      color: Colors.white ),
+                ),
+              ),
+            ),
+                        ],
                       ),
+                      //
+                      // const Center(
+                      //   child: Padding(
+                      //     padding: EdgeInsets.only(left: 40.0,top: 50),
+                      //     child: Text(
+                      //       "Learning App",
+                      //       style: TextStyle(
+                      //           fontFamily: "Pacifico",
+                      //           fontSize: 35,
+                      //           color: Colors.white ),
+                      //     ),
+                      //   ),
+                      // ),
                     ),
                   ),
-                  const SizedBox(height: 25),
-                  SizedBox(
-                    height: 50,
-                    width: screenWidth,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 10, right: 10),
-                      child: ElevatedButton(
-                        onPressed: () async {
-                          context
-                              .read<LogInBloc>()
-                              .add(const LogInEvent.registerPressed());
-                          if (_formKey.currentState!.validate()) {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    BlocProvider<LogInBloc>.value(
-                                  value: logInBloc,
-                                  child: RegistrationTypeScreen(),
+                  thickSpaceLogin,
+                  SizedBox(height: screenHeight,
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: ListView(
+                        children: <Widget>[
+                          thickSpaceLogin,
+                          Container(
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                //border: Border.all(color: Colors.grey),
+                                borderRadius: BorderRadius.circular(10)),
+                            margin: const EdgeInsets.fromLTRB(20, 300, 20, 10),
+                            padding: const EdgeInsets.fromLTRB(10, 0, 10, 25),
+                            child: Column(
+                              children:  <Widget>[
+                                    TextFormField(
+                                      textInputAction: TextInputAction.next,
+                                      keyboardType: TextInputType.emailAddress,
+                                      decoration:  InputDecoration(
+                                        icon: const Icon(
+                                          Icons.email,
+                                          color:  Colors.deepOrange,
+                                        ),    focusedBorder: UnderlineInputBorder(
+                                          borderSide:
+                                          BorderSide(color: Colors.grey.shade100 )),
+                                          labelText: "Email",
+                                          enabledBorder: InputBorder.none,
+                                          labelStyle: const TextStyle(color: Colors.grey)),
+                                      autocorrect: false,
+                                      onChanged: (value) => context
+                                          .read<LogInBloc>()
+                                          .add(LogInEvent.emailChanged(value)),
+                                      validator: (_) =>
+                                          context.read<LogInBloc>().state.emailAddress.value.fold(
+                                                (f) => f.maybeMap(
+                                                  invalidEmail: (_) => 'Invalid email',
+                                                  orElse: () => null,
+                                                ),
+                                                (_) => null,
+                                              ),
+                                    ),
+                                    TextFormField(
+                                      keyboardType: TextInputType.visiblePassword,
+                                      textInputAction: TextInputAction.done,
+                                      decoration: InputDecoration(
+            icon: const Icon(
+            Icons.vpn_key,
+            color: Colors.deepOrange,
+            ),
+            focusedBorder: UnderlineInputBorder(
+            borderSide:
+            BorderSide(color: Colors.grey.shade100)),
+            labelText: "Password",
+            enabledBorder: InputBorder.none,
+            labelStyle: const TextStyle(color: Colors.grey),
+                                        suffix: GestureDetector(
+                                          onTap: () {
+                                            obscureText = !obscureText;
+                                            setState(() {});
+                                          },
+                                          child: obscureText
+                                              ? const Icon(
+                                                  Icons.visibility,
+                                                  color: Colors.black,
+                                                )
+                                              : const Icon(
+                                                  Icons.visibility_off,
+                                                  color: Colors.black,
+                                                ),
+                                        ),
+                                      ),
+                                      obscureText: obscureText,
+                                      autocorrect: false,
+                                      onChanged: (value) => context
+                                          .read<LogInBloc>()
+                                          .add(LogInEvent.passwordChanged(value)),
+                                      validator: (_) =>
+                                          context.read<LogInBloc>().state.password.value.fold(
+                                                (f) => f.maybeMap(
+                                                  shortPassword: (_) => 'Short password',
+                                                  orElse: () => null,
+                                                ),
+                                                (_) => null,
+                                              ),
+                                    ),
+
+                              ],
+                            ),
+                          ),
+
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(20, 20, 20, 30),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                SizedBox(
+                                  width: MediaQuery.of(context).size.width * 0.4,
+                                  height: 40,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(20),
+                                        gradient: const LinearGradient(
+                                            colors: [
+
+                                              Colors.orangeAccent,
+                                              Colors.orange,
+
+                                              Color(0xFFB226B2),
+                                            ],
+                                            begin: Alignment.topCenter,
+                                            end: Alignment.bottomCenter)),
+                                    child: Material(
+                                      borderRadius: BorderRadius.circular(20),
+                                      color: Colors.transparent,
+                                      child: InkWell(
+                                        borderRadius: BorderRadius.circular(20),
+                                        splashColor: Colors.amber,
+                                        onTap: () {},
+                                        child:  Center(
+                                          child: GestureDetector(
+                                            onTap: (){
+                                              context.read<LogInBloc>().add(
+                                                                const LogInEvent
+                                                                    .signInWithEmailAndPasswordPressed());
+
+                                            },
+                                            child: const Text(
+                                              "SIGN   IN",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontFamily: 'Pacifico',
+                                                  fontWeight: FontWeight.w500),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
                                 ),
-                              ),
-                            );
-                            //Get.to(() => const RegisterScreen());
-                          } else {
-                            toastMessage(
-                                'Enter Email Address and Password for Registration');
-                          }
-                        },
-                        style: ElevatedButton.styleFrom(
-                          elevation: 4,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5),
+                                SizedBox(
+                                  width: MediaQuery.of(context).size.width * 0.4,
+                                  height: 40,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(20),
+                                        gradient: const LinearGradient(
+                                            colors: [
+                                              Colors.orangeAccent,
+                                              Colors.orange,
+
+                                              Color(0xFFB226B2),
+                                            ],
+                                            begin: Alignment.topCenter,
+                                            end: Alignment.bottomCenter)),
+                                    child: Material(
+                                      borderRadius: BorderRadius.circular(20),
+                                      color: Colors.transparent,
+                                      child: InkWell(
+                                        borderRadius: BorderRadius.circular(20),
+                                        splashColor: Colors.amber,
+                                        onTap: () {},
+                                        child:  Center(
+                                          child: GestureDetector(
+                                            onTap: ()async {
+                                              context
+                                                  .read<LogInBloc>()
+                                                  .add(const LogInEvent.registerPressed());
+                                              if (_formKey.currentState!.validate()) {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                    BlocProvider<LogInBloc>.value(
+                                                      value: logInBloc,
+                                                      child: RegistrationTypeScreen(),
+                                                    ),
+                                                  ),
+                                                );
+                                                //Get.to(() => const RegisterScreen());
+                                              } else {
+                                                toastMessage(
+                                                    'Enter Email Address and Password for Registration');
+                                              }
+                                            },
+                                            child: Text(
+                                              "SIGN  UP",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontFamily: 'Pacifico',
+                                                  fontWeight: FontWeight.w500),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+
+                              ],
+                            ),
                           ),
-                        ),
-                        child: const Text('REGISTER'),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: const <Widget>[
+                              Text(
+                                "FORGOT YOUR PASSWORD ? ",
+                                style: TextStyle(
+                                    fontSize: 11,
+                                    color: Colors.grey,
+                                    fontFamily: 'Pacifico',
+                                    fontWeight: FontWeight.w200),
+                              ),
+                              Text(
+                                " CLICK HERE",
+                                style: TextStyle(
+                                    fontSize: 11,
+                                    color: Colors.deepOrange,
+                                    fontFamily: 'Pacifico',
+                                    fontWeight: FontWeight.w500),
+                              )
+                            ],
+                          ),
+
+                          const SizedBox(
+                            height: 100,
+
+                          ),
+
+                          const Center(
+                          child: Padding(
+            padding: EdgeInsets.only(top: 100),
+            child: Text(
+            "Learning App",
+            style: TextStyle(
+            fontFamily: "Pacifico",
+            fontSize: 15,
+            color: Colors.deepOrange,),
+            ),
+            ),
+            ),
+                        ],
+
+
                       ),
                     ),
                   ),
+
 
                 ],
               ),
+
             );
           },
         );

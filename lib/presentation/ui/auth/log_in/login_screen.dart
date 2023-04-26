@@ -11,11 +11,12 @@ class LogInScreen extends StatelessWidget {
   const LogInScreen({super.key});
 
   @override
+
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Sign In'),
-      ),
+      // appBar: AppBar(
+      //   title: const Text('Sign In'),
+      // ),
       body: MultiBlocProvider(
         providers: [
           BlocProvider(
@@ -23,25 +24,27 @@ class LogInScreen extends StatelessWidget {
           BlocProvider(create: (_) => PaymentBloc(PaymentRepository()))
           //..add(PaymentEvent())),
         ],
-        child: SizedBox(
-          height: screenHeight,
-          width: screenWidth,
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                const SizedBox(
-                  height: 50,
-                ),
-                Image.asset(
-                  'assets/splash/pg logo.png',
-                  height: 100,
-                  fit: BoxFit.fitHeight,
-                ),
-                const LogInForm(),
-              ],
-            ),
-          ),
-        ),
+        child:LogInForm()
+
+        // SizedBox(
+        //   height: screenHeight,
+        //   width: screenWidth,
+        //   child: SingleChildScrollView(
+        //     child: Column(
+        //       children: [
+        //         const SizedBox(
+        //           height: 50,
+        //         ),
+        //         Image.asset(
+        //           'assets/splash/pg logo.png',
+        //           height: 100,
+        //           fit: BoxFit.fitHeight,
+        //         ),
+        //         const LogInForm(),
+        //       ],
+        //     ),
+        //   ),
+        // ),
       ),
     );
   }
