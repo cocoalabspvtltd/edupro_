@@ -48,9 +48,7 @@ class QuestionsScreen extends StatelessWidget {
       }, builder: (context, state) {
         return Scaffold(
           key: _scaffoldKey,
-          appBar: AppBar(
-            title: const Text("Q&A"),
-          ),
+          appBar:appBarTheme("Q&A"),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
               showDialog(

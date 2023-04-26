@@ -17,13 +17,7 @@ class _AddClassesScreenState extends State<AddClassesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.black,
-          title: Text(
-            "Add Classess",
-            style: boldValuePrimaryColor,
-          ),
-        ),
+        appBar: appBarTheme("Add Classess"),
         body: BlocProvider(create: (_)=>InstitutionClassBloc(CourseRepository()),
           child: SingleChildScrollView(
               child: AddClassesForm()),)

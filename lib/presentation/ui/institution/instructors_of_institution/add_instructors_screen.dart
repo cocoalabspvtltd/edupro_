@@ -19,13 +19,7 @@ class _AddInstructorScreenState extends State<AddInstructorScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.black,
-          title: Text(
-            "Add Instructors",
-            style: boldValuePrimaryColor,
-          ),
-        ),
+        appBar: appBarTheme("Add Instructors"),
         body: BlocProvider(create: (_)=>InstitutionInstructorBloc(CourseRepository(),0),
           child: SingleChildScrollView(
               child:  AddInstructorsForm()

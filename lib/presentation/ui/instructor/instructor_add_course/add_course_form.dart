@@ -87,10 +87,11 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
                   child: Text(
                     "Course Details",
                     style:
-                    TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
+              thickSpace,
               _textForm(
                   state.title,
                       (v) => context
@@ -98,9 +99,9 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
                       .add(InstructorEvent.titleChanged(v)),
                   null,
                   "Title",
-                  'assets/icons/profile_icons/location.png',
+                  true,
                   TextInputType.streetAddress,
-                  maxLine: 2),
+                  maxLine: 1),
               thickSpace,
               _textForm(
                   state.aboutTitle,
@@ -109,15 +110,11 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
                       .add(InstructorEvent.titleChanged(v)),
                   null,
                   "About title",
-                  'assets/icons/profile_icons/location.png',
+                  true,
                   TextInputType.streetAddress,
-                  maxLine: 2),
+                  maxLine: 1),
               thickSpace,
-              thickSpace,
-              Text(
-                "Category",
-                style: boldValue,
-              ),
+              Text("Category",style: TextStyle(color: Colors.black,fontSize: 16),),
               thickSpace,
               Container(
                   width: screenWidth,
@@ -138,10 +135,9 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
                       .add(InstructorEvent.amountChanged(v)),
                   null,
                   "Amount",
-                  'assets/icons/profile_icons/location.png',
+                 true,
                   TextInputType.number,
-                  maxLine: 2),
-              thickSpace,
+                  maxLine: 1),
               thickSpace,
               _textForm(
                   state.duration,
@@ -150,10 +146,9 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
                       .add(InstructorEvent.durationChanged(v)),
                   null,
                   "Duration",
-                  'assets/icons/profile_icons/location.png',
+                  true,
                   TextInputType.number,
                   maxLine: 2),
-              thickSpace,
               thickSpace,
               _textForm(
                   state.url,
@@ -162,9 +157,11 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
                       .add(InstructorEvent.urlChanged(v)),
                   null,
                   "Url",
-                  'assets/icons/profile_icons/location.png',
+                  true,
                   TextInputType.text,
-                  maxLine: 2),
+                  maxLine: 1),
+              thickSpace,
+              Text("Course Picture",style: TextStyle(color: Colors.black,fontSize: 16),),
               thickSpace,
               _image != null
                   ? Container(
@@ -208,6 +205,7 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
                   ),
                 ),
               ),
+              thickSpace,
               _textForm(
                   state.description,
                       (v) => context
@@ -215,22 +213,23 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
                       .add(InstructorEvent.descriptionChanged(v)),
                   null,
                   "Description",
-                  'assets/icons/profile_icons/location.png',
+                  true,
                   TextInputType.text,
-                  maxLine: 2),
+                  maxLine: 1),
               thickSpace,
               Divider(),
               Padding(
-                padding: const EdgeInsets.only(left: 15),
+                padding: const EdgeInsets.only(left: 4),
                 child: Align(
                   alignment: AlignmentDirectional.topStart,
                   child: Text(
                     "Course Descrption Details",
                     style:
-                    TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
+              thickSpace,
               thickSpace,
               _textForm(
                   state.whatYouLearn,
@@ -239,9 +238,9 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
                       .add(InstructorEvent.whatYChanged(v)),
                   null,
                   "What You Learn",
-                  'assets/icons/profile_icons/location.png',
+                  true,
                   TextInputType.text,
-                  maxLine: 2),
+                  maxLine: 1),
               thickSpace,
               _textForm(
                   state.areThere,
@@ -250,9 +249,9 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
                       .add(InstructorEvent.areThereAnyChanged(v)),
                   null,
                   "Are There Any Changed",
-                  'assets/icons/profile_icons/location.png',
+                  true,
                   TextInputType.text,
-                  maxLine: 2),
+                  maxLine: 1),
               thickSpace,
               _textForm(
                   state.whoIsThis,
@@ -261,9 +260,9 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
                       .add(InstructorEvent.whoThisChanged(v)),
                   null,
                   "who IsT his",
-                  'assets/icons/profile_icons/location.png',
+                 true,
                   TextInputType.text,
-                  maxLine: 2),
+                  maxLine: 1),
               thickSpace,
               thickSpace,
               SizedBox(
@@ -282,10 +281,6 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
                   child: const Text('Save And Update'),
                 ),
               ),
-              // if (state.isSubmitting) ...[
-              //    SizedBox(height: 8),
-              //    LinearProgressIndicator(value: null),
-              // ],
               thickSpace,
               thickSpace,
             ],
@@ -295,6 +290,7 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
     );
   }
   final ImagePicker _picker = ImagePicker();
+
   _imagefromGallery(context) async {
     final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
     setState(() {
@@ -375,6 +371,7 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
           );
         });
   }
+
   Future pickImage() async {
     try {
       final image = await ImagePicker().pickImage(source: ImageSource.gallery);
@@ -389,12 +386,13 @@ class _AddcousresScreenFormState extends State<AddcousresScreenForm> {
   }
 
 }
+
 Widget _textForm(
     TextEditingController controller,
     onChanged,
     validator,
     String label,
-    String prefixIconAssetPath,
+    bool editable,
     TextInputType keyboardType, {
       List<TextInputFormatter>? formatter,
       String? hint,
@@ -405,11 +403,11 @@ Widget _textForm(
     children: [
       Text(
         label,
-        style: boldValue,
+        style: TextStyle(color: Colors.black,fontSize: 16),
       ),
       thickSpace,
       TextFormField(
-
+        enabled: editable,
         controller: controller,
         maxLines: maxLine,
         onChanged: onChanged,
@@ -419,24 +417,19 @@ Widget _textForm(
         style: const TextStyle(
             fontWeight: FontWeight.w500, color: Colors.black87),
         decoration: InputDecoration(
+          contentPadding: EdgeInsets.all(10.0),
           hintText: hint,
-          hintStyle: TextStyle(color: primaryColor[200]),
+          hintStyle: TextStyle(color:Colors.black54 ),
           //filled: true,
           fillColor: primaryColor[100],
-
-          prefixIconConstraints: const BoxConstraints(
-            maxHeight: 30,
-            minHeight: 30,
-            maxWidth: 50,
-            minWidth: 50,
-          ),
           disabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: primaryColor[100]!)),
+              borderRadius: BorderRadius.circular(10.0),
+              borderSide: BorderSide(color: Colors.grey)),
           enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: primaryColor, width: 2)),
+              borderRadius: BorderRadius.circular(10.0),
+              borderSide: BorderSide(color: Colors.grey, width: 1)),
         ),
       ),
     ],
   );
 }
-

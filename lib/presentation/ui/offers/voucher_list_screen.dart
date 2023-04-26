@@ -30,13 +30,7 @@ class _VoucherlistScreenState extends State<VoucherlistScreen> {
       create: (_) => HotelListBloc(OffersRepository())
         ..add(const HotelListEvent.LoadVouchers()),
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.black,
-          title: Text(
-            "Vouchers",
-            style: boldValuePrimaryColor,
-          ),
-        ),
+        appBar: appBarTheme("Vouchers"),
         body: BlocBuilder<HotelListBloc, HotelListState>(
           builder: (context, state) {
             return RefreshIndicator(

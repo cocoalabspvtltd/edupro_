@@ -23,13 +23,7 @@ class _ViewStudentDetailsCreenState extends State<ViewStudentDetailsCreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text(
-          'Student details',
-          style: boldValuePrimaryColor,
-        ),
-      ),
+      appBar: appBarTheme("Student details"),
       body:SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(10.0),

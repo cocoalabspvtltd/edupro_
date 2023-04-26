@@ -16,30 +16,7 @@ class RegistrationScreen extends StatelessWidget {
     return BlocProvider(
       create: (_) => PaymentBloc(PaymentRepository()),
       child: Scaffold(
-        appBar:AppBar(
-          // backgroundColor: Color(0xFFB226B2),
-          flexibleSpace:  Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: <Color>[Color(0xFFB226B2),
-                    Colors.orange]),
-            ),
-          ),
-          title:Text(
-            "Student Register",
-            style: TextStyle(
-                color: Colors.white,
-                fontFamily: 'Pacifico',
-                fontSize: 30,
-                fontWeight: FontWeight.w200),
-
-          ),
-          iconTheme: const IconThemeData(
-            color: Colors.white, //change your color here
-          ),
-        ),
+        appBar:appBarTheme("Student Register"),
         body: BlocBuilder<LogInBloc, LogInState>(
           builder: (context, state) => SizedBox(
             height: screenHeight,
@@ -47,7 +24,6 @@ class RegistrationScreen extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-
                   const SizedBox(
                     height: 40,
                   ),
@@ -103,7 +79,7 @@ class _RegistrationTypeScreenState extends State<RegistrationTypeScreen> {
             style: TextStyle(
                 color: Colors.white,
                 fontFamily: 'Pacifico',
-                fontSize: 30,
+                fontSize: 20,
                 fontWeight: FontWeight.w200),
 
           ),
@@ -130,7 +106,7 @@ class _RegistrationTypeScreenState extends State<RegistrationTypeScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const SizedBox(
-                    height: 100,
+                    height: 50,
                   ),
                   Container(height: 150,width: 150,
                     child: ElevatedButton(
@@ -169,7 +145,6 @@ class _RegistrationTypeScreenState extends State<RegistrationTypeScreen> {
                           BlocProvider<LogInBloc>.value(
                             value: logInBloc,
                             child: RegisterationInstructorScreen(userStatus: "individual_instructor",),
-
                           ),
                         ),
                       );},
@@ -191,7 +166,8 @@ class _RegistrationTypeScreenState extends State<RegistrationTypeScreen> {
                   ),
                   Container(height: 150,width: 150,
                     child: ElevatedButton(
-                      onPressed: () {               Navigator.push(
+                      onPressed: () {               
+                        Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) =>

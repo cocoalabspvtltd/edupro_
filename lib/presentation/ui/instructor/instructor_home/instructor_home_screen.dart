@@ -77,15 +77,7 @@ class _InstructorHomeScreenState extends State<InstructorHomeScreen> {
       ],
       child: Scaffold(
         key: _scaffoldKey,
-        appBar: AppBar(
-          backgroundColor: Colors.black,
-          title: Text(
-            title[_selectedIndex],
-            style: appBarText,
-          ),
-          leading: InstructorMenuSwitch(_scaffoldKey),
-          leadingWidth: 38,
-        ),
+        appBar: appBarTheme("${title[_selectedIndex]}"),
         drawer: InstructorDrawerWidget(
           context: context,
           scaffoldKey: _scaffoldKey,
@@ -122,68 +114,87 @@ class _InstructorHomeScreenState extends State<InstructorHomeScreen> {
             //                 ? IstructorHomeBody()
             //                 : Center(child: Text("hai"))
         ),
-        bottomNavigationBar: BottomNavyBar(
-            backgroundColor: Colors.black,
-            //containerHeight: 60,
-            selectedIndex: _selectedIndex,
-            showElevation: false, // use this to remove appBar's elevation
-            itemCornerRadius: 6,
-            onItemSelected: (index) => setState(() {
-                  _selectedIndex = index;
-                  _pageController.animateToPage(index,
-                      duration: const Duration(milliseconds: 300),
-                      curve: Curves.ease);
-                }),
-            items: [
-              BottomNavyBarItem(
-                icon: _selectedIndex == 0
-                    ? Image.asset(
-                        'assets/icons/drawer_icons/home-sltd.png',
-                        height: 25,
-                        fit: BoxFit.contain,
-                      )
-                    : Image.asset(
-                        'assets/icons/drawer_icons/home.png',
-                        color: Colors.white,
-                        height: 25,
-                        fit: BoxFit.contain,
-                      ), //const Icon(Icons.apps),
-                title: const Text(
-                  'Home',
-                ),
-                activeColor: primaryColor,
+        bottomNavigationBar:
+        Stack(
+          children: [
+            Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: <Color>[
+                      Colors.orange,
+                      Color(0xFFB226B2),
+                    ]),
               ),
-              BottomNavyBarItem(
-                icon: _selectedIndex == 1
-                    ? Image.asset(
-                        'assets/icons/drawer_icons/my-course-sltd.png',
-                        height: 30,
-                        fit: BoxFit.contain,
-                      )
-                    : Image.asset(
-                        'assets/icons/drawer_icons/my-course.png',
-                        color: Colors.white,
-                        height: 25,
-                        fit: BoxFit.contain,
-                      ),
-                title: const Text(
-                  'My Courses',
-                ),
-                activeColor: primaryColor,
-              ),
-              BottomNavyBarItem(
-                icon:  _selectedIndex == 2 ?Image.asset('assets/icons/drawer_icons/profile-sltd.png',
-                  height: 30,
-                  fit: BoxFit.contain,
-                ):Image.asset('assets/icons/drawer_icons/profile.png', color: Colors.white,
-                  height: 25,
-                  fit: BoxFit.contain,),
-                title: const Text(
-                  'My Profile',
-                ),
-                activeColor: primaryColor,
-              ),
-            ]),
+              // i have found out the height of the bottom navigation bar is roughly 60
+              height: 60,
+            ),
+            BottomNavyBar(
+                backgroundColor: Colors.transparent,
+                //containerHeight: 60,
+                selectedIndex: _selectedIndex,
+                showElevation: false, // use this to remove appBar's elevation
+                itemCornerRadius: 6,
+                onItemSelected: (index) => setState(() {
+                      _selectedIndex = index;
+                      _pageController.animateToPage(index,
+                          duration: const Duration(milliseconds: 300),
+                          curve: Curves.ease);
+                    }),
+                items: [
+                  BottomNavyBarItem(
+                    icon: _selectedIndex == 0
+                        ? Image.asset(
+                            'assets/icons/drawer_icons/home-sltd.png',
+                            height: 25,
+                            fit: BoxFit.contain,
+                      color: Colors.white,
+                          )
+                        : Image.asset(
+                            'assets/icons/drawer_icons/home.png',
+                            height: 25,
+                            fit: BoxFit.contain,
+                          ), //const Icon(Icons.apps),
+                    title: const Text(
+                      'Home',
+                    ),
+                    activeColor: Colors.white,
+                  ),
+                  BottomNavyBarItem(
+                    icon: _selectedIndex == 1
+                        ? Image.asset(
+                            'assets/icons/drawer_icons/my-course-sltd.png',
+                            height: 30,
+                            fit: BoxFit.contain,
+                      color: Colors.white,
+                          )
+                        : Image.asset(
+                            'assets/icons/drawer_icons/my-course.png',
+                            height: 25,
+                            fit: BoxFit.contain,
+                          ),
+                    title: const Text(
+                      'My Courses',
+                    ),
+                    activeColor: Colors.white,
+                  ),
+                  BottomNavyBarItem(
+                    icon:  _selectedIndex == 2 ?Image.asset('assets/icons/drawer_icons/profile-sltd.png',
+                      height: 30,
+                      fit: BoxFit.contain,
+                      color: Colors.white,
+                    ):Image.asset('assets/icons/drawer_icons/profile.png',
+                      height: 25,
+                      fit: BoxFit.contain,),
+                    title: const Text(
+                      'My Profile',
+                    ),
+                    activeColor: Colors.white,
+                  ),
+                ]),
+          ],
+        ),
       ),
     );
     //   MultiBlocProvider(

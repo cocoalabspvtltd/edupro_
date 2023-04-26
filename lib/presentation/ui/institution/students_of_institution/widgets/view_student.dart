@@ -37,13 +37,7 @@ class _EditStudentScreenState extends State<EditStudentScreen> {
     BuildContext context,
   ) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.black,
-          title: Text(
-            "Edit Student",
-            style: boldValuePrimaryColor,
-          ),
-        ),
+        appBar: appBarTheme("Edit Student"),
         body: BlocProvider(
           create: (context) => InsiistutionStudentBloc(
             CourseRepository(),

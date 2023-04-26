@@ -32,13 +32,7 @@ class _EditDepartmentScreenState extends State<EditDepartmentScreen> {
     print("details-->${widget.depatmentdetails.name}");
     print("details-->${widget.depatmentdetails.id}");
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.black,
-          title: Text(
-            "Edit Department",
-            style: boldValuePrimaryColor,
-          ),
-        ),
+        appBar: appBarTheme("Edit Department"),
         body:
         BlocProvider(create: (_)=>EditDepartmentBloc(CourseRepository()),
           child: SingleChildScrollView(

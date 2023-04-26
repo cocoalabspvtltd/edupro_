@@ -30,7 +30,7 @@ class CourseListingScreen extends StatelessWidget {
         //..add(PaymentEvent())),
       ],
       child: Scaffold(
-        appBar: AppBar(title: Text('$categoryName Courses')),
+        appBar: appBarTheme("$categoryName Courses"),
         body: BlocBuilder<CoursesBloc, CoursesState>(
           builder: (context, state) {
             return state.map(

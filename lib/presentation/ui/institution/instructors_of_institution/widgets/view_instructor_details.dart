@@ -17,10 +17,7 @@ class _ViewInstructorDetailsCreenState extends State<ViewInstructorDetailsCreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text('Instructor details',style: boldValuePrimaryColor,),
-      ),
+      appBar: appBarTheme("Instructor details"),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(10.0),

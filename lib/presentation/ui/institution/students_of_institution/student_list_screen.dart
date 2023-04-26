@@ -23,15 +23,8 @@ class InsistutionStudentlistScreen extends StatelessWidget {
   @override
 
   Widget build(BuildContext context) {
- 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text(
-          "students",
-          style: boldValuePrimaryColor,
-        ),
-      ),
+      appBar: appBarTheme("students"),
       body: MultiBlocProvider(
         providers:[ 
           BlocProvider(
@@ -43,9 +36,7 @@ class InsistutionStudentlistScreen extends StatelessWidget {
             create: (_) => StudentDeletionBloc(CourseRepository())
               ..add( StudentDeletionEvent.saveAndUpdatePressed()),
 
-
           ),
-
     ], child:  Scaffold(
         body: BlocBuilder<AllCategoriesBloc, AllCategoriesState>(
           builder: (context, state) {

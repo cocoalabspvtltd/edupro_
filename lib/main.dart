@@ -52,8 +52,6 @@ class MyApp extends StatelessWidget {
                 ButtonTheme.of(context).copyWith(buttonColor: primaryColor),
             appBarTheme: AppBarTheme.of(context).copyWith(
               systemOverlayStyle: SystemUiOverlayStyle.light,
-              color: secondaryColor,
-              foregroundColor: Colors.black,
               elevation: 0,
               titleTextStyle: appBarText,
               iconTheme: IconThemeData(color: scaffoldBackgroundColor),

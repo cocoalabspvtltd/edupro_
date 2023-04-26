@@ -19,10 +19,7 @@ class _ViewCourseDetailsScreenState extends State<ViewCourseDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text('Course  details',style: boldValuePrimaryColor,),
-      ),
+      appBar: appBarTheme("Course  details"),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Column(

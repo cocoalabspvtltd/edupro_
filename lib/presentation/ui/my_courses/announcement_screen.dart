@@ -20,9 +20,7 @@ class AnnouncementScreen extends StatelessWidget {
       child:
           BlocBuilder<MyCourseBloc, MyCourseState>(builder: (context, state) {
         return Scaffold(
-          appBar: AppBar(
-            title: const Text("Announcements"),
-          ),
+          appBar: appBarTheme("Announcements"),
           body: RefreshIndicator(
             onRefresh: () async {
               context

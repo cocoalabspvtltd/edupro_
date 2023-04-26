@@ -16,7 +16,7 @@ class MembershipScreen extends StatelessWidget {
       create: (_) => MembershipBloc(MembershipRepository())
         ..add(const MembershipEvent.loadData()),
       child: Scaffold(
-        appBar: AppBar(title: const Text("Membership")),
+        appBar:appBarTheme("Membership"),
         body: BlocBuilder<MembershipBloc, MembershipState>(
             builder: (context, state) {
           return state.loadFailureOrSuccessOption.fold(() {
@@ -67,7 +67,19 @@ class MembershipScreen extends StatelessWidget {
                   : Container(
                       width: screenWidth,
                       height: screenHeight,
-                      decoration: BoxDecoration(color: primaryColor),
+                      decoration: BoxDecoration(
+                          gradient:LinearGradient(
+                              colors: [
+                                Color(0xFFB226B2),
+                                Colors.orange
+                              ],
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter)
+                        // image: DecorationImage(
+                        //   image: AssetImage("assets/icons/register_icons/backgroundnew.jpg"),
+                        //   fit: BoxFit.cover,
+                        // ),
+                      ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -111,7 +123,7 @@ class MembershipScreen extends StatelessWidget {
                             "Started on: ${r.details?.purchasedDate ?? 'no data'}\n\nEnds on: ${r.details?.expiryDate ?? 'no data'}",
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              color: primaryColor[100],
+                              color: Colors.black45,
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
                             ),
