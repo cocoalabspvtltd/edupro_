@@ -1,9 +1,11 @@
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pgs_edupro/application/auth/login_bloc/log_in_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
+import 'package:pgs_edupro/presentation/ui/auth/log_in/login_screen.dart';
 import 'package:pgs_edupro/presentation/ui/institution/institution_home/institution_home_screen.dart';
 
 class RegisterationInstitutionScreen extends StatefulWidget {
@@ -49,7 +51,8 @@ class _RegisterationInstitutionScreenState
                 },
                     (_) async {
                   if (widget.userStatus == 'institution') {
-                    Get.offAll(() => InstitutionHomeScreen());
+                    Fluttertoast.showToast(msg: "${state.userStatus}");
+                    Get.offAll(() => LogInScreen());
                   }
                 },
               );
@@ -214,7 +217,6 @@ class _RegisterationInstitutionScreenState
                                   context.read<LogInBloc>().add(LogInEvent.registerWithInstitutionEmailAndPasswordPressed(
                                       widget.userStatus));
 
-                                  //Get.offAll(() => InstitutionHomeScreen());
                                 }
                               },
                               style: ElevatedButton.styleFrom(

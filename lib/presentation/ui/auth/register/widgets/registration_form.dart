@@ -1,8 +1,10 @@
 import 'package:another_flushbar/flushbar_helper.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pgs_edupro/application/auth/auth_bloc.dart';
 import 'package:pgs_edupro/application/auth/login_bloc/log_in_bloc.dart';
 import 'package:pgs_edupro/application/payment/payment_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
+import 'package:pgs_edupro/presentation/ui/auth/log_in/login_screen.dart';
 import 'package:pgs_edupro/presentation/ui/auth/register/widgets/registration_edu_user_message.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -63,7 +65,9 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   },
                   (_) async {
                     if (state.userStatus == 'new_user') {
-                      Get.offAll(() => const MembershipCheckScreen());
+                      Fluttertoast.showToast(msg: "${state.userStatus}");
+                      Get.offAll(() => LogInScreen());
+                      // Get.offAll(() => const MembershipCheckScreen());
                       Get.dialog(
                         Center(
                           child: Padding(
