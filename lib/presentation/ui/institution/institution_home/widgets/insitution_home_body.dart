@@ -75,15 +75,13 @@ class InstitutionHomeBody extends StatelessWidget {
                 child: Text(
                   "Welcome !!\n ${UserDetailsLocal.userName} ",
                   style: TextStyle(
-                    fontSize: 27,
+                    fontSize: 20,
                     color: Colors.white,
                     fontWeight: FontWeight.w500,
                     fontFamily: "Pacifico",
                   ),
                 )
               ),
-
-
               thickSpace,
               thickSpace,
               CourtScreen(),

@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/shared_prefs.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
+import 'package:pgs_edupro/presentation/ui/bid_products/bid_product_list.dart';
 import 'package:pgs_edupro/presentation/ui/course/course_report_screen.dart';
 import 'package:pgs_edupro/presentation/ui/home/home_screen.dart';
 import 'package:pgs_edupro/presentation/ui/membership/membership_screen.dart';
@@ -25,7 +26,6 @@ class DrawerWidget extends StatelessWidget {
     return SafeArea(
       child: Drawer(
         elevation: 0,
-
         shape: const RoundedRectangleBorder(),
         backgroundColor: Colors.orangeAccent,
         width: screenWidth - (screenWidth / 5),
@@ -33,7 +33,6 @@ class DrawerWidget extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           children: [
             Material(
-
               child: SafeArea(
                 child: InkWell(
                   onTap: () {
@@ -175,7 +174,11 @@ class DrawerWidget extends StatelessWidget {
                       child: ExpansionTile(
                         title: Text(
                           "Hospitallity Offers",
-                          style: TextStyle(fontSize: 16),
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            fontSize: 16,
+                          ),
                         ),
                         leading: Container(
                           height: 38,
@@ -201,6 +204,15 @@ class DrawerWidget extends StatelessWidget {
                         ],
                       ),
                     ),
+                    SizedBox(height: 10,),
+                    _drawerMenuItem(
+                        Image.asset(
+                            'assets/icons/drawer_icons/my-course-sltd.png'),
+                        'Auction', () {
+                      Get.to(() =>  const BidProductlistScreen(
+                        fromHome: false,
+                      ));
+                    }),
                     SizedBox(height: 10,),
                     _drawerMenuItem(
                         Image.asset(
