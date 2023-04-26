@@ -28,6 +28,7 @@ class Api {
   static String postOaymentId = 'api/payment';
   static String getHotelList = 'api/hotel-list';
   static String getVoucherList = 'api/voucher-list';
+  static String getBidList = 'api/bid_products';
 
 
   ///////////////////////////////////////////////////INSTRUCTOR//////////////////////////////////////

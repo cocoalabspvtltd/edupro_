@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:pgs_edupro/application/auth/auth_bloc.dart';
 import 'package:pgs_edupro/application/auth/login_bloc/log_in_bloc.dart';
@@ -196,10 +195,11 @@ class _LogInFormState extends State<LogInForm> {
                               begin: Alignment.topCenter,
                               end: Alignment.bottomCenter)),
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Center(
                             child: Padding(
-                              padding: EdgeInsets.only(left: 90.0, top: 50),
+                              padding: EdgeInsets.only(left: 90.0, top: 90),
                               child: Image.asset(
                                 'assets/splash/PGEduLOGO.png',
                                 height: 100,
@@ -209,7 +209,7 @@ class _LogInFormState extends State<LogInForm> {
                           ),
                           const Center(
                             child: Padding(
-                              padding: EdgeInsets.only(top: 50),
+                              padding: EdgeInsets.only(top: 90),
                               child: Text(
                                 "Pg's\nEducating Values",
                                 style: TextStyle(
@@ -469,7 +469,7 @@ class _LogInFormState extends State<LogInForm> {
                               )
                             ],
                           ),
-                          thickSpaceLogin,
+                          SizedBox(height: screenHeight * 0.04,),
                           const Center(
                             child: Padding(
                               padding: EdgeInsets.only(top: 100),
