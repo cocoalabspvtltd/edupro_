@@ -7,6 +7,7 @@ import 'package:pgs_edupro/infrastructure/remote_data/models/ads/ads_response.da
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_web_browser/flutter_web_browser.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class AdsScreen extends StatelessWidget {
   const AdsScreen({super.key});
@@ -39,7 +40,7 @@ class AdsScreen extends StatelessWidget {
                                   int pageViewIndex) =>
                               InkWell(
                                 onTap: () {
-                                  //launchUrlString('https://www.google.com');
+                                  // launchUrlString('https://www.google.com');
                                   FlutterWebBrowser.openWebPage(
                                     url: response.adsList?[itemIndex].url ?? '',
                                     customTabsOptions: CustomTabsOptions(
@@ -66,7 +67,7 @@ class AdsScreen extends StatelessWidget {
                                   );
                                 },
                                 child: CachedNetworkImage(
-                                  fit: BoxFit.cover,
+                                  fit: BoxFit.fitHeight,
                                   imageUrl: UserDetailsLocal.storageBaseUrl +
                                       (response.adsList?[itemIndex].image ??
                                           ''),

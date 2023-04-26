@@ -1,97 +1,198 @@
 class MyCoursesResponse {
-  MyCoursesResponse({
-    required this.status,
-    required this.message,
-    required this.myCourseData,
-  });
-  late final bool status;
-  late final int statusCode;
-  late final String message;
-  late final List<MyCourseData>? myCourseData;
+  bool? success;
+  int? statusCode;
+  List<MyCourseData>? myCourseData;
+
+  MyCoursesResponse({this.success, this.statusCode, this.myCourseData});
 
   MyCoursesResponse.fromJson(Map<String, dynamic> json) {
-    status = json['success'];
+    success = json['success'];
     statusCode = json['status_code'];
-    //message = json['message'];
-    myCourseData = json['my_course_data'] != null
-        ? List.from(json['my_course_data'])
-            .map((e) => MyCourseData.fromJson(e))
-            .toList()
-        : null;
+    if (json['my_course_data'] != null) {
+      myCourseData = <MyCourseData>[];
+      json['my_course_data'].forEach((v) {
+        myCourseData!.add(new MyCourseData.fromJson(v));
+      });
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['success'] = this.success;
+    data['status_code'] = this.statusCode;
+    if (this.myCourseData != null) {
+      data['my_course_data'] =
+          this.myCourseData!.map((v) => v.toJson()).toList();
+    }
+    return data;
   }
 }
 
 class MyCourseData {
-  MyCourseData({
-    required this.courseId,
-    required this.title,
-    required this.instructors,
-    required this.courseCategory,
-    required this.courseThumbnail,
-    required this.courseDuration,
-    required this.aboutCourse,
-  });
-  late final int? courseId;
-  late final String? title;
-  late final List<Instructors>? instructors;
-  late final String? courseCategory;
-  late final String? courseThumbnail;
-  late final String? courseDuration;
-  late final AboutCourse? aboutCourse;
+  String? title;
+  String? description;
+  String? instructor;
+  String? url;
+  String? embadedUrl;
+  String? courseThumbnail;
+  String? createdAt;
+  String? updatedAt;
+  int? courseId;
+  String? price;
+  String? courseCategory;
+  String? courseDuration;
+  String? instituteName;
+  List<Instructors>? instructors;
+  AboutCourse? aboutCourse;
+
+  MyCourseData(
+      {this.title,
+        this.description,
+        this.instructor,
+        this.url,
+        this.embadedUrl,
+        this.courseThumbnail,
+        this.createdAt,
+        this.updatedAt,
+        this.courseId,
+        this.price,
+        this.courseCategory,
+        this.courseDuration,
+        this.instituteName,
+        this.instructors,
+        this.aboutCourse});
 
   MyCourseData.fromJson(Map<String, dynamic> json) {
-    courseId = json['course_id'];
     title = json['title'];
-    instructors = json['instructors'] != null
-        ? List.from(json['instructors'])
-            .map((e) => Instructors.fromJson(e))
-            .toList()
-        : null;
-    courseCategory = json['course_category'];
+    description = json['description'];
+    instructor = json['instructor'];
+    url = json['url'];
+    embadedUrl = json['embaded_url'];
     courseThumbnail = json['course_thumbnail'];
+    createdAt = json['created_at'];
+    updatedAt = json['updated_at'];
+    courseId = json['course_id'];
+    price = json['price'];
+    courseCategory = json['course_category'];
     courseDuration = json['course_duration'];
+    instituteName = json['institute_name'];
+    if (json['instructors'] != null) {
+      instructors = <Instructors>[];
+      json['instructors'].forEach((v) {
+        instructors!.add(new Instructors.fromJson(v));
+      });
+    }
     aboutCourse = json['about_course'] != null
-        ? AboutCourse.fromJson(json['about_course'])
+        ? new AboutCourse.fromJson(json['about_course'])
         : null;
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['title'] = this.title;
+    data['description'] = this.description;
+    data['instructor'] = this.instructor;
+    data['url'] = this.url;
+    data['embaded_url'] = this.embadedUrl;
+    data['course_thumbnail'] = this.courseThumbnail;
+    data['created_at'] = this.createdAt;
+    data['updated_at'] = this.updatedAt;
+    data['course_id'] = this.courseId;
+    data['price'] = this.price;
+    data['course_category'] = this.courseCategory;
+    data['course_duration'] = this.courseDuration;
+    data['institute_name'] = this.instituteName;
+    if (this.instructors != null) {
+      data['instructors'] = this.instructors!.map((v) => v.toJson()).toList();
+    }
+    if (this.aboutCourse != null) {
+      data['about_course'] = this.aboutCourse!.toJson();
+    }
+    return data;
   }
 }
 
 class Instructors {
-  Instructors({
-    required this.name,
-    required this.displayPicture,
-    required this.description,
-    required this.qualification,
-    required this.instituteName,
-  });
-  late final String? name;
-  late final String? displayPicture;
-  late final String? description;
-  late final String? qualification;
-  late final String? instituteName;
+  int? id;
+  String? name;
+  String? email;
+  String? phoneNumber;
+  String? description;
+  String? courses;
+  String? qualification;
+  String? instituteName;
+  String? displayPicture;
+  Null? approvalStatus;
+  String? createdAt;
+  String? updatedAt;
+
+  Instructors(
+      {this.id,
+        this.name,
+        this.email,
+        this.phoneNumber,
+        this.description,
+        this.courses,
+        this.qualification,
+        this.instituteName,
+        this.displayPicture,
+        this.approvalStatus,
+        this.createdAt,
+        this.updatedAt});
 
   Instructors.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
     name = json['name'];
-    displayPicture = json['display_picture'];
+    email = json['email'];
+    phoneNumber = json['phone_number'];
     description = json['description'];
+    courses = json['courses'];
     qualification = json['qualification'];
     instituteName = json['institute_name'];
+    displayPicture = json['display_picture'];
+    approvalStatus = json['approval_status'];
+    createdAt = json['created_at'];
+    updatedAt = json['updated_at'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['name'] = this.name;
+    data['email'] = this.email;
+    data['phone_number'] = this.phoneNumber;
+    data['description'] = this.description;
+    data['courses'] = this.courses;
+    data['qualification'] = this.qualification;
+    data['institute_name'] = this.instituteName;
+    data['display_picture'] = this.displayPicture;
+    data['approval_status'] = this.approvalStatus;
+    data['created_at'] = this.createdAt;
+    data['updated_at'] = this.updatedAt;
+    return data;
   }
 }
 
 class AboutCourse {
-  AboutCourse({
-    required this.aboutTitle,
-    required this.aboutDescription,
-  });
-  late final String? aboutTitle;
-  late final String? aboutDescription;
+  String? aboutTitle;
+  String? aboutDescription;
+
+  AboutCourse({this.aboutTitle, this.aboutDescription});
 
   AboutCourse.fromJson(Map<String, dynamic> json) {
     aboutTitle = json['about_title'];
     aboutDescription = json['about_description'];
   }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['about_title'] = this.aboutTitle;
+    data['about_description'] = this.aboutDescription;
+    return data;
+  }
 }
+
+
 class InstructorCourseListResponse {
   bool? success;
   int? statusCode;

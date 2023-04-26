@@ -74,7 +74,7 @@ class _VoucherlistScreenState extends State<VoucherlistScreen> {
                                 width: screenWidth,
                                 height: screenHeight * 0.08,
                                 child: Card(
-                                  color: Colors.lightBlue[100],
+                                  color: Colors.deepPurple[100],
                                   child: Center(child: Text("Choose Discount coupons Upto Rs:${widget.discount}",
                                     style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),)),
                                 ),
@@ -83,7 +83,7 @@ class _VoucherlistScreenState extends State<VoucherlistScreen> {
                                   itemCount: res.vouchers!.length,
                                   options: CarouselOptions(
                                     autoPlay: false,
-                                    aspectRatio: 1 / (3 / 2.5),
+                                    aspectRatio: 1 / (5/ 2.5),
                                     enableInfiniteScroll: false,
                                     enlargeCenterPage: true,
                                   ),
@@ -123,13 +123,14 @@ class _VoucherlistScreenState extends State<VoucherlistScreen> {
                                         const SizedBox(
                                           height: 25,
                                         ),
+                                        thickSpace,
                                         SizedBox(
-                                          height: 50,
+                                          height: 40,
                                           child: ListView.separated(
                                               separatorBuilder:
                                                   (BuildContext context, int index) {
                                                 return SizedBox(
-                                                  width: 3,
+                                                  width: 5,
                                                 );
                                               },
                                               physics: ClampingScrollPhysics(),
@@ -137,41 +138,36 @@ class _VoucherlistScreenState extends State<VoucherlistScreen> {
                                               itemCount: offers.length,
                                               shrinkWrap: true,
                                               itemBuilder: (context, index) {
-                                                return SizedBox(
-                                                  height: 10,
-                                                  width: 100,
-                                                  child: Card(
-                                                      clipBehavior: Clip.antiAlias,
-                                                      elevation: 0,
-                                                      color: Colors.white,
+                                                return InkWell(
+                                                  onTap: () {
+                                                    setState(() {
+                                                      selectedIndex = index;
+                                                    });
+                                                  },
+                                                  child: SizedBox(
+                                                    width: 65,
+                                                    child: Card(
+                                                      color: selectedIndex == index
+                                                          ? Colors.deepPurple[100]
+                                                          : Colors.white,
+                                                        elevation: 0,
                                                       shape: RoundedRectangleBorder(
                                                           side: BorderSide(
-                                                              color:primaryColor,
+                                                              color:Colors.black,
                                                               width: 0.6),
                                                           borderRadius: BorderRadius.circular(5)),
-                                                      child: ListTile(
-                                                        selected:
-                                                        selectedIndex == index ? true : false,
-                                                        selectedTileColor:primaryColor,
-                                                        selectedColor: Colors.white,
-                                                        title: Padding(
-                                                          padding: const EdgeInsets.only(
-                                                              bottom: 15, left: 15),
-                                                          child: Text(
-                                                            offers[index],
-                                                            style: TextStyle(
-                                                                color: selectedIndex == index
-                                                                    ? Colors.white
-                                                                    : Colors.black,fontSize: 15
-                                                            ),
+                                                      child:Center(
+                                                        child: Text(
+                                                          offers[index],
+                                                          style: TextStyle(
+                                                              color: selectedIndex == index
+                                                                  ? Colors.white
+                                                                  : Colors.black,fontSize: 15
                                                           ),
                                                         ),
-                                                        onTap: ()  {
-                                                          setState(() {
-                                                            selectedIndex = index;
-                                                          });
-                                                        },
-                                                      )),
+                                                      ),
+                                                    ),
+                                                  ),
                                                 );
                                               }),
                                         ),

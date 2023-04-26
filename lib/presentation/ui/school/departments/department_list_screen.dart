@@ -63,9 +63,13 @@ class SchoolDepartmentlistScreen extends StatelessWidget {
                     ),
                     loadSuccess: (state) {
                       DepartmentListResponse res = state.response;
-                      return res.department != null ||
-                          res.department!.isNotEmpty
-                          ?  Column(
+                      return res.department!.isEmpty
+                          ?  SizedBox(
+                          height: screenHeight -
+                              180, //!fromHome ? screenHeight : 300,
+                          width: screenWidth,
+                          child: const CommonResultsEmptyWidget())
+                      : Column(
                         children: [
                           const SizedBox(
                             height: 25,
@@ -160,12 +164,8 @@ class SchoolDepartmentlistScreen extends StatelessWidget {
                             },
                           ),
                         ],
-                      )
-                          : SizedBox(
-                          height: screenHeight -
-                              180, //!fromHome ? screenHeight : 300,
-                          width: screenWidth,
-                          child: const CommonResultsEmptyWidget());
+                      );
+
                     },
                     loadFailure: (state) {
                       return state.networkFailure.map(

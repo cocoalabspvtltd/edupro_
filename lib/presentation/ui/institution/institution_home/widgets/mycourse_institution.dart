@@ -40,9 +40,13 @@ class InstitutionMyCoursesScreen extends StatelessWidget {
                 ),
                 loadSuccess: (state) {
                   InsistutionResponse res = state.response;
-                  return res.course != null ||
-                      res.course!.isNotEmpty
-                      ?  Column(
+                  return res.course!.isEmpty
+                      ? SizedBox(
+                      height: screenHeight -
+                          180, //!fromHome ? screenHeight : 300,
+                      width: screenWidth,
+                      child: const CommonResultsEmptyWidget())
+                  : Column(
                     children: [
                       const SizedBox(
                         height: 25,
@@ -135,12 +139,8 @@ class InstitutionMyCoursesScreen extends StatelessWidget {
                         },
                       ),
                     ],
-                  )
-                      : SizedBox(
-                      height: screenHeight -
-                          180, //!fromHome ? screenHeight : 300,
-                      width: screenWidth,
-                      child: const CommonResultsEmptyWidget());
+                  );
+
                 },
                 loadFailure: (state) {
                   return state.networkFailure.map(
