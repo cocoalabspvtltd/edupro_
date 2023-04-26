@@ -5,10 +5,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
+import 'package:pgs_edupro/presentation/ui/instructor/instructor_add_course/add_course_form.dart';
 
 import '../../../../application/instructor/instructor_bloc.dart';
 import '../../../../infrastructure/remote_data/repositories/course/course_repository.dart';
-import 'add_course1.dart';
 
 
 class AddCourse extends StatelessWidget {
@@ -17,13 +17,7 @@ class AddCourse extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.black,
-          title: Text(
-            "Add Courses",
-            style: boldValuePrimaryColor,
-          ),
-        ),
+        appBar: appBarTheme("Add Courses"),
       body:
       BlocProvider(create: (_)=>InstructorBloc(CourseRepository()),
         child: SingleChildScrollView(

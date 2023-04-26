@@ -130,13 +130,13 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 physics: const NeverScrollableScrollPhysics(),
                 padding: const EdgeInsets.all(15.0),
                 children: <Widget>[
-                  SizedBox(height: screenHeight * .08),
-                  Container( decoration: BoxDecoration(
+                  Container(
+                    width: screenWidth * 0.04,
+                    decoration: BoxDecoration(
                       color: Colors.white,
-                      //border: Border.all(color: Colors.grey),
                       borderRadius: BorderRadius.circular(10)),
                     margin: const EdgeInsets.fromLTRB(20,10, 20, 10),
-                    padding: const EdgeInsets.fromLTRB(10, 0, 10, 25),
+                    padding: const EdgeInsets.fromLTRB(5, 5, 8, 25),
                     child: Column(
                       children: [
                         TextFormField(
@@ -160,7 +160,6 @@ class _RegistrationFormState extends State<RegistrationForm> {
                                     (_) => null,
                                   ),
                         ),
-
                         const SizedBox(height: 25),
                         TextFormField(
                           textInputAction: TextInputAction.done,
@@ -238,7 +237,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                             ),
                           ],
                         ),
-                        SizedBox(height: screenHeight * .06),
+                        SizedBox(height: screenHeight * .04),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -259,11 +258,11 @@ class _RegistrationFormState extends State<RegistrationForm> {
                             ),
                           ],
                         ),
-                    thickSpaceLogin
+                    thickSpace,
+                        thickSpace
                       ],
                     ),
                   ),
-
                   Padding(
                     padding: const EdgeInsets.only(left: 50, right: 50),
                     child: SizedBox(

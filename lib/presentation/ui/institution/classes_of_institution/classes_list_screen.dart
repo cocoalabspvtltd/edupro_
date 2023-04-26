@@ -23,13 +23,7 @@ class InsistutionClassesListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text(
-          "Classes",
-          style: boldValuePrimaryColor,
-        ),
-      ),
+      appBar: appBarTheme("Classes"),
       body: MultiBlocProvider(
   providers: [
     BlocProvider(

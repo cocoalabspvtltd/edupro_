@@ -2,9 +2,9 @@ import 'package:dartz/dartz.dart';
 import 'package:pgs_edupro/domain/video/i_video_repository.dart';
 import 'package:pgs_edupro/domain/video/video_failure.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
-import 'package:pgs_edupro/infrastructure/remote_data/models/video/video_response.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/models/video/video_response.dart';
 
 part 'live_videos_bloc_event.dart';
 part 'live_videos_bloc_state.dart';

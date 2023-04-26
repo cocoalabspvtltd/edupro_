@@ -36,7 +36,9 @@ MaterialColor secondaryColor = MaterialColor(int.parse("0xff009F18"), const {
 
 Color scaffoldBackgroundColor = const Color.fromARGB(255, 248, 247, 255);
 
+
 Color secondaryColorShade = const Color(0xff001043);
+
 
 List<Color> themeGradients = [
   const Color(0xff03273c),
@@ -104,12 +106,28 @@ double getFileSizeInMb(File file) {
   log('${file.path}: $sizeInMb');
   return sizeInMb;
 }
-
+AppBar appBarTheme(String text) {
+  return AppBar(
+  flexibleSpace: Container(
+    decoration: const BoxDecoration(
+      gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: <Color>[Color(0xFFB226B2),
+            Colors.orange]),
+    ),
+  ),
+  title: Text(text,style:appBarText ,),
+);
+}
 TextStyle boldHeading = const TextStyle(
     fontSize: 21, fontWeight: FontWeight.bold, color: Colors.black54);
 
 TextStyle appBarText = TextStyle(
-    fontSize: 20, fontWeight: FontWeight.w600, color: primaryColor);
+    fontSize: 18, fontWeight: FontWeight.w200, color: Colors.white,
+    fontFamily: 'Pacifico'
+);
+
 TextStyle boldWord = TextStyle(
     fontSize: 18, fontWeight: FontWeight.bold, color: Colors.grey[700]);
 TextStyle boldWordPrimarycolor = TextStyle(
@@ -130,10 +148,7 @@ SizedBox thickSpace = const SizedBox(
   height: 10,
 );
 SizedBox thickSpaceLogin = const SizedBox(
-  height: 60,
-);
-SizedBox thickSpaceregisteer = const SizedBox(
-  height: 160,
+  height: 30,
 );
 SizedBox thickSpace1 = const SizedBox(
   height: 20,

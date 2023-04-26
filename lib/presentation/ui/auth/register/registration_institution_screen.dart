@@ -26,30 +26,7 @@ class _RegisterationInstitutionScreenState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-       // backgroundColor: Color(0xFFB226B2),
-        flexibleSpace:  Container(
-      decoration: const BoxDecoration(
-      gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: <Color>[Color(0xFFB226B2),
-            Colors.orange]),
-    ),
-    ),
-        title:Text(
-          "Insistution Register",
-          style: TextStyle(
-              color: Colors.white,
-              fontFamily: 'Pacifico',
-              fontSize: 30,
-              fontWeight: FontWeight.w200),
-
-        ),
-        iconTheme: const IconThemeData(
-          color: Colors.white, //change your color here
-        ),
-      ),
+      appBar: appBarTheme("Institution Register"),
       body: BlocConsumer<LogInBloc, LogInState>(
         listener: (context, state) {
           state.authFailureOrSuccessOption.fold(
@@ -87,7 +64,6 @@ class _RegisterationInstitutionScreenState
             child: SingleChildScrollView(
               child: Column(
                 children: [
-
                   const SizedBox(
                     height: 40,
                   ),
@@ -95,7 +71,6 @@ class _RegisterationInstitutionScreenState
                     'assets/icons/register_icons/institution.png',
                     height: 150,
                     color:  Colors.orangeAccent,
-
                   ),
                   Form(
                     autovalidateMode: state.showErrorMessages
@@ -108,8 +83,6 @@ class _RegisterationInstitutionScreenState
                       padding: const EdgeInsets.all(15.0),
                       children: <Widget>[
                         SizedBox(height: screenHeight * .02),
-
-thickSpace,
                         Container(
                           decoration: BoxDecoration(
                               color: Colors.white,
@@ -237,12 +210,10 @@ thickSpace,
                                 //     : null,
                               ),
 
-                              thickSpaceregisteer,
+                              thickSpaceLogin
                             ],
                           ),
                         ),
-
-
                         Padding(
                           padding:
                           const EdgeInsets.only(left: 50, right: 50),

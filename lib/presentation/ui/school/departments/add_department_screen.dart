@@ -23,13 +23,7 @@ class _AddDepartmentsScreenState extends State<AddDepartmentsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.black,
-          title: Text(
-            "Add Departments",
-            style: boldValuePrimaryColor,
-          ),
-        ),
+        appBar: appBarTheme("Add Departments"),
         body:
         BlocProvider(create: (_)=>SchoolDepartmentBloc(CourseRepository()),
           child: SingleChildScrollView(

@@ -23,13 +23,7 @@ class _EditInstructorScreenState extends State<EditInstructorScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.black,
-          title: Text(
-            "Add Instructors",
-            style: boldValuePrimaryColor,
-          ),
-        ),
+        appBar: appBarTheme("Edit Instructor"),
         body:  BlocProvider(
             create: (context) => InstitutionInstructorBloc(
               CourseRepository(),

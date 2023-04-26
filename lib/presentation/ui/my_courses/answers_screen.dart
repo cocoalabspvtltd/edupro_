@@ -54,9 +54,7 @@ class AnswersScreen extends StatelessWidget {
           },
           child: Scaffold(
             key: _scaffoldKey,
-            appBar: AppBar(
-              title: const Text("Answers"),
-            ),
+            appBar:appBarTheme("Answers"),
             body: SingleChildScrollView(
               physics: const AlwaysScrollableScrollPhysics(),
               child: state.isFetchingData

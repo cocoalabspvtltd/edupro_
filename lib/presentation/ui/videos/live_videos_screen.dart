@@ -18,9 +18,7 @@ class LiveVideosScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Currently Live"),
-      ),
+      appBar:appBarTheme("Currently Live"),
       body: BlocProvider(
         create: (context) => LiveVideosBloc(VideoRepository())
           ..add(const LiveVideosEvent.loadVideos()),
@@ -46,7 +44,7 @@ class LiveVideosScreen extends StatelessWidget {
                     ),
               loadSuccess: (state) {
                 VideoResponse res = state.videoResponse;
-                return res.video!.isNotEmpty
+                return res.video != null
                     ? !fromHome
                         ? VideosGridView(
                             videoList: res.video!,
@@ -86,11 +84,11 @@ class LiveVideosScreen extends StatelessWidget {
                               ),
                             ],
                           )
-                    : Container();
-                // SizedBox(
-                //     height: fromHome ? screenHeight : 300,
-                //     width: screenWidth,
-                //     child: const CommonResultsEmptyWidget());
+                    : SizedBox(
+                    height: screenHeight -
+                        180, //!fromHome ? screenHeight : 300,
+                    width: screenWidth,
+                    child: const CommonResultsEmptyWidget());
               },
               loadFailure: (state) {
                 return state.videoFailure.map(

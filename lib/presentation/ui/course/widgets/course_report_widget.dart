@@ -27,7 +27,7 @@ class _CourseReportWidgetState extends State<CourseReportWidget> {
     return BlocBuilder<CoursesBloc, CoursesState>(
       builder: (context, state) {
         return Scaffold(
-          appBar: AppBar(title: const Text("Report")),
+          appBar:appBarTheme("Report"),
           body: Padding(
             padding: const EdgeInsets.all(0.0),
             child: Column(
@@ -38,6 +38,9 @@ class _CourseReportWidgetState extends State<CourseReportWidget> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        thickSpace,
+                        thickSpace,
+                        thickSpace,
                         const Text("From Date"),
                         SizedBox(
                           width: screenWidth / 2 - 25,
@@ -76,6 +79,9 @@ class _CourseReportWidgetState extends State<CourseReportWidget> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        thickSpace,
+                        thickSpace,
+                        thickSpace,
                         const Text("To Date"),
                         SizedBox(
                           width: screenWidth / 2 - 25,
@@ -113,6 +119,8 @@ class _CourseReportWidgetState extends State<CourseReportWidget> {
                     ),
                   ],
                 ),
+                thickSpace,
+                thickSpace,
                 thickSpace,
                 SizedBox(
                   height: 50,

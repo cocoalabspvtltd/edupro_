@@ -24,13 +24,7 @@ class HotellistScreen extends StatelessWidget {
       create: (_) => HotelListBloc(OffersRepository())
         ..add(const HotelListEvent.LoadHotels()),
   child: Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text(
-          "Hotels",
-          style: boldValuePrimaryColor,
-        ),
-      ),
+      appBar: appBarTheme("Hotels"),
       body: BlocBuilder<HotelListBloc, HotelListState>(
         builder: (context, state) {
           return RefreshIndicator(

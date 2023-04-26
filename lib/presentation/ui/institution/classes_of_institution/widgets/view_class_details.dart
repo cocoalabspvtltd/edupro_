@@ -17,10 +17,7 @@ class _ViewClassDetailsScreenState extends State<ViewClassDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text('Class details',style: boldValuePrimaryColor,),
-      ),
+      appBar: appBarTheme("Class details"),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Column(

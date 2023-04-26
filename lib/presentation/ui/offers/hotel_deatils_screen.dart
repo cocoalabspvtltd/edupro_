@@ -79,13 +79,7 @@ class _HotelDetailsScreenState extends State<HotelDetailsScreen>
       create: (_) => HotelListBloc(OffersRepository())
         ..add(const HotelListEvent.LoadHotels()),
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.black,
-          title: Text(
-            "Hotels",
-            style: boldValuePrimaryColor,
-          ),
-        ),
+        appBar: appBarTheme("${widget.hoteldetails.name}"),
         body: BlocBuilder<HotelListBloc, HotelListState>(
           builder: (context, state) {
             return RefreshIndicator(
@@ -277,12 +271,6 @@ class _HotelDetailsScreenState extends State<HotelDetailsScreen>
                                                   hoteldetails:widget.hoteldetails,discount: discount
                                               ));
                                             },
-                                            style: ElevatedButton.styleFrom(
-                                              primary: Colors.black,
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius: BorderRadius.circular(5),
-                                              ),
-                                            ),
                                             child: const Text('Continue'),
                                           ),
                                         ),
