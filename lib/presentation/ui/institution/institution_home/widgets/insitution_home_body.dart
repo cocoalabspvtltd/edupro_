@@ -19,8 +19,12 @@ class InstitutionHomeBody extends StatelessWidget {
   InstitutionHomeBody({super.key});
 
   List<String> titile = ["Code", "Courses", 'Instructors', "Students"];
-  List images=["assets/images/home/institute.jpg","assets/images/home/course.png",
-    "assets/images/home/instructor.png","assets/images/home/students.png"];
+  List images = [
+    "assets/images/home/institute.jpg",
+    "assets/images/home/course.png",
+    "assets/images/home/instructor.png",
+    "assets/images/home/students.png"
+  ];
 
   final colorizeColors = [
     Colors.purple,
@@ -58,53 +62,30 @@ class InstitutionHomeBody extends StatelessWidget {
       child: SingleChildScrollView(
         physics: const AlwaysScrollableScrollPhysics(),
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(13.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               thickSpace,
-              Text("Welcome ${UserDetailsLocal.userName} ",style: TextStyle(fontSize: 23,fontWeight: FontWeight.w500),),
+              ShaderMask(
+                shaderCallback: (bounds) => LinearGradient(
+                  colors: [Colors.orange, Colors.purple],
+                ).createShader(bounds),
+                child: Text(
+                  "Welcome !!\n ${UserDetailsLocal.userName} ",
+                  style: TextStyle(
+                    fontSize: 27,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500,
+                    fontFamily: "Pacifico",
+                  ),
+                )
+              ),
+
+
               thickSpace,
               thickSpace,
-              // Container(
-              //     height: screenHeight * 0.28,
-              //     width: screenWidth * 0.96,
-              //     child: GridView.builder(
-              //         gridDelegate:
-              //         SliverGridDelegateWithFixedCrossAxisCount(
-              //             crossAxisCount: 2,
-              //             crossAxisSpacing: 14,
-              //             mainAxisSpacing: 10,
-              //             childAspectRatio: 0.7 / 0.4),
-              //         itemCount: titile.length,
-              //         itemBuilder: (BuildContext context, int index) {
-              //           return Container(
-              //             height:screenHeight * 0.4 ,
-              //             decoration: BoxDecoration(
-              //               borderRadius: BorderRadius.circular(12.0),
-              //               border: Border.all(
-              //                 color: Colors.black,
-              //               ),
-              //             ),
-              //             child: Row(
-              //               children: [
-              //                 SizedBox(width: screenWidth * 0.03,),
-              //                 Column(
-              //                   children: [
-              //                     SizedBox(height: screenHeight * 0.02,),
-              //                     Text(titile[index],style: TextStyle(color: Colors.grey[800],fontSize: 16),),
-              //                     SizedBox(height: screenHeight * 0.01,),
-              //                     Text(count[index],style: TextStyle(color: Colors.grey[800]),),
-              //                   ],
-              //                 ),
-              //                 Spacer(),
-              //                 Image.asset(images[index],width: screenWidth * 0.17,),
-              //                 SizedBox(width: screenWidth * 0.08,)
-              //               ],
-              //             ),
-              //           );
-              //         })),
               CourtScreen(),
               thickSpace,
               TrendingVideosScreen(

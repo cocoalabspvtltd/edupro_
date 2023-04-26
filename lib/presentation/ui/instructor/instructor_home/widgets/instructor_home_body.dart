@@ -50,19 +50,45 @@ class IstructorHomeBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.only(top: 38.0, left: 15, right: 15),
                 child: SizedBox(
                   width: screenWidth,
-                  child: Card(
-                    color: Colors.lightBlue[100],
+                  child: Container(
+                    height: 140,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      gradient: LinearGradient(
+                        colors: [
+                          Colors.orangeAccent,
+                          Colors.orange,
+                          Colors.purple,
+                        ],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                    ),
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(16.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Hello ${UserDetailsLocal.userName} ",style: TextStyle(fontSize: 18),),
+                          Text(
+                            "Hello ${UserDetailsLocal.userName} ",
+                            style: TextStyle(
+                                fontSize: 21,
+                                color: Colors.white,
+                                fontFamily: "Pacifico",
+                                fontWeight: FontWeight.normal),
+                          ),
                           thickSpace,
-                          Text('Nice to have back,What an exciting day ! \nget ready and Continue your lessons today',),
+                          Text(
+                            'Nice to have back,What an exciting day ! \nget ready and Continue your lessons today',
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.white,
+                                fontFamily: "Pacifico",
+                                fontWeight: FontWeight.normal),
+                          ),
                           thickSpace,
                         ],
                       ),
@@ -70,10 +96,11 @@ class IstructorHomeBody extends StatelessWidget {
                   ),
                 ),
               ),
+              SizedBox(height: 16,),
               AdsScreen(
                 key: key,
               ),
-              thickSpace,
+
               CourseCategoriesScreen(
                 key: key,
               ),

@@ -128,7 +128,7 @@ class _RegistrationTypeScreenState extends State<RegistrationTypeScreen> {
                         padding: MaterialStateProperty.all(EdgeInsets.all(20)),
                         backgroundColor: MaterialStateProperty.all(Colors.orange), // <-- Button color
                         overlayColor: MaterialStateProperty.resolveWith<Color?>((states) {
-                          if (states.contains(MaterialState.pressed)) return Colors.red; // <-- Splash color
+                          if (states.contains(MaterialState.pressed)) return Colors.purple; // <-- Splash color
                         }),
                       ),
                     ),
@@ -155,7 +155,7 @@ class _RegistrationTypeScreenState extends State<RegistrationTypeScreen> {
                         padding: MaterialStateProperty.all(EdgeInsets.all(20)),
                         backgroundColor: MaterialStateProperty.all(Colors.orange), // <-- Button color
                         overlayColor: MaterialStateProperty.resolveWith<Color?>((states) {
-                          if (states.contains(MaterialState.pressed)) return Colors.red; // <-- Splash color
+                          if (states.contains(MaterialState.pressed)) return Colors.purple; // <-- Splash color
                         }),
                       ),
                     ),
@@ -184,7 +184,7 @@ class _RegistrationTypeScreenState extends State<RegistrationTypeScreen> {
                         padding: MaterialStateProperty.all(EdgeInsets.all(20)),
                         backgroundColor: MaterialStateProperty.all(Colors.orange), // <-- Button color
                         overlayColor: MaterialStateProperty.resolveWith<Color?>((states) {
-                          if (states.contains(MaterialState.pressed)) return Colors.red; // <-- Splash color
+                          if (states.contains(MaterialState.pressed)) return Colors.purple; // <-- Splash color
                         }),
                       ),
                     ),

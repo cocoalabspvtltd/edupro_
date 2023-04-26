@@ -17,6 +17,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.2.0"
+  animate_gradient:
+    dependency: "direct main"
+    description:
+      name: animate_gradient
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.2"
   animated_text_kit:
     dependency: "direct main"
     description:
@@ -943,7 +950,7 @@ packages:
       sha256: f53720498d5a543f9607db4b0e997c4b5438884de25b0f73098cc2671a51b130
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.5"
+    version: "2.1.6"
   pedantic:
     dependency: transitive
     description:
