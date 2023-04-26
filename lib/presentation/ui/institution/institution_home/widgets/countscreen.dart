@@ -1,6 +1,5 @@
-
+import 'package:animate_gradient/animate_gradient.dart';
 import 'package:pgs_edupro/application/Insistution_student_course_instructor/all_categories_bloc.dart';
-
 
 import 'package:pgs_edupro/domain/core/constants.dart';
 
@@ -11,9 +10,6 @@ import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/insistution/insistutionResponse.dart';
 
 import '../../../auth/log_in/widgets/login_form.dart';
-
-
-
 
 class CourtScreen extends StatelessWidget {
   final bool fromHome;
@@ -49,100 +45,171 @@ class CourtScreen extends StatelessWidget {
                     ? Container(
                         color: Colors.red,
                       )
-                    : Column  (
+                    : Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Row(
                             children: [
                               Visibility(
+                                visible: type == "school" ? true : false,
                                 child: Container(
                                   height: 100,
                                   width: screenWidth * 0.45,
-                                  child: Card(
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: <Widget>[
-                                        ListTile(
-                                          leading: CircleAvatar(
-                                            backgroundImage: AssetImage(
-                                                "assets/images/home/course.png"), // No matter how big it is, it won't overflow
-                                          ),
-                                          title: Text('Department'),
-                                          subtitle: Text(
-                                            '${int.parse(res.count![0].studentsCount.toString())}',
-                                            style: TextStyle(
-                                                color: Colors.lightBlue,
-                                                fontSize: 19),
-                                          ),
+                                  child: AnimateGradient(
+                                    primaryBegin: Alignment.topLeft,
+                                    primaryEnd: Alignment.bottomLeft,
+                                    secondaryBegin: Alignment.bottomLeft,
+                                    secondaryEnd: Alignment.topRight,
+                                    primaryColors: const [
+                                      Colors.orange,
+                                      Colors.orangeAccent,
+                                      Colors.white,
+                                    ],
+                                    secondaryColors: const [
+                                      Colors.white,
+                                      Colors.purpleAccent,
+                                      Colors.purple,
+                                    ],
+                                    child: const Center(
+                                      child: Text(
+                                        'Animated Gradient',
+                                        style: TextStyle(
+                                          fontSize: 36,
+                                          color: Colors.white,
                                         ),
-                                      ],
+                                      ),
                                     ),
                                   ),
                                 ),
-                                visible:
-                                type == "school"
-                                    ? true
-                                    : false,
                               ),
                               Visibility(
+                                visible: type == "institution" ? true : false,
                                 child: Container(
                                   height: 100,
                                   width: screenWidth * 0.45,
-                                  child: Card(
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: <Widget>[
-                                        ListTile(
-                                          leading: CircleAvatar(
+                                  child: AnimateGradient(
+                                    primaryBegin: Alignment.topLeft,
+                                    primaryEnd: Alignment.bottomLeft,
+                                    secondaryBegin: Alignment.bottomLeft,
+                                    secondaryEnd: Alignment.topRight,
+                                    primaryColors: const [
+                                      Colors.orange,
+                                      Colors.orangeAccent,
+                                      Colors.white,
+                                    ],
+                                    secondaryColors: const [
+                                      Colors.white,
+                                      Colors.purpleAccent,
+                                      Colors.purple,
+                                    ],
+                                    child: Center(
+                                        child: Row(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 18.0),
+                                          child: CircleAvatar(
                                             backgroundImage: AssetImage(
                                                 "assets/images/home/institute.jpg"), // No matter how big it is, it won't overflow
                                           ),
-                                          title: Text('Code'),
-                                          subtitle: Text(
-                                            '${UserDetailsLocal.userMobile}',
-                                            style: TextStyle(
-                                                color: Colors.lightBlue,
-                                                fontSize: 19),
-                                          ),
                                         ),
+                                        SizedBox(
+                                          width: 20,
+                                        ),
+                                        Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Center(
+                                                child: Text(
+                                              'Code',
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.normal,
+                                                  fontFamily: "Pacifico",
+                                                  color: Colors.white,
+                                                  fontSize: 18),
+                                            )),
+                                            Text(
+                                              UserDetailsLocal.userMobile,
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.normal,
+                                                  fontFamily: "Pacifico",
+                                                  color: Colors.orange,
+                                                  fontSize: 18),
+                                            ),
+                                          ],
+                                        )
                                       ],
-                                    ),
+                                    )),
                                   ),
+                                  //
                                 ),
-                                visible:
-                                  type == "institution"
-                                  ? true
-                                  : false,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 15,
                               ),
                               Container(
                                 height: 100,
                                 width: screenWidth * 0.45,
-                                child: Card(
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: <Widget>[
-                                      ListTile(
-                                        leading: CircleAvatar(
-                                          backgroundImage: AssetImage(
-                                              "assets/images/home/course.png"), // No matter how big it is, it won't overflow
+                                child: AnimateGradient(
+                                  primaryBegin: Alignment.topLeft,
+                                  primaryEnd: Alignment.bottomLeft,
+                                  secondaryBegin: Alignment.bottomLeft,
+                                  secondaryEnd: Alignment.topRight,
+                                  primaryColors: const [
+                                    Colors.orange,
+                                    Colors.orangeAccent,
+                                    Colors.white,
+                                  ],
+                                  secondaryColors: const [
+                                    Colors.white,
+                                    Colors.purpleAccent,
+                                    Colors.purple,
+                                  ],
+                                  child: Center(
+                                    child: Row(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 18.0),
+                                          child:  CircleAvatar(
+                                              backgroundImage: AssetImage(
+                                                   "assets/images/home/course.png"), // No matter how big it is, it won't overflow
+                                                      ),
                                         ),
-                                        title: Text('Courses'),
-                                        subtitle: Text(
-                                          '${int.parse(res.count![0].courseCount.toString())}',
-                                          style: TextStyle(
-                                              color: Colors.lightBlue,
-                                              fontSize: 19),
+                                        SizedBox(
+                                          width: 20,
                                         ),
-                                      ),
-                                    ],
+                                        Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Center(
+                                                child: Text(
+                                              'Courses',
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.normal,
+                                                  fontFamily: "Pacifico",
+                                                  color: Colors.white,
+                                                  fontSize: 18),
+                                            )),
+                                                   Text(
+                                             '${int.parse(res.count![0].courseCount.toString())}',
+                                              style: TextStyle(
+                                               color: Colors.orange,
+                                                  fontSize: 19),
+            ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
+
                                   ),
                                 ),
                               ),
                             ],
                           ),
+                        SizedBox(height: 15,),
                           Row(
                             children: [
                               Padding(
@@ -150,24 +217,60 @@ class CourtScreen extends StatelessWidget {
                                 child: Container(
                                   height: 100,
                                   width: screenWidth * 0.45,
-                                  child: Card(
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: <Widget>[
-                                        ListTile(
-                                          leading: CircleAvatar(
-                                            backgroundImage: AssetImage(
-                                                "assets/images/home/instructor.png"), // No matter how big it is, it won't overflow
+                                  child: AnimateGradient(
+                                    primaryBegin: Alignment.topLeft,
+                                    primaryEnd: Alignment.bottomLeft,
+                                    secondaryBegin: Alignment.bottomLeft,
+                                    secondaryEnd: Alignment.topRight,
+                                    primaryColors: const [
+                                      Colors.orange,
+                                      Colors.orangeAccent,
+                                      Colors.white,
+                                    ],
+                                    secondaryColors: const [
+                                      Colors.white,
+                                      Colors.purpleAccent,
+                                      Colors.purple,
+                                    ],
+                                    child: Center(
+                                      child:Row(
+                                        children: [
+                                          Padding(
+                                            padding:
+                                            const EdgeInsets.only(left: 18.0),
+                                            child:  CircleAvatar(
+                                              backgroundImage: AssetImage(
+                                                  "assets/images/home/instructor.png"), // No matter how big it is, it won't overflow
+                                            ),
                                           ),
-                                          title: Text('Instructor'),
-                                          subtitle: Text(
-                                            '${res.count![0].instructorCount.toString()}',
-                                            style: TextStyle(
-                                                color: Colors.lightBlue,
-                                                fontSize: 19),
+                                          SizedBox(
+                                            width: 20,
                                           ),
-                                        ),
-                                      ],
+                                          Column(
+                                            mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                            children: [
+                                              Center(
+                                                  child: Text(
+                                                    'Instructor',
+                                                    style: TextStyle(
+                                                        fontWeight: FontWeight.normal,
+                                                        fontFamily: "Pacifico",
+                                                        color: Colors.white,
+                                                        fontSize: 18),
+                                                  )),
+                                              Text(
+                                                '${res.count![0].instructorCount.toString()}',
+                                                style: TextStyle(
+                                                    color: Colors.orange,
+                                                    fontSize: 19),
+                                              ),
+                                            ],
+                                          )
+                                        ],
+                                      ),
+
+
                                     ),
                                   ),
                                 ),
@@ -178,24 +281,60 @@ class CourtScreen extends StatelessWidget {
                               Container(
                                 height: 100,
                                 width: screenWidth * 0.45,
-                                child: Card(
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: <Widget>[
-                                      ListTile(
-                                        leading: CircleAvatar(
-                                          backgroundImage: AssetImage(
-                                              "assets/images/home/students.png"), // No matter how big it is, it won't overflow
+                                child: AnimateGradient(
+                                  primaryBegin: Alignment.topLeft,
+                                  primaryEnd: Alignment.bottomLeft,
+                                  secondaryBegin: Alignment.bottomLeft,
+                                  secondaryEnd: Alignment.topRight,
+                                  primaryColors: const [
+                                    Colors.orange,
+                                    Colors.orangeAccent,
+                                    Colors.white,
+                                  ],
+                                  secondaryColors: const [
+                                    Colors.white,
+                                    Colors.purpleAccent,
+                                    Colors.purple,
+                                  ],
+                                  child: Center(
+                                    child:
+                                    Row(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                          const EdgeInsets.only(left: 18.0),
+                                          child:  CircleAvatar(
+                                            backgroundImage: AssetImage(
+                                                "assets/images/home/students.png"), // No matter how big it is, it won't overflow
+                                          ),
                                         ),
-                                        title: Text('Students'),
-                                        subtitle: Text(
-                                          '${res.count![0].studentsCount .toString()}',
-                                          style: TextStyle(
-                                              color: Colors.lightBlue,
-                                              fontSize: 19),
+                                        SizedBox(
+                                          width: 20,
                                         ),
-                                      ),
-                                    ],
+                                        Column(
+                                          mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                          children: [
+                                            Center(
+                                                child: Text(
+                                                  'Students',
+                                                  style: TextStyle(
+                                                      fontWeight: FontWeight.normal,
+                                                      fontFamily: "Pacifico",
+                                                      color: Colors.white,
+                                                      fontSize: 18),
+                                                )),
+                                            Text(
+                                              '${res.count![0].studentsCount.toString()}',
+                                              style: TextStyle(
+                                                  color: Colors.orange,
+                                                  fontSize: 19),
+                                            ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
+
                                   ),
                                 ),
                               ),
