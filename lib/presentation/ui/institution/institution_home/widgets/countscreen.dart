@@ -54,7 +54,7 @@ class CourtScreen extends StatelessWidget {
                                 visible: type == "school" ? true : false,
                                 child: Container(
                                   height: 100,
-                                  width: screenWidth * 0.45,
+                                  width: screenWidth * 0.44,
                                   child: AnimateGradient(
                                     primaryBegin: Alignment.topLeft,
                                     primaryEnd: Alignment.bottomLeft,
@@ -70,15 +70,44 @@ class CourtScreen extends StatelessWidget {
                                       Colors.purpleAccent,
                                       Colors.purple,
                                     ],
-                                    child: const Center(
-                                      child: Text(
-                                        'Animated Gradient',
-                                        style: TextStyle(
-                                          fontSize: 36,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                    ),
+                                    child: Center(
+                                        child: Row(
+                                          children: [
+                                            Padding(
+                                              padding:
+                                              const EdgeInsets.only(left: 15.0),
+                                              child: CircleAvatar(
+                                                backgroundImage: AssetImage(
+                                                    "assets/images/home/course.png"), // No matter how big it is, it won't overflow
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: 20,
+                                            ),
+                                            Column(
+                                              mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  'Department',
+                                                  style: TextStyle(
+                                                      fontWeight: FontWeight.normal,
+                                                      fontFamily: "Pacifico",
+                                                      color: Colors.white,
+                                                      fontSize: 13),
+                                                ),
+                                                Text(
+                                                  "${int.parse(res.count![0].studentsCount.toString())}",
+                                                  style: TextStyle(
+                                                      fontWeight: FontWeight.normal,
+                                                      fontFamily: "Pacifico",
+                                                      color: Colors.orange,
+                                                      fontSize: 15),
+                                                ),
+                                              ],
+                                            )
+                                          ],
+                                        )),
                                   ),
                                 ),
                               ),
@@ -86,7 +115,7 @@ class CourtScreen extends StatelessWidget {
                                 visible: type == "institution" ? true : false,
                                 child: Container(
                                   height: 100,
-                                  width: screenWidth * 0.45,
+                                  width: screenWidth * 0.44,
                                   child: AnimateGradient(
                                     primaryBegin: Alignment.topLeft,
                                     primaryEnd: Alignment.bottomLeft,
@@ -107,7 +136,7 @@ class CourtScreen extends StatelessWidget {
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsets.only(left: 18.0),
+                                              const EdgeInsets.only(left: 15.0),
                                           child: CircleAvatar(
                                             backgroundImage: AssetImage(
                                                 "assets/images/home/institute.jpg"), // No matter how big it is, it won't overflow
@@ -127,7 +156,7 @@ class CourtScreen extends StatelessWidget {
                                                   fontWeight: FontWeight.normal,
                                                   fontFamily: "Pacifico",
                                                   color: Colors.white,
-                                                  fontSize: 18),
+                                                  fontSize: 15),
                                             )),
                                             Text(
                                               UserDetailsLocal.userMobile,
@@ -135,7 +164,7 @@ class CourtScreen extends StatelessWidget {
                                                   fontWeight: FontWeight.normal,
                                                   fontFamily: "Pacifico",
                                                   color: Colors.orange,
-                                                  fontSize: 18),
+                                                  fontSize: 15),
                                             ),
                                           ],
                                         )
@@ -150,7 +179,7 @@ class CourtScreen extends StatelessWidget {
                               ),
                               Container(
                                 height: 100,
-                                width: screenWidth * 0.45,
+                                width: screenWidth * 0.44,
                                 child: AnimateGradient(
                                   primaryBegin: Alignment.topLeft,
                                   primaryEnd: Alignment.bottomLeft,
@@ -171,7 +200,7 @@ class CourtScreen extends StatelessWidget {
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsets.only(left: 18.0),
+                                              const EdgeInsets.only(left: 15.0),
                                           child:  CircleAvatar(
                                               backgroundImage: AssetImage(
                                                    "assets/images/home/course.png"), // No matter how big it is, it won't overflow
@@ -184,20 +213,21 @@ class CourtScreen extends StatelessWidget {
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           children: [
-                                            Center(
-                                                child: Text(
+                                            Text(
                                               'Courses',
                                               style: TextStyle(
-                                                  fontWeight: FontWeight.normal,
-                                                  fontFamily: "Pacifico",
-                                                  color: Colors.white,
-                                                  fontSize: 18),
-                                            )),
+                                              fontWeight: FontWeight.normal,
+                                              fontFamily: "Pacifico",
+                                              color: Colors.white,
+                                              fontSize: 15),
+                                            ),
                                                    Text(
                                              '${int.parse(res.count![0].courseCount.toString())}',
                                               style: TextStyle(
                                                color: Colors.orange,
-                                                  fontSize: 19),
+                                                  fontWeight: FontWeight.normal,
+                                                  fontFamily: "Pacifico",
+                                                  fontSize: 15),
             ),
                                           ],
                                         )
@@ -216,7 +246,7 @@ class CourtScreen extends StatelessWidget {
                                 padding: const EdgeInsets.only(left: 0.0),
                                 child: Container(
                                   height: 100,
-                                  width: screenWidth * 0.45,
+                                  width: screenWidth * 0.44,
                                   child: AnimateGradient(
                                     primaryBegin: Alignment.topLeft,
                                     primaryEnd: Alignment.bottomLeft,
@@ -237,7 +267,7 @@ class CourtScreen extends StatelessWidget {
                                         children: [
                                           Padding(
                                             padding:
-                                            const EdgeInsets.only(left: 18.0),
+                                            const EdgeInsets.only(left: 15.0),
                                             child:  CircleAvatar(
                                               backgroundImage: AssetImage(
                                                   "assets/images/home/instructor.png"), // No matter how big it is, it won't overflow
@@ -250,20 +280,21 @@ class CourtScreen extends StatelessWidget {
                                             mainAxisAlignment:
                                             MainAxisAlignment.center,
                                             children: [
-                                              Center(
-                                                  child: Text(
-                                                    'Instructor',
-                                                    style: TextStyle(
-                                                        fontWeight: FontWeight.normal,
-                                                        fontFamily: "Pacifico",
-                                                        color: Colors.white,
-                                                        fontSize: 18),
-                                                  )),
+                                              Text(
+                                                'Instructor',
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.normal,
+                                                    fontFamily: "Pacifico",
+                                                    color: Colors.white,
+                                                    fontSize: 15),
+                                              ),
                                               Text(
                                                 '${res.count![0].instructorCount.toString()}',
                                                 style: TextStyle(
                                                     color: Colors.orange,
-                                                    fontSize: 19),
+                                                    fontWeight: FontWeight.normal,
+                                                    fontFamily: "Pacifico",
+                                                    fontSize: 15),
                                               ),
                                             ],
                                           )
@@ -280,7 +311,7 @@ class CourtScreen extends StatelessWidget {
                               ),
                               Container(
                                 height: 100,
-                                width: screenWidth * 0.45,
+                                width: screenWidth * 0.44,
                                 child: AnimateGradient(
                                   primaryBegin: Alignment.topLeft,
                                   primaryEnd: Alignment.bottomLeft,
@@ -302,7 +333,7 @@ class CourtScreen extends StatelessWidget {
                                       children: [
                                         Padding(
                                           padding:
-                                          const EdgeInsets.only(left: 18.0),
+                                          const EdgeInsets.only(left: 15.0),
                                           child:  CircleAvatar(
                                             backgroundImage: AssetImage(
                                                 "assets/images/home/students.png"), // No matter how big it is, it won't overflow
@@ -322,13 +353,15 @@ class CourtScreen extends StatelessWidget {
                                                       fontWeight: FontWeight.normal,
                                                       fontFamily: "Pacifico",
                                                       color: Colors.white,
-                                                      fontSize: 18),
+                                                      fontSize: 15),
                                                 )),
                                             Text(
                                               res.count![0].studentsCount.toString(),
                                               style: const TextStyle(
                                                   color: Colors.orange,
-                                                  fontSize: 19),
+                                                  fontWeight: FontWeight.normal,
+                                                  fontFamily: "Pacifico",
+                                                  fontSize: 15),
                                             ),
                                           ],
                                         )

@@ -45,9 +45,6 @@ class InstitutionDrawerWidget extends StatelessWidget {
                 child: InkWell(
                   onTap: () {
                     scaffoldKey.currentState!.openEndDrawer();
-                    // setState(() {
-                    //   _selectedIndex = 1;
-                    // });
                   },
                   child: Container(
                       height: 200,
