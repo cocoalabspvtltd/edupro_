@@ -63,18 +63,7 @@ class InstitutionInstructorBloc extends Bloc<InstitutionInstructorEvent, Institu
             qualification:  TextEditingController(text: user.qualification),
             description:  TextEditingController(text: user.description),
             password:  TextEditingController(text: ""),
-
-
             displayPicture: imageStudent,
-
-            // phoneNumber: PhoneNumber(user.phoneNumber ?? ''),
-            // dob: DateFormatted(user.dob ?? ''),
-            // address: Address(user.address ?? ''),
-
-            // emailController: TextEditingController(text: user.email),
-            // phoneNumberController: TextEditingController(text: user.phoneNumber),
-            // dobDT: user.dob != null ? DateTime.parse(user.dob!) : null,
-            // addressController: TextEditingController(text: user.address)
           ),
         );
 

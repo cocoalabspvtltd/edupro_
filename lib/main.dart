@@ -61,7 +61,8 @@ class MyApp extends StatelessWidget {
             elevatedButtonTheme: ElevatedButtonThemeData(
               style: ButtonStyle(
                   backgroundColor:
-                      MaterialStateProperty.all<Color>(primaryColor)),
+                      MaterialStateProperty.all<Color>( Colors.orangeAccent)
+              ),
             ),
             canvasColor: primaryColor[100],
             visualDensity: VisualDensity.adaptivePlatformDensity,

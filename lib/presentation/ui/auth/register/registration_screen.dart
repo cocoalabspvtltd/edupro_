@@ -16,8 +16,29 @@ class RegistrationScreen extends StatelessWidget {
     return BlocProvider(
       create: (_) => PaymentBloc(PaymentRepository()),
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Register'),
+        appBar:AppBar(
+          // backgroundColor: Color(0xFFB226B2),
+          flexibleSpace:  Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: <Color>[Color(0xFFB226B2),
+                    Colors.orange]),
+            ),
+          ),
+          title:Text(
+            "Student Register",
+            style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'Pacifico',
+                fontSize: 30,
+                fontWeight: FontWeight.w200),
+
+          ),
+          iconTheme: const IconThemeData(
+            color: Colors.white, //change your color here
+          ),
         ),
         body: BlocBuilder<LogInBloc, LogInState>(
           builder: (context, state) => SizedBox(
@@ -26,13 +47,15 @@ class RegistrationScreen extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
+
                   const SizedBox(
                     height: 40,
                   ),
                   Image.asset(
-                    'assets/splash/logo_splash.png',
-                    height: 200,
-                    fit: BoxFit.fitHeight,
+                    'assets/icons/register_icons/student.png',
+                    height: 150,
+                    color:  Colors.orangeAccent,
+
                   ),
                   RegistrationForm(
                     formKey: formKey,
@@ -71,19 +94,34 @@ class _RegistrationTypeScreenState extends State<RegistrationTypeScreen> {
       create: (_) => PaymentBloc(PaymentRepository()),
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.black,
+          backgroundColor:  Color(0xFFB226B2),
+          iconTheme: IconThemeData(
+            color: Colors.white, //change your color here
+          ),
           title: Text(
             "Register",
-            style: boldValuePrimaryColor,
+            style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'Pacifico',
+                fontSize: 30,
+                fontWeight: FontWeight.w200),
+
           ),
         ),
         body: BlocBuilder<LogInBloc, LogInState>(
           builder: (context, state) => Container(
             decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/icons/register_icons/backgroundnew.jpg"),
-                fit: BoxFit.cover,
-              ),
+                gradient:LinearGradient(
+                    colors: [
+                      Color(0xFFB226B2),
+                      Colors.orange
+                    ],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter)
+              // image: DecorationImage(
+              //   image: AssetImage("assets/icons/register_icons/backgroundnew.jpg"),
+              //   fit: BoxFit.cover,
+              // ),
             ),
             height: screenHeight,
             width: screenWidth,
@@ -94,9 +132,9 @@ class _RegistrationTypeScreenState extends State<RegistrationTypeScreen> {
                   const SizedBox(
                     height: 100,
                   ),
-                  GestureDetector(
-                    onTap: (){
-                      Navigator.push(
+                  Container(height: 150,width: 150,
+                    child: ElevatedButton(
+                      onPressed: () {        Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) =>
@@ -106,26 +144,25 @@ class _RegistrationTypeScreenState extends State<RegistrationTypeScreen> {
 
                           ),
                         ),
-                      );
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.white,
-                          )),
-                      child: Image.asset(
-                        'assets/icons/register_icons/institution.png',
-                        height: 120,
-                        color: Colors.white,
+                      );},
+                      child: Container(height: 100,width: 100,
+                          child: Image.asset("assets/icons/register_icons/institution.png")),
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all(CircleBorder()),
+                        padding: MaterialStateProperty.all(EdgeInsets.all(20)),
+                        backgroundColor: MaterialStateProperty.all(Colors.orange), // <-- Button color
+                        overlayColor: MaterialStateProperty.resolveWith<Color?>((states) {
+                          if (states.contains(MaterialState.pressed)) return Colors.red; // <-- Splash color
+                        }),
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: 40,
+                    height: 50,
                   ),
-                  GestureDetector(
-                    onTap: (){
-                      Navigator.push(
+                  Container(height: 150,width: 150,
+                    child: ElevatedButton(
+                      onPressed: () {                Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) =>
@@ -135,46 +172,48 @@ class _RegistrationTypeScreenState extends State<RegistrationTypeScreen> {
 
                           ),
                         ),
-                      );
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.white,
-                          )),
-                      child: Image.asset(
-                        'assets/icons/register_icons/instructor.png',
-                        height: 105,
-                        color: Colors.white,
+                      );},
+                      child: Container(height: 100,width: 100,
+                          child: Image.asset("assets/icons/register_icons/instructor.png")),
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all(CircleBorder()),
+                        padding: MaterialStateProperty.all(EdgeInsets.all(20)),
+                        backgroundColor: MaterialStateProperty.all(Colors.orange), // <-- Button color
+                        overlayColor: MaterialStateProperty.resolveWith<Color?>((states) {
+                          if (states.contains(MaterialState.pressed)) return Colors.red; // <-- Splash color
+                        }),
                       ),
                     ),
                   ),
+
                   SizedBox(
-                      height: 40
+                      height: 50
                   ),
-                  GestureDetector(onTap: (){
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                        BlocProvider<LogInBloc>.value(
-                          value: logInBloc,
-                          child: RegistrationScreen(),
+                  Container(height: 150,width: 150,
+                    child: ElevatedButton(
+                      onPressed: () {               Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                          BlocProvider<LogInBloc>.value(
+                            value: logInBloc,
+                            child: RegistrationScreen(),
+                          ),
                         ),
+                      );},
+                      child: Container(height: 100,width: 100,
+                          child: Image.asset("assets/icons/register_icons/student.png")),
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all(CircleBorder()),
+                        padding: MaterialStateProperty.all(EdgeInsets.all(20)),
+                        backgroundColor: MaterialStateProperty.all(Colors.orange), // <-- Button color
+                        overlayColor: MaterialStateProperty.resolveWith<Color?>((states) {
+                          if (states.contains(MaterialState.pressed)) return Colors.red; // <-- Splash color
+                        }),
                       ),
-                    );
-                  },
-                    child:Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.white,
-                          )),
-                      child: Image.asset(
-                        'assets/icons/register_icons/student.png',
-                        height: 130,
-                        color: Colors.white,
-                      ),
-                    ),),
+                    ),
+                  ),
+
                 ],
               ),
             ),

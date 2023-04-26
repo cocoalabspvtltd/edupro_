@@ -117,7 +117,7 @@ TextStyle boldWordPrimarycolor = TextStyle(
 TextStyle boldValue = TextStyle(
     fontSize: 16, fontWeight: FontWeight.w600, color: Colors.grey[700]);
 TextStyle boldValuePrimaryColor =
-    TextStyle(fontSize: 20, fontWeight: FontWeight.w600, color: primaryColor);
+    TextStyle(fontSize: 20, fontWeight: FontWeight.w600, color: Colors.purple);
 TextStyle standardText = TextStyle(
     fontSize: 15, fontWeight: FontWeight.w500, color: Colors.grey[700]);
 TextStyle smallText = const TextStyle(
@@ -128,6 +128,12 @@ TextStyle details1 = TextStyle(
     fontSize: 15, fontWeight: FontWeight.w600, color: Colors.blue);
 SizedBox thickSpace = const SizedBox(
   height: 10,
+);
+SizedBox thickSpaceLogin = const SizedBox(
+  height: 60,
+);
+SizedBox thickSpaceregisteer = const SizedBox(
+  height: 160,
 );
 SizedBox thickSpace1 = const SizedBox(
   height: 20,
