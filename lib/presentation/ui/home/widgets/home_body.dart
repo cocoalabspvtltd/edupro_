@@ -54,7 +54,7 @@ class HomeBody extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              thickSpace,
+              thickSpaceLogin,
               AdsScreen(
                 key: key,
               ),
@@ -226,11 +226,11 @@ class HomeBody extends StatelessWidget {
               //   ),
               // ),
               // thickSpace,
-              thickSpace,
+              thickSpaceLogin,
               CourseCategoriesScreen(
                 key: key,
               ),
-              thickSpace,
+              thickSpaceLogin,
               thickSpace,
               HomeHotellistScreen(
                 key: key,

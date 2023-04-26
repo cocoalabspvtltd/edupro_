@@ -315,7 +315,7 @@ class CourtScreen extends StatelessWidget {
                                           mainAxisAlignment:
                                           MainAxisAlignment.center,
                                           children: [
-                                            Center(
+                                            const Center(
                                                 child: Text(
                                                   'Students',
                                                   style: TextStyle(
@@ -325,8 +325,8 @@ class CourtScreen extends StatelessWidget {
                                                       fontSize: 18),
                                                 )),
                                             Text(
-                                              '${res.count![0].studentsCount.toString()}',
-                                              style: TextStyle(
+                                              res.count![0].studentsCount.toString(),
+                                              style: const TextStyle(
                                                   color: Colors.orange,
                                                   fontSize: 19),
                                             ),

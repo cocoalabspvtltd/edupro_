@@ -53,8 +53,8 @@ class HomeHotellistScreen extends StatelessWidget {
               children: [
                 Text(
                   " Buy A Card ",
-                  style: boldWord,
-                ),
+              style: TextStyle(fontSize: 18,fontFamily: "Pacifico",
+                )),
                 thickSpace,
                 HotelListView(
                   hoteldetails: res.hotelList!,

@@ -15,7 +15,7 @@ class HotelListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 113,
+      height: 153,
       //width: screenWidth,
       child: ListView.builder(
         shrinkWrap: true,
@@ -33,8 +33,8 @@ class HotelListView extends StatelessWidget {
               child: Column(
                 children: [
                   Container(
-                    width: 190,
-                    height: 100,
+                    width: 200,
+                    height: 130,
                     decoration: const BoxDecoration(
                       color: Colors.black,
                       borderRadius: BorderRadius.all(Radius.circular(6)),
