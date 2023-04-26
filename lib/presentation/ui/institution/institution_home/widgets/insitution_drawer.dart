@@ -50,7 +50,14 @@ class InstitutionDrawerWidget extends StatelessWidget {
                     // });
                   },
                   child: Container(
-                      color: Colors.white,
+                      height: 200,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [Colors.purple, Colors.orangeAccent, Colors.orange]
+                        ),
+                      ),
                       padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
                       child: Row(mainAxisSize: MainAxisSize.max, children: [
                         InkWell(
@@ -107,19 +114,23 @@ class InstitutionDrawerWidget extends StatelessWidget {
                             child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
+                            SizedBox(height: 48),
                             Text(
                               "${UserDetailsLocal.userName}",
                               style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w500),
+                                  color: Colors.white,
+                                  fontFamily: "Sigmar",
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold),
                             ),
                             const SizedBox(height: 4),
                             Text(
                               "${UserDetailsLocal.userEmail}",
                               style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w400),
+                                  color: Colors.white,
+                                  fontFamily: "Sigmar",
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold),
                             ),
                           ],
                         )),
@@ -146,7 +157,7 @@ class InstitutionDrawerWidget extends StatelessWidget {
                     ExpansionTile(
                       title: Text(
                         "Classes",
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(fontSize: 16,  fontFamily: "Pacifico",),
                       ),
                       leading: Container(
                         height: 38,
@@ -176,7 +187,7 @@ class InstitutionDrawerWidget extends StatelessWidget {
                     ExpansionTile(
                       title: Text(
                         "Courses",
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(fontSize: 16,  fontFamily: "Pacifico",),
                       ),
                       leading: Container(
                         height: 38,
@@ -209,7 +220,7 @@ class InstitutionDrawerWidget extends StatelessWidget {
                       child: ExpansionTile(
                         title: Text(
                           "Departments",
-                          style: TextStyle(fontSize: 16),
+                          style: TextStyle(fontSize: 16,  fontFamily: "Pacifico",),
                         ),
                         leading: Container(
                           height: 38,
@@ -239,7 +250,7 @@ class InstitutionDrawerWidget extends StatelessWidget {
                     ExpansionTile(
                       title: Text(
                         "Instructors",
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(fontSize: 16,  fontFamily: "Pacifico",),
                       ),
                       leading: Container(
                         height: 38,
@@ -270,7 +281,7 @@ class InstitutionDrawerWidget extends StatelessWidget {
                     ExpansionTile(
                       title: Text(
                         "Students",
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(fontSize: 16,  fontFamily: "Pacifico",),
                       ),
                       leading: Container(
                         height: 38,
@@ -317,9 +328,14 @@ class InstitutionDrawerWidget extends StatelessWidget {
             InkWell(
                 child: Center(
                   child: Container(
-                    decoration: BoxDecoration(
-                        color: primaryColor,
-                        borderRadius: BorderRadius.circular(0)),
+                    decoration:  BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [ Colors.orangeAccent, Colors.orange]
+                      ),
+                    ),
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
                       child: Row(
@@ -338,6 +354,7 @@ class InstitutionDrawerWidget extends StatelessWidget {
                               style: TextStyle(
                                   color: secondaryColor[50],
                                   fontSize: 17,
+                                  fontFamily: "Pacifico",
                                   fontWeight: FontWeight.bold),
                             ))
                           ]),
@@ -416,9 +433,10 @@ class InstitutionDrawerWidget extends StatelessWidget {
                           child: Text(
                         title,
                         style: TextStyle(
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.normal,
+                          fontFamily: "Pacifico",
                           color: Colors.black,
-                          fontSize: 16,
+                          fontSize: 15,
                         ),
                       ))
                     ]),
