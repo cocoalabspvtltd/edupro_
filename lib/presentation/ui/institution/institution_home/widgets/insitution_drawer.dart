@@ -163,19 +163,13 @@ class InstitutionDrawerWidget extends StatelessWidget {
                       childrenPadding:
                           EdgeInsets.only(left: 60), //children padding
                       children: [
-                        ListTile(
-                          title: Text("Class list"),
-                          onTap: () {
-                            Get.to(() => InsistutionClassesListScreen());
+                        _drawerMenuItem1('Class list', () {
+                          Get.to(() => InsistutionClassesListScreen());
 
-                          },
-                        ),
-                        ListTile(
-                          title: Text("Add class"),
-                          onTap: () {
-                            Get.to(() => AddClassesScreen());
-                          },
-                        ),
+                        }),
+                        _drawerMenuItem1('Add class', () {
+                          Get.to(() => AddClassesScreen());
+                        }),
                         //more child menu
                       ],
                     ),
@@ -199,21 +193,19 @@ class InstitutionDrawerWidget extends StatelessWidget {
                       childrenPadding:
                           EdgeInsets.only(left: 60), //children padding
                       children: [
-                        ListTile(
-                          title: Text("Courses list"),
-                          onTap: () { Get.to(() => InsistutionCoursesScreen());},
-                        ),
-                        ListTile(
-                          title: Text("Add Course"),
-                          onTap: () {
-                            Get.to(() => AddCoursesScreen());
-                          },
-                        ),
-
+                        _drawerMenuItem1('Courses list', () {
+                          Get.to(() => InsistutionCoursesScreen());
+                        }),
+                        _drawerMenuItem1('Add Course', () {
+                          Get.to(() => AddCoursesScreen());
+                        }),
                         //more child menu
                       ],
                     ),
                     Visibility(
+                      visible: type == "school"
+                          ? true
+                          : false,
                       child: ExpansionTile(
                         title: Text(
                           "Departments",
@@ -234,24 +226,15 @@ class InstitutionDrawerWidget extends StatelessWidget {
                         childrenPadding:
                         EdgeInsets.only(left: 60), //children padding
                         children: [
-                          ListTile(
-                            title: Text("Departments list"),
-                            onTap: () {
-                              Get.to(() => SchoolDepartmentlistScreen());
-                              },
-                          ),
-                          ListTile(
-                            title: Text("Add Department"),
-                            onTap: () {
-                              Get.to(() => AddDepartmentsScreen());
-                            },
-                          ),
+                          _drawerMenuItem1('Departments list', () {
+                            Get.to(() => SchoolDepartmentlistScreen());
+                          }),
+                          _drawerMenuItem1('Add Department', () {
+                            Get.to(() => AddDepartmentsScreen());
+                          }),
                           //more child menu
                         ],
                       ),
-                      visible: type == "school"
-                          ? true
-                          : false,
                     ),
                     ExpansionTile(
                       title: Text(

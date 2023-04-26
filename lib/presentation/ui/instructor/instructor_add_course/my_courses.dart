@@ -40,14 +40,13 @@ class MyCourseInstructorScreen extends StatelessWidget {
                     ),
                     loadSuccess: (state) {
                       InstructorCourseListResponse res = state.response;
-                      return res.course != null ||
-                          res.course!.isNotEmpty
-                          ? InstructorCourseListView(course: res.course!,)
-                          : SizedBox(
+                      return res.course!.isEmpty
+                          ? SizedBox(
                           height: screenHeight -
                               180, //!fromHome ? screenHeight : 300,
                           width: screenWidth,
-                          child: const CommonResultsEmptyWidget());
+                          child: const CommonResultsEmptyWidget()
+                      ):InstructorCourseListView(course: res.course!,);
                     },
                     loadFailure: (state) {
                       return state.networkFailure.map(

@@ -63,9 +63,13 @@ class InsistutionInstructorListScreen extends StatelessWidget {
                       ),
                       loadSuccess: (state) {
                         InsistutionResponse res = state.response;
-                        return res.instructors != null ||
-                            res.instructors!.isNotEmpty
-                            ?  Column(
+                        return res.instructors!.isEmpty
+                            ?   SizedBox(
+                            height: screenHeight -
+                                180, //!fromHome ? screenHeight : 300,
+                            width: screenWidth,
+                            child: const CommonResultsEmptyWidget())
+                        : Column(
                           children: [
                             const SizedBox(
                               height: 25,
@@ -214,12 +218,8 @@ class InsistutionInstructorListScreen extends StatelessWidget {
                               },
                             ),
                           ],
-                        )
-                            : SizedBox(
-                            height: screenHeight -
-                                180, //!fromHome ? screenHeight : 300,
-                            width: screenWidth,
-                            child: const CommonResultsEmptyWidget());
+                        );
+
                       },
 
                       loadFailure: (state) {
