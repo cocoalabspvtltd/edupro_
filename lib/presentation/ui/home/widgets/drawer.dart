@@ -3,6 +3,7 @@ import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/shared_prefs.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/presentation/ui/bid_products/bid_product_list.dart';
+import 'package:pgs_edupro/presentation/ui/bid_products/products_screen.dart';
 import 'package:pgs_edupro/presentation/ui/course/course_report_screen.dart';
 import 'package:pgs_edupro/presentation/ui/home/home_screen.dart';
 import 'package:pgs_edupro/presentation/ui/membership/membership_screen.dart';
@@ -209,9 +210,10 @@ class DrawerWidget extends StatelessWidget {
                         Image.asset(
                             'assets/icons/drawer_icons/my-course-sltd.png'),
                         'Auction', () {
-                      Get.to(() =>  const BidProductlistScreen(
-                        fromHome: false,
-                      ));
+                      Get.to(() =>  ProductsScreen(fragmentToShow: 0,));
+                      // const BidProductlistScreen(
+                      //   fromHome: false,
+                      // ));
                     }),
                     SizedBox(height: 10,),
                     _drawerMenuItem(

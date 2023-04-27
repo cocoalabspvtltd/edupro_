@@ -4,7 +4,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:pgs_edupro/domain/bid_products/i_bids_repository.dart';
 import 'package:pgs_edupro/domain/core/network/network_failures.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/bid_products/bid_product_list_reponse.dart';
-
 part 'bid_products_event.dart';
 part 'bid_products_state.dart';
 part 'bid_products_bloc.freezed.dart';
