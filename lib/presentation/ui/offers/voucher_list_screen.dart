@@ -168,28 +168,18 @@ class _VoucherlistScreenState extends State<VoucherlistScreen> {
                                         const SizedBox(
                                           height: 25,
                                         ),
-                                        const SizedBox(
-                                          height: 25,
+                                        SizedBox(
+                                          height: 50,
+                                          width: screenWidth * 0.5,
+                                          child: ElevatedButton(
+                                            onPressed: (){
+                                            },
+                                            child: const Text('Buy Now'),
+                                          ),
                                         ),
                                       ],
                                     );
                                   }),
-                              SizedBox(
-                                height: 50,
-                                width: screenWidth * 0.5,
-                                child: ElevatedButton(
-                                  onPressed: (){
-
-                                  },
-                                  style: ElevatedButton.styleFrom(
-                                    primary: primaryColor,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(5),
-                                    ),
-                                  ),
-                                  child: const Text('Buy Now'),
-                                ),
-                              ),
                             ],
                           ),
                         ),
