@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
+import 'package:pgs_edupro/presentation/ui/bid_products/bid_product_list.dart';
 
 class ProductsScreen extends StatefulWidget {
   final int fragmentToShow;
@@ -33,7 +34,6 @@ class _ProductsScreenState extends State<ProductsScreen>
             children: <Widget>[
               Container(
                 color: Colors.white,
-                padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                 constraints: BoxConstraints.expand(height: 55),
                 child: BottomAppBar(
                   child: infoTabs(),
@@ -51,10 +51,6 @@ class _ProductsScreenState extends State<ProductsScreen>
     );
   }
 
-  void _backPressFunction() {
-    print("_sendOtpFunction clicked");
-    Get.back();
-  }
 
   Future<bool> onWillPop() {
     return Future.value(true);
@@ -66,22 +62,23 @@ class _ProductsScreenState extends State<ProductsScreen>
       onTap: tabItemClicked,
       tabs: [
         Tab(
-          child: tabItem(context, 'How to Start'),
+          child: tabItem(context, 'Live Auctions'),
         ),
         Tab(
-          child: tabItem(context, 'Steps'),
+          child: tabItem(context, 'Upcoming Auctions'),
         ),
         Tab(
-          child: tabItem(context, 'How It'),
+          child: tabItem(context, 'Closed Auctions'),
         )
       ],
-      labelColor: Colors.black,
-      unselectedLabelColor: Colors.green,
+      labelColor: Colors.deepPurple,
+      unselectedLabelColor: Colors.black,
       indicatorSize: TabBarIndicatorSize.tab,
-      indicatorColor: Colors.red,
+      indicatorColor: Colors.deepPurple,
       indicatorWeight: 3,
       indicator: UnderlineTabIndicator(
-        borderSide: BorderSide(color: Colors.red, width: 2.0),
+        borderRadius: BorderRadius.all(Radius.circular(15)),
+        borderSide: BorderSide(color: Colors.deepPurple, width: 2.0),
         insets: getIndicatorPadding(),
       ),
     );
@@ -131,7 +128,7 @@ class _ProductsScreenState extends State<ProductsScreen>
   getSubFragment(int pos) {
     switch (pos) {
       case 0:
-        return Text("nknlkl");
+        return BidProductlistScreen();
         break;
       case 1:
         return Text("kllnl");
