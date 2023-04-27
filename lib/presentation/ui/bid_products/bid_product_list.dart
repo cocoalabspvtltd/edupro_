@@ -22,9 +22,7 @@ class BidProductlistScreen extends StatelessWidget {
     return BlocProvider(
       create: (_) => BidProductsBloc(BidsRepository())
         ..add(const BidProductsEvent.LoadBidProducts()),
-      child: Scaffold(
-        appBar: appBarTheme(" Live Products"),
-        body: BlocBuilder<BidProductsBloc, BidProductsState>(
+      child: BlocBuilder<BidProductsBloc, BidProductsState>(
           builder: (context, state) {
             return RefreshIndicator(
               onRefresh: () async {
@@ -183,7 +181,6 @@ class BidProductlistScreen extends StatelessWidget {
             );
           },
         ),
-      ),
-    );
+      );
   }
 }
