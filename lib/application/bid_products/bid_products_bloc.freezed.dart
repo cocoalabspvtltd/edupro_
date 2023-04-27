@@ -19,32 +19,56 @@ mixin _$BidProductsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() LoadBidProducts,
+    required TResult Function() LoadLiveProducts,
+    required TResult Function() LoadUpcomingProducts,
+    required TResult Function() LoadClosedProducts,
+    required TResult Function() LoadProductsDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? LoadBidProducts,
+    TResult? Function()? LoadLiveProducts,
+    TResult? Function()? LoadUpcomingProducts,
+    TResult? Function()? LoadClosedProducts,
+    TResult? Function()? LoadProductsDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? LoadBidProducts,
+    TResult Function()? LoadLiveProducts,
+    TResult Function()? LoadUpcomingProducts,
+    TResult Function()? LoadClosedProducts,
+    TResult Function()? LoadProductsDetails,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadBidProducts value) LoadBidProducts,
+    required TResult Function(_LoadLiveProducts value) LoadLiveProducts,
+    required TResult Function(_LoadUpcomingProducts value) LoadUpcomingProducts,
+    required TResult Function(_LoadClosedProducts value) LoadClosedProducts,
+    required TResult Function(_LoadProductsDetails value) LoadProductsDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadBidProducts value)? LoadBidProducts,
+    TResult? Function(_LoadLiveProducts value)? LoadLiveProducts,
+    TResult? Function(_LoadUpcomingProducts value)? LoadUpcomingProducts,
+    TResult? Function(_LoadClosedProducts value)? LoadClosedProducts,
+    TResult? Function(_LoadProductsDetails value)? LoadProductsDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadBidProducts value)? LoadBidProducts,
+    TResult Function(_LoadLiveProducts value)? LoadLiveProducts,
+    TResult Function(_LoadUpcomingProducts value)? LoadUpcomingProducts,
+    TResult Function(_LoadClosedProducts value)? LoadClosedProducts,
+    TResult Function(_LoadProductsDetails value)? LoadProductsDetails,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +131,10 @@ class _$_LoadBidProducts implements _LoadBidProducts {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() LoadBidProducts,
+    required TResult Function() LoadLiveProducts,
+    required TResult Function() LoadUpcomingProducts,
+    required TResult Function() LoadClosedProducts,
+    required TResult Function() LoadProductsDetails,
   }) {
     return LoadBidProducts();
   }
@@ -115,6 +143,10 @@ class _$_LoadBidProducts implements _LoadBidProducts {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? LoadBidProducts,
+    TResult? Function()? LoadLiveProducts,
+    TResult? Function()? LoadUpcomingProducts,
+    TResult? Function()? LoadClosedProducts,
+    TResult? Function()? LoadProductsDetails,
   }) {
     return LoadBidProducts?.call();
   }
@@ -123,6 +155,10 @@ class _$_LoadBidProducts implements _LoadBidProducts {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? LoadBidProducts,
+    TResult Function()? LoadLiveProducts,
+    TResult Function()? LoadUpcomingProducts,
+    TResult Function()? LoadClosedProducts,
+    TResult Function()? LoadProductsDetails,
     required TResult orElse(),
   }) {
     if (LoadBidProducts != null) {
@@ -135,6 +171,10 @@ class _$_LoadBidProducts implements _LoadBidProducts {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadBidProducts value) LoadBidProducts,
+    required TResult Function(_LoadLiveProducts value) LoadLiveProducts,
+    required TResult Function(_LoadUpcomingProducts value) LoadUpcomingProducts,
+    required TResult Function(_LoadClosedProducts value) LoadClosedProducts,
+    required TResult Function(_LoadProductsDetails value) LoadProductsDetails,
   }) {
     return LoadBidProducts(this);
   }
@@ -143,6 +183,10 @@ class _$_LoadBidProducts implements _LoadBidProducts {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadBidProducts value)? LoadBidProducts,
+    TResult? Function(_LoadLiveProducts value)? LoadLiveProducts,
+    TResult? Function(_LoadUpcomingProducts value)? LoadUpcomingProducts,
+    TResult? Function(_LoadClosedProducts value)? LoadClosedProducts,
+    TResult? Function(_LoadProductsDetails value)? LoadProductsDetails,
   }) {
     return LoadBidProducts?.call(this);
   }
@@ -151,6 +195,10 @@ class _$_LoadBidProducts implements _LoadBidProducts {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadBidProducts value)? LoadBidProducts,
+    TResult Function(_LoadLiveProducts value)? LoadLiveProducts,
+    TResult Function(_LoadUpcomingProducts value)? LoadUpcomingProducts,
+    TResult Function(_LoadClosedProducts value)? LoadClosedProducts,
+    TResult Function(_LoadProductsDetails value)? LoadProductsDetails,
     required TResult orElse(),
   }) {
     if (LoadBidProducts != null) {
@@ -162,6 +210,486 @@ class _$_LoadBidProducts implements _LoadBidProducts {
 
 abstract class _LoadBidProducts implements BidProductsEvent {
   const factory _LoadBidProducts() = _$_LoadBidProducts;
+}
+
+/// @nodoc
+abstract class _$$_LoadLiveProductsCopyWith<$Res> {
+  factory _$$_LoadLiveProductsCopyWith(
+          _$_LoadLiveProducts value, $Res Function(_$_LoadLiveProducts) then) =
+      __$$_LoadLiveProductsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_LoadLiveProductsCopyWithImpl<$Res>
+    extends _$BidProductsEventCopyWithImpl<$Res, _$_LoadLiveProducts>
+    implements _$$_LoadLiveProductsCopyWith<$Res> {
+  __$$_LoadLiveProductsCopyWithImpl(
+      _$_LoadLiveProducts _value, $Res Function(_$_LoadLiveProducts) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_LoadLiveProducts implements _LoadLiveProducts {
+  const _$_LoadLiveProducts();
+
+  @override
+  String toString() {
+    return 'BidProductsEvent.LoadLiveProducts()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_LoadLiveProducts);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() LoadBidProducts,
+    required TResult Function() LoadLiveProducts,
+    required TResult Function() LoadUpcomingProducts,
+    required TResult Function() LoadClosedProducts,
+    required TResult Function() LoadProductsDetails,
+  }) {
+    return LoadLiveProducts();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? LoadBidProducts,
+    TResult? Function()? LoadLiveProducts,
+    TResult? Function()? LoadUpcomingProducts,
+    TResult? Function()? LoadClosedProducts,
+    TResult? Function()? LoadProductsDetails,
+  }) {
+    return LoadLiveProducts?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? LoadBidProducts,
+    TResult Function()? LoadLiveProducts,
+    TResult Function()? LoadUpcomingProducts,
+    TResult Function()? LoadClosedProducts,
+    TResult Function()? LoadProductsDetails,
+    required TResult orElse(),
+  }) {
+    if (LoadLiveProducts != null) {
+      return LoadLiveProducts();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadBidProducts value) LoadBidProducts,
+    required TResult Function(_LoadLiveProducts value) LoadLiveProducts,
+    required TResult Function(_LoadUpcomingProducts value) LoadUpcomingProducts,
+    required TResult Function(_LoadClosedProducts value) LoadClosedProducts,
+    required TResult Function(_LoadProductsDetails value) LoadProductsDetails,
+  }) {
+    return LoadLiveProducts(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadBidProducts value)? LoadBidProducts,
+    TResult? Function(_LoadLiveProducts value)? LoadLiveProducts,
+    TResult? Function(_LoadUpcomingProducts value)? LoadUpcomingProducts,
+    TResult? Function(_LoadClosedProducts value)? LoadClosedProducts,
+    TResult? Function(_LoadProductsDetails value)? LoadProductsDetails,
+  }) {
+    return LoadLiveProducts?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadBidProducts value)? LoadBidProducts,
+    TResult Function(_LoadLiveProducts value)? LoadLiveProducts,
+    TResult Function(_LoadUpcomingProducts value)? LoadUpcomingProducts,
+    TResult Function(_LoadClosedProducts value)? LoadClosedProducts,
+    TResult Function(_LoadProductsDetails value)? LoadProductsDetails,
+    required TResult orElse(),
+  }) {
+    if (LoadLiveProducts != null) {
+      return LoadLiveProducts(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadLiveProducts implements BidProductsEvent {
+  const factory _LoadLiveProducts() = _$_LoadLiveProducts;
+}
+
+/// @nodoc
+abstract class _$$_LoadUpcomingProductsCopyWith<$Res> {
+  factory _$$_LoadUpcomingProductsCopyWith(_$_LoadUpcomingProducts value,
+          $Res Function(_$_LoadUpcomingProducts) then) =
+      __$$_LoadUpcomingProductsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_LoadUpcomingProductsCopyWithImpl<$Res>
+    extends _$BidProductsEventCopyWithImpl<$Res, _$_LoadUpcomingProducts>
+    implements _$$_LoadUpcomingProductsCopyWith<$Res> {
+  __$$_LoadUpcomingProductsCopyWithImpl(_$_LoadUpcomingProducts _value,
+      $Res Function(_$_LoadUpcomingProducts) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_LoadUpcomingProducts implements _LoadUpcomingProducts {
+  const _$_LoadUpcomingProducts();
+
+  @override
+  String toString() {
+    return 'BidProductsEvent.LoadUpcomingProducts()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_LoadUpcomingProducts);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() LoadBidProducts,
+    required TResult Function() LoadLiveProducts,
+    required TResult Function() LoadUpcomingProducts,
+    required TResult Function() LoadClosedProducts,
+    required TResult Function() LoadProductsDetails,
+  }) {
+    return LoadUpcomingProducts();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? LoadBidProducts,
+    TResult? Function()? LoadLiveProducts,
+    TResult? Function()? LoadUpcomingProducts,
+    TResult? Function()? LoadClosedProducts,
+    TResult? Function()? LoadProductsDetails,
+  }) {
+    return LoadUpcomingProducts?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? LoadBidProducts,
+    TResult Function()? LoadLiveProducts,
+    TResult Function()? LoadUpcomingProducts,
+    TResult Function()? LoadClosedProducts,
+    TResult Function()? LoadProductsDetails,
+    required TResult orElse(),
+  }) {
+    if (LoadUpcomingProducts != null) {
+      return LoadUpcomingProducts();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadBidProducts value) LoadBidProducts,
+    required TResult Function(_LoadLiveProducts value) LoadLiveProducts,
+    required TResult Function(_LoadUpcomingProducts value) LoadUpcomingProducts,
+    required TResult Function(_LoadClosedProducts value) LoadClosedProducts,
+    required TResult Function(_LoadProductsDetails value) LoadProductsDetails,
+  }) {
+    return LoadUpcomingProducts(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadBidProducts value)? LoadBidProducts,
+    TResult? Function(_LoadLiveProducts value)? LoadLiveProducts,
+    TResult? Function(_LoadUpcomingProducts value)? LoadUpcomingProducts,
+    TResult? Function(_LoadClosedProducts value)? LoadClosedProducts,
+    TResult? Function(_LoadProductsDetails value)? LoadProductsDetails,
+  }) {
+    return LoadUpcomingProducts?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadBidProducts value)? LoadBidProducts,
+    TResult Function(_LoadLiveProducts value)? LoadLiveProducts,
+    TResult Function(_LoadUpcomingProducts value)? LoadUpcomingProducts,
+    TResult Function(_LoadClosedProducts value)? LoadClosedProducts,
+    TResult Function(_LoadProductsDetails value)? LoadProductsDetails,
+    required TResult orElse(),
+  }) {
+    if (LoadUpcomingProducts != null) {
+      return LoadUpcomingProducts(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadUpcomingProducts implements BidProductsEvent {
+  const factory _LoadUpcomingProducts() = _$_LoadUpcomingProducts;
+}
+
+/// @nodoc
+abstract class _$$_LoadClosedProductsCopyWith<$Res> {
+  factory _$$_LoadClosedProductsCopyWith(_$_LoadClosedProducts value,
+          $Res Function(_$_LoadClosedProducts) then) =
+      __$$_LoadClosedProductsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_LoadClosedProductsCopyWithImpl<$Res>
+    extends _$BidProductsEventCopyWithImpl<$Res, _$_LoadClosedProducts>
+    implements _$$_LoadClosedProductsCopyWith<$Res> {
+  __$$_LoadClosedProductsCopyWithImpl(
+      _$_LoadClosedProducts _value, $Res Function(_$_LoadClosedProducts) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_LoadClosedProducts implements _LoadClosedProducts {
+  const _$_LoadClosedProducts();
+
+  @override
+  String toString() {
+    return 'BidProductsEvent.LoadClosedProducts()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_LoadClosedProducts);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() LoadBidProducts,
+    required TResult Function() LoadLiveProducts,
+    required TResult Function() LoadUpcomingProducts,
+    required TResult Function() LoadClosedProducts,
+    required TResult Function() LoadProductsDetails,
+  }) {
+    return LoadClosedProducts();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? LoadBidProducts,
+    TResult? Function()? LoadLiveProducts,
+    TResult? Function()? LoadUpcomingProducts,
+    TResult? Function()? LoadClosedProducts,
+    TResult? Function()? LoadProductsDetails,
+  }) {
+    return LoadClosedProducts?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? LoadBidProducts,
+    TResult Function()? LoadLiveProducts,
+    TResult Function()? LoadUpcomingProducts,
+    TResult Function()? LoadClosedProducts,
+    TResult Function()? LoadProductsDetails,
+    required TResult orElse(),
+  }) {
+    if (LoadClosedProducts != null) {
+      return LoadClosedProducts();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadBidProducts value) LoadBidProducts,
+    required TResult Function(_LoadLiveProducts value) LoadLiveProducts,
+    required TResult Function(_LoadUpcomingProducts value) LoadUpcomingProducts,
+    required TResult Function(_LoadClosedProducts value) LoadClosedProducts,
+    required TResult Function(_LoadProductsDetails value) LoadProductsDetails,
+  }) {
+    return LoadClosedProducts(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadBidProducts value)? LoadBidProducts,
+    TResult? Function(_LoadLiveProducts value)? LoadLiveProducts,
+    TResult? Function(_LoadUpcomingProducts value)? LoadUpcomingProducts,
+    TResult? Function(_LoadClosedProducts value)? LoadClosedProducts,
+    TResult? Function(_LoadProductsDetails value)? LoadProductsDetails,
+  }) {
+    return LoadClosedProducts?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadBidProducts value)? LoadBidProducts,
+    TResult Function(_LoadLiveProducts value)? LoadLiveProducts,
+    TResult Function(_LoadUpcomingProducts value)? LoadUpcomingProducts,
+    TResult Function(_LoadClosedProducts value)? LoadClosedProducts,
+    TResult Function(_LoadProductsDetails value)? LoadProductsDetails,
+    required TResult orElse(),
+  }) {
+    if (LoadClosedProducts != null) {
+      return LoadClosedProducts(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadClosedProducts implements BidProductsEvent {
+  const factory _LoadClosedProducts() = _$_LoadClosedProducts;
+}
+
+/// @nodoc
+abstract class _$$_LoadProductsDetailsCopyWith<$Res> {
+  factory _$$_LoadProductsDetailsCopyWith(_$_LoadProductsDetails value,
+          $Res Function(_$_LoadProductsDetails) then) =
+      __$$_LoadProductsDetailsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_LoadProductsDetailsCopyWithImpl<$Res>
+    extends _$BidProductsEventCopyWithImpl<$Res, _$_LoadProductsDetails>
+    implements _$$_LoadProductsDetailsCopyWith<$Res> {
+  __$$_LoadProductsDetailsCopyWithImpl(_$_LoadProductsDetails _value,
+      $Res Function(_$_LoadProductsDetails) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_LoadProductsDetails implements _LoadProductsDetails {
+  const _$_LoadProductsDetails();
+
+  @override
+  String toString() {
+    return 'BidProductsEvent.LoadProductsDetails()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_LoadProductsDetails);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() LoadBidProducts,
+    required TResult Function() LoadLiveProducts,
+    required TResult Function() LoadUpcomingProducts,
+    required TResult Function() LoadClosedProducts,
+    required TResult Function() LoadProductsDetails,
+  }) {
+    return LoadProductsDetails();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? LoadBidProducts,
+    TResult? Function()? LoadLiveProducts,
+    TResult? Function()? LoadUpcomingProducts,
+    TResult? Function()? LoadClosedProducts,
+    TResult? Function()? LoadProductsDetails,
+  }) {
+    return LoadProductsDetails?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? LoadBidProducts,
+    TResult Function()? LoadLiveProducts,
+    TResult Function()? LoadUpcomingProducts,
+    TResult Function()? LoadClosedProducts,
+    TResult Function()? LoadProductsDetails,
+    required TResult orElse(),
+  }) {
+    if (LoadProductsDetails != null) {
+      return LoadProductsDetails();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadBidProducts value) LoadBidProducts,
+    required TResult Function(_LoadLiveProducts value) LoadLiveProducts,
+    required TResult Function(_LoadUpcomingProducts value) LoadUpcomingProducts,
+    required TResult Function(_LoadClosedProducts value) LoadClosedProducts,
+    required TResult Function(_LoadProductsDetails value) LoadProductsDetails,
+  }) {
+    return LoadProductsDetails(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadBidProducts value)? LoadBidProducts,
+    TResult? Function(_LoadLiveProducts value)? LoadLiveProducts,
+    TResult? Function(_LoadUpcomingProducts value)? LoadUpcomingProducts,
+    TResult? Function(_LoadClosedProducts value)? LoadClosedProducts,
+    TResult? Function(_LoadProductsDetails value)? LoadProductsDetails,
+  }) {
+    return LoadProductsDetails?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadBidProducts value)? LoadBidProducts,
+    TResult Function(_LoadLiveProducts value)? LoadLiveProducts,
+    TResult Function(_LoadUpcomingProducts value)? LoadUpcomingProducts,
+    TResult Function(_LoadClosedProducts value)? LoadClosedProducts,
+    TResult Function(_LoadProductsDetails value)? LoadProductsDetails,
+    required TResult orElse(),
+  }) {
+    if (LoadProductsDetails != null) {
+      return LoadProductsDetails(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadProductsDetails implements BidProductsEvent {
+  const factory _LoadProductsDetails() = _$_LoadProductsDetails;
 }
 
 /// @nodoc
