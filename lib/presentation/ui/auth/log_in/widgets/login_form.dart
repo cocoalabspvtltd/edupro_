@@ -214,7 +214,7 @@ class _LogInFormState extends State<LogInForm> {
                                 "Pg's\nEducating Values",
                                 style: TextStyle(
                                     fontFamily: "Pacifico",
-                                    fontSize: 10,
+                                    fontSize: 17,
                                     color: Colors.white),
                               ),
                             ),
@@ -469,7 +469,7 @@ class _LogInFormState extends State<LogInForm> {
                               )
                             ],
                           ),
-                          SizedBox(height: screenHeight * 0.04,),
+                          SizedBox(height: screenHeight * 0.2,),
                           const Center(
                             child: Padding(
                               padding: EdgeInsets.only(top: 100),

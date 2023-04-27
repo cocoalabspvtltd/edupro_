@@ -33,6 +33,7 @@ class Api {
   static String getUpcomingProductList = 'api/upcoming/bid_products';
   static String getClosedProductList = 'api/closed/bid_products';
   static String getProductDetails = 'api/products_details';
+  static String getCrowd = 'api/oranizations';
 
 
   ///////////////////////////////////////////////////INSTRUCTOR//////////////////////////////////////

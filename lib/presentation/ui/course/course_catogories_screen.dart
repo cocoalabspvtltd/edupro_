@@ -50,9 +50,12 @@ class CourseCategoriesScreen extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
+
                               Text(
                                 " Course Categories ",
-                                style: boldWord,
+
+                                style: TextStyle(fontSize: 18,fontFamily: "Pacifico"),
+
                               ),
                               TextButton(
                                 onPressed: () =>
@@ -64,12 +67,14 @@ class CourseCategoriesScreen extends StatelessWidget {
                                   style: TextStyle(
                                     fontSize: 13,
                                     fontWeight: FontWeight.bold,
+                                    fontFamily: "Pacifico",
                                     color: primaryColor[200],
                                   ),
                                 ),
                               )
                             ],
                           ),
+                          thickSpaceLogin,
                           CourseCategoriesListView(
                             categoryList: res.categoryList!,
                           ),

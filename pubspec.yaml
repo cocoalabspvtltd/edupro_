@@ -49,6 +49,7 @@ dependencies:
   flutter_html: ^2.2.1
   expansion_tile_card: ^2.0.0
   animate_gradient: ^0.0.2
+  percent_indicator: ^4.2.3
 
 
 dev_dependencies:

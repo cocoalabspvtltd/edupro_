@@ -43,7 +43,16 @@ class ProfileWidget extends StatelessWidget {
         Container(
             width: screenWidth,
             //height: screenWidth / 2,
-            color: secondaryColor,
+            decoration: BoxDecoration(
+
+                gradient: const LinearGradient(
+                    colors: [
+                      Colors.orangeAccent,
+                      Colors.orange,
+                      Color(0xFFB226B2),
+                    ],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter)),
             child: const Padding(
               padding: EdgeInsets.all(15.0),
               child: DisplayPicture(),

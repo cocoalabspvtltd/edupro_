@@ -50,7 +50,7 @@ class TrendingVideosScreen extends StatelessWidget {
                             children: [
                               Text(
                                 " Trending Courses ",
-                                style: boldWord,
+                                style: TextStyle(fontSize: 18,fontFamily: "Pacifico",)
                               ),
                               TextButton(
                                 onPressed: () => Get.to(() => const VideoScreen(
@@ -63,11 +63,13 @@ class TrendingVideosScreen extends StatelessWidget {
                                   style: TextStyle(
                                       fontSize: 13,
                                       fontWeight: FontWeight.bold,
+                                      fontFamily: "Pacifico",
                                       color: primaryColor[200]),
                                 ),
                               )
                             ],
                           ),
+                          thickSpaceLogin,
                           VideoVerticalListView(videoList: res.video!),
                         ],
                       )
