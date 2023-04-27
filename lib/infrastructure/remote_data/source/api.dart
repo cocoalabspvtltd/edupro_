@@ -29,7 +29,7 @@ class Api {
   static String getHotelList = 'api/hotel-list';
   static String getVoucherList = 'api/voucher-list';
   static String getBidList = 'api/bid_products';
-
+static String getCrowd = 'api/oranizations';
 
   ///////////////////////////////////////////////////INSTRUCTOR//////////////////////////////////////
   static String addCourses = "api/instructor/add_course";

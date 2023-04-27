@@ -77,7 +77,7 @@ class _ProductsScreenState extends State<ProductsScreen>
       indicatorColor: Colors.deepPurple,
       indicatorWeight: 3,
       indicator: UnderlineTabIndicator(
-        borderRadius: BorderRadius.all(Radius.circular(15)),
+        // borderRadius: BorderRadius.all(Radius.circular(15)),
         borderSide: BorderSide(color: Colors.deepPurple, width: 2.0),
         insets: getIndicatorPadding(),
       ),

@@ -12,6 +12,9 @@ import 'package:pgs_edupro/presentation/ui/videos/live_videos_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../crowd_funidng/donate.dart';
+import '../../../crowd_funidng/donation_screen.dart';
+
 class DrawerWidget extends StatelessWidget {
   final BuildContext context;
   final GlobalKey<ScaffoldState> scaffoldKey;
@@ -169,6 +172,11 @@ class DrawerWidget extends StatelessWidget {
                         selectedIndex: 2,
                       ));
                     }),
+                    _drawerMenuItem(
+                        Icon(Icons.add_box_outlined,color: Colors.orange,),
+                        'Crowd Funding', () {
+                      Get.offAll(() =>  Doante());
+                    }),
                     SizedBox(height: 10,),
                     Padding(
                       padding: const EdgeInsets.only(left:0.0005),
@@ -178,6 +186,7 @@ class DrawerWidget extends StatelessWidget {
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
+                            fontFamily: "Pacifico",
                             fontSize: 16,
                           ),
                         ),
@@ -353,6 +362,7 @@ class DrawerWidget extends StatelessWidget {
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.black,
+                              fontFamily: "Pacifico",
                               fontSize: 16,
                             ),
                           ))
