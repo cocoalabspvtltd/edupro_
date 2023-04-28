@@ -5,7 +5,6 @@ import 'package:pgs_edupro/domain/core/network/api_provider.dart';
 import 'package:pgs_edupro/domain/core/network/network_failures.dart';
 import 'package:pgs_edupro/domain/offers/i_offers_repository.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/offers/hotel_list_response.dart';
-import 'package:pgs_edupro/infrastructure/remote_data/models/offers/vouchers_list_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/source/api.dart';
 import 'package:pgs_edupro/presentation/ui/offers/hotel_deatils_screen.dart';
 
