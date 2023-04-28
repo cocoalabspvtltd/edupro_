@@ -52,216 +52,238 @@ class CrowdFunding extends StatelessWidget {
                         ? Column(
                             children: [
                               thickSpace,
-                              CarouselSlider.builder(
-                                  itemCount: res.organization!.length,
-                                  options: CarouselOptions(
-                                    autoPlay: false,
-                                    aspectRatio: 1 / (5 / 3),
-                                    enableInfiniteScroll: false,
-                                    enlargeCenterPage: true,
-                                  ),
-                                  itemBuilder: (context, index, realIdx) {
-                                    return Card(
-                                      elevation: 50,
-                                      shadowColor: Colors.black,
-                                      color: Colors.white,
-                                      child: SizedBox(
-                                        width: 400,
-                                        height: 500,
+                              Container(width: screenWidth,height: screenHeight*0.90,
+                                child: CarouselSlider.builder(
+                                    itemCount: res.organization!.length,
+                                    options: CarouselOptions(
+                                      autoPlay: false,
+                                      aspectRatio: 1 / (5 / 3),
+                                      enableInfiniteScroll: false,
+                                      enlargeCenterPage: true,
+                                    ),
+                                    itemBuilder: (context, index, realIdx) {
+                                      return SingleChildScrollView(scrollDirection: Axis.vertical,
                                         child: Padding(
-                                          padding: const EdgeInsets.all(20.0),
-                                          child: Column(
-                                            children: [
-                                          Text(
-                                          "${res.organization![index].title}",
-                                            style: TextStyle(
-                                                color: Colors.black,
-                                                fontFamily: 'Pacifico'),
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Container(height: screenHeight*0.93,
+                                            child: Card(
+                                              elevation: 50,
+                                              shadowColor: Colors.black,
+                                              color: Colors.white,
+                                              child: SizedBox(
+                                                width: screenWidth,
+                                                height: screenHeight,
+                                                child: Padding(
+                                                  padding: const EdgeInsets.all(20.0),
+                                                  child: Column(
+                                                    children: [
+                                                  Text(
+                                                  "${res.organization![index].title}",
+                                                    style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 12,
+                                                        fontFamily: 'Pacifico'),
+                                                  ),
+                                                      CircleAvatar(
+                                                        backgroundColor:
+                                                            Colors.purpleAccent,
+                                                        radius: 108,
+                                                        child: const CircleAvatar(
+                                                          backgroundImage: AssetImage(
+                                                              "assets/images/images.jpg"),
+                                                          //NetworkImage
+                                                          radius: 100,
+                                                        ), //CircleAvatar
+                                                      ), //CircleAvatar
+                                                      const SizedBox(
+                                                        height: 10,
+                                                      ), //SizedBox
+
+                                                      LinearPercentIndicator(
+                                                        //leaner progress bar
+                                                        animation: true,
+                                                        animationDuration: 1000,
+                                                        lineHeight: 20.0,
+                                                        percent: 50 / 100,
+                                                        center: Text(
+                                                          10.toString() + "%",
+                                                          style: const TextStyle(
+                                                              fontSize: 12.0,
+                                                              fontWeight:
+                                                                  FontWeight.w600,
+                                                              color: Colors.black),
+                                                        ),
+                                                        linearStrokeCap:
+                                                            LinearStrokeCap.roundAll,
+                                                        progressColor: Colors.purpleAccent,
+                                                        backgroundColor:
+                                                            Colors.grey[300],
+                                                      ),
+                                                      //Text
+                                                      const SizedBox(
+                                                        height: 10,
+                                                      ),
+                                                      const SizedBox(
+                                                        height: 20,
+                                                      ),
+                                                      Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment.center,
+                                                        children: [
+                                                          Text(
+                                                            "₹ ${res.organization![index].raisedAmount}",
+                                                            style: TextStyle(
+                                                                color: Colors.black,
+                                                                fontFamily: 'Pacifico'),
+                                                          ),
+                                                          SizedBox(
+                                                            width: 7,
+                                                          ),
+                                                          Text(
+                                                            "raised out of ",
+                                                            style: TextStyle(
+                                                                color: Colors.black),
+                                                          ),
+                                                          SizedBox(
+                                                            width: 7,
+                                                          ),
+                                                          Text(
+                                                            "₹ ${res.organization![index].goalAmount}",
+                                                            style: TextStyle(
+                                                                color: Colors.black,
+                                                                fontFamily: 'Pacifico'),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      const SizedBox(
+                                                        height: 20,
+                                                      ),
+                                                      Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment.start,
+                                                        children: [
+                                                          Column(
+                                                            children: const [
+                                                              Text(
+                                                                "Beneficiary",
+                                                                style: TextStyle(
+                                                                    color: Colors.black,
+                                                                    fontFamily:
+                                                                        'Pacifico'),
+                                                              ),
+                                                              SizedBox(
+                                                                height: 10,
+                                                              ),
+                                                              Text(
+                                                                "Anjana Murugan",
+                                                                style: TextStyle(
+                                                                    color: Colors.black,
+                                                                    fontFamily:
+                                                                        'Sigmar'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          const SizedBox(
+                                                            width: 7,
+                                                          ),
+
+                                                          const SizedBox(
+                                                            width:50,
+                                                          ),
+                                                          Column(
+                                                            children: const [
+                                                              Text(
+                                                                "Created By",
+                                                                style: TextStyle(
+                                                                    color: Colors.black,
+                                                                    fontFamily:
+                                                                        'Pacifico'),
+                                                              ),
+                                                              SizedBox(
+                                                                height: 10,
+                                                              ),
+                                                              Text(
+                                                                "Edupro ",
+                                                                style: TextStyle(
+                                                                    color: Colors.black,
+                                                                    fontFamily:
+                                                                        'Sigmar'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      SizedBox(height:10),
+                                                      SingleChildScrollView(scrollDirection: Axis.vertical,
+                                                        child: Container(height: screenHeight*0.35,width: 300,
+                                                          child: Card(    elevation: 30,
+                                                            shadowColor: Colors.black,
+                                                            color: Colors.orangeAccent,
+                                                            child: Padding(
+                                                              padding: const EdgeInsets.all(8.0),
+                                                              child: Text(
+                                                                "${res.organization![index].description}",
+                                                                style: TextStyle(
+                                                                    color: Colors.black,
+                                                                    fontSize: 12,
+                                                                    fontFamily: 'Pacifico'),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),//Text
+                                                      const SizedBox(
+                                                        height:0,
+                                                      ), //SizedBox
+                                                      SizedBox(
+                                                        width: 160,
+
+                                                        child: ElevatedButton(
+                                                          onPressed: () => 'Null',
+                                                          style: ButtonStyle(
+                                                              backgroundColor:
+                                                                  MaterialStateProperty
+                                                                      .all(Colors
+                                                                          .purpleAccent)),
+                                                          child: Padding(
+                                                            padding:
+                                                                const EdgeInsets.all(4),
+                                                            child: Row(
+                                                              children: const [
+                                                                Icon(Icons.touch_app),
+                                                                Text('    Donate Now')
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        // RaisedButton is deprecated and should not be used
+                                                        // Use ElevatedButton instead
+
+                                                        // child: RaisedButton(
+                                                        //   onPressed: () => null,
+                                                        //   color: Colors.green,
+                                                        //   child: Padding(
+                                                        //     padding: const EdgeInsets.all(4.0),
+                                                        //     child: Row(
+                                                        //       children: const [
+                                                        //         Icon(Icons.touch_app),
+                                                        //         Text('Visit'),
+                                                        //       ],
+                                                        //     ), //Row
+                                                        //   ), //Padding
+                                                        // ), //RaisedButton
+                                                      ) //SizedBox
+                                                    ],
+                                                  ), //Column
+                                                ), //Padding
+                                              ), //SizedBox
+                                            ),
                                           ),
-                                              CircleAvatar(
-                                                backgroundColor:
-                                                    Colors.purpleAccent,
-                                                radius: 108,
-                                                child: const CircleAvatar(
-                                                  backgroundImage: AssetImage(
-                                                      "assets/images/images.jpg"),
-                                                  //NetworkImage
-                                                  radius: 100,
-                                                ), //CircleAvatar
-                                              ), //CircleAvatar
-                                              const SizedBox(
-                                                height: 10,
-                                              ), //SizedBox
-
-                                              LinearPercentIndicator(
-                                                //leaner progress bar
-                                                animation: true,
-                                                animationDuration: 1000,
-                                                lineHeight: 20.0,
-                                                percent: 50 / 100,
-                                                center: Text(
-                                                  10.toString() + "%",
-                                                  style: const TextStyle(
-                                                      fontSize: 12.0,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      color: Colors.black),
-                                                ),
-                                                linearStrokeCap:
-                                                    LinearStrokeCap.roundAll,
-                                                progressColor: Colors.purpleAccent,
-                                                backgroundColor:
-                                                    Colors.grey[300],
-                                              ),
-                                              //Text
-                                              const SizedBox(
-                                                height: 10,
-                                              ),
-                                              const SizedBox(
-                                                height: 20,
-                                              ),
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Text(
-                                                    "₹ ${res.organization![index].raisedAmount}",
-                                                    style: TextStyle(
-                                                        color: Colors.black,
-                                                        fontFamily: 'Pacifico'),
-                                                  ),
-                                                  SizedBox(
-                                                    width: 7,
-                                                  ),
-                                                  Text(
-                                                    "raised out of ",
-                                                    style: TextStyle(
-                                                        color: Colors.black),
-                                                  ),
-                                                  SizedBox(
-                                                    width: 7,
-                                                  ),
-                                                  Text(
-                                                    "₹ ${res.organization![index].goalAmount}",
-                                                    style: TextStyle(
-                                                        color: Colors.black,
-                                                        fontFamily: 'Pacifico'),
-                                                  ),
-                                                ],
-                                              ),
-                                              const SizedBox(
-                                                height: 20,
-                                              ),
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                children: [
-                                                  Column(
-                                                    children: const [
-                                                      Text(
-                                                        "Beneficiary Name",
-                                                        style: TextStyle(
-                                                            color: Colors.black,
-                                                            fontFamily:
-                                                                'Pacifico'),
-                                                      ),
-                                                      SizedBox(
-                                                        height: 10,
-                                                      ),
-                                                      Text(
-                                                        "Anjana Murugan",
-                                                        style: TextStyle(
-                                                            color: Colors.black,
-                                                            fontFamily:
-                                                                'Sigmar'),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  const SizedBox(
-                                                    width: 7,
-                                                  ),
-
-                                                  const SizedBox(
-                                                    width: 88,
-                                                  ),
-                                                  Column(
-                                                    children: const [
-                                                      Text(
-                                                        "Created By",
-                                                        style: TextStyle(
-                                                            color: Colors.black,
-                                                            fontFamily:
-                                                                'Pacifico'),
-                                                      ),
-                                                      SizedBox(
-                                                        height: 10,
-                                                      ),
-                                                      Text(
-                                                        "Edupro ",
-                                                        style: TextStyle(
-                                                            color: Colors.black,
-                                                            fontFamily:
-                                                                'Sigmar'),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ],
-                                              ),
-                                              SizedBox(height:20),
-                                              Text(
-                                                "${res.organization![index].description}",
-                                                style: TextStyle(
-                                                    color: Colors.black,
-                                                    fontFamily: 'Pacifico'),
-                                              ),//Text
-                                              const SizedBox(
-                                                height: 20,
-                                              ), //SizedBox
-                                              SizedBox(
-                                                width: 150,
-
-                                                child: ElevatedButton(
-                                                  onPressed: () => 'Null',
-                                                  style: ButtonStyle(
-                                                      backgroundColor:
-                                                          MaterialStateProperty
-                                                              .all(Colors
-                                                                  .purpleAccent)),
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsets.all(4),
-                                                    child: Row(
-                                                      children: const [
-                                                        Icon(Icons.touch_app),
-                                                        Text('    Donate Now')
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                                // RaisedButton is deprecated and should not be used
-                                                // Use ElevatedButton instead
-
-                                                // child: RaisedButton(
-                                                //   onPressed: () => null,
-                                                //   color: Colors.green,
-                                                //   child: Padding(
-                                                //     padding: const EdgeInsets.all(4.0),
-                                                //     child: Row(
-                                                //       children: const [
-                                                //         Icon(Icons.touch_app),
-                                                //         Text('Visit'),
-                                                //       ],
-                                                //     ), //Row
-                                                //   ), //Padding
-                                                // ), //RaisedButton
-                                              ) //SizedBox
-                                            ],
-                                          ), //Column
-                                        ), //Padding
-                                      ), //SizedBox
-                                    ); //Card
-                                    //Center;
-                                  }),
+                                        ),
+                                      ); //Card
+                                      //Center;
+                                    }),
+                              ),
                             ],
                           )
                         : SizedBox(

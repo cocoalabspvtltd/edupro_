@@ -22,9 +22,16 @@ class _DoanteState extends State<Doante> {
   Widget build(BuildContext context) {
     return Scaffold(backgroundColor: Colors.orangeAccent,
         appBar: appBarTheme("Crowd Funding"),
-        body: BlocProvider(create: (_)=>CrowdBloc(BidsRepository()),
+        body:Container(
+            decoration: const BoxDecoration(
+            gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: <Color>[Color(0xFFB226B2),
+            Colors.orange]),
+    ),child: BlocProvider(create: (_)=>CrowdBloc(BidsRepository()),
           child: SingleChildScrollView(
-              child: CrowdFunding()),)
+              child: CrowdFunding()),))
     );
   }
 
