@@ -198,6 +198,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                           (BuildContext context, int index) {
                                         return SingleChildScrollView(
                                           child: Column(
+
                                             children: [
                                               Row(
                                                 children: [
