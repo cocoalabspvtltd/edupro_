@@ -47,129 +47,129 @@ class LiveProductlistScreen extends StatelessWidget {
                     BidProductResponse res = state.response;
                     return res.bidProducts != null
                         ? Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                thickSpace,
-                                thickSpace,
-                                thickSpace,
-                                CarouselSlider.builder(
-                                    itemCount: res.bidProducts!.length,
-                                    options: CarouselOptions(
-                                      autoPlay: true,
-                                      aspectRatio: 1 / (5 / 4),
-                                      enableInfiniteScroll: false,
-                                      autoPlayAnimationDuration: Duration(milliseconds: 10),
-                                      enlargeCenterPage: true,
-                                    ),
-                                    itemBuilder: (context, index, realIdx) {
-                                      return SizedBox(
-                                        width: screenWidth * 0.9,
-                                        height: screenHeight * 0.1,
-                                        child: Card(
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              SizedBox(
-                                                height: 20,
-                                              ),
-                                              Text(
-                                                "Amazon in ${res.bidProducts![index].price}",
-                                                style: TextStyle(
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                              Text(
-                                                "Gift Card",
-                                                style: TextStyle(
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                              thickSpace,
-                                              thickSpace,
-                                              Container(
-                                                width: 130,
-                                                padding: EdgeInsets.all(1),
-                                                child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(12),
-                                                  child: CachedNetworkImage(
-                                                    fit: BoxFit.fill,
-                                                    imageUrl: UserDetailsLocal
-                                                            .storageBaseUrl +
-                                                        '${res.bidProducts![index].productImage}',
-                                                    placeholder:
-                                                        (context, url) =>
-                                                            Center(
-                                                      child:
-                                                          CircularProgressIndicator(),
-                                                    ),
-                                                    errorWidget:
-                                                        (context, url, error) =>
-                                                            ClipRRect(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              12),
-                                                      child: Image(
-                                                        image: AssetImage(
-                                                            'assets/images/dp.png'),
-                                                        // height: 60,
-                                                        // width: 60,
-                                                      ),
+                      padding: const EdgeInsets.all(20.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          thickSpace,
+                          thickSpace,
+                          thickSpace,
+                          SizedBox(
+                            width: screenWidth * 0.9,
+                            height: screenHeight * 0.5,
+                            child: Card(
+                              child: CarouselSlider.builder(
+                                  itemCount: res.bidProducts!.length,
+                                  options: CarouselOptions(
+                                    autoPlay: true,
+                                    aspectRatio: 1 / (5 / 3),
+                                    enableInfiniteScroll: false,
+                                    enlargeCenterPage: true,
+                                  ),
+                                  itemBuilder: (context, index, realIdx) {
+                                    return Column(
+                                      crossAxisAlignment:
+                                      CrossAxisAlignment.center,
+                                      children: [
+                                        SizedBox(
+                                          height: 20,
+                                        ),
+                                        Text(
+                                          "Amazon in ${res.bidProducts![index].price}",
+                                          style: TextStyle(
+                                              fontWeight:
+                                              FontWeight.bold),
+                                        ),
+                                        Text(
+                                          "Gift Card",
+                                          style: TextStyle(
+                                              fontWeight:
+                                              FontWeight.bold),
+                                        ),
+                                        thickSpace,
+                                        thickSpace,
+                                        Container(
+                                          width: 130,
+                                          padding: EdgeInsets.all(1),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                            BorderRadius.circular(12),
+                                            child: CachedNetworkImage(
+                                              fit: BoxFit.fill,
+                                              imageUrl: UserDetailsLocal
+                                                  .storageBaseUrl +
+                                                  '${res.bidProducts![index].productImage}',
+                                              placeholder:
+                                                  (context, url) =>
+                                                  Center(
+                                                    child:
+                                                    CircularProgressIndicator(),
+                                                  ),
+                                              errorWidget:
+                                                  (context, url, error) =>
+                                                  ClipRRect(
+                                                    borderRadius:
+                                                    BorderRadius.circular(
+                                                        12),
+                                                    child: Image(
+                                                      image: AssetImage(
+                                                          'assets/images/dp.png'),
+                                                      // height: 60,
+                                                      // width: 60,
                                                     ),
                                                   ),
-                                                ),
-                                              ),
-                                              thickSpace,
-                                              thickSpace,
-                                              Text(
-                                                "Auction ID : ${res.bidProducts![index].auctionId}",
-                                                style: TextStyle(
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                    color: Colors.grey[800]),
-                                              ),
-                                              thickSpace,
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Icon(Icons.lock_clock),
-                                                  Text(
-                                                    "From ${res.bidProducts![index].startTime} To ${res.bidProducts![index].endTime}",
-                                                    style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        color:
-                                                            Colors.grey[800]),
-                                                  ),
-                                                ],
-                                              ),
-                                              thickSpace,
-                                              thickSpace,
-                                              SizedBox(
-                                                height: 50,
-                                                width: screenWidth * 0.3,
-                                                child: ElevatedButton(
-                                                  onPressed: () {
-                                                    product_id= res.bidProducts![index].id!.toString();
-                                                    Get.to(() =>  ProductDetailsScreen(
-                                                        productdetails:res.bidProducts![index]));
-                                                    print("iddd${product_id}");
-                                                  },
-                                                  child: const Text('Bid Now'),
-                                                ),
-                                              ),
-                                            ],
+                                            ),
                                           ),
                                         ),
-                                      );
-                                    }),
-                              ],
+                                        thickSpace,
+                                        thickSpace,
+                                        Text(
+                                          "Auction ID : ${res.bidProducts![index].auctionId}",
+                                          style: TextStyle(
+                                              fontWeight:
+                                              FontWeight.normal,
+                                              color: Colors.grey[800]),
+                                        ),
+                                        thickSpace,
+                                        Row(
+                                          mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                          children: [
+                                            Icon(Icons.lock_clock),
+                                            Text(
+                                              "From ${res.bidProducts![index].startTime} To ${res.bidProducts![index].endTime}",
+                                              style: TextStyle(
+                                                  fontWeight:
+                                                  FontWeight.normal,
+                                                  color:
+                                                  Colors.grey[800]),
+                                            ),
+                                          ],
+                                        ),
+                                        thickSpace,
+                                        thickSpace,
+                                        SizedBox(
+                                          height: 50,
+                                          width: screenWidth * 0.3,
+                                          child: ElevatedButton(
+                                            onPressed: () {
+                                              product_id= res.bidProducts![index].id!.toString();
+                                              Get.to(() =>  ProductDetailsScreen(
+                                                  productdetails:res.bidProducts![index]));
+                                              print("iddd${product_id}");
+
+                                            },
+                                            child: const Text('Bid Now'),
+                                          ),
+                                        ),
+                                      ],
+                                    );
+                                  }),
                             ),
-                          )
+                          ),
+                        ],
+                      ),
+                    )
                         : SizedBox(
                             height: screenHeight -
                                 180, //!fromHome ? screenHeight : 300,
