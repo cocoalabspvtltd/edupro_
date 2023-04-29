@@ -47,7 +47,6 @@ class CrowdFunding extends StatelessWidget {
                   ),
                   loadSuccess: (state) {
                     CrowdFundingResponse res = state.response;
-
                     return res.organization != null
                         ? Column(
                             children: [
@@ -98,7 +97,6 @@ class CrowdFunding extends StatelessWidget {
                                                       const SizedBox(
                                                         height: 10,
                                                       ), //SizedBox
-
                                                       LinearPercentIndicator(
                                                         //leaner progress bar
                                                         animation: true,

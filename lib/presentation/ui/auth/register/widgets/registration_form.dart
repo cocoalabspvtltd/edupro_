@@ -107,7 +107,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       //       ),
                       //     );
                     }
-                    if (state.userStatus == 'edu_user') {
+                    if (state.userStatus == 'edu-user') {
                       Get.to(() => const RegistrationEduUserMessage());
                       context
                           .read<AuthBloc>()
@@ -227,7 +227,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                                 String userStatus = 'new_user';
 
                                 index == 0
-                                    ? userStatus = 'edu_user'
+                                    ? userStatus = 'edu-user'
                                     : userStatus = 'new_user';
                                 context
                                     .read<LogInBloc>()
