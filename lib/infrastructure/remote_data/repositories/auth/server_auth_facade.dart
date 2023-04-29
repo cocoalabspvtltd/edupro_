@@ -34,7 +34,7 @@ class ServerAuthFacade implements IAuthFacade {
     String uPaymentStatus = 'true'; //SharedPrefs.getString('spPaymentStatus');
     User user = User(
         id: '', name: StringSingleLine(''), emailAddress: EmailAddress(''), type: '');
-    if (uStatus != 'edu_user' &&
+    if (uStatus != 'edu-user' &&
         uPaymentStatus != 'false' &&
         uPaymentStatus != '') {
       user = User(

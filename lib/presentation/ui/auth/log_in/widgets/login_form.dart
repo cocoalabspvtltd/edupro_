@@ -113,7 +113,7 @@ class _LogInFormState extends State<LogInForm> {
                     ).show(context);
                   },
                   (r) {
-                    if (state.userStatus == 'edu_user') {
+                    if (state.userStatus == 'edu-user') {
                       Get.offAll(() => EduUserVerificationScreen());
                       return;
                     }

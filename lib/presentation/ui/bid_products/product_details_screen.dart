@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pgs_edupro/application/bid_products/bid_products_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
@@ -50,8 +52,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-      ),
+      appBar: appBarTheme("Product Details"),
       body: BlocProvider(
         create: (_) => BidProductsBloc(BidsRepository())
           ..add(const BidProductsEvent.LoadProductsDetails()),
@@ -156,7 +157,6 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                         )),
                                     Text("${widget.productdetails.name}",style: TextStyle(
                                       fontWeight: FontWeight.bold,
-
                                     ),),
                                     Divider(),
                                     Container(
@@ -165,9 +165,6 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                       decoration: BoxDecoration(
                                         borderRadius:
                                         BorderRadius.circular(15),
-                                        // border: Border.all(
-                                        //     width: 1.0,
-                                        //     color: Colors.black),
                                       ),
                                       child: Padding(
                                         padding: const EdgeInsets.all(8.0),
@@ -178,7 +175,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                               fontWeight: FontWeight.bold,),),
                                             Spacer(),
                                             ElevatedButton(onPressed: (){}, child: Text("BID NOW")),
-                                            SizedBox(width: 30,),
+                                            SizedBox(width: 20,),
                                           ],
                                         ),
                                       ),
@@ -198,7 +195,6 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                           (BuildContext context, int index) {
                                         return SingleChildScrollView(
                                           child: Column(
-
                                             children: [
                                               Row(
                                                 children: [
@@ -208,7 +204,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                                       if(_tabController!.index > 0){
                                                         _tabController!.animateTo(_tabController!.index - 1);
                                                       }else{
-                                                       Fluttertoast.showToast(msg: "Can't go back");
+                                                        Text( "Can't go back");
                                                       }
                                                     },
                                                   ),
@@ -217,9 +213,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                                       isScrollable: true,
                                                       controller: _tabController,
                                                       indicatorSize:
-                                                          TabBarIndicatorSize.tab,
+                                                      TabBarIndicatorSize.tab,
                                                       labelColor:
-                                                          Colors.deepPurple[500],
+                                                      Colors.deepPurple[500],
                                                       tabs: _tabs,
                                                     ),
                                                   ),
@@ -229,7 +225,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                                       if(_tabController!.index+1 < 20){
                                                         _tabController!.animateTo(_tabController!.index + 1);
                                                       }else{
-                                                       Fluttertoast.showToast(msg: "Can't move forward");
+                                                        Text( "Can't move forward");
                                                       }
                                                     },
                                                   ),
@@ -240,26 +236,159 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                                     .symmetric(vertical: 10),
                                                 child: Container(
                                                   height:
-                                                      MediaQuery.of(context)
-                                                              .size
-                                                              .height +
-                                                          300,
+                                                  MediaQuery.of(context)
+                                                      .size
+                                                      .height * 0.22,
                                                   width:
-                                                      MediaQuery.of(context)
-                                                              .size
-                                                              .width -
-                                                          2,
+                                                  MediaQuery.of(context)
+                                                      .size
+                                                      .width -
+                                                      2,
                                                   child: TabBarView(
                                                     controller:
-                                                        _tabController,
+                                                    _tabController,
                                                     children: [
-                                                     Text("nkjn"),
-                                                      Text("Hai"),
-                                                      Text("Hai")
+                                                      _auctionInfoWidget(),
+                                                      Text("History"),
+                                                      Text("Delivery info")
                                                     ],
                                                   ),
                                                 ),
                                               ),
+                                              Theme(
+                                                data: Theme.of(context).copyWith(accentColor: primaryColor),
+                                                child: ExpansionTileCard(
+                                                  contentPadding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                                                  elevation: 8,
+                                                  borderRadius: BorderRadius.circular(15),
+                                                  baseColor: Colors.grey[300],
+                                                  leading: Icon(Icons.military_tech_outlined,color: Colors.black,),
+                                                  title: Text("Technical Details", style: TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight: FontWeight.w600,
+                                                      color: Colors.black),),
+                                                  children: <Widget>[
+                                                    Divider(
+                                                      thickness: 1.5,
+                                                      height: 1.0,
+                                                    ),
+                                                    SizedBox(height: 10,),
+                                                    Align(
+                                                      alignment: Alignment.centerLeft,
+                                                      child: Padding(
+                                                        padding: const EdgeInsets.symmetric(
+                                                          horizontal: 16.0,
+                                                          vertical: 8.0,
+                                                        ),
+                                                        child: Html(
+                                                          data: res.productDetails![index].technicalDetails,
+                                                          tagsList: Html.tags..addAll(["bird", "flutter"]),
+                                                          style: {
+                                                            'h5': Style(maxLines: 2, textOverflow: TextOverflow.ellipsis),
+                                                          },
+                                                          customRender: {
+                                                            "bird": (RenderContext context, Widget child) {
+                                                              return TextSpan(text: "🐦");
+                                                            },
+                                                            "flutter": (RenderContext context, Widget child) {
+                                                              return FlutterLogo(
+                                                                style: (context.tree.element!.attributes['horizontal'] != null)
+                                                                    ? FlutterLogoStyle.horizontal
+                                                                    : FlutterLogoStyle.markOnly,
+                                                                textColor: context.style.color!,
+                                                                size: context.style.fontSize!.size! * 5,
+                                                              );
+                                                            },
+                                                          },
+                                                          onLinkTap: (url, _, __, ___) {
+                                                            print("Opening $url...");
+                                                          },
+                                                          onImageTap: (src, _, __, ___) {
+                                                            print(src);
+                                                          },
+                                                          onImageError: (exception, stackTrace) {
+                                                          },
+                                                          onCssParseError: (css, messages) {
+                                                            messages.forEach((element) {
+                                                              print(element);
+                                                            });
+                                                          },
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    SizedBox(height: 20,)
+                                                  ],
+                                                ),
+                                              ),
+                                              thickSpace,
+                                              Theme(
+                                                data: Theme.of(context).copyWith(accentColor: primaryColor),
+                                                child: ExpansionTileCard(
+                                                  contentPadding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                                                  elevation: 8,
+                                                  borderRadius: BorderRadius.circular(15),
+                                                  baseColor: Colors.grey[300],
+                                                  leading: Icon(Icons.featured_play_list_outlined,color: Colors.black,),
+                                                  title: Text("Features", style: TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight: FontWeight.w600,
+                                                      color: Colors.black),),
+                                                  children: <Widget>[
+                                                    Divider(
+                                                      thickness: 1.5,
+                                                      height: 1.0,
+                                                    ),
+                                                    SizedBox(height: 10,),
+                                                    Align(
+                                                      alignment: Alignment.centerLeft,
+                                                      child: Padding(
+                                                        padding: const EdgeInsets.symmetric(
+                                                          horizontal: 16.0,
+                                                          vertical: 8.0,
+                                                        ),
+                                                        child: Html(
+                                                          data: res.productDetails![index].features,
+                                                          tagsList: Html.tags..addAll(["bird", "flutter"]),
+                                                          style: {
+                                                            'h5': Style(maxLines: 2, textOverflow: TextOverflow.ellipsis),
+                                                          },
+                                                          customRender: {
+                                                            "bird": (RenderContext context, Widget child) {
+                                                              return TextSpan(text: "🐦");
+                                                            },
+                                                            "flutter": (RenderContext context, Widget child) {
+                                                              return FlutterLogo(
+                                                                style: (context.tree.element!.attributes['horizontal'] != null)
+                                                                    ? FlutterLogoStyle.horizontal
+                                                                    : FlutterLogoStyle.markOnly,
+                                                                textColor: context.style.color!,
+                                                                size: context.style.fontSize!.size! * 5,
+                                                              );
+                                                            },
+                                                          },
+                                                          onLinkTap: (url, _, __, ___) {
+                                                            print("Opening $url...");
+                                                          },
+                                                          onImageTap: (src, _, __, ___) {
+                                                            print(src);
+                                                          },
+                                                          onImageError: (exception, stackTrace) {
+                                                          },
+                                                          onCssParseError: (css, messages) {
+                                                            messages.forEach((element) {
+                                                              print(element);
+                                                            });
+                                                          },
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    SizedBox(height: 20,)
+                                                  ],
+                                                ),
+                                              ),
+                                              thickSpace,
+                                              thickSpace,
+                                              thickSpace,
                                             ],
                                           ),
                                         );
@@ -327,6 +456,116 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
             },
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _auctionInfoWidget() {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(height: 10,),
+          Row(
+            children: [
+              Text("Auction ID"),
+              Spacer(),
+              Text("${widget.productdetails.auctionId}"),
+            ],
+          ),
+          Divider(),
+          Row(
+            children: [
+              Text("Price"),
+              Spacer(),
+              Text("${widget.productdetails.price}"),
+            ],
+          ),
+          Divider(),
+          Row(
+            children: [
+              Text("Shipping & Processing Fees"),
+              Spacer(),
+              Text("${widget.productdetails.shippingFee}"),
+            ],
+          ),
+          Divider(),
+          Row(
+            children: [
+              Text("Bid Reset Time"),
+              Spacer(),
+              // Text("${widget.productdetails.bidResetTime}"),
+              Text(""),
+            ],
+          ),
+          Divider(),
+          // Theme(
+          //   data: Theme.of(context).copyWith(accentColor: primaryColor),
+          //   child: ExpansionTileCard(
+          //     contentPadding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+          //     elevation: 8,
+          //     borderRadius: BorderRadius.circular(15),
+          //     baseColor: Colors.grey[300],
+          //     leading: Icon(Icons.local_offer_outlined,color: Colors.black,),
+          //     title: Text("${widget.hoteldetails.offerTitle}", style: TextStyle(
+          //         fontSize: 16,
+          //         fontWeight: FontWeight.w600,
+          //         color: Colors.black),),
+          //     children: <Widget>[
+          //       Divider(
+          //         thickness: 1.5,
+          //         height: 1.0,
+          //       ),
+          //       SizedBox(height: 10,),
+          //       Align(
+          //         alignment: Alignment.centerLeft,
+          //         child: Padding(
+          //           padding: const EdgeInsets.symmetric(
+          //             horizontal: 16.0,
+          //             vertical: 8.0,
+          //           ),
+          //           child: Html(
+          //             data: widget.hoteldetails.termsConditions,
+          //             tagsList: Html.tags..addAll(["bird", "flutter"]),
+          //             style: {
+          //               'h5': Style(maxLines: 2, textOverflow: TextOverflow.ellipsis),
+          //             },
+          //             customRender: {
+          //               "bird": (RenderContext context, Widget child) {
+          //                 return TextSpan(text: "🐦");
+          //               },
+          //               "flutter": (RenderContext context, Widget child) {
+          //                 return FlutterLogo(
+          //                   style: (context.tree.element!.attributes['horizontal'] != null)
+          //                       ? FlutterLogoStyle.horizontal
+          //                       : FlutterLogoStyle.markOnly,
+          //                   textColor: context.style.color!,
+          //                   size: context.style.fontSize!.size! * 5,
+          //                 );
+          //               },
+          //             },
+          //             onLinkTap: (url, _, __, ___) {
+          //               print("Opening $url...");
+          //             },
+          //             onImageTap: (src, _, __, ___) {
+          //               print(src);
+          //             },
+          //             onImageError: (exception, stackTrace) {
+          //             },
+          //             onCssParseError: (css, messages) {
+          //               messages.forEach((element) {
+          //                 print(element);
+          //               });
+          //             },
+          //           ),
+          //         ),
+          //       ),
+          //       SizedBox(height: 20,)
+          //     ],
+          //   ),
+          // ),
+        ],
       ),
     );
   }
