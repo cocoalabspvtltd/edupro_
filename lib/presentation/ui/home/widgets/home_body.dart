@@ -7,8 +7,6 @@ import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/presentation/ui/course/course_catogories_screen.dart';
 import 'package:pgs_edupro/presentation/ui/home/ads_screen.dart';
 import 'package:pgs_edupro/presentation/ui/offers/home_hotel_list.dart';
-import 'package:pgs_edupro/presentation/ui/videos/top_videos_screen.dart';
-import 'package:pgs_edupro/presentation/ui/videos/trending_videos_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -232,6 +230,21 @@ class HomeBody extends StatelessWidget {
               ),
               thickSpaceLogin,
               thickSpace,
+              // Container(height: 150,width: 150,
+              //   child: ElevatedButton(
+              //     onPressed: () {},
+              //     child: Container(height: 100,width: 100,
+              //         child: Image.asset("assets/icons/register_icons/institution.png")),
+              //     style: ButtonStyle(
+              //       // shape: MaterialStateProperty.all(CircleBorder()),
+              //       // padding: MaterialStateProperty.all(EdgeInsets.all(20)),
+              //       backgroundColor: MaterialStateProperty.all(Colors.orange), // <-- Button color
+              //       overlayColor: MaterialStateProperty.resolveWith<Color?>((states) {
+              //         if (states.contains(MaterialState.pressed)) return Colors.purple; // <-- Splash color
+              //       }),
+              //     ),
+              //   ),
+              // ),
               HomeHotellistScreen(
                 key: key,
               )

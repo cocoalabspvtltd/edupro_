@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -6,6 +5,7 @@ import 'package:pgs_edupro/application/crowd_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 
 import 'package:pgs_edupro/infrastructure/remote_data/models/crowd.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/repositories/bid_products/bids_repository.dart';
 
 import 'package:pgs_edupro/presentation/widgets/common_result_empty_widget.dart';
 import 'package:pgs_edupro/presentation/widgets/common_server_error_widget.dart';
@@ -13,7 +13,6 @@ import 'package:flutter/material.dart';
 
 import 'package:percent_indicator/percent_indicator.dart';
 
-import '../../infrastructure/remote_data/repositories/bid_products/bids_repository.dart';
 
 class CrowdFunding extends StatelessWidget {
   const CrowdFunding({
@@ -83,11 +82,11 @@ class CrowdFunding extends StatelessWidget {
                                                         fontSize: 12,
                                                         fontFamily: 'Pacifico'),
                                                   ),
-                                                      CircleAvatar(
+                                                      const CircleAvatar(
                                                         backgroundColor:
                                                             Colors.purpleAccent,
                                                         radius: 108,
-                                                        child: const CircleAvatar(
+                                                        child: CircleAvatar(
                                                           backgroundImage: AssetImage(
                                                               "assets/images/images.jpg"),
                                                           //NetworkImage
@@ -98,7 +97,6 @@ class CrowdFunding extends StatelessWidget {
                                                         height: 10,
                                                       ), //SizedBox
                                                       LinearPercentIndicator(
-                                                        //leaner progress bar
                                                         animation: true,
                                                         animationDuration: 1000,
                                                         lineHeight: 20.0,
@@ -184,9 +182,8 @@ class CrowdFunding extends StatelessWidget {
                                                           const SizedBox(
                                                             width: 7,
                                                           ),
-
-                                                          const SizedBox(
-                                                            width:50,
+                                                          SizedBox(
+                                                            width:screenWidth * 0.08 ,
                                                           ),
                                                           Column(
                                                             children: const [
@@ -212,13 +209,14 @@ class CrowdFunding extends StatelessWidget {
                                                         ],
                                                       ),
                                                       SizedBox(height:10),
-                                                      SingleChildScrollView(scrollDirection: Axis.vertical,
-                                                        child: Container(height: screenHeight*0.35,width: 300,
-                                                          child: Card(    elevation: 30,
-                                                            shadowColor: Colors.black,
-                                                            color: Colors.orangeAccent,
-                                                            child: Padding(
-                                                              padding: const EdgeInsets.all(8.0),
+                                                      Container(height: screenHeight*0.2,width: 300,
+                                                        child: Card(    elevation: 30,
+                                                          shadowColor: Colors.black,
+                                                          color: Colors.orangeAccent,
+                                                          child: Padding(
+                                                            padding: const EdgeInsets.all(8.0),
+                                                            child: SingleChildScrollView(
+                                                              scrollDirection: Axis.vertical,
                                                               child: Text(
                                                                 "${res.organization![index].description}",
                                                                 style: TextStyle(
@@ -229,13 +227,10 @@ class CrowdFunding extends StatelessWidget {
                                                             ),
                                                           ),
                                                         ),
-                                                      ),//Text
-                                                      const SizedBox(
-                                                        height:0,
-                                                      ), //SizedBox
+                                                      ),
+                                                      SizedBox(height:15),//Text
                                                       SizedBox(
                                                         width: 160,
-
                                                         child: ElevatedButton(
                                                           onPressed: () => 'Null',
                                                           style: ButtonStyle(

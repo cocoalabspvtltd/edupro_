@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:dartz/dartz.dart';
-import 'package:date_field/date_field.dart';
 import 'package:dio/dio.dart';
 import 'package:pgs_edupro/domain/auth/value_objects.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
@@ -126,7 +125,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
           "name": state.name.value.getOrElse(() => ''),
           "email": state.emailAddress.value.getOrElse(() => ''),
           "phone_number": state.phoneNumber.value.getOrElse(() => ''),
-          "dob": state.dob?.value.getOrElse(() => '') ,
+          "dob": state.dob.value.getOrElse(() => '') ,
           "address": state.address.value.getOrElse(() => ''),
         };
         //AppDialogs.loading();

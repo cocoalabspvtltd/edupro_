@@ -12,6 +12,7 @@ import 'package:pgs_edupro/infrastructure/remote_data/repositories/ads/ads_repos
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/course/course_repository.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/profile/profile_repository.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/videos/video_repository.dart';
+import 'package:pgs_edupro/presentation/ui/auth/log_in/widgets/login_form.dart';
 import 'package:pgs_edupro/presentation/ui/instructor/instructor_home/widgets/instructor_drawer.dart';
 import 'package:pgs_edupro/presentation/ui/instructor/instructor_home/widgets/instructor_home_body.dart';
 import 'package:pgs_edupro/presentation/ui/instructor/instructor_home/widgets/instructor_menu_button.dart';
@@ -53,6 +54,7 @@ class _InstructorHomeScreenState extends State<InstructorHomeScreen> {
   Widget build(BuildContext context) {
     print("Id====${UserDetailsLocal.userId}");
     print("name====${UserDetailsLocal.userName}");
+    print("type===${type}");
     return MultiBlocProvider(
       providers: [
         BlocProvider(

@@ -192,6 +192,7 @@ class _HotelDetailsScreenState extends State<HotelDetailsScreen>
                                     controller: _tabController,
                                     indicatorSize: TabBarIndicatorSize.tab,
                                     labelColor: Colors.deepPurple[500],
+                                    indicatorColor:Colors.deepPurple[500] ,
                                     tabs: _tabs,
                                   ),
                                 ),
