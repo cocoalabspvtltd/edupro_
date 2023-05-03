@@ -143,13 +143,6 @@ class _LogInFormState extends State<LogInForm> {
                       } else if (r.user?.paymentStatus == 'false') {
                         Get.offAll(() => const HomeScreen());
                         return;
-                        // String paymentType = 'REGISTRATION';
-                        // context.read<PaymentBloc>().add(
-                        //       PaymentEvent.startPayment(
-                        //         '1500',
-                        //         paymentType,
-                        //       ),
-                        //     );
                       }
                       context
                           .read<AuthBloc>()

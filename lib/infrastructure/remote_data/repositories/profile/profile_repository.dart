@@ -60,7 +60,6 @@ if(response.statusCode==200){
       Response response = await apiClient!
           .getJsonInstance()
           .get(Api.getMyProfile, queryParameters: {"user_id": userId});
-
       return right(MyProfileResponse.fromJson(response.data));
     } on DioError catch (e) {
       if (e.response != null) {

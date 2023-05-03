@@ -5,6 +5,7 @@ import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/presentation/ui/bid_products/products_screen.dart';
 import 'package:pgs_edupro/presentation/ui/course/course_report_screen.dart';
 import 'package:pgs_edupro/presentation/ui/home/home_screen.dart';
+import 'package:pgs_edupro/presentation/ui/job_portal/job_portail_screen.dart';
 import 'package:pgs_edupro/presentation/ui/membership/membership_screen.dart';
 import 'package:pgs_edupro/presentation/ui/offers/hotel_list_screen.dart';
 import 'package:pgs_edupro/presentation/ui/videos/live_videos_screen.dart';
@@ -174,7 +175,7 @@ class DrawerWidget extends StatelessWidget {
                     _drawerMenuItem(
                         Icon(Icons.add_box_outlined,color: Colors.orange,),
                         'Crowd Funding', () {
-                      Get.offAll(() =>  Doante());
+                      Get.to(() =>  Doante());
                     }),
                     SizedBox(height: 10,),
                     Padding(
@@ -219,6 +220,13 @@ class DrawerWidget extends StatelessWidget {
                             'assets/icons/drawer_icons/my-course-sltd.png'),
                         'Auction', () {
                       Get.to(() =>  ProductScreen());
+                    }),
+                    SizedBox(height: 10,),
+                    _drawerMenuItem(
+                        Image.asset(
+                            'assets/icons/drawer_icons/my-course-sltd.png'),
+                        'Job Portal ', () {
+                      Get.to(() =>  JobPortalScreen());
                     }),
                     SizedBox(height: 10,),
                     _drawerMenuItem(

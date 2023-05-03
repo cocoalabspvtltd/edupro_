@@ -3,7 +3,6 @@ import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pgs_edupro/application/bid_products/bid_products_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
@@ -86,22 +85,40 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                 width: screenWidth,
                                 child: const CommonResultsEmptyWidget())
                             : Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: Column(
+                                padding: const EdgeInsets.all(10.0),
+                                child: Column(
                                   children: [
                                     Padding(
                                       padding: const EdgeInsets.only(left: 20),
                                       child: Align(
-                                        alignment: AlignmentDirectional.topStart,
+                                        alignment:
+                                            AlignmentDirectional.topStart,
                                         child: Container(
-                                          height: 60,
-                                          width: 100,
+                                          height: 55,
+                                          width: 55,
                                           decoration: BoxDecoration(
-                                              color: Colors.orange,
-                                              shape: BoxShape.circle),
-                                          child: Center(child: Text("1:06:25",style: TextStyle(
-                                            color: Colors.deepPurple
-                                          ),)),
+                                              borderRadius:
+                                                  BorderRadius.circular(100),
+                                              color: Colors.red,
+                                              // shape: BoxShape.circle,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                    color: Colors.black38,
+                                                    blurRadius: 4,
+                                                    spreadRadius: 1,
+                                                    offset: Offset(3, 3)),
+                                                BoxShadow(
+                                                    color: Colors.black38,
+                                                    blurRadius: 4,
+                                                    spreadRadius: 1,
+                                                    offset: Offset(-3, -3))
+                                              ]),
+                                          child: Center(
+                                              child: Text(
+                                            "1:06:25",
+                                            style:
+                                                TextStyle(color: Colors.white),
+                                          )),
                                         ),
                                       ),
                                     ),
@@ -110,7 +127,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                         height: screenWidth * 0.5,
                                         decoration: BoxDecoration(
                                           color: Colors.white,
-                                          borderRadius: BorderRadius.circular(8),
+                                          borderRadius:
+                                              BorderRadius.circular(8),
                                         ),
                                         child: Padding(
                                           padding: const EdgeInsets.all(8.0),
@@ -144,7 +162,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                                       Container(
                                                 width: screenWidth * .14,
                                                 height: screenWidth * .14,
-                                                padding: const EdgeInsets.all(5),
+                                                padding:
+                                                    const EdgeInsets.all(5),
                                                 child: const Image(
                                                   image: AssetImage(
                                                       'assets/icons/drawer_icons/display-picture-sltd.png'),
@@ -155,32 +174,123 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                             ),
                                           ),
                                         )),
-                                    Text("${widget.productdetails.name}",style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                    ),),
+                                    Text(
+                                      "${widget.productdetails.name}",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
                                     Divider(),
                                     Container(
                                       width: screenWidth * 1,
                                       height: screenHeight * 0.07,
                                       decoration: BoxDecoration(
-                                        borderRadius:
-                                        BorderRadius.circular(15),
+                                        borderRadius: BorderRadius.circular(15),
                                       ),
                                       child: Padding(
                                         padding: const EdgeInsets.all(8.0),
                                         child: Row(
                                           children: [
                                             Text(
-                                                "Auction Price ${widget.productdetails.price}",style: TextStyle(
-                                              fontWeight: FontWeight.bold,),),
+                                              "Auction Price ${widget.productdetails.price}",
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
                                             Spacer(),
-                                            ElevatedButton(onPressed: (){}, child: Text("BID NOW")),
-                                            SizedBox(width: 20,),
+                                            ElevatedButton(
+                                                style: ElevatedButton.styleFrom(
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0)),
+                                                    primary: Colors.deepPurple),
+                                                onPressed: () {},
+                                                child: Text("BID NOW")),
                                           ],
                                         ),
                                       ),
                                     ),
                                     Divider(),
+                                    Row(
+                                      children: [
+                                        IconButton(
+                                          icon: Icon(
+                                            Icons.arrow_back_ios,
+                                          ),
+                                          onPressed: () {
+                                            if (_tabController!
+                                                .index >
+                                                0) {
+                                              _tabController!
+                                                  .animateTo(
+                                                  _tabController!
+                                                      .index -
+                                                      1);
+                                            } else {
+                                              Text("Can't go back");
+                                            }
+                                          },
+                                        ),
+                                        Expanded(
+                                          child: TabBar(
+                                            isScrollable: true,
+                                            controller:
+                                            _tabController,
+                                            indicatorSize:
+                                            TabBarIndicatorSize
+                                                .tab,
+                                            labelColor: Color(0xFFB226B2),
+                                            tabs: _tabs,
+                                            indicatorColor: Colors.deepPurple,
+                                          ),
+                                        ),
+                                        IconButton(
+                                          icon: Icon(Icons
+                                              .arrow_forward_ios),
+                                          onPressed: () {
+                                            if (_tabController!
+                                                .index +
+                                                1 <
+                                                20) {
+                                              _tabController!
+                                                  .animateTo(
+                                                  _tabController!
+                                                      .index +
+                                                      1);
+                                            } else {
+                                              Text(
+                                                  "Can't move forward");
+                                            }
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                    Padding(
+                                      padding:
+                                      const EdgeInsets.symmetric(
+                                          vertical: 10),
+                                      child: Container(
+                                        height: MediaQuery.of(context)
+                                            .size
+                                            .height *
+                                            0.22,
+                                        width: MediaQuery.of(context)
+                                            .size
+                                            .width -
+                                            2,
+                                        child: TabBarView(
+                                          controller: _tabController,
+                                          children: [
+                                            _auctionInfoWidget(),
+                                            Text("History"),
+                                            Text("Delivery info")
+                                          ],
+                                        ),
+                                      ),
+                                    ),
                                     ListView.separated(
                                       separatorBuilder:
                                           (BuildContext context, int index) {
@@ -196,193 +306,250 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                         return SingleChildScrollView(
                                           child: Column(
                                             children: [
-                                              Row(
-                                                children: [
-                                                  IconButton(
-                                                    icon: Icon(Icons.arrow_back_ios,),
-                                                    onPressed: (){
-                                                      if(_tabController!.index > 0){
-                                                        _tabController!.animateTo(_tabController!.index - 1);
-                                                      }else{
-                                                        Text( "Can't go back");
-                                                      }
-                                                    },
-                                                  ),
-                                                  Expanded(
-                                                    child: TabBar(
-                                                      isScrollable: true,
-                                                      controller: _tabController,
-                                                      indicatorSize:
-                                                      TabBarIndicatorSize.tab,
-                                                      labelColor:
-                                                      Colors.deepPurple[500],
-                                                      tabs: _tabs,
-                                                    ),
-                                                  ),
-                                                  IconButton(
-                                                    icon: Icon(Icons.arrow_forward_ios),
-                                                    onPressed: (){
-                                                      if(_tabController!.index+1 < 20){
-                                                        _tabController!.animateTo(_tabController!.index + 1);
-                                                      }else{
-                                                        Text( "Can't move forward");
-                                                      }
-                                                    },
-                                                  ),
-                                                ],
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsets
-                                                    .symmetric(vertical: 10),
-                                                child: Container(
-                                                  height:
-                                                  MediaQuery.of(context)
-                                                      .size
-                                                      .height * 0.22,
-                                                  width:
-                                                  MediaQuery.of(context)
-                                                      .size
-                                                      .width -
-                                                      2,
-                                                  child: TabBarView(
-                                                    controller:
-                                                    _tabController,
-                                                    children: [
-                                                      _auctionInfoWidget(),
-                                                      Text("History"),
-                                                      Text("Delivery info")
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
                                               Theme(
-                                                data: Theme.of(context).copyWith(accentColor: primaryColor),
+                                                data: Theme.of(context)
+                                                    .copyWith(
+                                                        accentColor:
+                                                            primaryColor),
                                                 child: ExpansionTileCard(
-                                                  contentPadding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                                                  contentPadding:
+                                                      EdgeInsets.fromLTRB(
+                                                          10, 0, 10, 0),
                                                   elevation: 8,
-                                                  borderRadius: BorderRadius.circular(15),
+                                                  borderRadius:
+                                                      BorderRadius.circular(15),
                                                   baseColor: Colors.grey[300],
-                                                  leading: Icon(Icons.military_tech_outlined,color: Colors.black,),
-                                                  title: Text("Technical Details", style: TextStyle(
-                                                      fontSize: 16,
-                                                      fontWeight: FontWeight.w600,
-                                                      color: Colors.black),),
+                                                  leading: Icon(
+                                                    Icons
+                                                        .military_tech_outlined,
+                                                    color: Colors.black,
+                                                  ),
+                                                  title: Text(
+                                                    "Technical Details",
+                                                    style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        color: Colors.black),
+                                                  ),
                                                   children: <Widget>[
                                                     Divider(
                                                       thickness: 1.5,
                                                       height: 1.0,
                                                     ),
-                                                    SizedBox(height: 10,),
+                                                    SizedBox(
+                                                      height: 10,
+                                                    ),
                                                     Align(
-                                                      alignment: Alignment.centerLeft,
+                                                      alignment:
+                                                          Alignment.centerLeft,
                                                       child: Padding(
-                                                        padding: const EdgeInsets.symmetric(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .symmetric(
                                                           horizontal: 16.0,
                                                           vertical: 8.0,
                                                         ),
                                                         child: Html(
-                                                          data: res.productDetails![index].technicalDetails,
-                                                          tagsList: Html.tags..addAll(["bird", "flutter"]),
+                                                          data: res
+                                                              .productDetails![
+                                                                  index]
+                                                              .technicalDetails,
+                                                          tagsList: Html.tags
+                                                            ..addAll([
+                                                              "bird",
+                                                              "flutter"
+                                                            ]),
                                                           style: {
-                                                            'h5': Style(maxLines: 2, textOverflow: TextOverflow.ellipsis),
+                                                            'h5': Style(
+                                                                maxLines: 2,
+                                                                textOverflow:
+                                                                    TextOverflow
+                                                                        .ellipsis),
                                                           },
                                                           customRender: {
-                                                            "bird": (RenderContext context, Widget child) {
-                                                              return TextSpan(text: "🐦");
+                                                            "bird":
+                                                                (RenderContext
+                                                                        context,
+                                                                    Widget
+                                                                        child) {
+                                                              return TextSpan(
+                                                                  text: "🐦");
                                                             },
-                                                            "flutter": (RenderContext context, Widget child) {
+                                                            "flutter":
+                                                                (RenderContext
+                                                                        context,
+                                                                    Widget
+                                                                        child) {
                                                               return FlutterLogo(
-                                                                style: (context.tree.element!.attributes['horizontal'] != null)
-                                                                    ? FlutterLogoStyle.horizontal
-                                                                    : FlutterLogoStyle.markOnly,
-                                                                textColor: context.style.color!,
-                                                                size: context.style.fontSize!.size! * 5,
+                                                                style: (context.tree.element!.attributes[
+                                                                            'horizontal'] !=
+                                                                        null)
+                                                                    ? FlutterLogoStyle
+                                                                        .horizontal
+                                                                    : FlutterLogoStyle
+                                                                        .markOnly,
+                                                                textColor:
+                                                                    context
+                                                                        .style
+                                                                        .color!,
+                                                                size: context
+                                                                        .style
+                                                                        .fontSize!
+                                                                        .size! *
+                                                                    5,
                                                               );
                                                             },
                                                           },
-                                                          onLinkTap: (url, _, __, ___) {
-                                                            print("Opening $url...");
+                                                          onLinkTap: (url, _,
+                                                              __, ___) {
+                                                            print(
+                                                                "Opening $url...");
                                                           },
-                                                          onImageTap: (src, _, __, ___) {
+                                                          onImageTap: (src, _,
+                                                              __, ___) {
                                                             print(src);
                                                           },
-                                                          onImageError: (exception, stackTrace) {
-                                                          },
-                                                          onCssParseError: (css, messages) {
-                                                            messages.forEach((element) {
+                                                          onImageError:
+                                                              (exception,
+                                                                  stackTrace) {},
+                                                          onCssParseError:
+                                                              (css, messages) {
+                                                            messages.forEach(
+                                                                (element) {
                                                               print(element);
                                                             });
                                                           },
                                                         ),
                                                       ),
                                                     ),
-                                                    SizedBox(height: 20,)
+                                                    SizedBox(
+                                                      height: 20,
+                                                    )
                                                   ],
                                                 ),
                                               ),
                                               thickSpace,
                                               Theme(
-                                                data: Theme.of(context).copyWith(accentColor: primaryColor),
+                                                data: Theme.of(context)
+                                                    .copyWith(
+                                                        accentColor:
+                                                            primaryColor),
                                                 child: ExpansionTileCard(
-                                                  contentPadding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                                                  contentPadding:
+                                                      EdgeInsets.fromLTRB(
+                                                          10, 0, 10, 0),
                                                   elevation: 8,
-                                                  borderRadius: BorderRadius.circular(15),
+                                                  borderRadius:
+                                                      BorderRadius.circular(15),
                                                   baseColor: Colors.grey[300],
-                                                  leading: Icon(Icons.featured_play_list_outlined,color: Colors.black,),
-                                                  title: Text("Features", style: TextStyle(
-                                                      fontSize: 16,
-                                                      fontWeight: FontWeight.w600,
-                                                      color: Colors.black),),
+                                                  leading: Icon(
+                                                    Icons
+                                                        .featured_play_list_outlined,
+                                                    color: Colors.black,
+                                                  ),
+                                                  title: Text(
+                                                    "Features",
+                                                    style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        color: Colors.black),
+                                                  ),
                                                   children: <Widget>[
                                                     Divider(
                                                       thickness: 1.5,
                                                       height: 1.0,
                                                     ),
-                                                    SizedBox(height: 10,),
+                                                    SizedBox(
+                                                      height: 10,
+                                                    ),
                                                     Align(
-                                                      alignment: Alignment.centerLeft,
+                                                      alignment:
+                                                          Alignment.centerLeft,
                                                       child: Padding(
-                                                        padding: const EdgeInsets.symmetric(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .symmetric(
                                                           horizontal: 16.0,
                                                           vertical: 8.0,
                                                         ),
                                                         child: Html(
-                                                          data: res.productDetails![index].features,
-                                                          tagsList: Html.tags..addAll(["bird", "flutter"]),
+                                                          data: res
+                                                              .productDetails![
+                                                                  index]
+                                                              .features,
+                                                          tagsList: Html.tags
+                                                            ..addAll([
+                                                              "bird",
+                                                              "flutter"
+                                                            ]),
                                                           style: {
-                                                            'h5': Style(maxLines: 2, textOverflow: TextOverflow.ellipsis),
+                                                            'h5': Style(
+                                                                maxLines: 2,
+                                                                textOverflow:
+                                                                    TextOverflow
+                                                                        .ellipsis),
                                                           },
                                                           customRender: {
-                                                            "bird": (RenderContext context, Widget child) {
-                                                              return TextSpan(text: "🐦");
+                                                            "bird":
+                                                                (RenderContext
+                                                                        context,
+                                                                    Widget
+                                                                        child) {
+                                                              return TextSpan(
+                                                                  text: "🐦");
                                                             },
-                                                            "flutter": (RenderContext context, Widget child) {
+                                                            "flutter":
+                                                                (RenderContext
+                                                                        context,
+                                                                    Widget
+                                                                        child) {
                                                               return FlutterLogo(
-                                                                style: (context.tree.element!.attributes['horizontal'] != null)
-                                                                    ? FlutterLogoStyle.horizontal
-                                                                    : FlutterLogoStyle.markOnly,
-                                                                textColor: context.style.color!,
-                                                                size: context.style.fontSize!.size! * 5,
+                                                                style: (context.tree.element!.attributes[
+                                                                            'horizontal'] !=
+                                                                        null)
+                                                                    ? FlutterLogoStyle
+                                                                        .horizontal
+                                                                    : FlutterLogoStyle
+                                                                        .markOnly,
+                                                                textColor:
+                                                                    context
+                                                                        .style
+                                                                        .color!,
+                                                                size: context
+                                                                        .style
+                                                                        .fontSize!
+                                                                        .size! *
+                                                                    5,
                                                               );
                                                             },
                                                           },
-                                                          onLinkTap: (url, _, __, ___) {
-                                                            print("Opening $url...");
+                                                          onLinkTap: (url, _,
+                                                              __, ___) {
+                                                            print(
+                                                                "Opening $url...");
                                                           },
-                                                          onImageTap: (src, _, __, ___) {
+                                                          onImageTap: (src, _,
+                                                              __, ___) {
                                                             print(src);
                                                           },
-                                                          onImageError: (exception, stackTrace) {
-                                                          },
-                                                          onCssParseError: (css, messages) {
-                                                            messages.forEach((element) {
+                                                          onImageError:
+                                                              (exception,
+                                                                  stackTrace) {},
+                                                          onCssParseError:
+                                                              (css, messages) {
+                                                            messages.forEach(
+                                                                (element) {
                                                               print(element);
                                                             });
                                                           },
                                                         ),
                                                       ),
                                                     ),
-                                                    SizedBox(height: 20,)
+                                                    SizedBox(
+                                                      height: 20,
+                                                    )
                                                   ],
                                                 ),
                                               ),
@@ -396,7 +563,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                     ),
                                   ],
                                 ),
-                            );
+                              );
                       },
                       loadFailure: (state) {
                         return state.networkFailure.map(
@@ -466,7 +633,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 10,),
+          SizedBox(
+            height: 10,
+          ),
           Row(
             children: [
               Text("Auction ID"),

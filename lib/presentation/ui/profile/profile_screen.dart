@@ -13,7 +13,7 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("apitoken->?${UserDetailsLocal.apiToken}");
+    print("apitoken->${UserDetailsLocal.apiToken}");
     print("id--->${UserDetailsLocal.userId}");
     print("Name--->${UserDetailsLocal.userName}");
     return BlocProvider(
@@ -42,9 +42,7 @@ class ProfileWidget extends StatelessWidget {
       children: [
         Container(
             width: screenWidth,
-            //height: screenWidth / 2,
             decoration: BoxDecoration(
-
                 gradient: const LinearGradient(
                     colors: [
                       Colors.orangeAccent,
@@ -57,7 +55,7 @@ class ProfileWidget extends StatelessWidget {
               padding: EdgeInsets.all(15.0),
               child: DisplayPicture(),
             )),
-        const ProfileForm(),
+         ProfileForm(),
       ],
     );
   }

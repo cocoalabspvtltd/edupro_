@@ -17,7 +17,6 @@ import 'package:pgs_edupro/infrastructure/remote_data/repositories/videos/video_
 import 'package:pgs_edupro/presentation/ui/auth/log_in/widgets/login_form.dart';
 import 'package:pgs_edupro/presentation/ui/institution/institution_home/widgets/insitution_drawer.dart';
 import 'package:pgs_edupro/presentation/ui/institution/institution_home/widgets/insitution_home_body.dart';
-import 'package:pgs_edupro/presentation/ui/institution/institution_home/widgets/institution_menu_button.dart';
 import 'package:pgs_edupro/presentation/ui/institution/institution_home/widgets/mycourse_institution.dart';
 import 'package:pgs_edupro/presentation/ui/profile/profile_screen.dart';
 
@@ -108,7 +107,6 @@ class _InstitutionHomeScreenState extends State<InstitutionHomeScreen> {
               }
               return Future.value(true);
             },
-
             child:  PageView(
                 controller: _pageController,
                 onPageChanged: (index) {
