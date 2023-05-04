@@ -1,7 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:get/get.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:flutter/material.dart';
+import 'package:pgs_edupro/presentation/ui/job_portal/jobs_details_screen.dart';
 
 
 class JobPortalScreen extends StatelessWidget {
@@ -28,7 +30,6 @@ class JobPortalScreen extends StatelessWidget {
                thickSpace,
                Row(
                  children: [
-                   // SizedBox(width: 10,),
                    Text("Hey ${UserDetailsLocal.userName},",style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,
                    fontSize: 20),),
                    Spacer(),
@@ -200,111 +201,116 @@ class JobPortalScreen extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return Padding(
             padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
-            child: Container(
-              height: MediaQuery.of(context).size.height / 2.9,
-              width: MediaQuery.of(context).size.width / 1.2,
-              child: Card(
-                shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-                elevation: 3.0,
-                child: Column(
-                  children: <Widget>[
-                    Stack(
-                      children: <Widget>[
-                        Container(
-                          height: MediaQuery.of(context).size.height * 0.12,
-                          width: MediaQuery.of(context).size.width,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(10.0),
-                              topRight: Radius.circular(10.0),
-                            ),
-                            child: Image.asset(
-                              "assets/images/home/3.jpg",
-                              fit: BoxFit.fill,
+            child: InkWell(
+              onTap: (){
+                Get.to(() =>  JobsDetailsScreen());
+              },
+              child: Container(
+                height: MediaQuery.of(context).size.height / 2.9,
+                width: MediaQuery.of(context).size.width / 1.2,
+                child: Card(
+                  shape:
+                  RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+                  elevation: 3.0,
+                  child: Column(
+                    children:[
+                      Stack(
+                        children: [
+                          Container(
+                            height: MediaQuery.of(context).size.height * 0.12,
+                            width: MediaQuery.of(context).size.width,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(10.0),
+                                topRight: Radius.circular(10.0),
+                              ),
+                              child: Image.asset(
+                                "assets/images/home/3.jpg",
+                                fit: BoxFit.fill,
+                              ),
                             ),
                           ),
-                        ),
-                        Positioned(
-                          top: 6.0,
-                          left: 6.0,
-                          child: Card(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(3.0)),
-                            child: Padding(
-                              padding: EdgeInsets.all(4.0),
-                              child: Text(
-                                " APPLY ",
-                                style: TextStyle(
-                                  fontSize: 10.0,
-                                  color: Colors.green,
-                                  fontWeight: FontWeight.bold,
+                          Positioned(
+                            top: 6.0,
+                            left: 6.0,
+                            child: Card(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(3.0)),
+                              child: Padding(
+                                padding: EdgeInsets.all(4.0),
+                                child: Text(
+                                  " APPLY ",
+                                  style: TextStyle(
+                                    fontSize: 10.0,
+                                    color: Colors.green,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 10.0),
-                      child: Container(
-                        width: MediaQuery.of(context).size.width,
-                        child: Text(
-                          "Company name",
-                          style: TextStyle(
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.normal,
-                          ),
-                          textAlign: TextAlign.left,
-                        ),
+                        ],
                       ),
-                    ),
-                    SizedBox(height: 7.0),
-                    Padding(
-                      padding: EdgeInsets.only(left: 10.0),
-                      child: Container(
-                        width: MediaQuery.of(context).size.width,
-                        child: Text(
-                          "Address",
-                          style: TextStyle(
-                            fontSize: 12.0,
-                            fontWeight: FontWeight.normal,
-                          ),
-                          textAlign: TextAlign.left,
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 7.0),
-                    Row(
-                      children: [
-                        SizedBox(width: 10,),
-                        Container(
-                          width: MediaQuery.of(context).size.width * 0.2,
+                      Padding(
+                        padding: EdgeInsets.only(left: 10.0),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width,
                           child: Text(
-                            "Post",
+                            "Company name",
+                            style: TextStyle(
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.normal,
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 7.0),
+                      Padding(
+                        padding: EdgeInsets.only(left: 10.0),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width,
+                          child: Text(
+                            "Address",
                             style: TextStyle(
                               fontSize: 12.0,
                               fontWeight: FontWeight.normal,
                             ),
+                            textAlign: TextAlign.left,
                           ),
                         ),
-                        Spacer(),
-                        Container(
-                          width: MediaQuery.of(context).size.width * 0.2,
-                          child: Text(
-                            "Salary",
-                            style: TextStyle(
-                              fontSize: 12.0,
-                              fontWeight: FontWeight.normal,
+                      ),
+                      SizedBox(height: 7.0),
+                      Row(
+                        children: [
+                          SizedBox(width: 10,),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.2,
+                            child: Text(
+                              "Post",
+                              style: TextStyle(
+                                fontSize: 12.0,
+                                fontWeight: FontWeight.normal,
+                              ),
                             ),
                           ),
-                        ),
-                        SizedBox(width: 10,)
-                      ],
-                    ),
-                    SizedBox(height: 5.0),
-                  ],
+                          Spacer(),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.2,
+                            child: Text(
+                              "Salary",
+                              style: TextStyle(
+                                fontSize: 12.0,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 10,)
+                        ],
+                      ),
+                      SizedBox(height: 5.0),
+                    ],
+                  ),
                 ),
               ),
             ),

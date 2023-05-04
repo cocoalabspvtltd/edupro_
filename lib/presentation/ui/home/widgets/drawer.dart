@@ -4,6 +4,7 @@ import 'package:pgs_edupro/infrastructure/local_data_source/shared_prefs.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/presentation/ui/bid_products/products_screen.dart';
 import 'package:pgs_edupro/presentation/ui/course/course_report_screen.dart';
+import 'package:pgs_edupro/presentation/ui/e_commerce/ecommerce_home_screen.dart';
 import 'package:pgs_edupro/presentation/ui/home/home_screen.dart';
 import 'package:pgs_edupro/presentation/ui/job_portal/job_portail_screen.dart';
 import 'package:pgs_edupro/presentation/ui/membership/membership_screen.dart';
@@ -13,7 +14,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../crowd_funidng/donate.dart';
-import '../../../crowd_funidng/donation_screen.dart';
 
 class DrawerWidget extends StatelessWidget {
   final BuildContext context;
@@ -228,6 +228,13 @@ class DrawerWidget extends StatelessWidget {
                         'Job Portal ', () {
                       Get.to(() =>  JobPortalScreen());
                     }),
+                    _drawerMenuItem(
+                        Image.asset(
+                            'assets/icons/drawer_icons/my-course-sltd.png'),
+                        'E-Commerce', () {
+                      Get.to(() =>   EcommerceHomeScreen());
+                    }),
+
                     SizedBox(height: 10,),
                     _drawerMenuItem(
                         Image.asset(
