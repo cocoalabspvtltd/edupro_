@@ -141,7 +141,7 @@ class _LogInFormState extends State<LogInForm> {
                         Get.offAll(() => const MembershipCheckScreen());
                         return;
                       } else if (r.user?.paymentStatus == 'false') {
-                        Get.offAll(() => const HomeScreen());
+                        Get.offAll(() => const MembershipCheckScreen());
                         return;
                       }
                       context
