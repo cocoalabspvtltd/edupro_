@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 
 import 'package:pgs_edupro/application/crowd_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
@@ -13,7 +14,8 @@ import 'package:flutter/material.dart';
 
 import 'package:percent_indicator/percent_indicator.dart';
 
-
+import 'crowddetals.dart';
+String donation_id = '';
 class CrowdFunding extends StatelessWidget {
   const CrowdFunding({
     super.key,
@@ -77,7 +79,7 @@ class CrowdFunding extends StatelessWidget {
                                                     children: [
                                                   Text(
                                                   "${res.organization![index].title}",
-                                                    style: TextStyle(
+                                                    style: const TextStyle(
                                                         color: Colors.black,
                                                         fontSize: 12,
                                                         fontFamily: 'Pacifico'),
@@ -102,7 +104,7 @@ class CrowdFunding extends StatelessWidget {
                                                         lineHeight: 20.0,
                                                         percent: 50 / 100,
                                                         center: Text(
-                                                          10.toString() + "%",
+                                                          "${10}%",
                                                           style: const TextStyle(
                                                               fontSize: 12.0,
                                                               fontWeight:
@@ -128,24 +130,24 @@ class CrowdFunding extends StatelessWidget {
                                                         children: [
                                                           Text(
                                                             "₹ ${res.organization![index].raisedAmount}",
-                                                            style: TextStyle(
+                                                            style: const TextStyle(
                                                                 color: Colors.black,
                                                                 fontFamily: 'Pacifico'),
                                                           ),
-                                                          SizedBox(
+                                                          const SizedBox(
                                                             width: 7,
                                                           ),
-                                                          Text(
+                                                          const Text(
                                                             "raised out of ",
                                                             style: TextStyle(
                                                                 color: Colors.black),
                                                           ),
-                                                          SizedBox(
+                                                          const SizedBox(
                                                             width: 7,
                                                           ),
                                                           Text(
                                                             "₹ ${res.organization![index].goalAmount}",
-                                                            style: TextStyle(
+                                                            style: const TextStyle(
                                                                 color: Colors.black,
                                                                 fontFamily: 'Pacifico'),
                                                           ),
@@ -232,7 +234,10 @@ class CrowdFunding extends StatelessWidget {
                                                       SizedBox(
                                                         width: 160,
                                                         child: ElevatedButton(
-                                                          onPressed: () => 'Null',
+                                                          onPressed: () {      donation_id= res.organization![index].id!.toString();
+                                                          Get.to(() =>  const DoanteDetail(
+                                                         ));
+                                                          print("iddd$donation_id");},
                                                           style: ButtonStyle(
                                                               backgroundColor:
                                                                   MaterialStateProperty
@@ -249,22 +254,6 @@ class CrowdFunding extends StatelessWidget {
                                                             ),
                                                           ),
                                                         ),
-                                                        // RaisedButton is deprecated and should not be used
-                                                        // Use ElevatedButton instead
-
-                                                        // child: RaisedButton(
-                                                        //   onPressed: () => null,
-                                                        //   color: Colors.green,
-                                                        //   child: Padding(
-                                                        //     padding: const EdgeInsets.all(4.0),
-                                                        //     child: Row(
-                                                        //       children: const [
-                                                        //         Icon(Icons.touch_app),
-                                                        //         Text('Visit'),
-                                                        //       ],
-                                                        //     ), //Row
-                                                        //   ), //Padding
-                                                        // ), //RaisedButton
                                                       ) //SizedBox
                                                     ],
                                                   ), //Column

@@ -9,6 +9,7 @@ import 'package:pgs_edupro/infrastructure/remote_data/models/bid_products/bid_pr
 import 'package:pgs_edupro/infrastructure/remote_data/models/crowd.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/crowd_details.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/source/api.dart';
+import 'package:pgs_edupro/presentation/crowd_funidng/donation_screen.dart';
 
 
 
@@ -183,7 +184,7 @@ class BidsRepository implements IBidsRepository {
     try {
       Response response = await apiClient!
           .getJsonInstance()
-          .get(Api.getCrowd);
+          .post(Api.getCrowdDetails,data: {"organizationId":donation_id });
 
       return right(CrowdFundingDetailsResponse.fromJson(response.data));
     } on DioError catch (e) {
