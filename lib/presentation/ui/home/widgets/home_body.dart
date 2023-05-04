@@ -230,27 +230,12 @@ class HomeBody extends StatelessWidget {
               ),
               thickSpaceLogin,
               thickSpace,
-              // Container(height: 150,width: 150,
-              //   child: ElevatedButton(
-              //     onPressed: () {},
-              //     child: Container(height: 100,width: 100,
-              //         child: Image.asset("assets/icons/register_icons/institution.png")),
-              //     style: ButtonStyle(
-              //       // shape: MaterialStateProperty.all(CircleBorder()),
-              //       // padding: MaterialStateProperty.all(EdgeInsets.all(20)),
-              //       backgroundColor: MaterialStateProperty.all(Colors.orange), // <-- Button color
-              //       overlayColor: MaterialStateProperty.resolveWith<Color?>((states) {
-              //         if (states.contains(MaterialState.pressed)) return Colors.purple; // <-- Splash color
-              //       }),
-              //     ),
-              //   ),
-              // ),
               HomeHotellistScreen(
                 key: key,
               )
               // TrendingVideosScreen(
               //   key: key,
-              // ),
+              // ),z
               // thickSpace,
               // TopVideosScreen(
               //   key: key,
