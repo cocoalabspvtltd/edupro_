@@ -8,35 +8,43 @@ class JobsDetailsScreen extends StatefulWidget {
   State<JobsDetailsScreen> createState() => _JobsDetailsScreenState();
 }
 
-class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
+class _JobsDetailsScreenState extends State<JobsDetailsScreen> with TickerProviderStateMixin  {
+  static const List<Tab> _tabs = [
+    Tab(
+      icon: Icon(Icons.file_copy_outlined),
+    ),
+    Tab(
+      icon:  Icon(Icons.museum_outlined),
+    ),
+    Tab(
+      icon:  Icon(Icons.alarm),
+    ),
+  ];
+  TabController? _tabController;
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: _tabs.length, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _tabController?.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: <Color>[Color(0xFFB226B2),
-                  Colors.orange]),
-          ),
+      appBar: appBarTheme("Job"),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _header(context),
+            _ourPeople(context),
+            _apply(context)
+          ],
         ),
-        title: Text("Job"),
-        iconTheme: IconThemeData(color: Colors.white),
-        elevation: 1,
-        // actions: [
-        //   IconButton(icon: Icon(Icons.cloud_upload_outlined), onPressed: () {})
-        // ],
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _header(context),
-          _jobDescription(context),
-          _ourPeople(context),
-          _apply(context)
-        ],
       ),
     );
   }
@@ -88,22 +96,71 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                 _headerStatic("Location","Kochi"),
               ],
             ),
-            SizedBox(height: 40),
-            Row(
-              children: [
-                Expanded(
-                  child:Icon(Icons.file_copy_outlined,color: Colors.deepPurple,)
-                  // Image.asset(Images.doc, height: 20, color: KColors.primary),
+            thickSpace,
+            thickSpace,
+            Container(
+              height: MediaQuery
+                  .of(context)
+                  .size
+                  .height * 0.05,
+              width: MediaQuery
+                  .of(context)
+                  .size
+                  .width,
+              child: TabBar(
+                controller: _tabController,
+                indicatorSize: TabBarIndicatorSize.tab,
+                labelColor: Colors.deepPurple[500],
+                indicatorColor:Colors.deepPurple[500] ,
+                tabs: _tabs,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              child: Container(
+                height: MediaQuery
+                    .of(context)
+                    .size
+                    .height * 0.25,
+                width: MediaQuery
+                    .of(context)
+                    .size
+                    .width - 2,
+                child: TabBarView(
+                  controller: _tabController,
+                  children: <Widget>[
+                    _jobDescription(context),
+                    _comapnyDescription(context),
+                     Container(
+                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Time and Rules",
+                        style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(height: 20),
+                      Row(
+                        children: [
+                          Icon(Icons.alarm),
+                          SizedBox(width: 8,),
+                          Text("9 Am to 6 Pm"),
+                        ],
+                      )
+                      // TextButton(
+                      //   onPressed: () {},
+                      //   style: ButtonStyle(
+                      //       padding: MaterialStateProperty.all(EdgeInsets.zero)),
+                      //   child: Text("Learn more",
+                      //       style: TextStyle(fontSize: 14, color: Colors.grey)),
+                      // )
+                    ],
+                  ),
                 ),
-                Expanded(
-                  child: Icon(Icons.museum_outlined,color: Colors.deepPurple,)
-                  // Image.asset(Images.museum, height: 20, color: KColors.icon),
+                  ],
                 ),
-                Expanded(
-                  child:Icon(Icons.alarm,color: Colors.deepPurple,)
-                  // Image.asset(Images.clock, height: 20, color: KColors.icon),
-                ),
-              ],
+              ),
             ),
             Divider(
               height: 25,
@@ -156,22 +213,42 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
             "You will be Gitlab's dedicated UI/Ux designer, reporting to the chief Technology Officer. You will come up with the user experience for few product features, including developing conceptual design to test with clients and then. Share the...",
             style: TextStyle(fontSize: 14, color: Colors.black),
           ),
-          TextButton(
-            onPressed: () {},
-            style: ButtonStyle(
-                padding: MaterialStateProperty.all(EdgeInsets.zero)),
-            child: Text("Learn more",
-                style: TextStyle(fontSize: 14, color: Colors.grey)),
-          )
+          // TextButton(
+          //   onPressed: () {},
+          //   style: ButtonStyle(
+          //       padding: MaterialStateProperty.all(EdgeInsets.zero)),
+          //   child: Text("Learn more",
+          //       style: TextStyle(fontSize: 14, color: Colors.grey)),
+          // )
         ],
       ),
     );
   }
+
+  Widget _comapnyDescription(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Company Name",
+            style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(height: 20),
+          Text(
+            "You will be Gitlab's dedicated UI/Ux designer, reporting to the chief Technology Officer. You will come up with the user experience for few product features, including developing conceptual design to test with clients and then. Share the...",
+            style: TextStyle(fontSize: 14, color: Colors.black),
+          ),
+        ],
+      ),
+    );
+  }
+  
   Widget _ourPeople(BuildContext context) {
     return Container(
       height: 92,
       padding: EdgeInsets.only(left: 16),
-      margin: EdgeInsets.only(top: 30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

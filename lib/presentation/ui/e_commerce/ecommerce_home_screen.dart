@@ -13,7 +13,7 @@ class EcommerceHomeScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
+            children: [
               HeaderWithSearchBox(context,size),
               Categories(),
               thickSpace,
@@ -21,7 +21,7 @@ class EcommerceHomeScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 10),
                 child: Row(
-                  children: <Widget>[
+                  children: [
                     Text("Special for you",style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                     Spacer(),
                     TextButton(
@@ -31,14 +31,14 @@ class EcommerceHomeScreen extends StatelessWidget {
                         style: TextStyle(color: Colors.black),
                       ),
                     ),
+                    SizedBox(width: 5,)
                   ],
                 ),
               ),
-              // RecomendsPlants(),
               Padding(
                 padding: const EdgeInsets.only(left: 10),
                 child: Row(
-                  children: <Widget>[
+                  children:[
                     Text("Popular Products",style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                     Spacer(),
                     TextButton(
@@ -47,10 +47,10 @@ class EcommerceHomeScreen extends StatelessWidget {
                         style: TextStyle(color: Colors.black),
                       ),
                     ),
+                    SizedBox(width: 5,)
                   ],
                 ),
               ),
-              // FeaturedPlants(),
               SizedBox(height: 20),
             ],
           ),
@@ -70,7 +70,7 @@ class EcommerceHomeScreen extends StatelessWidget {
             padding: EdgeInsets.only(
               left: 20,
               right: 20,
-              bottom: 16 + 20,
+              bottom:20,
             ),
             height: size.height * 0.27 - 27,
             decoration: BoxDecoration(
@@ -174,9 +174,6 @@ class EcommerceHomeScreen extends StatelessWidget {
                         ),
                         enabledBorder: InputBorder.none,
                         focusedBorder: InputBorder.none,
-                        // surffix isn't working properly  with SVG
-                        // thats why we use row
-                        // suffixIcon: SvgPicture.asset("assets/icons/search.svg"),
                       ),
                     ),
                   ),
@@ -185,7 +182,7 @@ class EcommerceHomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 15,)
+          // SizedBox(height: 15,)
         ],
       ),
     );
