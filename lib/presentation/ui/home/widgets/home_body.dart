@@ -52,12 +52,11 @@ class HomeBody extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
-
+              thickSpaceLogin,
               AdsScreen(
                 key: key,
               ),
-             Container(child: Image.asset("assets/images/homes/bid.jpg"),),
+             // thickSpace,
               //thickSpace,
               // Text(
               //   " Continue Learning..",
@@ -225,13 +224,22 @@ class HomeBody extends StatelessWidget {
               //   ),
               // ),
               // thickSpace,
-              // thickSpaceLogin,
-              // CourseCategoriesScreen(
-              //   key: key,
-              // ),
+              thickSpaceLogin,
+              CourseCategoriesScreen(
+                key: key,
+              ),
               thickSpaceLogin,
               thickSpace,
-
+              HomeHotellistScreen(
+                key: key,
+              )
+              // TrendingVideosScreen(
+              //   key: key,
+              // ),z
+              // thickSpace,
+              // TopVideosScreen(
+              //   key: key,
+              // ),
             ],
           ),
         ),

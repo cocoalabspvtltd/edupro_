@@ -9,6 +9,8 @@ import 'package:pgs_edupro/presentation/ui/institution/courses_of_insisitution/a
 import 'package:pgs_edupro/presentation/ui/institution/institution_home/institution_home_screen.dart';
 import 'package:pgs_edupro/presentation/ui/institution/instructors_of_institution/add_instructors_screen.dart';
 import 'package:pgs_edupro/presentation/ui/institution/instructors_of_institution/instructors_list_screen.dart';
+import 'package:pgs_edupro/presentation/ui/institution/jobs_of_intitution/add_jobs_screen.dart';
+import 'package:pgs_edupro/presentation/ui/institution/jobs_of_intitution/jobs_list_screen.dart';
 import 'package:pgs_edupro/presentation/ui/institution/students_of_institution/add_students_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -274,7 +276,6 @@ class InstitutionDrawerWidget extends StatelessWidget {
                         //more child menu
                       ],
                     ),
-
                     ExpansionTile(
                       title: Text(
                         "Students",
@@ -303,6 +304,41 @@ class InstitutionDrawerWidget extends StatelessWidget {
                         }),
                         //more child menu
                       ],
+                    ),
+                    Visibility(
+                      visible: type == "institution"
+                          ? true
+                          : false,
+                      child: ExpansionTile(
+                        title: Text(
+                          "Jobs",
+                          style: TextStyle(fontSize: 16,  fontFamily: "Pacifico",),
+                        ),
+                        leading: Container(
+                          height: 38,
+                          width: 38.0,
+                          padding: const EdgeInsets.all(3),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(width: 2, color: primaryColor),
+                            color: primaryColor[50],
+                          ),
+                          child: Image.asset(
+                              'assets/icons/drawer_icons/my-course-sltd.png'),
+                        ),
+                        childrenPadding:
+                        EdgeInsets.only(left: 60), //children padding
+                        children: [
+                          _drawerMenuItem1('Job list', () {
+                            Get.to(() => InsistutionJobslistScreen());
+
+                          }),
+                          _drawerMenuItem1('Add job', () {
+                            Get.to(() => AddJobScreen());
+                          }),
+                          //more child menu
+                        ],
+                      ),
                     ),
                     Divider(),
                     _drawerMenuItem(
