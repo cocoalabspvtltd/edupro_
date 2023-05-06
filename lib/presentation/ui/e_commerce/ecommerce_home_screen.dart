@@ -255,7 +255,7 @@ class EcommerceHomeScreen extends StatelessWidget {
                                   topRight: Radius.circular(8.0),
                                 ),
                                 child: Image.asset(
-                                  "assets/images/home/3.jpg",
+                                  "assets/images/home/headphone1.jpg",
                                   fit: BoxFit.fill,
                                 ),
                               ),
