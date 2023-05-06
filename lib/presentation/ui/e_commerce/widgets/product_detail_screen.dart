@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'button.dart';
 import 'count_controller.dart';
-import 'package:badges/badges.dart';
+
 class ProductDetail extends StatefulWidget {
   const ProductDetail({Key? key}) : super(key: key);
 
