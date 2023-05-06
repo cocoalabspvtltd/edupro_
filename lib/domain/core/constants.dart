@@ -118,6 +118,14 @@ AppBar appBarTheme(String text) {
     ),
   ),
   title: Text(text,style:appBarText ,),
+  //   actions: [Badge(
+  // badgeContent: Text(
+  // '0',
+  //   style: TextStyle(
+  //     fontFamily: 'Poppins',
+  //     color: Colors.white,
+  //   ),
+  // ),],
 );
 }
 TextStyle boldHeading = const TextStyle(

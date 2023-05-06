@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
@@ -172,7 +173,7 @@ class CrowdFunding extends StatelessWidget {
                                                               SizedBox(
                                                                 height: 10,
                                                               ),
-                                                              Text(
+                                                              AutoSizeText(
                                                                 "Anjana Murugan",
                                                                 style: TextStyle(
                                                                     color: Colors.black,
@@ -219,7 +220,7 @@ class CrowdFunding extends StatelessWidget {
                                                             padding: const EdgeInsets.all(8.0),
                                                             child: SingleChildScrollView(
                                                               scrollDirection: Axis.vertical,
-                                                              child: Text(
+                                                              child: AutoSizeText(
                                                                 "${res.organization![index].description}",
                                                                 style: TextStyle(
                                                                     color: Colors.black,
