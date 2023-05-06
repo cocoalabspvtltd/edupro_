@@ -52,6 +52,11 @@ dependencies:
   percent_indicator: ^4.2.3
   animations: ^2.0.7
   flutter_animated_cards: ^0.0.2
+  carousel_indicator: ^1.0.6
+  google_fonts: ^4.0.4
+  badges: ^3.1.1
+  auto_size_text: ^3.0.0
+
 
 
 
