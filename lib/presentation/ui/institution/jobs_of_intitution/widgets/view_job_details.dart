@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 
-class JobsDetailsScreen extends StatefulWidget {
-  const JobsDetailsScreen({Key? key}) : super(key: key);
+class ViewJobsDetailsScreen extends StatefulWidget {
+  const ViewJobsDetailsScreen({Key? key}) : super(key: key);
 
   @override
-  State<JobsDetailsScreen> createState() => _JobsDetailsScreenState();
+  State<ViewJobsDetailsScreen> createState() => _ViewJobsDetailsScreenState();
 }
 
-class _JobsDetailsScreenState extends State<JobsDetailsScreen> with TickerProviderStateMixin  {
+class _ViewJobsDetailsScreenState extends State<ViewJobsDetailsScreen> with TickerProviderStateMixin  {
   static const List<Tab> _tabs = [
     Tab(
       icon: Icon(Icons.file_copy_outlined),
@@ -35,14 +35,14 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> with TickerProvid
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarTheme("Job"),
+      appBar: appBarTheme("Job details"),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _header(context),
-            _ourPeople(context),
-            _apply(context)
+            // _ourPeople(context),
+            // _apply(context)
           ],
         ),
       ),
@@ -121,7 +121,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> with TickerProvid
                 height: MediaQuery
                     .of(context)
                     .size
-                    .height * 0.25,
+                    .height * 0.3,
                 width: MediaQuery
                     .of(context)
                     .size
@@ -131,40 +131,37 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> with TickerProvid
                   children: <Widget>[
                     _jobDescription(context),
                     _comapnyDescription(context),
-                     Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Time and Rules",
-                        style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(height: 20),
-                      Row(
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 16),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Icon(Icons.alarm),
-                          SizedBox(width: 8,),
-                          Text("9 Am to 6 Pm"),
+                          Text(
+                            "Time and Rules",
+                            style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(height: 20),
+                          Row(
+                            children: [
+                              Icon(Icons.alarm),
+                              SizedBox(width: 8,),
+                              Text("9 Am to 6 Pm"),
+                            ],
+                          )
+                          // TextButton(
+                          //   onPressed: () {},
+                          //   style: ButtonStyle(
+                          //       padding: MaterialStateProperty.all(EdgeInsets.zero)),
+                          //   child: Text("Learn more",
+                          //       style: TextStyle(fontSize: 14, color: Colors.grey)),
+                          // )
                         ],
-                      )
-                      // TextButton(
-                      //   onPressed: () {},
-                      //   style: ButtonStyle(
-                      //       padding: MaterialStateProperty.all(EdgeInsets.zero)),
-                      //   child: Text("Learn more",
-                      //       style: TextStyle(fontSize: 14, color: Colors.grey)),
-                      // )
-                    ],
-                  ),
-                ),
+                      ),
+                    ),
                   ],
                 ),
               ),
             ),
-            Divider(
-              height: 25,
-            )
           ],
         ),
       ),
@@ -244,92 +241,92 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> with TickerProvid
       ),
     );
   }
-  
-  Widget _ourPeople(BuildContext context) {
-    return Container(
-      height: 92,
-      padding: EdgeInsets.only(left: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text("Our People",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
-          SizedBox(height: 12),
-          Expanded(
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: [
-                _people(context, img:"assets/images/user1.png" , name: "J.Sumith"),
-                _people(context, img: "assets/images/user2.png", name: "L.James"),
-                _people(context, img: "assets/images/user1.png", name: "Anna"),
-                _people(context, img: "assets/images/user2.png", name: "Mathew"),
-                _people(context, img: "assets/images/user1.png", name: "Tom Joe"),
-                _people(context, img: "assets/images/user1.png", name: "Angle"),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
 
-  Widget _people(BuildContext context, {required String img, required String name}) {
-    return Container(
-      margin: EdgeInsets.only(right: 18),
-      child: Column(
-        children: [
-          CircleAvatar(
-            backgroundImage: AssetImage(img),
-          ),
-          SizedBox(height: 8),
-          Text(name, style: TextStyle(fontSize: 10, color:Colors.blue)),
-        ],
-      ),
-    );
-  }
-
-  Widget _apply(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16),
-      margin: EdgeInsets.only(top: 54),
-      child: Row(
-        children: [
-          Expanded(
-            child: TextButton(
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
-                  padding: MaterialStateProperty.all(
-                      EdgeInsets.symmetric(vertical: 16))),
-              onPressed: () {},
-              child: Text(
-                "Apply Now",
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ),
-          SizedBox(width: 12),
-          SizedBox(
-            height: 50,
-            width: 60,
-            child: OutlinedButton(
-              onPressed: () {},
-              style: ButtonStyle(
-                side: MaterialStateProperty.all(
-                  BorderSide(color:Colors.deepPurple),
-                ),
-              ),
-              child: Icon(
-                Icons.bookmark_border,
-                color: Colors.deepPurple,
-              ),
-            ),
-          )
-        ],
-      ),
-    );
-  }
+  // Widget _ourPeople(BuildContext context) {
+  //   return Container(
+  //     height: 92,
+  //     padding: EdgeInsets.only(left: 16),
+  //     child: Column(
+  //       crossAxisAlignment: CrossAxisAlignment.start,
+  //       children: [
+  //         Text("Our People",
+  //             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
+  //         SizedBox(height: 12),
+  //         Expanded(
+  //           child: ListView(
+  //             scrollDirection: Axis.horizontal,
+  //             children: [
+  //               _people(context, img:"assets/images/user1.png" , name: "J.Sumith"),
+  //               _people(context, img: "assets/images/user2.png", name: "L.James"),
+  //               _people(context, img: "assets/images/user1.png", name: "Anna"),
+  //               _people(context, img: "assets/images/user2.png", name: "Mathew"),
+  //               _people(context, img: "assets/images/user1.png", name: "Tom Joe"),
+  //               _people(context, img: "assets/images/user1.png", name: "Angle"),
+  //             ],
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
+  //
+  // Widget _people(BuildContext context, {required String img, required String name}) {
+  //   return Container(
+  //     margin: EdgeInsets.only(right: 18),
+  //     child: Column(
+  //       children: [
+  //         CircleAvatar(
+  //           backgroundImage: AssetImage(img),
+  //         ),
+  //         SizedBox(height: 8),
+  //         Text(name, style: TextStyle(fontSize: 10, color:Colors.blue)),
+  //       ],
+  //     ),
+  //   );
+  // }
+  //
+  // Widget _apply(BuildContext context) {
+  //   return Container(
+  //     padding: EdgeInsets.symmetric(horizontal: 16),
+  //     margin: EdgeInsets.only(top: 54),
+  //     child: Row(
+  //       children: [
+  //         Expanded(
+  //           child: TextButton(
+  //             style: ButtonStyle(
+  //                 backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
+  //                 padding: MaterialStateProperty.all(
+  //                     EdgeInsets.symmetric(vertical: 16))),
+  //             onPressed: () {},
+  //             child: Text(
+  //               "Apply Now",
+  //               style: TextStyle(
+  //                 fontSize: 14,
+  //                 color: Colors.white,
+  //                 fontWeight: FontWeight.bold,
+  //               ),
+  //             ),
+  //           ),
+  //         ),
+  //         SizedBox(width: 12),
+  //         SizedBox(
+  //           height: 50,
+  //           width: 60,
+  //           child: OutlinedButton(
+  //             onPressed: () {},
+  //             style: ButtonStyle(
+  //               side: MaterialStateProperty.all(
+  //                 BorderSide(color:Colors.deepPurple),
+  //               ),
+  //             ),
+  //             child: Icon(
+  //               Icons.bookmark_border,
+  //               color: Colors.deepPurple,
+  //             ),
+  //           ),
+  //         )
+  //       ],
+  //     ),
+  //   );
+  // }
 }

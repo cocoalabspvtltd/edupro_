@@ -16,15 +16,20 @@ class EcommerceHomeScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
+            children: [
               HeaderWithSearchBox(context,size),
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: Text("Top Categories",style: TextStyle(fontSize: 15,fontWeight: FontWeight.w600),),
+              ),
+              SizedBox(height: 8,),
               Categories(),
               thickSpace,
               thickSpace,
               Padding(
                 padding: const EdgeInsets.only(left: 10),
                 child: Row(
-                  children: <Widget>[
+                  children: [
                     Text("Special for you",style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                     Spacer(),
                     TextButton(
@@ -34,14 +39,15 @@ class EcommerceHomeScreen extends StatelessWidget {
                         style: TextStyle(color: Colors.black),
                       ),
                     ),
+                    SizedBox(width: 5,)
                   ],
                 ),
               ),
-              // RecomendsPlants(),
+              _popularProducts(context,size),
               Padding(
                 padding: const EdgeInsets.only(left: 10),
                 child: Row(
-                  children: <Widget>[
+                  children:[
                     Text("Popular Products",style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                     Spacer(),
                     TextButton(
@@ -56,10 +62,11 @@ class EcommerceHomeScreen extends StatelessWidget {
                         ),
                       ),
                     ),
+                    SizedBox(width: 5,)
                   ],
                 ),
               ),
-              // FeaturedPlants(),
+              _popularProducts(context,size),
               SizedBox(height: 20),
             ],
           ),
@@ -71,22 +78,22 @@ class EcommerceHomeScreen extends StatelessWidget {
 
   Widget HeaderWithSearchBox(BuildContext context,Size size) {
     return Container(
-       margin: EdgeInsets.only(bottom: 20 * 2.5),
-      height: size.height * 0.26,
+       margin: EdgeInsets.only(bottom: 10 * 2),
+      height: size.height * 0.25,
       child: Stack(
         children: <Widget>[
           Container(
             padding: EdgeInsets.only(
               left: 20,
               right: 20,
-              bottom: 16 + 20,
+              bottom:20,
             ),
-            height: size.height * 0.27 - 27,
-            decoration: BoxDecoration(
+            height: size.height * 0.26 - 27,
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: <Color>[Color(0xFFB226B2),
+                  colors: [Color(0xFFB226B2),
                     Colors.orange]),
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(36),
@@ -94,7 +101,7 @@ class EcommerceHomeScreen extends StatelessWidget {
               ),
             ),
             child: Row(
-              children: <Widget>[
+              children: [
                 Text(
                   'Hi ${UserDetailsLocal.userName} !',
                   style: Theme.of(context).textTheme.headline5!.copyWith(
@@ -148,9 +155,17 @@ class EcommerceHomeScreen extends StatelessWidget {
           ),
           Positioned(
             top: 2,
-              child: IconButton(onPressed: (){
-                Navigator.pop(context);
-              }, icon: Icon(Icons.arrow_back,color: Colors.white,))),
+              child: Row(
+                children: [
+                  IconButton(onPressed: (){
+                    Navigator.pop(context);
+                  }, icon: Icon(Icons.arrow_back,color: Colors.white,)),
+                  SizedBox(width: screenWidth *0.7,),
+                  IconButton(onPressed: (){
+                  }, icon: Icon(Icons.shopping_cart_outlined,color: Colors.white,)),
+                  SizedBox(width: 10,),
+                ],
+              )),
           Positioned(
             bottom: 0,
             left: 0,
@@ -172,7 +187,7 @@ class EcommerceHomeScreen extends StatelessWidget {
                 ],
               ),
               child: Row(
-                children: <Widget>[
+                children: [
                   Expanded(
                     child: TextField(
                       onChanged: (value) {},
@@ -183,9 +198,6 @@ class EcommerceHomeScreen extends StatelessWidget {
                         ),
                         enabledBorder: InputBorder.none,
                         focusedBorder: InputBorder.none,
-                        // surffix isn't working properly  with SVG
-                        // thats why we use row
-                        // suffixIcon: SvgPicture.asset("assets/icons/search.svg"),
                       ),
                     ),
                   ),
@@ -194,9 +206,131 @@ class EcommerceHomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 15,)
+          // SizedBox(height: 15,)
         ],
       ),
     );
+  }
+
+  Widget _popularProducts(BuildContext context,Size size){
+    return Padding(
+      padding: const EdgeInsets.only(left: 10),
+      child: Container(
+        height:screenHeight / 4  ,
+        width: screenWidth,
+        child: ListView.separated(
+          separatorBuilder: (BuildContext context, int index) {
+            return const SizedBox(
+              width: 12,
+            );
+          },
+          primary: false,
+          shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
+          itemCount:5,
+          itemBuilder: (BuildContext context, int index) {
+            return Padding(
+              padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
+              child: InkWell(
+                // onTap: (){
+                //   Get.to(() =>  JobsDetailsScreen());
+                // },
+                child: Container(
+                  height: MediaQuery.of(context).size.height / 2.9,
+                  width: MediaQuery.of(context).size.width / 2,
+                  child: Card(
+                    shape:
+                    RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+                    elevation: 3.0,
+                    child: Column(
+                      children:[
+                        Stack(
+                          children: [
+                            Container(
+                              height: MediaQuery.of(context).size.height * 0.15,
+                              width: MediaQuery.of(context).size.width,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(8.0),
+                                  topRight: Radius.circular(8.0),
+                                ),
+                                child: Image.asset(
+                                  "assets/images/home/3.jpg",
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              top: 6.0,
+                              left: 6.0,
+                              child: Card(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(100)),
+                                child: Padding(
+                                  padding: EdgeInsets.all(2.0),
+                                  child: Icon(Icons.favorite_border,size: 18,),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 5,left: 5),
+                          child: Container(
+                            width: MediaQuery.of(context).size.width,
+                            child: Text(
+                              "Product name",
+                              style: TextStyle(
+                                fontSize: 15.0,
+                                fontWeight: FontWeight.w600,
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 7.0),
+                        Row(
+                          children: [
+                            SizedBox(width: 5,),
+                            Text(
+                              "₹1800",
+                              style: TextStyle(
+                                fontSize: 13.0,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.deepPurple
+                              ),
+                            ),
+                            // Text(
+                            //   "500",
+                            //   style: TextStyle(
+                            //       fontSize: 13.0,
+                            //       fontWeight: FontWeight.w500,
+                            //       color: Colors.grey
+                            //   ),
+                            // ),
+                            Spacer(),
+                            Text(
+                              "4.5★",
+                              style: TextStyle(
+                                fontSize: 12.0,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.green
+                              ),
+                            ),
+                            SizedBox(width: 7,)
+                          ],
+                        ),
+                        SizedBox(height: 5.0),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+
   }
 }

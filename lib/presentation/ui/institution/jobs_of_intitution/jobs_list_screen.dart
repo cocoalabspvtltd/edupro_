@@ -1,7 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:get/get.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
+import 'package:pgs_edupro/presentation/ui/institution/jobs_of_intitution/widgets/view_job_details.dart';
 
 
 class InsistutionJobslistScreen extends StatelessWidget {
@@ -121,9 +123,9 @@ class InsistutionJobslistScreen extends StatelessWidget {
                                 backgroundColor: Colors.blueAccent,
                                 child: IconButton(
                                   onPressed: () {
-                                    // Get.to(() => ViewStudentDetailsCreen(
-                                    //     studentdetails:res.studentList![index]
-                                    // ));
+                                    Get.to(() => ViewJobsDetailsScreen(
+                                        // studentdetails:res.studentList![index]
+                                    ));
                                   },
                                   icon: const Icon(Icons.remove_red_eye,
                                     color: Colors.white, size: 15,),

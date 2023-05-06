@@ -23,6 +23,7 @@ class _AddJobsFormState extends State<AddJobsForm> {
   TextEditingController job_post=TextEditingController();
   TextEditingController salary=TextEditingController();
   TextEditingController location=TextEditingController();
+  TextEditingController jobdescription=TextEditingController();
   TextEditingController qualification=TextEditingController();
   TextEditingController skill=TextEditingController();
 
@@ -91,6 +92,19 @@ class _AddJobsFormState extends State<AddJobsForm> {
               TextInputType.text,
               maxLine: 1,
               hint: "Location"),
+          const SizedBox(height: 10),
+          _textForm(
+              jobdescription,
+              // state.url,
+              //     (v) => context
+              //     .read<InstitutionClassBloc>()
+              //     .add(InstitutionClassEvent.urlChanged(v)),
+              // null,
+              "Job description",
+              true,
+              TextInputType.text,
+              maxLine: 1,
+              hint: "Description"),
           const SizedBox(height: 10),
           _textForm(
               qualification,
