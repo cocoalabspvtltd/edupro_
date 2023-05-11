@@ -3,26 +3,24 @@ import 'package:pgs_edupro/application/Hotel/hotel_list_bloc.dart';
 import 'package:pgs_edupro/application/ads/ads_bloc.dart';
 import 'package:pgs_edupro/application/course/courses_bloc.dart';
 import 'package:pgs_edupro/application/payment/payment_bloc.dart';
-import 'package:pgs_edupro/application/profile/profile_bloc.dart';
 import 'package:pgs_edupro/application/video/top_videos/top_videos_bloc.dart';
 import 'package:pgs_edupro/application/video/trending_videos/trending_videos_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/shared_prefs.dart';
-import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/ads/ads_repository.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/course/course_repository.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/offers/offers_repository.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/payment/payment_repository.dart';
-import 'package:pgs_edupro/infrastructure/remote_data/repositories/profile/profile_repository.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/videos/video_repository.dart';
 import 'package:pgs_edupro/presentation/ui/course/my_course_screen.dart';
 import 'package:pgs_edupro/presentation/ui/home/widgets/drawer.dart';
 import 'package:pgs_edupro/presentation/ui/home/widgets/home_body.dart';
-import 'package:pgs_edupro/presentation/ui/home/widgets/menu_button.dart';
 import 'package:pgs_edupro/presentation/ui/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
   final int selectedIndex;
@@ -227,6 +225,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 ]),
           ],
         ),
+        floatingActionButton: Padding(
+          padding: const EdgeInsets.fromLTRB(0, 0, 0, 65),
+          child: showHelpDesk(),
+        ),
       ),
     );
   }
@@ -262,4 +264,26 @@ class _HomeScreenState extends State<HomeScreen> {
       },
     );
   }
+}
+
+showHelpDesk() {
+  return FloatingActionButton(
+    backgroundColor: Colors.deepPurple,
+    child: Icon(Icons.headset_mic_rounded, color: Colors.white,),
+    onPressed: () async {
+      var whatsAppUrl = "whatsapp://send?phone=+917560911122";
+      await launch(whatsAppUrl)
+          ? launch(whatsAppUrl)
+          : Get.snackbar("Oops!!", "Check whatsapp is installed or not",
+          backgroundColor: Colors.deepPurple,
+          // snackPosition: SnackPosition.TOP,
+          colorText: Colors.white,
+          shouldIconPulse: true,
+          margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
+          icon: Icon(
+            Icons.search,
+            color: Colors.red,
+          ));
+    },
+  );
 }

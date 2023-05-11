@@ -53,9 +53,7 @@ class EcommerceHomeScreen extends StatelessWidget {
                     TextButton(
                       onPressed: (){},
                       child: GestureDetector(onTap: (){
-                        Get.to(() => const ProductDetail(
-
-                        ));
+                        Get.to(() => const ProductDetail());
                       },
                         child: Text("More",
                           style: TextStyle(color: Colors.black),
