@@ -17,6 +17,7 @@ class _ProductScreenState extends State<ProductScreen> {
     return DefaultTabController(
         length: 3,
         child: Scaffold(
+
           appBar: AppBar(
             flexibleSpace: Container(
               decoration: const BoxDecoration(
@@ -71,11 +72,17 @@ class _ProductScreenState extends State<ProductScreen> {
                   ),
                 ]),
           ),
-          body: TabBarView(children: [
-            LiveProductlistScreen(),
-            UpcomigProductlistScreen(),
-            ClosedProductlistScreen()
-          ]),
+          body: Container(decoration: BoxDecoration(  gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: <Color>[Color(0xFFB226B2),
+                Colors.orange]),),
+            child: TabBarView(children: [
+              LiveProductlistScreen(),
+              UpcomigProductlistScreen(),
+              ClosedProductlistScreen()
+            ]),
+          ),
         ));
   }
 }

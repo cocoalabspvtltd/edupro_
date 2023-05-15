@@ -1,4 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:badges/badges.dart';
+
 import 'package:carousel_indicator/carousel_indicator.dart';
 import 'package:flutter/material.dart';
 
@@ -75,19 +77,15 @@ class _ProductDetailState extends State<ProductDetail> {
             size: 30,
           ),
           onPressed: () {
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(
-            //     builder: (context) => CheckoutWidget(),
-            //   ),
-            // );
-          },
+            },
         ),
       ),
     )
           ],
+
           centerTitle: true,
           elevation: 0,
+
         ),
         body: Column(
           mainAxisSize: MainAxisSize.max,

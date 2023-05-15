@@ -56,6 +56,8 @@ dependencies:
   google_fonts: ^4.0.4
   badges: ^3.1.1
   auto_size_text: ^3.0.0
+  fluid_action_card: ^1.0.0+5
+
 
 
 
