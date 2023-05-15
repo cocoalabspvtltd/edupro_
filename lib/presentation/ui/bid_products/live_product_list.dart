@@ -13,6 +13,8 @@ import 'package:pgs_edupro/presentation/widgets/common_result_empty_widget.dart'
 import 'package:pgs_edupro/presentation/widgets/common_server_error_widget.dart';
 import 'package:flutter/material.dart';
 
+import 'joinbid.dart';
+
 class LiveProductlistScreen extends StatelessWidget {
   final bool fromHome;
 
@@ -56,7 +58,7 @@ class LiveProductlistScreen extends StatelessWidget {
                           thickSpace,
                           SizedBox(
                             width: screenWidth * 0.9,
-                            height: screenHeight * 0.5,
+                            height: screenHeight * 0.6,
                             child: Card(
                               child: CarouselSlider.builder(
                                   itemCount: res.bidProducts!.length,
@@ -160,6 +162,23 @@ class LiveProductlistScreen extends StatelessWidget {
 
                                             },
                                             child: const Text('Bid Now'),
+                                          ),
+                                        ),
+                                        thickSpace,
+                                        thickSpace,
+                                        SizedBox(
+                                          height: 50,
+                                          width: screenWidth * 0.3,
+                                          child: ElevatedButton(
+                                            style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.red)),
+                                            onPressed: () {
+                                              // product_id= res.bidProducts![index].id!.toString();
+                                              Get.to(() =>  JoinBid(
+                                                  ));
+                                              print("iddd${product_id}");
+
+                                            },
+                                            child: const Text('Join Now'),
                                           ),
                                         ),
                                       ],
