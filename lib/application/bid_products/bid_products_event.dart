@@ -7,4 +7,5 @@ class BidProductsEvent with _$BidProductsEvent {
   const factory BidProductsEvent.LoadUpcomingProducts() = _LoadUpcomingProducts;
   const factory BidProductsEvent.LoadClosedProducts() = _LoadClosedProducts;
   const factory BidProductsEvent.LoadProductsDetails() = _LoadProductsDetails;
+  const factory BidProductsEvent.LoadBidInstrctions() = _LoadBidInstrctions;
 }

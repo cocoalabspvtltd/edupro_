@@ -37,7 +37,10 @@ class BidProducts {
   String? startTime;
   String? endTime;
   String? startDate;
+  String? endDate;
+  String? status;
   String? productImage;
+  String? productGallery;
   String? createdAt;
   String? updatedAt;
 
@@ -51,7 +54,10 @@ class BidProducts {
         this.startTime,
         this.endTime,
         this.startDate,
+        this.endDate,
+        this.status,
         this.productImage,
+        this.productGallery,
         this.createdAt,
         this.updatedAt});
 
@@ -65,7 +71,10 @@ class BidProducts {
     startTime = json['start_time'];
     endTime = json['end_time'];
     startDate = json['start_date'];
+    endDate = json['end_date'];
+    status = json['status'];
     productImage = json['product_image'];
+    productGallery = json['product_gallery'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
   }
@@ -81,7 +90,10 @@ class BidProducts {
     data['start_time'] = this.startTime;
     data['end_time'] = this.endTime;
     data['start_date'] = this.startDate;
+    data['end_date'] = this.endDate;
+    data['status'] = this.status;
     data['product_image'] = this.productImage;
+    data['product_gallery'] = this.productGallery;
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;
     return data;

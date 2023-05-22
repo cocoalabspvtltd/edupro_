@@ -1,6 +1,4 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:badges/badges.dart';
-
 import 'package:carousel_indicator/carousel_indicator.dart';
 import 'package:flutter/material.dart';
 import 'button.dart';
@@ -97,11 +95,9 @@ class _ProductDetailState extends State<ProductDetail> {
                   children: [
                     Container(
                       height: 300,
-
                       width: double.infinity-0.6,
                       child: PageView(
                         children: _demo,
-
                         onPageChanged: (index){
                           setState(() {
                             pageIndex=index;

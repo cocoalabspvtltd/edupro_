@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pgs_edupro/presentation/ui/bid_products/bid_instrction_screen.dart';
 import 'package:pgs_edupro/presentation/ui/bid_products/closed_product_list.dart';
 import 'package:pgs_edupro/presentation/ui/bid_products/live_product_list.dart';
+import 'package:pgs_edupro/presentation/ui/bid_products/myorders_list.dart';
 
 import 'upcoming_product_list.dart';
 
@@ -17,7 +20,6 @@ class _ProductScreenState extends State<ProductScreen> {
     return DefaultTabController(
         length: 3,
         child: Scaffold(
-
           appBar: AppBar(
             flexibleSpace: Container(
               decoration: const BoxDecoration(
@@ -30,6 +32,12 @@ class _ProductScreenState extends State<ProductScreen> {
             ),
             title: Text("Products"),
             elevation: 0,
+            actions: [
+              IconButton(onPressed: (){
+                Get.to(() => BidInstructionScreen());
+                  // Get.to(() => MyOdersListScreen());
+              }, icon: Icon(Icons.remove_red_eye))
+            ],
             bottom: TabBar(
                 unselectedLabelColor: Colors.white,
                 indicatorSize: TabBarIndicatorSize.label,

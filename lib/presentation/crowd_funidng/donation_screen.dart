@@ -2,13 +2,10 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-
 import 'package:pgs_edupro/application/crowd_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
-
 import 'package:pgs_edupro/infrastructure/remote_data/models/crowd.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/bid_products/bids_repository.dart';
-
 import 'package:pgs_edupro/presentation/widgets/common_result_empty_widget.dart';
 import 'package:pgs_edupro/presentation/widgets/common_server_error_widget.dart';
 import 'package:flutter/material.dart';

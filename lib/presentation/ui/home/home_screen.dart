@@ -12,6 +12,7 @@ import 'package:pgs_edupro/infrastructure/remote_data/repositories/course/course
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/offers/offers_repository.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/payment/payment_repository.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/videos/video_repository.dart';
+import 'package:pgs_edupro/presentation/ui/bid_products/products_screen.dart';
 import 'package:pgs_edupro/presentation/ui/course/my_course_screen.dart';
 import 'package:pgs_edupro/presentation/ui/home/widgets/drawer.dart';
 import 'package:pgs_edupro/presentation/ui/home/widgets/home_body.dart';
@@ -21,6 +22,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:get/get.dart';
+import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 
 class HomeScreen extends StatefulWidget {
   final int selectedIndex;
@@ -41,6 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
   late PageController _pageController;
   List title = ['Home', 'My Courses', 'Library', 'My Profile'];
 
+
   @override
   void initState() {
     super.initState();
@@ -50,6 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       _pageController.animateToPage(_selectedIndex,
           duration: const Duration(milliseconds: 300), curve: Curves.ease);
+      Future(showAlert);
     });
   }
 
@@ -61,6 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // Future.delayed(Duration.zero, () => showAlert(context));
     return MultiBlocProvider(
       providers: [
         BlocProvider(
@@ -226,11 +231,107 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
         floatingActionButton: Padding(
-          padding: const EdgeInsets.fromLTRB(0, 0, 0, 65),
+          padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
           child: showHelpDesk(),
         ),
       ),
     );
+  }
+
+  void showAlert() {
+    showDialog(
+        context: context,
+        builder: (context) =>
+        AlertDialog(
+          backgroundColor: Colors.white70,
+          content: Container(
+            height: screenHeight * 0.7,
+            width: screenWidth * 0.8,
+            child: Stack(
+              children: [
+                Positioned(
+                  left: 0,
+                  right: 0,
+                  top: 0,
+                  bottom: 0,
+                  child: ImageSlideshow(
+                    width: double.infinity,
+                    height: double.infinity,
+                    initialPage: 0,
+                    indicatorColor: Colors.white,
+                    indicatorBackgroundColor: Colors.grey,
+                    onPageChanged: (value) {
+                      debugPrint('Page changed: $value');
+                    },
+                    autoPlayInterval: 3000,
+                    isLoop: true,
+                    children: [
+                      Stack(
+                        children: [
+                          Image.asset(
+                            "assets/images/home/earbuds1.png",
+                            height: double.infinity,
+                            fit: BoxFit.cover,
+                          ),
+                        ],
+                      ),
+                      Stack(
+                        children: [
+                          Image.asset(
+                            "assets/images/home/earbuds2.png",
+                            height: double.infinity,
+                            fit: BoxFit.cover,
+                          ),
+                        ],
+                      ),
+                      Stack(
+                        children: [
+                          Image.asset(
+                            "assets/images/home/Prezenty.png",
+                            height: double.infinity,
+                            fit: BoxFit.cover,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Positioned(
+                  right: 10,
+                  top: 5,
+                  child:  IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: Icon(Icons.close,color: Colors.white,)
+                  ),
+                ),
+                Positioned(
+                  left: 25,
+                  right: 25,
+                  bottom: 5,
+                  child:  ElevatedButton(
+                    style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.red)),
+                    onPressed: () {
+                      Navigator.pop(context);
+                      Get.to(() =>  const ProductScreen(
+                    ));
+                    },
+                    child: Padding(
+                      padding:
+                      const EdgeInsets.all(4),
+                      child: Text('JOIN NOW'),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          contentPadding: EdgeInsets.zero,
+          clipBehavior: Clip.antiAlias,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+        ));
+
   }
 
   Widget _renewSuscription() {
@@ -265,11 +366,10 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
 showHelpDesk() {
   return FloatingActionButton(
-    backgroundColor: Colors.deepPurple,
-    child: Icon(Icons.headset_mic_rounded, color: Colors.white,),
+    backgroundColor: Colors.white,
+    child: Icon(Icons.headset_mic_rounded, color: Color(0xFFB226B2),),
     onPressed: () async {
       var whatsAppUrl = "whatsapp://send?phone=+917560911122";
       await launch(whatsAppUrl)
@@ -282,7 +382,7 @@ showHelpDesk() {
           margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
           icon: Icon(
             Icons.search,
-            color: Colors.red,
+            color:Colors.deepPurple,
           ));
     },
   );
