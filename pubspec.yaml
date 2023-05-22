@@ -57,6 +57,7 @@ dependencies:
   badges: ^3.1.1
   auto_size_text: ^3.0.0
   fluid_action_card: ^1.0.0+5
+  flutter_image_slideshow: ^0.1.2
 
 
 

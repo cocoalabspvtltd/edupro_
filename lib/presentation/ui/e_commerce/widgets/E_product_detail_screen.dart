@@ -1,11 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:badges/badges.dart';
-
 import 'package:carousel_indicator/carousel_indicator.dart';
 import 'package:flutter/material.dart';
-
 import 'button.dart';
 import 'count_controller.dart';
+import 'package:badges/badges.dart'as badge;
 
 class ProductDetail extends StatefulWidget {
   const ProductDetail({Key? key}) : super(key: key);
@@ -17,7 +15,6 @@ class ProductDetail extends StatefulWidget {
 class _ProductDetailState extends State<ProductDetail> {
   @override
   int pageIndex=0;
-
   List<Widget> _demo=[
     Container(height: 300,color: Colors.white,child: Image.asset("assets/images/home/headphone1.jpg")),
     Container(height: 300,color: Colors.white,child: Image.asset("assets/images/home/headphone2.jpg")),
@@ -60,7 +57,7 @@ class _ProductDetailState extends State<ProductDetail> {
           actions: [
         Padding(
         padding: EdgeInsetsDirectional.fromSTEB(0, 8, 24, 0),
-      child: Badge(
+      child: badge.Badge(
         badgeContent: Text(
           '0',
           style:TextStyle(
@@ -98,11 +95,9 @@ class _ProductDetailState extends State<ProductDetail> {
                   children: [
                     Container(
                       height: 300,
-
                       width: double.infinity-0.6,
                       child: PageView(
                         children: _demo,
-
                         onPageChanged: (index){
                           setState(() {
                             pageIndex=index;

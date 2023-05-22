@@ -7,7 +7,7 @@ import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/bid_products/bid_product_list_reponse.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/bid_products/bids_repository.dart';
-import 'package:pgs_edupro/presentation/ui/bid_products/product_details_screen.dart';
+import 'package:pgs_edupro/presentation/ui/bid_products/closed_product_details_screen.dart';
 import 'package:pgs_edupro/presentation/widgets/common_result_empty_widget.dart';
 import 'package:pgs_edupro/presentation/widgets/common_server_error_widget.dart';
 import 'package:flutter/material.dart';
@@ -55,9 +55,10 @@ class ClosedProductlistScreen extends StatelessWidget {
                           thickSpace,
                           thickSpace,
                           thickSpace,
+                          thickSpace,
                           SizedBox(
                             width: screenWidth * 0.9,
-                            height: screenHeight * 0.5,
+                            height: screenHeight * 0.45,
                             child: Card(
                               child: CarouselSlider.builder(
                                   itemCount: res.bidProducts!.length,
@@ -72,25 +73,19 @@ class ClosedProductlistScreen extends StatelessWidget {
                                       crossAxisAlignment:
                                       CrossAxisAlignment.center,
                                       children: [
-                                        SizedBox(
-                                          height: 20,
-                                        ),
+                                        thickSpace,
+                                        thickSpace,
+                                        thickSpace,
+                                        thickSpace,
                                         Text(
-                                          "Amazon in ${res.bidProducts![index].price}",
+                                          "Bid Section Closed",
                                           style: TextStyle(
-                                              fontWeight:
-                                              FontWeight.bold),
-                                        ),
-                                        Text(
-                                          "Gift Card",
-                                          style: TextStyle(
-                                              fontWeight:
-                                              FontWeight.bold),
+                                              color: Colors.red, fontSize: 16,fontWeight: FontWeight.bold),
                                         ),
                                         thickSpace,
                                         thickSpace,
                                         Container(
-                                          width: 130,
+                                          width: screenWidth * 0.4,
                                           padding: EdgeInsets.all(1),
                                           child: ClipRRect(
                                             borderRadius:
@@ -124,44 +119,18 @@ class ClosedProductlistScreen extends StatelessWidget {
                                         ),
                                         thickSpace,
                                         thickSpace,
-                                        Text(
-                                          "Auction ID : ${res.bidProducts![index].auctionId}",
-                                          style: TextStyle(
-                                              fontWeight:
-                                              FontWeight.normal,
-                                              color: Colors.grey[800]),
-                                        ),
-                                        thickSpace,
-                                        Row(
-                                          mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                          children: [
-                                            Icon(Icons.lock_clock),
-                                            Text(
-                                              "From ${res.bidProducts![index].startTime} To ${res.bidProducts![index].endTime}",
-                                              style: TextStyle(
-                                                  fontWeight:
-                                                  FontWeight.normal,
-                                                  color:
-                                                  Colors.grey[800]),
-                                            ),
-                                          ],
-                                        ),
-                                        thickSpace,
                                         thickSpace,
                                         SizedBox(
-                                          height: 50,
-                                          width: screenWidth * 0.3,
-                                          child: ElevatedButton(
-                                            onPressed: () {
-                                              product_id= res.bidProducts![index].id!.toString();
-                                              Get.to(() =>  ProductDetailsScreen(
-                                                  productdetails:res.bidProducts![index]));
-                                              print("iddd${product_id}");
-                                            },
-                                            child: const Text('Bid Now'),
-                                          ),
+                                          height: 40,
+                                          child: ElevatedButton(onPressed: (){
+                                            product_id= res.bidProducts![index].id!.toString();
+                                            Get.to(() =>  ClosedProductDetailsScreen(
+                                                productdetails:res.bidProducts![index]));
+                                            print("iddd${product_id}");
+                                          }, child: Text("View More")),
                                         ),
+                                        thickSpace,
+                                        thickSpace,
                                       ],
                                     );
                                   }),

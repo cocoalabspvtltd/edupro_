@@ -18,29 +18,33 @@ import 'package:http/http.dart' as http;
 
 class CourseDetailsView extends StatelessWidget {
   final CourseList courseList;
-   CourseDetailsView({super.key, required this.courseList});
-  Map OrderIdResponse ={};
-  String OderId="";
+  CourseDetailsView({super.key, required this.courseList});
+  Map OrderIdResponse = {};
+  String OderId = "";
   ApiProvider? apiprovider;
   Future getOrderId() async {
     print("Get order");
-    http.Response response = await http.get(Uri.parse('https://pgsedu.com/EduPro/index.php/api/get_orderId'),
+    http.Response response = await http.get(
+      Uri.parse('https://pgsedu.com/EduPro/index.php/api/get_orderId'),
       headers: <String, String>{
         'Accept': "appilication/json",
         'Authorization': 'Bearer ${UserDetailsLocal.apiToken}',
-
-      },);
+      },
+    );
     print("Response${response.body}");
     var jsonData = json.decode(response.body);
     OrderIdResponse = jsonData;
     OderId = OrderIdResponse["orderId"];
     print("orderId->${OderId}");
-    if(response.statusCode==200){
-
-      Get.to(() =>  PaymentFormScreen(orderid:OderId, courseDetails: courseList,));
+    if (response.statusCode == 200) {
+      Get.to(() => PaymentFormScreen(
+            orderid: OderId,
+            courseDetails: courseList,
+          ));
     }
-     return response;
+    return response;
   }
+
   @override
   void initState() {
     getOrderId();
@@ -115,11 +119,10 @@ class CourseDetailsView extends StatelessWidget {
                       YoutubeVideoPlayerWidget(
                     url: courseList.coursePreviewVideoUrl!,
                     displayPlayerOnly: true,
-                    hideFullScreenButtton: true,
-                    repeatForever: true,
+                    // hideFullScreenButtton: true,
+                    // repeatForever: true,
                   ),
-                  //         : CachedNetworkImage(
-                  //             fit: BoxFit.cover,
+                  //         : CachedNetworkImage(                  //             fit: BoxFit.cover,
                   //             imageUrl: UserDetailsLocal.storageBaseUrl +
                   //                 (courseList.courseThumbnail ?? ''),
                   //             imageBuilder: (context, imageProvider) => Container(
@@ -209,9 +212,8 @@ class CourseDetailsView extends StatelessWidget {
                             print("---->${OderId}");
                             getOrderId();
 
-
                           },
-                          // => context.read<PaymentBloc>().add(
+                          // onPressed: () => context.read<PaymentBloc>().add(
                           //       PaymentEvent.startPayment(
                           //           courseList.price ?? '', "COURSE PAYMENT",
                           //           courseId: courseList.courseId),
@@ -243,7 +245,8 @@ class CourseDetailsView extends StatelessWidget {
                         data: courseList.aboutCourse?.aboutDescription,
                         tagsList: Html.tags..addAll(["bird", "flutter"]),
                         style: {
-                          'h5': Style(maxLines: 2, textOverflow: TextOverflow.ellipsis),
+                          'h5': Style(
+                              maxLines: 2, textOverflow: TextOverflow.ellipsis),
                         },
                         customRender: {
                           "bird": (RenderContext context, Widget child) {
@@ -251,7 +254,9 @@ class CourseDetailsView extends StatelessWidget {
                           },
                           "flutter": (RenderContext context, Widget child) {
                             return FlutterLogo(
-                              style: (context.tree.element!.attributes['horizontal'] != null)
+                              style: (context.tree.element!
+                                          .attributes['horizontal'] !=
+                                      null)
                                   ? FlutterLogoStyle.horizontal
                                   : FlutterLogoStyle.markOnly,
                               textColor: context.style.color!,
@@ -265,79 +270,78 @@ class CourseDetailsView extends StatelessWidget {
                         onImageTap: (src, _, __, ___) {
                           print(src);
                         },
-                        onImageError: (exception, stackTrace) {
-                        },
+                        onImageError: (exception, stackTrace) {},
                         onCssParseError: (css, messages) {
                           messages.forEach((element) {
                             print(element);
                           });
                         },
                       ),
-                    //   Text(
-                    //     courseList.aboutCourse?.aboutDescription
-                    //             ?.split('What you')
-                    //             .first ??
-                    //         "",
-                    //     textAlign: TextAlign.justify,
-                    //     style: TextStyle(
-                    //         fontSize: 16,
-                    //         fontWeight: FontWeight.w500,
-                    //         color: Colors.grey[700]),
-                    //   ),
-                    //   if (courseList.aboutCourse?.aboutDescription
-                    //           ?.contains("What you") ??
-                    //       false) ...[
-                    //     Text(
-                    //       "What you'll learn",
-                    //       textAlign: TextAlign.justify,
-                    //       style: boldWord,
-                    //     ),
-                    //     Text(
-                    //       whatYouLearn,
-                    //       textAlign: TextAlign.left,
-                    //       style: TextStyle(
-                    //           fontSize: 16,
-                    //           fontWeight: FontWeight.w500,
-                    //           color: Colors.grey[700]),
-                    //     ),
-                    //   ],
-                    //   if (courseList.aboutCourse?.aboutDescription?.contains(
-                    //           'Are there any course requirements or prerequisites?') ??
-                    //       false) ...[
-                    //     Text(
-                    //       'Are there any course requirements or prerequisites?',
-                    //       textAlign: TextAlign.justify,
-                    //       style: boldWord,
-                    //     ),
-                    //     Text(
-                    //       prerequisties,
-                    //       textAlign: TextAlign.left,
-                    //       style: TextStyle(
-                    //           fontSize: 16,
-                    //           fontWeight: FontWeight.w500,
-                    //           color: Colors.grey[700]),
-                    //     ),
-                    //   ],
-                    //   if (courseList.aboutCourse?.aboutDescription
-                    //           ?.contains('Who this course is for:') ??
-                    //       false) ...[
-                    //     Text(
-                    //       'Who this course is for:',
-                    //       textAlign: TextAlign.justify,
-                    //       style: boldWord,
-                    //     ),
-                    //     Text(
-                    //       whoThisCourseFor,
-                    //       textAlign: TextAlign.left,
-                    //       style: TextStyle(
-                    //           fontSize: 16,
-                    //           fontWeight: FontWeight.w500,
-                    //           color: Colors.grey[700]),
-                    //     ),
-                    //   ],
-                    //   thickSpace,
-                    //   thickSpace,
-                     ],
+                      //   Text(
+                      //     courseList.aboutCourse?.aboutDescription
+                      //             ?.split('What you')
+                      //             .first ??
+                      //         "",
+                      //     textAlign: TextAlign.justify,
+                      //     style: TextStyle(
+                      //         fontSize: 16,
+                      //         fontWeight: FontWeight.w500,
+                      //         color: Colors.grey[700]),
+                      //   ),
+                      //   if (courseList.aboutCourse?.aboutDescription
+                      //           ?.contains("What you") ??
+                      //       false) ...[
+                      //     Text(
+                      //       "What you'll learn",
+                      //       textAlign: TextAlign.justify,
+                      //       style: boldWord,
+                      //     ),
+                      //     Text(
+                      //       whatYouLearn,
+                      //       textAlign: TextAlign.left,
+                      //       style: TextStyle(
+                      //           fontSize: 16,
+                      //           fontWeight: FontWeight.w500,
+                      //           color: Colors.grey[700]),
+                      //     ),
+                      //   ],
+                      //   if (courseList.aboutCourse?.aboutDescription?.contains(
+                      //           'Are there any course requirements or prerequisites?') ??
+                      //       false) ...[
+                      //     Text(
+                      //       'Are there any course requirements or prerequisites?',
+                      //       textAlign: TextAlign.justify,
+                      //       style: boldWord,
+                      //     ),
+                      //     Text(
+                      //       prerequisties,
+                      //       textAlign: TextAlign.left,
+                      //       style: TextStyle(
+                      //           fontSize: 16,
+                      //           fontWeight: FontWeight.w500,
+                      //           color: Colors.grey[700]),
+                      //     ),
+                      //   ],
+                      //   if (courseList.aboutCourse?.aboutDescription
+                      //           ?.contains('Who this course is for:') ??
+                      //       false) ...[
+                      //     Text(
+                      //       'Who this course is for:',
+                      //       textAlign: TextAlign.justify,
+                      //       style: boldWord,
+                      //     ),
+                      //     Text(
+                      //       whoThisCourseFor,
+                      //       textAlign: TextAlign.left,
+                      //       style: TextStyle(
+                      //           fontSize: 16,
+                      //           fontWeight: FontWeight.w500,
+                      //           color: Colors.grey[700]),
+                      //     ),
+                      //   ],
+                      //   thickSpace,
+                      //   thickSpace,
+                    ],
                     thickSpace,
                     thickSpace,
                     if (courseList.instructors?.isNotEmpty ?? false) ...[

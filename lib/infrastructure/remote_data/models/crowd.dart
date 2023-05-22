@@ -1,6 +1,6 @@
 class CrowdFundingResponse {
   bool? success;
-  int ?statusCode;
+  int? statusCode;
   List<Organization>? organization;
 
   CrowdFundingResponse({this.success, this.statusCode, this.organization});
@@ -33,8 +33,10 @@ class Organization {
   String? description;
   String? goalAmount;
   String? raisedAmount;
-  Null createdAt;
-  Null updatedAt;
+  int? isCollected;
+  String? image;
+  String? createdAt;
+  String? updatedAt;
 
   Organization(
       {this.id,
@@ -42,6 +44,8 @@ class Organization {
         this.description,
         this.goalAmount,
         this.raisedAmount,
+        this.isCollected,
+        this.image,
         this.createdAt,
         this.updatedAt});
 
@@ -51,6 +55,8 @@ class Organization {
     description = json['description'];
     goalAmount = json['goal_amount'];
     raisedAmount = json['raised_amount'];
+    isCollected = json['is_collected'];
+    image = json['image'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
   }
@@ -62,6 +68,8 @@ class Organization {
     data['description'] = this.description;
     data['goal_amount'] = this.goalAmount;
     data['raised_amount'] = this.raisedAmount;
+    data['is_collected'] = this.isCollected;
+    data['image'] = this.image;
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;
     return data;

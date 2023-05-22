@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:pgs_edupro/domain/core/network/network_failures.dart';
+import 'package:pgs_edupro/infrastructure/remote_data/models/bid_products/bid_instructor_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/bid_products/bid_product_detail_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/bid_products/bid_product_list_reponse.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/crowd.dart';
@@ -12,4 +13,5 @@ abstract class IBidsRepository {
   Future<Either<NetworkFailure, BidProductDetailsResponse>> getProductDetails(String productId);
   Future<Either<NetworkFailure, CrowdFundingResponse>> getCrowdList();
   Future<Either<NetworkFailure, CrowdFundingDetailsResponse>> getCrowdDetailsList();
+  Future<Either<NetworkFailure, BidInstructionsResponse>> getBidInstructionsList();
 }

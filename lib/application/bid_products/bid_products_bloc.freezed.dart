@@ -23,6 +23,7 @@ mixin _$BidProductsEvent {
     required TResult Function() LoadUpcomingProducts,
     required TResult Function() LoadClosedProducts,
     required TResult Function() LoadProductsDetails,
+    required TResult Function() LoadBidInstrctions,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +33,7 @@ mixin _$BidProductsEvent {
     TResult? Function()? LoadUpcomingProducts,
     TResult? Function()? LoadClosedProducts,
     TResult? Function()? LoadProductsDetails,
+    TResult? Function()? LoadBidInstrctions,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +43,7 @@ mixin _$BidProductsEvent {
     TResult Function()? LoadUpcomingProducts,
     TResult Function()? LoadClosedProducts,
     TResult Function()? LoadProductsDetails,
+    TResult Function()? LoadBidInstrctions,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,6 +54,7 @@ mixin _$BidProductsEvent {
     required TResult Function(_LoadUpcomingProducts value) LoadUpcomingProducts,
     required TResult Function(_LoadClosedProducts value) LoadClosedProducts,
     required TResult Function(_LoadProductsDetails value) LoadProductsDetails,
+    required TResult Function(_LoadBidInstrctions value) LoadBidInstrctions,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +64,7 @@ mixin _$BidProductsEvent {
     TResult? Function(_LoadUpcomingProducts value)? LoadUpcomingProducts,
     TResult? Function(_LoadClosedProducts value)? LoadClosedProducts,
     TResult? Function(_LoadProductsDetails value)? LoadProductsDetails,
+    TResult? Function(_LoadBidInstrctions value)? LoadBidInstrctions,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +74,7 @@ mixin _$BidProductsEvent {
     TResult Function(_LoadUpcomingProducts value)? LoadUpcomingProducts,
     TResult Function(_LoadClosedProducts value)? LoadClosedProducts,
     TResult Function(_LoadProductsDetails value)? LoadProductsDetails,
+    TResult Function(_LoadBidInstrctions value)? LoadBidInstrctions,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -135,6 +141,7 @@ class _$_LoadBidProducts implements _LoadBidProducts {
     required TResult Function() LoadUpcomingProducts,
     required TResult Function() LoadClosedProducts,
     required TResult Function() LoadProductsDetails,
+    required TResult Function() LoadBidInstrctions,
   }) {
     return LoadBidProducts();
   }
@@ -147,6 +154,7 @@ class _$_LoadBidProducts implements _LoadBidProducts {
     TResult? Function()? LoadUpcomingProducts,
     TResult? Function()? LoadClosedProducts,
     TResult? Function()? LoadProductsDetails,
+    TResult? Function()? LoadBidInstrctions,
   }) {
     return LoadBidProducts?.call();
   }
@@ -159,6 +167,7 @@ class _$_LoadBidProducts implements _LoadBidProducts {
     TResult Function()? LoadUpcomingProducts,
     TResult Function()? LoadClosedProducts,
     TResult Function()? LoadProductsDetails,
+    TResult Function()? LoadBidInstrctions,
     required TResult orElse(),
   }) {
     if (LoadBidProducts != null) {
@@ -175,6 +184,7 @@ class _$_LoadBidProducts implements _LoadBidProducts {
     required TResult Function(_LoadUpcomingProducts value) LoadUpcomingProducts,
     required TResult Function(_LoadClosedProducts value) LoadClosedProducts,
     required TResult Function(_LoadProductsDetails value) LoadProductsDetails,
+    required TResult Function(_LoadBidInstrctions value) LoadBidInstrctions,
   }) {
     return LoadBidProducts(this);
   }
@@ -187,6 +197,7 @@ class _$_LoadBidProducts implements _LoadBidProducts {
     TResult? Function(_LoadUpcomingProducts value)? LoadUpcomingProducts,
     TResult? Function(_LoadClosedProducts value)? LoadClosedProducts,
     TResult? Function(_LoadProductsDetails value)? LoadProductsDetails,
+    TResult? Function(_LoadBidInstrctions value)? LoadBidInstrctions,
   }) {
     return LoadBidProducts?.call(this);
   }
@@ -199,6 +210,7 @@ class _$_LoadBidProducts implements _LoadBidProducts {
     TResult Function(_LoadUpcomingProducts value)? LoadUpcomingProducts,
     TResult Function(_LoadClosedProducts value)? LoadClosedProducts,
     TResult Function(_LoadProductsDetails value)? LoadProductsDetails,
+    TResult Function(_LoadBidInstrctions value)? LoadBidInstrctions,
     required TResult orElse(),
   }) {
     if (LoadBidProducts != null) {
@@ -255,6 +267,7 @@ class _$_LoadLiveProducts implements _LoadLiveProducts {
     required TResult Function() LoadUpcomingProducts,
     required TResult Function() LoadClosedProducts,
     required TResult Function() LoadProductsDetails,
+    required TResult Function() LoadBidInstrctions,
   }) {
     return LoadLiveProducts();
   }
@@ -267,6 +280,7 @@ class _$_LoadLiveProducts implements _LoadLiveProducts {
     TResult? Function()? LoadUpcomingProducts,
     TResult? Function()? LoadClosedProducts,
     TResult? Function()? LoadProductsDetails,
+    TResult? Function()? LoadBidInstrctions,
   }) {
     return LoadLiveProducts?.call();
   }
@@ -279,6 +293,7 @@ class _$_LoadLiveProducts implements _LoadLiveProducts {
     TResult Function()? LoadUpcomingProducts,
     TResult Function()? LoadClosedProducts,
     TResult Function()? LoadProductsDetails,
+    TResult Function()? LoadBidInstrctions,
     required TResult orElse(),
   }) {
     if (LoadLiveProducts != null) {
@@ -295,6 +310,7 @@ class _$_LoadLiveProducts implements _LoadLiveProducts {
     required TResult Function(_LoadUpcomingProducts value) LoadUpcomingProducts,
     required TResult Function(_LoadClosedProducts value) LoadClosedProducts,
     required TResult Function(_LoadProductsDetails value) LoadProductsDetails,
+    required TResult Function(_LoadBidInstrctions value) LoadBidInstrctions,
   }) {
     return LoadLiveProducts(this);
   }
@@ -307,6 +323,7 @@ class _$_LoadLiveProducts implements _LoadLiveProducts {
     TResult? Function(_LoadUpcomingProducts value)? LoadUpcomingProducts,
     TResult? Function(_LoadClosedProducts value)? LoadClosedProducts,
     TResult? Function(_LoadProductsDetails value)? LoadProductsDetails,
+    TResult? Function(_LoadBidInstrctions value)? LoadBidInstrctions,
   }) {
     return LoadLiveProducts?.call(this);
   }
@@ -319,6 +336,7 @@ class _$_LoadLiveProducts implements _LoadLiveProducts {
     TResult Function(_LoadUpcomingProducts value)? LoadUpcomingProducts,
     TResult Function(_LoadClosedProducts value)? LoadClosedProducts,
     TResult Function(_LoadProductsDetails value)? LoadProductsDetails,
+    TResult Function(_LoadBidInstrctions value)? LoadBidInstrctions,
     required TResult orElse(),
   }) {
     if (LoadLiveProducts != null) {
@@ -375,6 +393,7 @@ class _$_LoadUpcomingProducts implements _LoadUpcomingProducts {
     required TResult Function() LoadUpcomingProducts,
     required TResult Function() LoadClosedProducts,
     required TResult Function() LoadProductsDetails,
+    required TResult Function() LoadBidInstrctions,
   }) {
     return LoadUpcomingProducts();
   }
@@ -387,6 +406,7 @@ class _$_LoadUpcomingProducts implements _LoadUpcomingProducts {
     TResult? Function()? LoadUpcomingProducts,
     TResult? Function()? LoadClosedProducts,
     TResult? Function()? LoadProductsDetails,
+    TResult? Function()? LoadBidInstrctions,
   }) {
     return LoadUpcomingProducts?.call();
   }
@@ -399,6 +419,7 @@ class _$_LoadUpcomingProducts implements _LoadUpcomingProducts {
     TResult Function()? LoadUpcomingProducts,
     TResult Function()? LoadClosedProducts,
     TResult Function()? LoadProductsDetails,
+    TResult Function()? LoadBidInstrctions,
     required TResult orElse(),
   }) {
     if (LoadUpcomingProducts != null) {
@@ -415,6 +436,7 @@ class _$_LoadUpcomingProducts implements _LoadUpcomingProducts {
     required TResult Function(_LoadUpcomingProducts value) LoadUpcomingProducts,
     required TResult Function(_LoadClosedProducts value) LoadClosedProducts,
     required TResult Function(_LoadProductsDetails value) LoadProductsDetails,
+    required TResult Function(_LoadBidInstrctions value) LoadBidInstrctions,
   }) {
     return LoadUpcomingProducts(this);
   }
@@ -427,6 +449,7 @@ class _$_LoadUpcomingProducts implements _LoadUpcomingProducts {
     TResult? Function(_LoadUpcomingProducts value)? LoadUpcomingProducts,
     TResult? Function(_LoadClosedProducts value)? LoadClosedProducts,
     TResult? Function(_LoadProductsDetails value)? LoadProductsDetails,
+    TResult? Function(_LoadBidInstrctions value)? LoadBidInstrctions,
   }) {
     return LoadUpcomingProducts?.call(this);
   }
@@ -439,6 +462,7 @@ class _$_LoadUpcomingProducts implements _LoadUpcomingProducts {
     TResult Function(_LoadUpcomingProducts value)? LoadUpcomingProducts,
     TResult Function(_LoadClosedProducts value)? LoadClosedProducts,
     TResult Function(_LoadProductsDetails value)? LoadProductsDetails,
+    TResult Function(_LoadBidInstrctions value)? LoadBidInstrctions,
     required TResult orElse(),
   }) {
     if (LoadUpcomingProducts != null) {
@@ -495,6 +519,7 @@ class _$_LoadClosedProducts implements _LoadClosedProducts {
     required TResult Function() LoadUpcomingProducts,
     required TResult Function() LoadClosedProducts,
     required TResult Function() LoadProductsDetails,
+    required TResult Function() LoadBidInstrctions,
   }) {
     return LoadClosedProducts();
   }
@@ -507,6 +532,7 @@ class _$_LoadClosedProducts implements _LoadClosedProducts {
     TResult? Function()? LoadUpcomingProducts,
     TResult? Function()? LoadClosedProducts,
     TResult? Function()? LoadProductsDetails,
+    TResult? Function()? LoadBidInstrctions,
   }) {
     return LoadClosedProducts?.call();
   }
@@ -519,6 +545,7 @@ class _$_LoadClosedProducts implements _LoadClosedProducts {
     TResult Function()? LoadUpcomingProducts,
     TResult Function()? LoadClosedProducts,
     TResult Function()? LoadProductsDetails,
+    TResult Function()? LoadBidInstrctions,
     required TResult orElse(),
   }) {
     if (LoadClosedProducts != null) {
@@ -535,6 +562,7 @@ class _$_LoadClosedProducts implements _LoadClosedProducts {
     required TResult Function(_LoadUpcomingProducts value) LoadUpcomingProducts,
     required TResult Function(_LoadClosedProducts value) LoadClosedProducts,
     required TResult Function(_LoadProductsDetails value) LoadProductsDetails,
+    required TResult Function(_LoadBidInstrctions value) LoadBidInstrctions,
   }) {
     return LoadClosedProducts(this);
   }
@@ -547,6 +575,7 @@ class _$_LoadClosedProducts implements _LoadClosedProducts {
     TResult? Function(_LoadUpcomingProducts value)? LoadUpcomingProducts,
     TResult? Function(_LoadClosedProducts value)? LoadClosedProducts,
     TResult? Function(_LoadProductsDetails value)? LoadProductsDetails,
+    TResult? Function(_LoadBidInstrctions value)? LoadBidInstrctions,
   }) {
     return LoadClosedProducts?.call(this);
   }
@@ -559,6 +588,7 @@ class _$_LoadClosedProducts implements _LoadClosedProducts {
     TResult Function(_LoadUpcomingProducts value)? LoadUpcomingProducts,
     TResult Function(_LoadClosedProducts value)? LoadClosedProducts,
     TResult Function(_LoadProductsDetails value)? LoadProductsDetails,
+    TResult Function(_LoadBidInstrctions value)? LoadBidInstrctions,
     required TResult orElse(),
   }) {
     if (LoadClosedProducts != null) {
@@ -615,6 +645,7 @@ class _$_LoadProductsDetails implements _LoadProductsDetails {
     required TResult Function() LoadUpcomingProducts,
     required TResult Function() LoadClosedProducts,
     required TResult Function() LoadProductsDetails,
+    required TResult Function() LoadBidInstrctions,
   }) {
     return LoadProductsDetails();
   }
@@ -627,6 +658,7 @@ class _$_LoadProductsDetails implements _LoadProductsDetails {
     TResult? Function()? LoadUpcomingProducts,
     TResult? Function()? LoadClosedProducts,
     TResult? Function()? LoadProductsDetails,
+    TResult? Function()? LoadBidInstrctions,
   }) {
     return LoadProductsDetails?.call();
   }
@@ -639,6 +671,7 @@ class _$_LoadProductsDetails implements _LoadProductsDetails {
     TResult Function()? LoadUpcomingProducts,
     TResult Function()? LoadClosedProducts,
     TResult Function()? LoadProductsDetails,
+    TResult Function()? LoadBidInstrctions,
     required TResult orElse(),
   }) {
     if (LoadProductsDetails != null) {
@@ -655,6 +688,7 @@ class _$_LoadProductsDetails implements _LoadProductsDetails {
     required TResult Function(_LoadUpcomingProducts value) LoadUpcomingProducts,
     required TResult Function(_LoadClosedProducts value) LoadClosedProducts,
     required TResult Function(_LoadProductsDetails value) LoadProductsDetails,
+    required TResult Function(_LoadBidInstrctions value) LoadBidInstrctions,
   }) {
     return LoadProductsDetails(this);
   }
@@ -667,6 +701,7 @@ class _$_LoadProductsDetails implements _LoadProductsDetails {
     TResult? Function(_LoadUpcomingProducts value)? LoadUpcomingProducts,
     TResult? Function(_LoadClosedProducts value)? LoadClosedProducts,
     TResult? Function(_LoadProductsDetails value)? LoadProductsDetails,
+    TResult? Function(_LoadBidInstrctions value)? LoadBidInstrctions,
   }) {
     return LoadProductsDetails?.call(this);
   }
@@ -679,6 +714,7 @@ class _$_LoadProductsDetails implements _LoadProductsDetails {
     TResult Function(_LoadUpcomingProducts value)? LoadUpcomingProducts,
     TResult Function(_LoadClosedProducts value)? LoadClosedProducts,
     TResult Function(_LoadProductsDetails value)? LoadProductsDetails,
+    TResult Function(_LoadBidInstrctions value)? LoadBidInstrctions,
     required TResult orElse(),
   }) {
     if (LoadProductsDetails != null) {
@@ -690,6 +726,132 @@ class _$_LoadProductsDetails implements _LoadProductsDetails {
 
 abstract class _LoadProductsDetails implements BidProductsEvent {
   const factory _LoadProductsDetails() = _$_LoadProductsDetails;
+}
+
+/// @nodoc
+abstract class _$$_LoadBidInstrctionsCopyWith<$Res> {
+  factory _$$_LoadBidInstrctionsCopyWith(_$_LoadBidInstrctions value,
+          $Res Function(_$_LoadBidInstrctions) then) =
+      __$$_LoadBidInstrctionsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_LoadBidInstrctionsCopyWithImpl<$Res>
+    extends _$BidProductsEventCopyWithImpl<$Res, _$_LoadBidInstrctions>
+    implements _$$_LoadBidInstrctionsCopyWith<$Res> {
+  __$$_LoadBidInstrctionsCopyWithImpl(
+      _$_LoadBidInstrctions _value, $Res Function(_$_LoadBidInstrctions) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_LoadBidInstrctions implements _LoadBidInstrctions {
+  const _$_LoadBidInstrctions();
+
+  @override
+  String toString() {
+    return 'BidProductsEvent.LoadBidInstrctions()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_LoadBidInstrctions);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() LoadBidProducts,
+    required TResult Function() LoadLiveProducts,
+    required TResult Function() LoadUpcomingProducts,
+    required TResult Function() LoadClosedProducts,
+    required TResult Function() LoadProductsDetails,
+    required TResult Function() LoadBidInstrctions,
+  }) {
+    return LoadBidInstrctions();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? LoadBidProducts,
+    TResult? Function()? LoadLiveProducts,
+    TResult? Function()? LoadUpcomingProducts,
+    TResult? Function()? LoadClosedProducts,
+    TResult? Function()? LoadProductsDetails,
+    TResult? Function()? LoadBidInstrctions,
+  }) {
+    return LoadBidInstrctions?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? LoadBidProducts,
+    TResult Function()? LoadLiveProducts,
+    TResult Function()? LoadUpcomingProducts,
+    TResult Function()? LoadClosedProducts,
+    TResult Function()? LoadProductsDetails,
+    TResult Function()? LoadBidInstrctions,
+    required TResult orElse(),
+  }) {
+    if (LoadBidInstrctions != null) {
+      return LoadBidInstrctions();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadBidProducts value) LoadBidProducts,
+    required TResult Function(_LoadLiveProducts value) LoadLiveProducts,
+    required TResult Function(_LoadUpcomingProducts value) LoadUpcomingProducts,
+    required TResult Function(_LoadClosedProducts value) LoadClosedProducts,
+    required TResult Function(_LoadProductsDetails value) LoadProductsDetails,
+    required TResult Function(_LoadBidInstrctions value) LoadBidInstrctions,
+  }) {
+    return LoadBidInstrctions(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadBidProducts value)? LoadBidProducts,
+    TResult? Function(_LoadLiveProducts value)? LoadLiveProducts,
+    TResult? Function(_LoadUpcomingProducts value)? LoadUpcomingProducts,
+    TResult? Function(_LoadClosedProducts value)? LoadClosedProducts,
+    TResult? Function(_LoadProductsDetails value)? LoadProductsDetails,
+    TResult? Function(_LoadBidInstrctions value)? LoadBidInstrctions,
+  }) {
+    return LoadBidInstrctions?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadBidProducts value)? LoadBidProducts,
+    TResult Function(_LoadLiveProducts value)? LoadLiveProducts,
+    TResult Function(_LoadUpcomingProducts value)? LoadUpcomingProducts,
+    TResult Function(_LoadClosedProducts value)? LoadClosedProducts,
+    TResult Function(_LoadProductsDetails value)? LoadProductsDetails,
+    TResult Function(_LoadBidInstrctions value)? LoadBidInstrctions,
+    required TResult orElse(),
+  }) {
+    if (LoadBidInstrctions != null) {
+      return LoadBidInstrctions(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadBidInstrctions implements BidProductsEvent {
+  const factory _LoadBidInstrctions() = _$_LoadBidInstrctions;
 }
 
 /// @nodoc

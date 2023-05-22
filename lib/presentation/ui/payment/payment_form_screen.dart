@@ -31,7 +31,6 @@ class _PaymentFormScreenState extends State<PaymentFormScreen> {
   TextEditingController enckey = TextEditingController();
   TextEditingController course_Payment = TextEditingController();
   TextEditingController meTransReqType= TextEditingController();
-
   ApiProvider? apiPayment;
 
   @override
@@ -48,22 +47,6 @@ class _PaymentFormScreenState extends State<PaymentFormScreen> {
     meTransReqType.text="S";
     setState(() {});
   }
-  // final String htmlcode = """
-  //    <h1>H1 Title</h1>
-  //    <h2>H2 Title</h2>
-  //       <p>A paragraph with <strong>bold</strong> and <u>underline</u> text.</p>
-  //       <ol>
-  //         <li>List 1</li>
-  //         <li>List 2<ul>
-  //             <li>List 2.1 (nested)</li>
-  //             <li>List 2.2</li>
-  //            </ul>
-  //         </li>
-  //         <li>Three</li>
-  //       </ol>
-  //    <a href="https://www.hellohpc.cdom">Link to HelloHPC.com</a>
-  //    <img src='https://www.hellohpc.com/wp-content/uploads/2020/05/flutter.png'/>
-  //   """;
   String url = "https://pgsedu.com/standard/meTrnPay.php?therapist_id=value";
   Future payment() async {
 
@@ -97,13 +80,7 @@ print("->${formData.fields}");
   Widget build(BuildContext context) {
     print("orderid====>${widget.orderid}");
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text(
-          "Payment",
-          style: appBarText,
-        ),
-      ),
+      appBar:appBarTheme("Payment Section"),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Form(
@@ -158,17 +135,20 @@ print("->${formData.fields}");
                              SizedBox(
                               height: 20,
                             ),
-                            TextFormField(
-                              enabled:false ,
-                              decoration: const InputDecoration(
-                                  border: InputBorder.none,
-                                  focusedBorder: InputBorder.none,
-                                  enabledBorder: InputBorder.none,
-                                  errorBorder: InputBorder.none,
-                                  disabledBorder: InputBorder.none,
-                                  contentPadding: EdgeInsets.all(10),),
-                              controller: coursetitile,
-                              keyboardType: TextInputType.text,
+                            SizedBox(
+                              width: 70,
+                              child: TextFormField(
+                                enabled:false ,
+                                decoration: const InputDecoration(
+                                    border: InputBorder.none,
+                                    focusedBorder: InputBorder.none,
+                                    enabledBorder: InputBorder.none,
+                                    errorBorder: InputBorder.none,
+                                    disabledBorder: InputBorder.none,
+                                    contentPadding: EdgeInsets.all(10),),
+                                controller: coursetitile,
+                                keyboardType: TextInputType.text,
+                              ),
                             ),
                             Row(
                               mainAxisAlignment:MainAxisAlignment.center ,
@@ -274,7 +254,7 @@ print("->${formData.fields}");
                                   //   "enckey":"e1a1cf35429f651fc4ead3714b6203f5",
                                   // });
 
-                                  // payment();
+                                  payment();
                                 } ,
                                 style: ButtonStyle(
                                     backgroundColor:

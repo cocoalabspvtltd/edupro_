@@ -1,3 +1,4 @@
+
 class CrowdFundingDetailsResponse {
   bool? success;
   int? statusCode;
@@ -21,22 +22,24 @@ class CrowdFundingDetailsResponse {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['success'] = this.success;
     data['status_code'] = this.statusCode;
-    if (organizationDetails != null) {
+    if (this.organizationDetails != null) {
       data['organizationDetails'] =
-          organizationDetails!.map((v) => v.toJson()).toList();
+          this.organizationDetails!.map((v) => v.toJson()).toList();
     }
     return data;
   }
 }
 
 class OrganizationDetails {
-  int ?id;
+  int? id;
   String? title;
   String? description;
   String? goalAmount;
   String? raisedAmount;
-  Null createdAt;
-  Null updatedAt;
+  int? isCollected;
+  String? image;
+  String? createdAt;
+  String? updatedAt;
 
   OrganizationDetails(
       {this.id,
@@ -44,6 +47,8 @@ class OrganizationDetails {
         this.description,
         this.goalAmount,
         this.raisedAmount,
+        this.isCollected,
+        this.image,
         this.createdAt,
         this.updatedAt});
 
@@ -53,6 +58,8 @@ class OrganizationDetails {
     description = json['description'];
     goalAmount = json['goal_amount'];
     raisedAmount = json['raised_amount'];
+    isCollected = json['is_collected'];
+    image = json['image'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
   }
@@ -64,6 +71,8 @@ class OrganizationDetails {
     data['description'] = this.description;
     data['goal_amount'] = this.goalAmount;
     data['raised_amount'] = this.raisedAmount;
+    data['is_collected'] = this.isCollected;
+    data['image'] = this.image;
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;
     return data;

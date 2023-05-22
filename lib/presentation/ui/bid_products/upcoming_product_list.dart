@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:intl/intl.dart';
 import 'package:pgs_edupro/application/bid_products/bid_products_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
@@ -56,6 +57,7 @@ class UpcomigProductlistScreen extends StatelessWidget {
                           thickSpace,
                           thickSpace,
                           thickSpace,
+                          thickSpace,
                           SizedBox(
                             width: screenWidth * 0.9,
                             height: screenHeight * 0.5,
@@ -69,6 +71,8 @@ class UpcomigProductlistScreen extends StatelessWidget {
                                     enlargeCenterPage: true,
                                   ),
                                   itemBuilder: (context, index, realIdx) {
+                                    var startDate=DateFormat('dd-MM-yyyy').format(DateFormat('yyyy-MM-dd').parse("${res.bidProducts![index].startDate}"));
+                                    var endDate=DateFormat('dd-MM-yyyy').format(DateFormat('yyyy-MM-dd').parse("${res.bidProducts![index].endDate}"));
                                     return Column(
                                       crossAxisAlignment:
                                       CrossAxisAlignment.center,
@@ -76,22 +80,52 @@ class UpcomigProductlistScreen extends StatelessWidget {
                                         SizedBox(
                                           height: 20,
                                         ),
-                                        Text(
-                                          "Amazon in ${res.bidProducts![index].price}",
-                                          style: TextStyle(
-                                              fontWeight:
-                                              FontWeight.bold),
+                                        thickSpace,
+                                        thickSpace,
+                                        Column(
+                                          children: [
+                                            Text(
+                                              "Bid section start",
+                                              style: TextStyle(
+                                                  color: Colors.black, fontSize: 16,fontWeight: FontWeight.w600),
+                                            ),
+                                            SizedBox(height: 4,),
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  "from",
+                                                  style: TextStyle(
+                                                      color: Colors.black, fontSize: 15,fontWeight: FontWeight.w600),
+                                                ),
+                                                SizedBox(width: 5,),
+                                                Text(
+                                                  "${startDate}",
+                                                  style: TextStyle(
+                                                      color: primaryColor,fontSize: 15,fontWeight: FontWeight.w600),
+                                                ),
+                                                SizedBox(width: 5,),
+                                                Text(
+                                                  "To",
+                                                  style: TextStyle(
+                                                      color: Colors.black, fontSize: 15,fontWeight: FontWeight.w600),
+                                                ),
+                                                SizedBox(width: 5,),
+                                                Text(
+                                                  "${endDate}",
+                                                  style: TextStyle(
+                                                      color:primaryColor, fontSize: 15,fontWeight: FontWeight.w600),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
                                         ),
-                                        Text(
-                                          "Gift Card",
-                                          style: TextStyle(
-                                              fontWeight:
-                                              FontWeight.bold),
-                                        ),
+                                        thickSpace,
                                         thickSpace,
                                         thickSpace,
                                         Container(
-                                          width: 130,
+                                          width: screenWidth * 0.4,
+                                          height: screenHeight * 0.2,
                                           padding: EdgeInsets.all(1),
                                           child: ClipRRect(
                                             borderRadius:
@@ -125,45 +159,20 @@ class UpcomigProductlistScreen extends StatelessWidget {
                                         ),
                                         thickSpace,
                                         thickSpace,
-                                        Text(
-                                          "Auction ID : ${res.bidProducts![index].auctionId}",
-                                          style: TextStyle(
-                                              fontWeight:
-                                              FontWeight.normal,
-                                              color: Colors.grey[800]),
-                                        ),
-                                        thickSpace,
-                                        Row(
-                                          mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                          children: [
-                                            Icon(Icons.lock_clock),
-                                            Text(
-                                              "From ${res.bidProducts![index].startTime} To ${res.bidProducts![index].endTime}",
-                                              style: TextStyle(
-                                                  fontWeight:
-                                                  FontWeight.normal,
-                                                  color:
-                                                  Colors.grey[800]),
-                                            ),
-                                          ],
-                                        ),
-                                        thickSpace,
-                                        thickSpace,
                                         SizedBox(
-                                          height: 50,
-                                          width: screenWidth * 0.3,
-                                          child: ElevatedButton(
-                                            onPressed: () {
-                                              product_id= res.bidProducts![index].id!.toString();
-                                              Get.to(() =>  ProductDetailsScreen(
-                                                  productdetails:res.bidProducts![index]));
-                                              print("iddd${product_id}");
-
-                                            },
-                                            child: const Text('Bid Now'),
-                                          ),
+                                          height: 40,
+                                          child: ElevatedButton(onPressed: (){
+                                            product_id = res
+                                                .bidProducts![index].id!
+                                                .toString();
+                                            Get.to(() => ProductDetailsScreen(
+                                              productdetails:
+                                              res.bidProducts![index], status: 'Upcoming',),);
+                                            print("iddd${product_id}");
+                                          }, child: Text("View Details")),
                                         ),
+                                        thickSpace,
+                                        thickSpace,
                                       ],
                                     );
                                   }),

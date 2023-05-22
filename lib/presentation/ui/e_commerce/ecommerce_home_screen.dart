@@ -4,8 +4,9 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
+import 'package:pgs_edupro/presentation/ui/e_commerce/widgets/E_product_detail_screen.dart';
 import 'package:pgs_edupro/presentation/ui/e_commerce/widgets/category_screen.dart';
-import 'package:pgs_edupro/presentation/ui/e_commerce/widgets/product_detail_screen.dart';
+
 
 class EcommerceHomeScreen extends StatelessWidget {
   @override
@@ -53,9 +54,7 @@ class EcommerceHomeScreen extends StatelessWidget {
                     TextButton(
                       onPressed: (){},
                       child: GestureDetector(onTap: (){
-                        Get.to(() => const ProductDetail(
-
-                        ));
+                        Get.to(() => const ProductDetail());
                       },
                         child: Text("More",
                           style: TextStyle(color: Colors.black),
