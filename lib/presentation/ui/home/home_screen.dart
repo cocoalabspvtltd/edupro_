@@ -28,7 +28,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:get/get.dart';
-import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:http/http.dart' as http;
 
 class HomeScreen extends StatefulWidget {
@@ -45,13 +44,13 @@ class _HomeScreenState extends State<HomeScreen> {
   DateTime? currentBackPressTime;
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
-  Map AdsResponse = {};
-  late List<dynamic> ads;
+  Map SplashResponse = {};
+  late List<dynamic> splash;
   ApiProvider? apiprovider;
   Future getAds() async {
     print("Get order");
     http.Response response = await http.get(
-      Uri.parse('https://pgsedu.com/EduPro/index.php/api/ad_list'),
+      Uri.parse('https://pgsedu.com/EduPro/index.php/api/screen-list'),
       headers: <String, String>{
         'Accept': "appilication/json",
         'Authorization': 'Bearer ${UserDetailsLocal.apiToken}',
@@ -59,11 +58,11 @@ class _HomeScreenState extends State<HomeScreen> {
     );
     print("Responsekjhkh${response.body}");
     var jsonData = json.decode(response.body);
-    AdsResponse = jsonData;
-    ads=AdsResponse['ads_list'];
-    print("hkjhkhkj${ads}");
+    SplashResponse = jsonData;
+    splash=SplashResponse['screen_list'];
+    print("hkjhkhkj${splash}");
     if (response.statusCode == 200) {
-      showAlert(ads);
+      showAlert(splash);
     }
     return response;
   }
@@ -365,7 +364,7 @@ class _HomeScreenState extends State<HomeScreen> {
   //
   // }
 
-  void showAlert(List ads) {
+  void showAlert(List splash) {
     showDialog(
         context: context,
         builder: (context) =>
@@ -382,7 +381,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       top: 0,
                       bottom: 0,
                       child:CarouselSlider.builder(
-                          itemCount: ads.length,
+                          itemCount: splash.length,
                           options: CarouselOptions(
                             autoPlay: true,
                             aspectRatio: 1 / (5 / 3),
@@ -395,7 +394,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               fit: BoxFit.cover,
                               imageUrl: UserDetailsLocal
                                   .storageBaseUrl +
-                                  '${ads[index]["image"]}',
+                                  '${splash[index]["image"]}',
                               placeholder:
                                   (context, url) =>
                                   Center(
