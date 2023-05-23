@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/domain/core/network/api_provider.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_in_category_response.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:http/http.dart' as http;
 
 class PaymentFormScreen extends StatefulWidget {
   final String orderid;
@@ -40,26 +40,25 @@ class _PaymentFormScreenState extends State<PaymentFormScreen> {
     orderId.text=widget.orderid;
     coursetitile.text = widget.courseDetails.title?? '';
     amount.text=widget.courseDetails.price?? '';
-    mid.text="WL0000000065439";
-    enckey.text="e1a1cf35429f651fc4ead3714b6203f5";
+    mid.text="WL0000000035612";
+    enckey.text="718ea8413fb3e719039c1bfcfcea6d5a";
     currencyName.text="INR";
     course_Payment.text ="Register";
     meTransReqType.text="S";
     setState(() {});
   }
-  String url = "https://pgsedu.com/standard/meTrnPay.php?therapist_id=value";
+  String url = "https://pgsedu.com/standard/meTrnPay.php";
   Future payment() async {
-
     FormData formData = FormData.fromMap({
       "addField1":"Course_Payment",
       "addField2":UserDetailsLocal.userId,
-      "amount": widget.courseDetails.price,
+      "addField3" :widget.courseDetails.courseId,
       "OrderId":widget.orderid,
-      "addField" :widget.courseDetails.courseId,
+      "amount": widget.courseDetails.price,
       "currencyName": "INR",
       "meTransReqType": "S",
-      "mid":"WL0000000065439",
-      "enckey":"e1a1cf35429f651fc4ead3714b6203f5",
+      "mid": "WL0000000035612",
+      "enckey": "718ea8413fb3e719039c1bfcfcea6d5a",
 
     });
 print("->${formData.fields}");
@@ -73,9 +72,8 @@ print("->${formData.fields}");
         )
 
     );
-    print("->>>>>>>>>>>${response}");
+    print("response${response}");
     return response;
-
   }
   Widget build(BuildContext context) {
     print("orderid====>${widget.orderid}");

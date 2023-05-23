@@ -21,7 +21,7 @@ class CourseCategoriesGridView extends StatelessWidget {
       child: GridView.builder(
           gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 250,
-              childAspectRatio: 4 / 3.2,
+              childAspectRatio: 3.5 / 3.2,
               crossAxisSpacing: 5,
               mainAxisSpacing: 5),
           itemCount: categoryList.length,
@@ -81,6 +81,7 @@ class CourseCategoriesGridView extends StatelessWidget {
                         style: boldValue,
                       ),
                     ),
+                    thickSpace,
 
                     // SizedBox(
                     //   width: 190,

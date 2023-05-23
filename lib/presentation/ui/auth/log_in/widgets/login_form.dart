@@ -71,7 +71,7 @@ class _LogInFormState extends State<LogInForm> {
   double getSmallDiameter(BuildContext context) =>
       MediaQuery.of(context).size.width * 2 / 3;
   double getBiglDiameter(BuildContext context) =>
-      MediaQuery.of(context).size.width * 7 / 8;
+      MediaQuery.of(context).size.width * 8/ 8;
   Widget build(BuildContext context) {
     return BlocConsumer<PaymentBloc, PaymentState>(
       listener: (context, state) {

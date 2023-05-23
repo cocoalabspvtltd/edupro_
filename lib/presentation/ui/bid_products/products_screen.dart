@@ -34,8 +34,7 @@ class _ProductScreenState extends State<ProductScreen> {
             elevation: 0,
             actions: [
               IconButton(onPressed: (){
-                Get.to(() => BidInstructionScreen());
-                  // Get.to(() => MyOdersListScreen());
+                Get.to(() => MyOdersListScreen());
               }, icon: Icon(Icons.remove_red_eye))
             ],
             bottom: TabBar(
