@@ -77,22 +77,27 @@ class UpcomigProductlistScreen extends StatelessWidget {
                                       crossAxisAlignment:
                                       CrossAxisAlignment.center,
                                       children: [
-                                        SizedBox(
-                                          height: 20,
-                                        ),
+                                        thickSpace,
+                                        thickSpace,
                                         thickSpace,
                                         thickSpace,
                                         Column(
                                           children: [
                                             Text(
-                                              "Bid section start",
+                                              "Bid section",
                                               style: TextStyle(
                                                   color: Colors.black, fontSize: 16,fontWeight: FontWeight.w600),
                                             ),
-                                            SizedBox(height: 4,),
+                                            SizedBox(height: 5,),
                                             Row(
                                               mainAxisAlignment: MainAxisAlignment.center,
                                               children: [
+                                                Text(
+                                                  "Start",
+                                                  style: TextStyle(
+                                                      color: Colors.black, fontSize: 15,fontWeight: FontWeight.w600),
+                                                ),
+                                                SizedBox(width: 5,),
                                                 Text(
                                                   "from",
                                                   style: TextStyle(
@@ -104,7 +109,12 @@ class UpcomigProductlistScreen extends StatelessWidget {
                                                   style: TextStyle(
                                                       color: primaryColor,fontSize: 15,fontWeight: FontWeight.w600),
                                                 ),
-                                                SizedBox(width: 5,),
+                                              ],
+                                            ),
+                                            SizedBox(height: 5,),
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
                                                 Text(
                                                   "To",
                                                   style: TextStyle(
@@ -117,7 +127,7 @@ class UpcomigProductlistScreen extends StatelessWidget {
                                                       color:primaryColor, fontSize: 15,fontWeight: FontWeight.w600),
                                                 ),
                                               ],
-                                            ),
+                                            )
                                           ],
                                         ),
                                         thickSpace,

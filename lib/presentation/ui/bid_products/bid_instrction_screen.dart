@@ -52,7 +52,7 @@ class BidInstructionScreen extends StatelessWidget {
                             separatorBuilder:
                                 (BuildContext context, int index) {
                               return const SizedBox(
-                                height: 10,
+                                height: 8,
                               );
                             },
                             physics: const ClampingScrollPhysics(),
@@ -65,9 +65,9 @@ class BidInstructionScreen extends StatelessWidget {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text("Step${numbering[index]}",style: TextStyle(fontWeight: FontWeight.bold,),),
+                                    Text("Step ${numbering[index]} : ",style: TextStyle(fontWeight: FontWeight.bold,),),
                                     SizedBox(height: 7),
-                                    AutoSizeText("${res.instructions![index].title}",style: TextStyle(fontWeight: FontWeight.bold),),
+                                    AutoSizeText("${res.instructions![index].title}",style: TextStyle(fontWeight: FontWeight.w500),),
                                   ],
                                 ),
                               );
