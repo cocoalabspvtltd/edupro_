@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/bid_products/bid_product_list_reponse.dart';
 import 'package:pgs_edupro/presentation/ui/bid_products/myorders_list.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class JoinBid extends StatefulWidget {
   final BidProducts productdetails;
@@ -37,7 +38,8 @@ class _JoinBidState extends State<JoinBid> {
           thickSpace,
           InkWell(
             onTap: (){
-              Get.to(() => MyOdersListScreen());
+              String url="https://pgsedu.com/#/home/auction";
+              launch(url);
             },
             child: Container(
               height: 100,

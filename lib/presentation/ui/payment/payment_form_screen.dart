@@ -5,7 +5,6 @@ import 'package:pgs_edupro/domain/core/network/api_provider.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/course/course_in_category_response.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:http/http.dart' as http;
 
 class PaymentFormScreen extends StatefulWidget {
   final String orderid;
@@ -47,10 +46,10 @@ class _PaymentFormScreenState extends State<PaymentFormScreen> {
     meTransReqType.text="S";
     setState(() {});
   }
-  String url = "https://pgsedu.com/standard/meTrnPay.php";
+  // String url = "https://pgsedu.com/standard/meTrnPay.php";
   Future payment() async {
     FormData formData = FormData.fromMap({
-      "addField1":"Course_Payment",
+      "addField1":"COURSE PAYMENT",
       "addField2":UserDetailsLocal.userId,
       "addField3" :widget.courseDetails.courseId,
       "OrderId":widget.orderid,
@@ -239,20 +238,10 @@ print("->${formData.fields}");
                               width: 200,
                               child: ElevatedButton(
                                 onPressed: (){
+                                  String url="https://pgsedu.com/#/home/courses";
                                   launch(url);
-                                  // launch("https://pgsedu.com/standard/meTrnPay.php",headers: {
-                                  //   "addField1":"Course_Payment",
-                                  //   "addField2":UserDetailsLocal.userId,
-                                  //   "amount": "1222",
-                                  //   "OrderId":widget.orderid,
-                                  //   "addField" :"131",
-                                  //   "currencyName": "INR",
-                                  //   "meTransReqType": "S",
-                                  //   "mid":"WL0000000065439",
-                                  //   "enckey":"e1a1cf35429f651fc4ead3714b6203f5",
-                                  // });
 
-                                  payment();
+                                  // payment();
                                 } ,
                                 style: ButtonStyle(
                                     backgroundColor:
