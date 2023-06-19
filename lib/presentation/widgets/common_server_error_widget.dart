@@ -5,10 +5,8 @@ class CommonApiErrorWidget extends StatelessWidget {
   final String text;
   final Function() buttonHandler;
   final Color textColorReceived;
-
   const CommonApiErrorWidget(this.text, this.buttonHandler,
       {super.key, this.textColorReceived = Colors.black});
-
   @override
   Widget build(BuildContext context) {
     return Column(

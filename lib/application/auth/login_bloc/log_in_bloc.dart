@@ -4,10 +4,10 @@ import 'package:pgs_edupro/domain/auth/auth_failure.dart';
 import 'package:pgs_edupro/domain/auth/i_auth_facade.dart';
 import 'package:pgs_edupro/domain/auth/value_objects.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/shared_prefs.dart';
-import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/auth/user_login_response.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 
 part 'log_in_event.dart';
 part 'log_in_state.dart';
@@ -37,23 +37,21 @@ class LogInBloc extends Bloc<LogInEvent, LogInState> {
 
         final isEmailValid = state.emailAddress.isValid();
         final isPasswordValid = state.password.isValid();
+        // UserStatus = state.userStatus;
 
         if (isEmailValid && isPasswordValid) {
           emit(state.copyWith(
             isSubmitting: true,
             authFailureOrSuccessOption: none(),
           ));
-
-          failureOrSuccess = await authFacade!.signInWithEmailAndPassword(
-            emailAddress: state.emailAddress,
-            password: state.password,
-            type :UserDetailsLocal.type
+failureOrSuccess = await authFacade!.signInWithEmailAndPassword(
+              emailAddress: state.emailAddress,
+              password: state.password,
+              type :state.userStatus
           );
         }
-
-        failureOrSuccess?.fold((l) => null,
-            ((r) => emit(state.copyWith(userStatus: r.type!))));
-
+failureOrSuccess?.fold((l) => null,
+            ((r) => emit(state.copyWith(userStatus:r.school!.address!))));
         emit(state.copyWith(
           isSubmitting: false,
           showErrorMessages: true,
@@ -141,7 +139,7 @@ class LogInBloc extends Bloc<LogInEvent, LogInState> {
               password: state.password,
               confirmPassword: state.confirmPassword,
               name: state.name,
-              userStatus: state.userStatus);
+              userStatus:state.userStatus);
         }
 
         emit(state.copyWith(
@@ -173,7 +171,7 @@ class LogInBloc extends Bloc<LogInEvent, LogInState> {
               quali: state.qualification
 
 
-       );
+          );
         }
         failureOrSuccess?.fold((l) => null,
             ((r) => emit(state.copyWith(userStatus: r.message!))));
@@ -198,13 +196,13 @@ class LogInBloc extends Bloc<LogInEvent, LogInState> {
           ));
 
           failureOrSuccess = await authFacade!.registerWithInstitutionEmailAndPassword(
-              emailAddress: state.emailAddress,
-              password: state.password,
-              confirmPassword: state.confirmPassword,
-              name: state.name,
-              userStatus:"institution" ,
-              code:state.code,
-              address:state.address,
+            emailAddress: state.emailAddress,
+            password: state.password,
+            confirmPassword: state.confirmPassword,
+            name: state.name,
+            userStatus:"institution" ,
+            code:state.code,
+            address:state.address,
 
           );
         }
@@ -239,8 +237,8 @@ class LogInBloc extends Bloc<LogInEvent, LogInState> {
         }
 
         failureOrSuccess?.fold(
-          (l) => null,
-          (r) {
+              (l) => null,
+              (r) {
             SharedPrefs.setString('spUserStatus', "Verified");
           },
         );

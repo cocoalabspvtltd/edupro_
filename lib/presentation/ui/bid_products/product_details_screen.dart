@@ -348,7 +348,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>with TickerP
                                               Theme(
                                                 data: Theme.of(context)
                                                     .copyWith(
-                                                        accentColor:
+                                                    hintColor:
                                                             primaryColor),
                                                 child: ExpansionTileCard(
                                                   contentPadding:
@@ -472,7 +472,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>with TickerP
                                               Theme(
                                                 data: Theme.of(context)
                                                     .copyWith(
-                                                        accentColor:
+                                                    hintColor:
                                                             primaryColor),
                                                 child: ExpansionTileCard(
                                                   contentPadding:
@@ -596,7 +596,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>with TickerP
                                               Theme(
                                                 data: Theme.of(context)
                                                     .copyWith(
-                                                    accentColor:
+                                                    hintColor:
                                                     primaryColor),
                                                 child: ExpansionTileCard(
                                                   contentPadding:
@@ -621,7 +621,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>with TickerP
                                                   children: [
                                                     Theme(
                                                       data: Theme.of(context).copyWith(
-                                                          accentColor: primaryColor,
+                                                          hintColor: primaryColor,
                                                       ),
                                                       child: ListView.separated(
                                                           separatorBuilder: (context, index) =>

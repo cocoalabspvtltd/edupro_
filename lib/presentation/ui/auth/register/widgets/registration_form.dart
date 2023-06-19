@@ -64,7 +64,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     ).show(context);
                   },
                   (_) async {
-                    if (state.userStatus == 'new_user') {
+                    if (state.userStatus == 'new-user') {
                       Fluttertoast.showToast(msg: "${state.userStatus}");
                       Get.offAll(() => LogInScreen());
                       // Get.offAll(() => const MembershipCheckScreen());
@@ -209,7 +209,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                               ),
                             ),
                             ToggleSwitch(
-                              minWidth: 50.0,
+                              minWidth: 40.0,
                               cornerRadius: 20.0,
                               activeBgColors: [
                                 [secondaryColor],
@@ -219,16 +219,16 @@ class _RegistrationFormState extends State<RegistrationForm> {
                               // inactiveBgColor: Colors.grey,
                               // inactiveFgColor: Colors.white,
                               initialLabelIndex:
-                              state.userStatus == 'new_user' ? 1 : 0,
+                              state.userStatus == 'new-user' ? 1 : 0,
                               totalSwitches: 2,
                               labels: const ['YES', 'NO'],
                               radiusStyle: true,
                               onToggle: (index) {
-                                String userStatus = 'new_user';
+                                String userStatus = 'new-user';
 
                                 index == 0
                                     ? userStatus = 'edu-user'
-                                    : userStatus = 'new_user';
+                                    : userStatus = 'new-user';
                                 context
                                     .read<LogInBloc>()
                                     .add(LogInEvent.userStatusChanged(userStatus));

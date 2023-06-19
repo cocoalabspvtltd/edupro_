@@ -20,6 +20,7 @@ class SharedPrefs {
   static String spUserStatus = 'spUserStatus';
   static String spPaymentStatus = 'spPaymentStatus';
   static String spSuscriptionPeriod = 'spSuscriptionPeriod';
+  static String spuserstatus ='spuserstatus';
 
   static init() async {
     _preferences = await SharedPreferences.getInstance();
@@ -31,7 +32,7 @@ class SharedPrefs {
         getString(spMobile),
         getString(spDob),
         getString(spAddress),
-        getString(spUserImageUrl),);
+        getString(spUserImageUrl),getString(spUserStatus));
   }
 
   static String getString(String key) {
@@ -47,6 +48,7 @@ class SharedPrefs {
 
     String token = response.token ?? UserDetailsLocal.apiToken;
     UserDetails userDetails = response.user!;
+    String stts = response.instructor![0]!.userStatus!;
 
     await setString(spToken,token);
     await setString(spUserId, '${userDetails.id ?? ''}');
@@ -57,7 +59,8 @@ class SharedPrefs {
     await setString(spDob, userDetails.dob ?? '');
     await setString(spUserStatus, userDetails.userStatus ?? '');
     await setString(spPaymentStatus, userDetails.paymentStatus ?? 'false');
-    print("tokem->${token}");
+    await setString(spUserStatus,stts);
+    print("tokem->${stts}");
     UserDetailsLocal.set(
 
       token,
@@ -67,7 +70,7 @@ class SharedPrefs {
       userDetails.phoneNumber ?? '',
       userDetails.dob ?? '',
       userDetails.address ?? '',
-      '',
+      '',stts
     );
     return true;
   }
@@ -98,13 +101,14 @@ token,
         userDetails.phoneNumber ?? '',
         userDetails.qualification ?? '',
         userDetails.instituteName ?? '',
-        userDetails.profilePhoto ??"" );
+        userDetails.profilePhoto ??"",""
+    );
     return true;
   }
 
   static Future<bool> logOut() async {
     await _preferences.clear();
-    UserDetailsLocal.set('', '', '', '', '', '', '', '',);
+    UserDetailsLocal.set('', '', '', '', '', '', '', '',"");
     Get.offAll(() => const LogInScreen());
     return true;
   }

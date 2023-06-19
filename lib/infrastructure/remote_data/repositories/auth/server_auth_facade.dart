@@ -57,7 +57,7 @@ class ServerAuthFacade implements IAuthFacade {
     final emailAddressStr = emailAddress.value.getOrElse(() => 'INVALID EMAIL');
     final passwordStr = password.value.getOrElse(() => 'INVALID PASSWORD');
     final nameStr = name.value.getOrElse(() => 'INVALID NAME');
-    int status = userStatus == 'new_user' ? 1 : 0;
+    int status = userStatus == 'new-user' ? 1 : 0;
     log("=>${userStatus}");
     Map body = {
       'email': emailAddressStr,
@@ -84,7 +84,7 @@ class ServerAuthFacade implements IAuthFacade {
           log("fre");
           final r = UserLogInResponse.fromJson(response.data);
           log("=>>>>>>>${r}");
-          if (userStatus == 'new_user') {
+          if (userStatus == 'new-user') {
             try {
               await SharedPrefs.logIn(r);
 
@@ -96,7 +96,7 @@ class ServerAuthFacade implements IAuthFacade {
                   r.user!.phoneNumber ?? '',
                   r.user!.dob?.toString() ?? '',
                   r.user!.address ?? '',
-                  '',
+                  '',r.user!.userStatus ?? ''
                   );
             } catch (e) {
               toastMessage('Unexpected Response');
@@ -158,13 +158,13 @@ class ServerAuthFacade implements IAuthFacade {
           if (userStatus == 'individual_instructor') {
             try {
               await SharedPrefs.logIn(r);
-              log("->${r.instructor!.name}");
+              log("->${r.instructor![0].name}");
               UserDetailsLocal.set(
                   r.token!,
-                  r.instructor!.id.toString(),
-                  r.instructor!.name!,
-                  r.instructor!.email!,
-                  "","","","",
+                  r.instructor![0].id.toString(),
+                  r.instructor![0].name!,
+                  r.instructor![0].email!,
+                  "","","","",r.instructor![0].userStatus!
               );
             } catch (e) {
               toastMessage('Unexpected Response');
@@ -229,13 +229,13 @@ class ServerAuthFacade implements IAuthFacade {
           if (userStatus == 'institution') {
             try {
               await SharedPrefs.logIn(r);
-              log("->${r.institution!.name}");
+              log("->${r.institution![0].name}");
               UserDetailsLocal.set(
                 r.token!,
-                r.institution!.id.toString(),
-                r.institution!.name!,
-                r.institution!.email!,
-                "","","","",
+                r.institution![0].id.toString(),
+                r.institution![0].name!,
+                r.institution![0].email!,
+                "","","","",r.institution![0].userStatus!
               );
             } catch (e) {
               toastMessage('Unexpected Response');
@@ -295,34 +295,32 @@ class ServerAuthFacade implements IAuthFacade {
               log(("instructor->${r.token}"));
               UserDetailsLocal.set(
                   r.token!,
-                  r.instructor!.id.toString(),
-                  r.instructor!.name!,
-                  r.instructor!.email!,
-                  "","","","",
+                  r.instructor![0].id.toString(),
+                  r.instructor![0].name!,
+                  r.instructor![0].email!,
+                  "","","","",r.instructor![0].userStatus!
               );
             }
             else if(response.data["type"]== "institution"){
-              log("{hg->>${r.institution!.name}");
+              log("{hg->>${r.institution![0].name}");
               UserDetailsLocal.set
                 (
                 r.token!,
-                r.institution!.id.toString(),
-                r.institution!.name!,
-                r.institution!.email!,
-                r.institution!.code!,"","","",
+                r.institution![0].id.toString(),
+                r.institution![0].name!,
+                r.institution![0].email!,
+                r.institution![0].code!,"","","",r.institution![0].userStatus!
               );
             }
             else if(response.data["type"]=="school"){
-
               log("{hgzz->>${r.school}");
-
               UserDetailsLocal.set
                 (
                 r.token!,
                 r.school!.id.toString(),
                 r.school!.name!,
                 r.school!.email!,
-                r.school!.code!,"","","",
+                r.school!.code!,"","","",""
               );
             }
 
@@ -333,7 +331,7 @@ class ServerAuthFacade implements IAuthFacade {
                   r.token!,
                   r.user!.id.toString(),
                   r.user!.name ?? '',
-                  r.user!.email ?? '',"","","","",
+                  r.user!.email ?? '',"","","","",""
               );
 
             }

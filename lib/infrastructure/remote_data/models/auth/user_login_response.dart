@@ -26,15 +26,19 @@ class UserLogInResponse {
     type = json['type'];
     message = json['message'];
     user = json['user'] != null ? new UserDetails.fromJson(json['user']) : null;
+    token = json['token'];
     instructor = json['instructor'] != null
         ? Instructor.fromJson(json['instructor'])
         : null;
-    institution = json['institution'] != null
-        ? Institution.fromJson(json['institution'])
+    instructor = json['institution'] != null
+        ? Instructor.fromJson(json['institution'])
         : null;
-    institution = json['institution'] != null
-        ? Institution.fromJson(json['institution'])
-        : null;
+    // if (json['institution'] != null) {
+    //   institution = <Institution>[];
+    //   json['institution'].forEach((v) {
+    //     institution!.add(new Institution.fromJson(v));
+    //   });
+    // }
     school =
     json['school'] != null ? School.fromJson(json['school']) : null;
     token = json['token'];
@@ -49,6 +53,9 @@ class UserLogInResponse {
     if (user != null) {
       data['user'] = user!.toJson();
     }
+    // if (this.instructor != null) {
+    //   data['instructor'] = this.instructor!.map((v) => v.toJson()).toList();
+    // }
     if (instructor != null) {
       data['instructor'] = instructor!.toJson();
     }
@@ -142,11 +149,12 @@ class Instructor {
   String? description;
   String? courses;
   String? qualification;
-  String? instituteName;
+  Null? instituteName;
   String? displayPicture;
   String? approvalStatus;
   String? createdAt;
   String? updatedAt;
+  String? userStatus;
 
   Instructor(
       {this.id,
@@ -160,7 +168,8 @@ class Instructor {
         this.displayPicture,
         this.approvalStatus,
         this.createdAt,
-        this.updatedAt});
+        this.updatedAt,
+        this.userStatus});
 
   Instructor.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -175,22 +184,24 @@ class Instructor {
     approvalStatus = json['approval_status'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
+    userStatus = json['user_status'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = id;
-    data['name'] = name;
-    data['email'] = email;
-    data['phone_number'] = phoneNumber;
-    data['description'] = description;
-    data['courses'] = courses;
-    data['qualification'] = qualification;
-    data['institute_name'] = instituteName;
-    data['display_picture'] = displayPicture;
-    data['approval_status'] = approvalStatus;
-    data['created_at'] = createdAt;
-    data['updated_at'] = updatedAt;
+    data['id'] = this.id;
+    data['name'] = this.name;
+    data['email'] = this.email;
+    data['phone_number'] = this.phoneNumber;
+    data['description'] = this.description;
+    data['courses'] = this.courses;
+    data['qualification'] = this.qualification;
+    data['institute_name'] = this.instituteName;
+    data['display_picture'] = this.displayPicture;
+    data['approval_status'] = this.approvalStatus;
+    data['created_at'] = this.createdAt;
+    data['updated_at'] = this.updatedAt;
+    data['user_status'] = this.userStatus;
     return data;
   }
 }
@@ -204,6 +215,7 @@ class Institution {
   String? image;
   String? createdAt;
   String? updatedAt;
+  String? userStatus;
 
   Institution(
       {this.id,
@@ -214,7 +226,8 @@ class Institution {
         this.contactNumber,
         this.image,
         this.createdAt,
-        this.updatedAt});
+        this.updatedAt,
+        this.userStatus});
 
   Institution.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -226,19 +239,21 @@ class Institution {
     image = json['image'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
+    userStatus = json['user_status'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = id;
-    data['name'] = name;
-    data['email'] = email;
-    data['code'] = code;
-    data['address'] = address;
-    data['contact_number'] = contactNumber;
-    data['image'] = image;
-    data['created_at'] = createdAt;
-    data['updated_at'] = updatedAt;
+    data['id'] = this.id;
+    data['name'] = this.name;
+    data['email'] = this.email;
+    data['code'] = this.code;
+    data['address'] = this.address;
+    data['contact_number'] = this.contactNumber;
+    data['image'] = this.image;
+    data['created_at'] = this.createdAt;
+    data['updated_at'] = this.updatedAt;
+    data['user_status'] = this.userStatus;
     return data;
   }
 }

@@ -47,6 +47,7 @@ class Name extends ValueObject<String> {
 
   const Name._(this.value);
 }
+
 class Qualification extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
@@ -74,7 +75,19 @@ class Address extends ValueObject<String> {
 
   const Address._(this.value);
 }
+class UserStatus extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
 
+  factory UserStatus(String input) {
+    assert(input != null);
+    return UserStatus._(
+      validateStringNotEmpty(input),
+    );
+  }
+
+  const UserStatus._(this.value);
+}
 
 class  Code extends ValueObject<String> {
   @override

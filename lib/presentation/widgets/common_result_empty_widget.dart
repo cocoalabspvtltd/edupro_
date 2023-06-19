@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CommonResultsEmptyWidget extends StatelessWidget {
-  const CommonResultsEmptyWidget({super.key});
-
+  // const CommonResultsEmptyWidget({super.key});
+  const CommonResultsEmptyWidget({Key? key}) : super(key: key);
   // final String msg;
   // final Color textColorReceived;
 

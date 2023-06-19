@@ -364,7 +364,7 @@ class _HotelDetailsScreenState extends State<HotelDetailsScreen>
         children: [
           SizedBox(height: 10,),
           Theme(
-            data: Theme.of(context).copyWith(accentColor: primaryColor),
+            data: Theme.of(context).copyWith(hintColor: primaryColor),
             child: ExpansionTileCard(
               contentPadding: EdgeInsets.fromLTRB(10, 0, 10, 0),
               elevation: 8,

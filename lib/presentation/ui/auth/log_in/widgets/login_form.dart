@@ -9,7 +9,6 @@ import 'package:pgs_edupro/presentation/ui/auth/register/registration_screen.dar
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-import 'package:pgs_edupro/presentation/ui/home/home_screen.dart';
 import 'package:pgs_edupro/presentation/ui/institution/institution_home/institution_home_screen.dart';
 import 'package:pgs_edupro/presentation/ui/instructor/instructor_home/instructor_home_screen.dart';
 import 'package:pgs_edupro/presentation/ui/membership_check_screen.dart';
@@ -36,7 +35,6 @@ class _LogInFormState extends State<LogInForm> {
   ApiProvider? apiprovider;
   Future getOrderId() async {
     print("Get order");
-
     http.Response response = await http.get(
       Uri.parse('https://pgsedu.com/EduPro/index.php/api/count_list'),
       headers: <String, String>{
@@ -122,17 +120,17 @@ class _LogInFormState extends State<LogInForm> {
                       return;
                     }
                     if (state.userStatus == "instructor") {
-                      type = state.userStatus!;
+                      type = state.userStatus;
                       Get.offAll(() => const InstructorHomeScreen());
                       return;
                     }
                     if (state.userStatus == "institution") {
-                      type = state.userStatus!;
+                      type = state.userStatus;
                       Get.offAll(() => const InstitutionHomeScreen());
                       return;
                     }
                     if (state.userStatus == "school") {
-                      type = state.userStatus!;
+                      type = state.userStatus;
                       Get.offAll(() => const InstitutionHomeScreen());
                       return;
                     }
@@ -279,7 +277,7 @@ class _LogInFormState extends State<LogInForm> {
                                 ),
                                 TextFormField(
                                   keyboardType: TextInputType.visiblePassword,
-                                  textInputAction: TextInputAction.done,
+                                  // textInputAction: TextInputAction.done,
                                   decoration: InputDecoration(
                                     icon: const Icon(
                                       Icons.vpn_key,
