@@ -4,6 +4,7 @@ import 'package:get/get.dart' as get_x;
 import 'package:get/get.dart';
 import 'package:pgs_edupro/application/membership/membership_bloc.dart';
 import 'package:pgs_edupro/domain/core/constants.dart';
+import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/repositories/membership/membership_repository.dart';
 import 'package:pgs_edupro/presentation/ui/home/home_screen.dart';
 
@@ -12,6 +13,7 @@ class MembershipCheckScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("type---member${UserDetailsLocal.userStatus}");
     return BlocProvider(
       create: (_) => MembershipBloc(MembershipRepository())
         ..add(const MembershipEvent.loadData()),

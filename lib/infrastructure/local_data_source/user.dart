@@ -9,6 +9,7 @@ class UserDetailsLocal {
   static String userMobile = '';
   static String userDob = '';
   static String type ='';
+  static String userStatus ='';
   static String userAddress = '';
   static String userImageUrl = '';
 
@@ -23,6 +24,7 @@ class UserDetailsLocal {
       String dob,
       String address,
       String imageUrl,
+      String userstatus,
       ) {
     apiToken = token;
     userId = id;
@@ -31,6 +33,7 @@ class UserDetailsLocal {
     userMobile = mobile;
     userDob = dob;
     type = type;
+    userStatus= userStatus;
     userAddress = address;
     userImageUrl = imageUrl;
   }
@@ -44,14 +47,15 @@ String? token,
       String dob,
       String address,
       String imageUrl,
+      String userstatus
       ) {
-
     userId = id;
     userName = name;
     userEmail = email;
     userMobile = mobile;
     userDob = dob;
     type = type;
+    userStatus = userStatus;
     userAddress = address;
     userImageUrl = imageUrl;
   }

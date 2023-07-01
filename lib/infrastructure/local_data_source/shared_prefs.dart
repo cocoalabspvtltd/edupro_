@@ -7,7 +7,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPrefs {
   static late SharedPreferences _preferences;
-
   static String spToken = 'spToken';
   static String spUserId = 'spUserId';
   static String spEmail = 'spEmail';
@@ -20,6 +19,7 @@ class SharedPrefs {
   static String spUserStatus = 'spUserStatus';
   static String spPaymentStatus = 'spPaymentStatus';
   static String spSuscriptionPeriod = 'spSuscriptionPeriod';
+  static String spuserstatus ='spuserstatus';
 
   static init() async {
     _preferences = await SharedPreferences.getInstance();
@@ -31,7 +31,8 @@ class SharedPrefs {
         getString(spMobile),
         getString(spDob),
         getString(spAddress),
-        getString(spUserImageUrl),);
+        getString(spUserImageUrl),
+        getString(spUserStatus));
   }
 
   static String getString(String key) {
@@ -57,17 +58,15 @@ class SharedPrefs {
     await setString(spDob, userDetails.dob ?? '');
     await setString(spUserStatus, userDetails.userStatus ?? '');
     await setString(spPaymentStatus, userDetails.paymentStatus ?? 'false');
-    print("tokem->${token}");
     UserDetailsLocal.set(
-
-      token,
-      '${userDetails.id ?? ''}',
+        token,
+      userDetails.id.toString() ?? '',
       userDetails.name ?? '',
       userDetails.email ?? '',
       userDetails.phoneNumber ?? '',
       userDetails.dob ?? '',
       userDetails.address ?? '',
-      '',
+      '',''
     );
     return true;
   }
@@ -98,13 +97,14 @@ token,
         userDetails.phoneNumber ?? '',
         userDetails.qualification ?? '',
         userDetails.instituteName ?? '',
-        userDetails.profilePhoto ??"" );
+        userDetails.profilePhoto ??"",""
+    );
     return true;
   }
 
   static Future<bool> logOut() async {
     await _preferences.clear();
-    UserDetailsLocal.set('', '', '', '', '', '', '', '',);
+    UserDetailsLocal.set('', '', '', '', '', '', '', '',"");
     Get.offAll(() => const LogInScreen());
     return true;
   }

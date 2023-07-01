@@ -1,3 +1,5 @@
+
+
 class UserLogInResponse {
   bool? success;
   String? status;
@@ -26,15 +28,19 @@ class UserLogInResponse {
     type = json['type'];
     message = json['message'];
     user = json['user'] != null ? new UserDetails.fromJson(json['user']) : null;
+    token = json['token'];
     instructor = json['instructor'] != null
         ? Instructor.fromJson(json['instructor'])
         : null;
     institution = json['institution'] != null
         ? Institution.fromJson(json['institution'])
         : null;
-    institution = json['institution'] != null
-        ? Institution.fromJson(json['institution'])
-        : null;
+    // if (json['institution'] != null) {
+    //   institution = <Institution>[];
+    //   json['institution'].forEach((v) {
+    //     institution!.add(new Institution.fromJson(v));
+    //   });
+    // }
     school =
     json['school'] != null ? School.fromJson(json['school']) : null;
     token = json['token'];
@@ -49,6 +55,9 @@ class UserLogInResponse {
     if (user != null) {
       data['user'] = user!.toJson();
     }
+    // if (this.instructor != null) {
+    //   data['instructor'] = this.instructor!.map((v) => v.toJson()).toList();
+    // }
     if (instructor != null) {
       data['instructor'] = instructor!.toJson();
     }
@@ -71,7 +80,7 @@ class UserDetails {
   String? dob;
   String? address;
   String? userStatus;
-  String? institution;
+  Null? institution;
   String? profilePhoto;
   int? status;
   String? paymentStatus;
@@ -113,21 +122,21 @@ class UserDetails {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['id'] = id;
-    data['name'] = name;
-    data['email'] = email;
-    data['phone_number'] = phoneNumber;
-    data['dob'] = dob;
-    data['address'] = address;
-    data['user_status'] = userStatus;
-    data['institution'] = institution;
-    data['profile_photo'] = profilePhoto;
-    data['status'] = status;
-    data['payment_status'] = paymentStatus;
-    data['verification_code'] = verificationCode;
-    data['created_at'] = createdAt;
-    data['updated_at'] = updatedAt;
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['name'] = this.name;
+    data['email'] = this.email;
+    data['phone_number'] = this.phoneNumber;
+    data['dob'] = this.dob;
+    data['address'] = this.address;
+    data['user_status'] = this.userStatus;
+    data['institution'] = this.institution;
+    data['profile_photo'] = this.profilePhoto;
+    data['status'] = this.status;
+    data['payment_status'] = this.paymentStatus;
+    data['verification_code'] = this.verificationCode;
+    data['created_at'] = this.createdAt;
+    data['updated_at'] = this.updatedAt;
     return data;
   }
 }
@@ -142,11 +151,12 @@ class Instructor {
   String? description;
   String? courses;
   String? qualification;
-  String? instituteName;
+  Null? instituteName;
   String? displayPicture;
   String? approvalStatus;
   String? createdAt;
   String? updatedAt;
+  String? userStatus;
 
   Instructor(
       {this.id,
@@ -160,7 +170,8 @@ class Instructor {
         this.displayPicture,
         this.approvalStatus,
         this.createdAt,
-        this.updatedAt});
+        this.updatedAt,
+        this.userStatus});
 
   Instructor.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -175,22 +186,24 @@ class Instructor {
     approvalStatus = json['approval_status'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
+    userStatus = json['user_status'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = id;
-    data['name'] = name;
-    data['email'] = email;
-    data['phone_number'] = phoneNumber;
-    data['description'] = description;
-    data['courses'] = courses;
-    data['qualification'] = qualification;
-    data['institute_name'] = instituteName;
-    data['display_picture'] = displayPicture;
-    data['approval_status'] = approvalStatus;
-    data['created_at'] = createdAt;
-    data['updated_at'] = updatedAt;
+    data['id'] = this.id;
+    data['name'] = this.name;
+    data['email'] = this.email;
+    data['phone_number'] = this.phoneNumber;
+    data['description'] = this.description;
+    data['courses'] = this.courses;
+    data['qualification'] = this.qualification;
+    data['institute_name'] = this.instituteName;
+    data['display_picture'] = this.displayPicture;
+    data['approval_status'] = this.approvalStatus;
+    data['created_at'] = this.createdAt;
+    data['updated_at'] = this.updatedAt;
+    data['user_status'] = this.userStatus;
     return data;
   }
 }
@@ -204,6 +217,7 @@ class Institution {
   String? image;
   String? createdAt;
   String? updatedAt;
+  String? userStatus;
 
   Institution(
       {this.id,
@@ -214,7 +228,8 @@ class Institution {
         this.contactNumber,
         this.image,
         this.createdAt,
-        this.updatedAt});
+        this.updatedAt,
+        this.userStatus});
 
   Institution.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -226,10 +241,11 @@ class Institution {
     image = json['image'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
+    userStatus = json['user_status'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data =  Map<String, dynamic>();
     data['id'] = id;
     data['name'] = name;
     data['email'] = email;
@@ -239,6 +255,7 @@ class Institution {
     data['image'] = image;
     data['created_at'] = createdAt;
     data['updated_at'] = updatedAt;
+    data['user_status'] = userStatus;
     return data;
   }
 }

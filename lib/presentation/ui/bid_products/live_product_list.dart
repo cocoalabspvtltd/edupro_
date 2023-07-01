@@ -57,7 +57,7 @@ class LiveProductlistScreen extends StatelessWidget {
                                 thickSpace,
                                 SizedBox(
                                   width: screenWidth * 0.9,
-                                  height: screenHeight * 0.45,
+                                  height: screenHeight * 0.5,
                                   child: Card(
                                     child: CarouselSlider.builder(
                                         itemCount: res.bidProducts!.length,

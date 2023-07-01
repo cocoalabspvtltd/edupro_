@@ -52,6 +52,7 @@ class _InstructorHomeScreenState extends State<InstructorHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    print("token===${UserDetailsLocal.apiToken}");
     print("Id====${UserDetailsLocal.userId}");
     print("name====${UserDetailsLocal.userName}");
     print("type===${type}");

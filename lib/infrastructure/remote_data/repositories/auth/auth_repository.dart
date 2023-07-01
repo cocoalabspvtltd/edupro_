@@ -20,7 +20,6 @@ class AuthRepository {
     Response response = await apiClient!
         .getJsonInstance()
         .post(Api.logInWithEmailAndPassword, data: body);
-
     return response;
   }
 

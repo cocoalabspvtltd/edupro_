@@ -48,7 +48,6 @@ class _HomeScreenState extends State<HomeScreen> {
   late List<dynamic> splash;
   ApiProvider? apiprovider;
   Future getAds() async {
-    print("Get order");
     http.Response response = await http.get(
       Uri.parse('https://pgsedu.com/EduPro/index.php/api/screen-list'),
       headers: <String, String>{
@@ -56,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'Authorization': 'Bearer ${UserDetailsLocal.apiToken}',
       },
     );
-    print("Responsekjhkh${response.body}");
+    print("Response${response.body}");
     var jsonData = json.decode(response.body);
     SplashResponse = jsonData;
     splash=SplashResponse['screen_list'];
@@ -268,102 +267,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  // void showAlert() {
-  //   showDialog(
-  //       context: context,
-  //       builder: (context) =>
-  //       AlertDialog(
-  //         backgroundColor: Colors.white70,
-  //         content: Container(
-  //           height: screenHeight * 0.7,
-  //           width: screenWidth * 0.8,
-  //           child: Stack(
-  //             children: [
-  //               Positioned(
-  //                 left: 0,
-  //                 right: 0,
-  //                 top: 0,
-  //                 bottom: 0,
-  //                 child: ImageSlideshow(
-  //                   width: double.infinity,
-  //                   height: double.infinity,
-  //                   initialPage: 0,
-  //                   indicatorColor: Colors.white,
-  //                   indicatorBackgroundColor: Colors.grey,
-  //                   onPageChanged: (value) {
-  //                     debugPrint('Page changed: $value');
-  //                   },
-  //                   autoPlayInterval: 3000,
-  //                   isLoop: true,
-  //                   children: [
-  //                     Stack(
-  //                       children: [
-  //                         Image.asset(
-  //                           "assets/images/home/earbuds1.png",
-  //                           height: double.infinity,
-  //                           fit: BoxFit.cover,
-  //                         ),
-  //                       ],
-  //                     ),
-  //                     Stack(
-  //                       children: [
-  //                         Image.asset(
-  //                           "assets/images/home/earbuds2.png",
-  //                           height: double.infinity,
-  //                           fit: BoxFit.cover,
-  //                         ),
-  //                       ],
-  //                     ),
-  //                     Stack(
-  //                       children: [
-  //                         Image.asset(
-  //                           "assets/images/home/Prezenty.png",
-  //                           height: double.infinity,
-  //                           fit: BoxFit.cover,
-  //                         ),
-  //                       ],
-  //                     ),
-  //                   ],
-  //                 ),
-  //               ),
-  //               Positioned(
-  //                 right: 10,
-  //                 top: 5,
-  //                 child:  IconButton(
-  //                   onPressed: () {
-  //                     Navigator.pop(context);
-  //                   },
-  //                   icon: Icon(Icons.close,color: Colors.white,)
-  //                 ),
-  //               ),
-  //               Positioned(
-  //                 left: 25,
-  //                 right: 25,
-  //                 bottom: 5,
-  //                 child:  ElevatedButton(
-  //                   style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.red)),
-  //                   onPressed: () {
-  //                     Navigator.pop(context);
-  //                     Get.to(() =>  const ProductScreen(
-  //                   ));
-  //                   },
-  //                   child: Padding(
-  //                     padding:
-  //                     const EdgeInsets.all(4),
-  //                     child: Text('JOIN NOW'),
-  //                   ),
-  //                 ),
-  //               ),
-  //             ],
-  //           ),
-  //         ),
-  //         contentPadding: EdgeInsets.zero,
-  //         clipBehavior: Clip.antiAlias,
-  //         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-  //       ));
-  //
-  // }
-
   void showAlert(List splash) {
     showDialog(
         context: context,
@@ -418,9 +321,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           }),
                     ),
                     Positioned(
-                      right: 10,
+                      right: 1,
                       top: 5,
-                      child:  IconButton(
+                      child: IconButton(
                           onPressed: () {
                             Navigator.pop(context);
                           },

@@ -45,10 +45,13 @@ class LogInBloc extends Bloc<LogInEvent, LogInState> {
           ));
 
           failureOrSuccess = await authFacade!.signInWithEmailAndPassword(
-            emailAddress: state.emailAddress,
-            password: state.password,
-            type :UserDetailsLocal.type
+              emailAddress: state.emailAddress,
+              password: state.password,
+              // type : state.userStatus,
+              type :UserDetailsLocal.type
+
           );
+          print("type->${UserDetailsLocal.type}");
         }
 
         failureOrSuccess?.fold((l) => null,
@@ -173,7 +176,7 @@ class LogInBloc extends Bloc<LogInEvent, LogInState> {
               quali: state.qualification
 
 
-       );
+          );
         }
         failureOrSuccess?.fold((l) => null,
             ((r) => emit(state.copyWith(userStatus: r.message!))));
@@ -198,13 +201,13 @@ class LogInBloc extends Bloc<LogInEvent, LogInState> {
           ));
 
           failureOrSuccess = await authFacade!.registerWithInstitutionEmailAndPassword(
-              emailAddress: state.emailAddress,
-              password: state.password,
-              confirmPassword: state.confirmPassword,
-              name: state.name,
-              userStatus:"institution" ,
-              code:state.code,
-              address:state.address,
+            emailAddress: state.emailAddress,
+            password: state.password,
+            confirmPassword: state.confirmPassword,
+            name: state.name,
+            userStatus:"institution" ,
+            code:state.code,
+            address:state.address,
 
           );
         }
@@ -239,8 +242,8 @@ class LogInBloc extends Bloc<LogInEvent, LogInState> {
         }
 
         failureOrSuccess?.fold(
-          (l) => null,
-          (r) {
+              (l) => null,
+              (r) {
             SharedPrefs.setString('spUserStatus', "Verified");
           },
         );

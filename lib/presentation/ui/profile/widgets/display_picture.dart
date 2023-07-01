@@ -89,7 +89,8 @@ class _DisplayPictureState extends State<DisplayPicture> {
                         ProfileEvent.updateDisplayPicture(imageC));
                     _image = null;
                     setState(() {});
-                  }),
+                  }
+                  ),
             ),
             Positioned(
               bottom: 40,

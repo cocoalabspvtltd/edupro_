@@ -16,6 +16,7 @@ class MembershipRepository implements IMembershipRepository {
   @override
   Future<Either<NetworkFailure, MembershipDetailsResponse>>
       getMembershipDetails(String userId) async {
+    print("UserId-->${userId}");
     try {
       Response response = await apiClient!
           .getJsonInstance()
