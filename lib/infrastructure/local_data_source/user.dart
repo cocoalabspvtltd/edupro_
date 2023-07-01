@@ -49,7 +49,6 @@ String? token,
       String imageUrl,
       String userstatus
       ) {
-
     userId = id;
     userName = name;
     userEmail = email;

@@ -32,9 +32,11 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       );
       print("dcxs3=>${UserDetailsLocal.apiToken}");
       Either<NetworkFailure, MyProfileResponse> failureOrSuccess;
+      print("id-->${event.userId}");
       failureOrSuccess = await profileRepository.getMyProfile(event.userId);
       failureOrSuccess.fold((l) => null, ((r) async {
         User user = r.user!;
+        print("name--->${user.name}");
         emit(
           state.copyWith(
               displayImageUrl: user.profilePhoto ?? '',

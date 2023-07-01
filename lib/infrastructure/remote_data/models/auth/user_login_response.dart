@@ -1,3 +1,5 @@
+
+
 class UserLogInResponse {
   bool? success;
   String? status;
@@ -30,8 +32,8 @@ class UserLogInResponse {
     instructor = json['instructor'] != null
         ? Instructor.fromJson(json['instructor'])
         : null;
-    instructor = json['institution'] != null
-        ? Instructor.fromJson(json['institution'])
+    institution = json['institution'] != null
+        ? Institution.fromJson(json['institution'])
         : null;
     // if (json['institution'] != null) {
     //   institution = <Institution>[];
@@ -78,7 +80,7 @@ class UserDetails {
   String? dob;
   String? address;
   String? userStatus;
-  String? institution;
+  Null? institution;
   String? profilePhoto;
   int? status;
   String? paymentStatus;
@@ -120,21 +122,21 @@ class UserDetails {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['id'] = id;
-    data['name'] = name;
-    data['email'] = email;
-    data['phone_number'] = phoneNumber;
-    data['dob'] = dob;
-    data['address'] = address;
-    data['user_status'] = userStatus;
-    data['institution'] = institution;
-    data['profile_photo'] = profilePhoto;
-    data['status'] = status;
-    data['payment_status'] = paymentStatus;
-    data['verification_code'] = verificationCode;
-    data['created_at'] = createdAt;
-    data['updated_at'] = updatedAt;
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['name'] = this.name;
+    data['email'] = this.email;
+    data['phone_number'] = this.phoneNumber;
+    data['dob'] = this.dob;
+    data['address'] = this.address;
+    data['user_status'] = this.userStatus;
+    data['institution'] = this.institution;
+    data['profile_photo'] = this.profilePhoto;
+    data['status'] = this.status;
+    data['payment_status'] = this.paymentStatus;
+    data['verification_code'] = this.verificationCode;
+    data['created_at'] = this.createdAt;
+    data['updated_at'] = this.updatedAt;
     return data;
   }
 }
@@ -243,17 +245,17 @@ class Institution {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['email'] = this.email;
-    data['code'] = this.code;
-    data['address'] = this.address;
-    data['contact_number'] = this.contactNumber;
-    data['image'] = this.image;
-    data['created_at'] = this.createdAt;
-    data['updated_at'] = this.updatedAt;
-    data['user_status'] = this.userStatus;
+    final Map<String, dynamic> data =  Map<String, dynamic>();
+    data['id'] = id;
+    data['name'] = name;
+    data['email'] = email;
+    data['code'] = code;
+    data['address'] = address;
+    data['contact_number'] = contactNumber;
+    data['image'] = image;
+    data['created_at'] = createdAt;
+    data['updated_at'] = updatedAt;
+    data['user_status'] = userStatus;
     return data;
   }
 }

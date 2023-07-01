@@ -48,7 +48,6 @@ class _HomeScreenState extends State<HomeScreen> {
   late List<dynamic> splash;
   ApiProvider? apiprovider;
   Future getAds() async {
-    print("Get order");
     http.Response response = await http.get(
       Uri.parse('https://pgsedu.com/EduPro/index.php/api/screen-list'),
       headers: <String, String>{
@@ -56,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'Authorization': 'Bearer ${UserDetailsLocal.apiToken}',
       },
     );
-    print("Responsekjhkh${response.body}");
+    print("Response${response.body}");
     var jsonData = json.decode(response.body);
     SplashResponse = jsonData;
     splash=SplashResponse['screen_list'];
@@ -268,8 +267,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-
-
   void showAlert(List splash) {
     showDialog(
         context: context,
@@ -324,9 +321,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           }),
                     ),
                     Positioned(
-                      right: 10,
+                      right: 1,
                       top: 5,
-                      child:  IconButton(
+                      child: IconButton(
                           onPressed: () {
                             Navigator.pop(context);
                           },

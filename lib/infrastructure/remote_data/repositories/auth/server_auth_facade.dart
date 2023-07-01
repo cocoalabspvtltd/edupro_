@@ -85,9 +85,10 @@ class ServerAuthFacade implements IAuthFacade {
           final r = UserLogInResponse.fromJson(response.data);
           log("=>>>>>>>${r}");
           if (userStatus == 'new-user') {
+            print("UserId in login ${r.user!.id.toString()}");
             try {
               await SharedPrefs.logIn(r);
-
+              // print("UserId in login ${r.user!.id.toString()}");
               UserDetailsLocal.set(
                   r.token!,
                   r.user!.id.toString(),
@@ -105,14 +106,14 @@ class ServerAuthFacade implements IAuthFacade {
           }
           return right(r);
         } else {
-          return left(const AuthFailure.serverError());
+          return left(const AuthFailure.emailAlreadyInUse());
         }
       });
     } catch (e) {
       if (e.toString() == 'ERROR_EMAIL_ALREADY_IN_USE') {
         return left(const AuthFailure.emailAlreadyInUse());
       } else {
-        return left(const AuthFailure.serverError());
+        return left(const AuthFailure.emailAlreadyInUse());
       }
     }
   }
@@ -158,13 +159,13 @@ class ServerAuthFacade implements IAuthFacade {
           if (userStatus == 'individual_instructor') {
             try {
               await SharedPrefs.logIn(r);
-              log("->${r.instructor![0].name}");
+              log("->${r.instructor!.name}");
               UserDetailsLocal.set(
                   r.token!,
-                  r.instructor![0].id.toString(),
-                  r.instructor![0].name!,
-                  r.instructor![0].email!,
-                  "","","","",r.instructor![0].userStatus!
+                  r.instructor!.id.toString(),
+                  r.instructor!.name!,
+                  r.instructor!.email!,
+                  "","","","",""
               );
             } catch (e) {
               toastMessage('Unexpected Response');
@@ -229,13 +230,13 @@ class ServerAuthFacade implements IAuthFacade {
           if (userStatus == 'institution') {
             try {
               await SharedPrefs.logIn(r);
-              log("->${r.institution![0].name}");
+              log("->${r.institution!.name}");
               UserDetailsLocal.set(
                 r.token!,
-                r.institution![0].id.toString(),
-                r.institution![0].name!,
-                r.institution![0].email!,
-                "","","","",r.institution![0].userStatus!
+                r.institution!.id.toString(),
+                r.institution!.name!,
+                r.institution!.email!,
+                "","","","",r.institution!.userStatus!
               );
             } catch (e) {
               toastMessage('Unexpected Response');
@@ -283,37 +284,36 @@ class ServerAuthFacade implements IAuthFacade {
             return left(const AuthFailure.serverError());
           }
         } else if (response.data['success'].toString() == 'true' ||
-            response.data['message'] == 'Loggined Successfully') {
+            response.data['message'] == 'Login Successfully') {
 
           final r = UserLogInResponse.fromJson(response.data);
-          print("school=>>>>>>>>>${response.data["school"]}");
+          print("Response--> ${r.type}");
           try {
-
             await SharedPrefs.logIn(r);
-
-            if (response.data["type"]== "instructor") {
+            if (r.type== "instructor") {
               log(("instructor->${r.token}"));
+              log(("name--> ${r.instructor}"));
               UserDetailsLocal.set(
                   r.token!,
-                  r.instructor![0].id.toString(),
-                  r.instructor![0].name!,
-                  r.instructor![0].email!,
-                  "","","","",r.instructor![0].userStatus!
+                  r.instructor!.id.toString(),
+                  r.instructor!.name!,
+                  r.instructor!.email!,
+                  "","","","",""
               );
             }
-            else if(response.data["type"]== "institution"){
-              log("{hg->>${r.institution![0].name}");
+            else if(r.type== "institution"){
+              log(("name--> ${r.institution}"));
               UserDetailsLocal.set
                 (
                 r.token!,
-                r.institution![0].id.toString(),
-                r.institution![0].name!,
-                r.institution![0].email!,
-                r.institution![0].code!,"","","",r.institution![0].userStatus!
+                r.institution!.id.toString(),
+                r.institution!.name!,
+                r.institution!.email!,
+                r.institution!.code!,"","","",""
               );
             }
-            else if(response.data["type"]=="school"){
-              log("{hgzz->>${r.school}");
+            else if(r.type=="school"){
+              log("name->>${r.school}");
               UserDetailsLocal.set
                 (
                 r.token!,
@@ -323,17 +323,33 @@ class ServerAuthFacade implements IAuthFacade {
                 r.school!.code!,"","","",""
               );
             }
-
+            else if(r.type == "institution"){
+              log("{hg->>${r.institution!.name}");
+              UserDetailsLocal.set(
+                r.token!,
+                r.institution!.id.toString(),
+                r.institution!.name!,
+                r.institution!.email!,
+                r.institution!.code!,"","","",""
+              );
+            }
+            else if(r.type =="school"){
+              log("{hgzz->>${r.school}");
+              UserDetailsLocal.set(
+                r.token!,
+                r.school!.id.toString(),
+                r.school!.name!,
+                r.school!.email!,
+                r.school!.code!,"","","",""
+              );
+            }
             else{
-              log("{hg->>>}");
-              log(("user->${r.token}"));
               UserDetailsLocal.set(
                   r.token!,
                   r.user!.id.toString(),
                   r.user!.name ?? '',
                   r.user!.email ?? '',"","","","",""
               );
-
             }
           } catch (e) {
             log("error1 ${e.toString()}");

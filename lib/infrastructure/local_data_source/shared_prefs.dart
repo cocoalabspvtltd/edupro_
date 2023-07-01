@@ -7,7 +7,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPrefs {
   static late SharedPreferences _preferences;
-
   static String spToken = 'spToken';
   static String spUserId = 'spUserId';
   static String spEmail = 'spEmail';
@@ -32,7 +31,8 @@ class SharedPrefs {
         getString(spMobile),
         getString(spDob),
         getString(spAddress),
-        getString(spUserImageUrl),getString(spUserStatus));
+        getString(spUserImageUrl),
+        getString(spUserStatus));
   }
 
   static String getString(String key) {
@@ -48,7 +48,6 @@ class SharedPrefs {
 
     String token = response.token ?? UserDetailsLocal.apiToken;
     UserDetails userDetails = response.user!;
-    String stts = response.instructor![0]!.userStatus!;
 
     await setString(spToken,token);
     await setString(spUserId, '${userDetails.id ?? ''}');
@@ -59,18 +58,15 @@ class SharedPrefs {
     await setString(spDob, userDetails.dob ?? '');
     await setString(spUserStatus, userDetails.userStatus ?? '');
     await setString(spPaymentStatus, userDetails.paymentStatus ?? 'false');
-    await setString(spUserStatus,stts);
-    print("tokem->${stts}");
     UserDetailsLocal.set(
-
-      token,
-      '${userDetails.id ?? ''}',
+        token,
+      userDetails.id.toString() ?? '',
       userDetails.name ?? '',
       userDetails.email ?? '',
       userDetails.phoneNumber ?? '',
       userDetails.dob ?? '',
       userDetails.address ?? '',
-      '',stts
+      '',''
     );
     return true;
   }

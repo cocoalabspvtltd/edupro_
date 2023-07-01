@@ -8,8 +8,7 @@
         android:label="PG's Edupro"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon"
-         android:enableOnBackInvokedCallback="false"
-        android:debuggable="true">
+         android:enableOnBackInvokedCallback="false">
        
         <activity
             android:name=".MainActivity"

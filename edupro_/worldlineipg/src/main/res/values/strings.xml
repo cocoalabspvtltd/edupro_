@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Worldline Ipg</string>
+    <string name="key">key</string>
+    <string name="mid">mid</string>
+    <string name="sdk_identifier">SDK</string>
+    <string name="broadcast_action_name">com.worldline.close</string>
+
+
+
+    <!--property file-->
+    <string name="ipg_transaction_card_capture">FORM_ACTION_URL_CARD_CAPTURE</string>
+    <string name="ipg_transaction_standard">FORM_ACTION_URL</string>
+    <string name="ipg_transaction_status">GET_TRANS_STATUS</string>
+    <string name="ipg_transaction_cancel">CANCEL_TRANS_API</string>
+    <string name="ipg_transaction_refund">REFUND_TRANS_API</string>
+    <string name="ipg_response_url">RESPONSE_URL</string>
+
+    <!--errors-->
+    <string name="error_encryption_key_not_found">Encryption Key not found.</string>
+    <string name="error_mid_not_found">Merchant MID not found.</string>
+    <string name="error_missing_order_id">Missing order Id.</string>
+    <string name="error_missing_transaction_amount">Missing transaction amount.</string>
+    <string name="error_missing_transaction_currency">Missing transaction currency.</string>
+    <string name="error_missing_transaction_type">Missing transaction type.</string>
+    <string name="error_missing_transaction_discription">Missing transaction description.</string>
+    <string name="error_missing_url">Ipg URL not found.Please make sure you have added AWLMerchantKit.properties</string>
+    <string name="error_missing_param">Required parameters missing</string>
+    <string name="error_transaction_request_message">Unable to generate transaction request message</string>
+
+    <!--Ipg terminating page-->
+    <string name="page_title">Payment Invoice</string>
+    <string name="success">Success</string>
+
+</resources>

@@ -16,6 +16,7 @@ class ProfileScreen extends StatelessWidget {
     print("apitoken->${UserDetailsLocal.apiToken}");
     print("id--->${UserDetailsLocal.userId}");
     print("Name--->${UserDetailsLocal.userName}");
+    print("Profile Screen of Institution");
     return BlocProvider(
       create: (context) => ProfileBloc(ProfileRepository())..add(ProfileEvent.loadMyProfile(int.parse(UserDetailsLocal.userId))),
       child: Scaffold(

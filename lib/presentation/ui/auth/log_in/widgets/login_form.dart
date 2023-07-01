@@ -121,11 +121,13 @@ class _LogInFormState extends State<LogInForm> {
                     }
                     if (state.userStatus == "instructor") {
                       type = state.userStatus;
+                      print("type=>${type}");
                       Get.offAll(() => const InstructorHomeScreen());
                       return;
                     }
                     if (state.userStatus == "institution") {
                       type = state.userStatus;
+                      print("type=>${type}");
                       Get.offAll(() => const InstitutionHomeScreen());
                       return;
                     }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.worldline.in.ipg">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="false"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+        <activity
+            android:name=".PaymentStandard"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:noHistory="false"/>
+        <activity
+            android:name=".PaymentCardCapture"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:noHistory="false"/>
+    </application>
+
+</manifest>

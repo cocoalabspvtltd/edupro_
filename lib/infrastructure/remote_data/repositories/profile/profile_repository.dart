@@ -10,7 +10,6 @@ import 'package:pgs_edupro/domain/profile/i_profile_repository.dart';
 import 'package:pgs_edupro/infrastructure/local_data_source/user.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/common_response.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/models/profile/get_my_profile_response.dart';
-import 'package:pgs_edupro/infrastructure/remote_data/models/profile/instructor_profile.dart';
 import 'package:pgs_edupro/infrastructure/remote_data/source/api.dart';
 
 class ProfileRepository implements IProfileRepository {
@@ -28,7 +27,7 @@ class ProfileRepository implements IProfileRepository {
       Response response = await apiClient!
           .getJsonInstance()
           .post(Api.editMyProfile, data: body);
-if(response.statusCode==200){
+if(response.statusCode == 200){
   Fluttertoast.showToast(msg: "Profile Updated");
   Get.back();
 }

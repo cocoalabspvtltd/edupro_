@@ -23,7 +23,7 @@ class LogInState with _$LogInState {
         password: Password(''),
         name: Name(''),
         confirmPassword: Password(''),
-        userStatus:"instructor",
+        userStatus:"user",
         qualification: Qualification(''),
         code: Code(''),
         address: Address(''),

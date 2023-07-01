@@ -43,16 +43,11 @@ class _SplashScreenState extends State<SplashScreen> {
         state.map(
             initial: (_) {},
             authenticated: (user) async {
-
-
-
-                Future.delayed(const Duration(seconds: 1)).then((value) =>
+              Future.delayed(const Duration(seconds: 1)).then((value) =>
                     get_x.Get.offAll(() =>MembershipCheckScreen(),
                         transition: get_x.Transition.zoom,
                         duration: const Duration(seconds: 1)));
-
-
-                // Future.delayed(const Duration(seconds: 1)).then((value) =>
+              // Future.delayed(const Duration(seconds: 1)).then((value) =>
                 //     get_x.Get.offAll(() => InstructorHomeScreen(),
                 //         transition: get_x.Transition.zoom,
                 //         duration: const Duration(seconds: 1)));
